@@ -1,0 +1,829 @@
+\hypertarget{class_json_1_1_value}{}\doxysection{Json\+::Value Class Reference}
+\label{class_json_1_1_value}\index{Json::Value@{Json::Value}}
+
+
+Represents a \href{http://www.json.org}{\texttt{ JSON}} value.  
+
+
+
+
+{\ttfamily \#include $<$json.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a3b47cdb320b208e40f53b4d1c48fbe52}\label{class_json_1_1_value_a3b47cdb320b208e40f53b4d1c48fbe52}} 
+using {\bfseries Members} = std\+::vector$<$ String $>$
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a69b2495ee8dc6d62a73b09f85bb00914}\label{class_json_1_1_value_a69b2495ee8dc6d62a73b09f85bb00914}} 
+using {\bfseries iterator} = \mbox{\hyperlink{class_json_1_1_value_iterator}{Value\+Iterator}}
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a6ebbc5b370efbb09c0973d7a4d7cd936}\label{class_json_1_1_value_a6ebbc5b370efbb09c0973d7a4d7cd936}} 
+using {\bfseries const\+\_\+iterator} = \mbox{\hyperlink{class_json_1_1_value_const_iterator}{Value\+Const\+Iterator}}
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a10794060631f3e5f895739cfd2cc98b2}\label{class_json_1_1_value_a10794060631f3e5f895739cfd2cc98b2}} 
+using {\bfseries UInt} = Json\+::\+UInt
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_aae5fc7132fb1d6d53a7ca5aab74cd49c}\label{class_json_1_1_value_aae5fc7132fb1d6d53a7ca5aab74cd49c}} 
+using {\bfseries Int} = Json\+::\+Int
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a76faed915871e5b6b8d24e923f7ca6bc}\label{class_json_1_1_value_a76faed915871e5b6b8d24e923f7ca6bc}} 
+using {\bfseries UInt64} = Json\+::\+UInt64
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ad91a5124c47e054aea3936aeacefcf32}\label{class_json_1_1_value_ad91a5124c47e054aea3936aeacefcf32}} 
+using {\bfseries Int64} = Json\+::\+Int64
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a6ce811c4ceb845590426eee1ac95fc99}\label{class_json_1_1_value_a6ce811c4ceb845590426eee1ac95fc99}} 
+using {\bfseries Largest\+Int} = Json\+::\+Largest\+Int
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a6e5a59766fcd42192dd0a46c13a9a55b}\label{class_json_1_1_value_a6e5a59766fcd42192dd0a46c13a9a55b}} 
+using {\bfseries Largest\+UInt} = Json\+::\+Largest\+UInt
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a0cfec5b9bac611047dacc56d691a4435}\label{class_json_1_1_value_a0cfec5b9bac611047dacc56d691a4435}} 
+using {\bfseries Array\+Index} = Json\+::\+Array\+Index
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_aebfc8cf55af7fc6101100c13f865d362}\label{class_json_1_1_value_aebfc8cf55af7fc6101100c13f865d362}} 
+using {\bfseries value\+\_\+type} = std\+::string
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a08b6c80c3af7071d908dabf044de5388}\label{class_json_1_1_value_a08b6c80c3af7071d908dabf044de5388}} 
+typedef std\+::map$<$ CZString, \mbox{\hyperlink{class_json_1_1_value}{Value}} $>$ {\bfseries Object\+Values}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_json_1_1_value_ada6ba1369448fb0240bccc36efaa46f7}{Value}} (\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{Value\+Type}} type=\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea7d9899633b4409bd3fc107e6737f8391}{null\+Value}})
+\begin{DoxyCompactList}\small\item\em Create a default \mbox{\hyperlink{class_json_1_1_value}{Value}} of the given type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a4744ae571fcf34f4b16a2257b3b3b585}\label{class_json_1_1_value_a4744ae571fcf34f4b16a2257b3b3b585}} 
+{\bfseries Value} (Int value)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ae67a857b01286e3499a87e95be848d20}\label{class_json_1_1_value_ae67a857b01286e3499a87e95be848d20}} 
+{\bfseries Value} (UInt value)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab1cdc3d9a4d4cc03fa01439d43ceb1b5}\label{class_json_1_1_value_ab1cdc3d9a4d4cc03fa01439d43ceb1b5}} 
+{\bfseries Value} (Int64 value)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a8adda58d5ae17bf7ca6a53bab4a7b69c}\label{class_json_1_1_value_a8adda58d5ae17bf7ca6a53bab4a7b69c}} 
+{\bfseries Value} (UInt64 value)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a32228cc84d83200cca8441451997996c}\label{class_json_1_1_value_a32228cc84d83200cca8441451997996c}} 
+{\bfseries Value} (double value)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ad87b849356816aca75995dd07302e49d}\label{class_json_1_1_value_ad87b849356816aca75995dd07302e49d}} 
+{\bfseries Value} (const char $\ast$value)
+\begin{DoxyCompactList}\small\item\em Copy til first 0. (NULL causes to seg-\/fault.) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a39fa09d1902efbd4350e1236db920571}\label{class_json_1_1_value_a39fa09d1902efbd4350e1236db920571}} 
+{\bfseries Value} (const char $\ast$begin, const char $\ast$end)
+\begin{DoxyCompactList}\small\item\em Copy all, incl zeroes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_json_1_1_value_a081830e95f88a37054da7e46c65b0766}{Value}} (const \mbox{\hyperlink{class_json_1_1_static_string}{Static\+String}} \&value)
+\begin{DoxyCompactList}\small\item\em Constructs a value from a static string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a0ee1ff8974f050b80308a2dc580b8867}\label{class_json_1_1_value_a0ee1ff8974f050b80308a2dc580b8867}} 
+{\bfseries Value} (const String \&value)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a350a31ea4a30d384994b0bc010b17495}\label{class_json_1_1_value_a350a31ea4a30d384994b0bc010b17495}} 
+{\bfseries Value} (bool value)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a08a632cc1a237067431cff954866121f}\label{class_json_1_1_value_a08a632cc1a237067431cff954866121f}} 
+{\bfseries Value} (std\+::nullptr\+\_\+t ptr)=delete
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a436dfd3670f95fd665f680eba5cebcf0}\label{class_json_1_1_value_a436dfd3670f95fd665f680eba5cebcf0}} 
+{\bfseries Value} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&other)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_adace4216e0f5b3be7f855adebae6aa0b}\label{class_json_1_1_value_adace4216e0f5b3be7f855adebae6aa0b}} 
+{\bfseries Value} (\mbox{\hyperlink{class_json_1_1_value}{Value}} \&\&other) noexcept
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \& \mbox{\hyperlink{class_json_1_1_value_ade21ab9710b64fee954b5fcceb0d37dd}{operator=}} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&other)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a000d796a5fc0c29162b63617dc4a697c}\label{class_json_1_1_value_a000d796a5fc0c29162b63617dc4a697c}} 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \& {\bfseries operator=} (\mbox{\hyperlink{class_json_1_1_value}{Value}} \&\&other) noexcept
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_aab841120d78e296e1bc06a373345e822}\label{class_json_1_1_value_aab841120d78e296e1bc06a373345e822}} 
+void {\bfseries swap} (\mbox{\hyperlink{class_json_1_1_value}{Value}} \&other)
+\begin{DoxyCompactList}\small\item\em Swap everything. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a5263476047f20e2fc6de470e4de34fe5}\label{class_json_1_1_value_a5263476047f20e2fc6de470e4de34fe5}} 
+void {\bfseries swap\+Payload} (\mbox{\hyperlink{class_json_1_1_value}{Value}} \&other)
+\begin{DoxyCompactList}\small\item\em Swap values but leave comments and source offsets in place. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a1b2c6379664d91b9f1bcd4d1853e5970}\label{class_json_1_1_value_a1b2c6379664d91b9f1bcd4d1853e5970}} 
+void {\bfseries copy} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&other)
+\begin{DoxyCompactList}\small\item\em copy everything. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab504d299cfaa440392037fa8a3c54064}\label{class_json_1_1_value_ab504d299cfaa440392037fa8a3c54064}} 
+void {\bfseries copy\+Payload} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&other)
+\begin{DoxyCompactList}\small\item\em copy values but leave comments and source offsets in place. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a8ce61157a011894f0252ceed232312de}\label{class_json_1_1_value_a8ce61157a011894f0252ceed232312de}} 
+\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{Value\+Type}} {\bfseries type} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_aac6bd14155b88ed2d39ef54820b39e49}\label{class_json_1_1_value_aac6bd14155b88ed2d39ef54820b39e49}} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare payload only, not comments etc. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a40c411a320a416d5eac0052b36211286}\label{class_json_1_1_value_a40c411a320a416d5eac0052b36211286}} 
+bool {\bfseries operator$<$=} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&other) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_afe2c3e52df60b9622cbd8358b74bdbf5}\label{class_json_1_1_value_afe2c3e52df60b9622cbd8358b74bdbf5}} 
+bool {\bfseries operator$>$=} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&other) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a4646c2f0764908c0972160c7c2ebe567}\label{class_json_1_1_value_a4646c2f0764908c0972160c7c2ebe567}} 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&other) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a16f9250e30d5c4505cd11137c564a764}\label{class_json_1_1_value_a16f9250e30d5c4505cd11137c564a764}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&other) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a86e95be072e515c48abc61dec63a1689}\label{class_json_1_1_value_a86e95be072e515c48abc61dec63a1689}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&other) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_aefa4464ca1bb0bcc9a87b38ed62ca2e0}\label{class_json_1_1_value_aefa4464ca1bb0bcc9a87b38ed62ca2e0}} 
+int {\bfseries compare} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&other) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a16668c8db7ef0a5de040012f0dfd84b0}\label{class_json_1_1_value_a16668c8db7ef0a5de040012f0dfd84b0}} 
+const char $\ast$ {\bfseries as\+CString} () const
+\begin{DoxyCompactList}\small\item\em Embedded zeroes could cause you trouble! \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a52207c8d4e86160f968a40817cb2529b}\label{class_json_1_1_value_a52207c8d4e86160f968a40817cb2529b}} 
+String {\bfseries as\+String} () const
+\begin{DoxyCompactList}\small\item\em Embedded zeroes are possible. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_json_1_1_value_a2e1b7be6bde2fe23f15290d9ddbbdf8a}{get\+String}} (char const $\ast$$\ast$begin, char const $\ast$$\ast$end) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a614d635bc248a592593feb322cd15ab8}\label{class_json_1_1_value_a614d635bc248a592593feb322cd15ab8}} 
+Int {\bfseries as\+Int} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a74b305583ec3aacf4f9dd06e799dc265}\label{class_json_1_1_value_a74b305583ec3aacf4f9dd06e799dc265}} 
+UInt {\bfseries as\+UInt} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_aa647ac4fe51a2e325c063ebe32262b44}\label{class_json_1_1_value_aa647ac4fe51a2e325c063ebe32262b44}} 
+Int64 {\bfseries as\+Int64} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a0e44a5a4cd0c099f9570dfa25813eb60}\label{class_json_1_1_value_a0e44a5a4cd0c099f9570dfa25813eb60}} 
+UInt64 {\bfseries as\+UInt64} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab16f2ea2a117a1b3b576acab8b6a700d}\label{class_json_1_1_value_ab16f2ea2a117a1b3b576acab8b6a700d}} 
+Largest\+Int {\bfseries as\+Largest\+Int} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ad03548101e0bf3d2d9eac75c64a0b8d7}\label{class_json_1_1_value_ad03548101e0bf3d2d9eac75c64a0b8d7}} 
+Largest\+UInt {\bfseries as\+Largest\+UInt} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_af3a4d10bf575fabdc5440a7135c9649c}\label{class_json_1_1_value_af3a4d10bf575fabdc5440a7135c9649c}} 
+float {\bfseries as\+Float} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_afd24002a18aef907ad746b1cb9eda0a2}\label{class_json_1_1_value_afd24002a18aef907ad746b1cb9eda0a2}} 
+double {\bfseries as\+Double} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab693fb7b9b1595bb0adc49658bbf780d}\label{class_json_1_1_value_ab693fb7b9b1595bb0adc49658bbf780d}} 
+bool {\bfseries as\+Bool} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_abde4070e21e46dc4f8203f66582cb19f}\label{class_json_1_1_value_abde4070e21e46dc4f8203f66582cb19f}} 
+bool {\bfseries is\+Null} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab1f02651cb89d0f18b63a036959391ba}\label{class_json_1_1_value_ab1f02651cb89d0f18b63a036959391ba}} 
+bool {\bfseries is\+Bool} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_aff51d8b52979ca06cf9d909accd5f695}\label{class_json_1_1_value_aff51d8b52979ca06cf9d909accd5f695}} 
+bool {\bfseries is\+Int} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a4a81fb3c3acdbb68b2e2f30836a4f53e}\label{class_json_1_1_value_a4a81fb3c3acdbb68b2e2f30836a4f53e}} 
+bool {\bfseries is\+Int64} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_abdda463d3269015f883587349726cfbc}\label{class_json_1_1_value_abdda463d3269015f883587349726cfbc}} 
+bool {\bfseries is\+UInt} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a883576e35cb03a785258edb56777a2de}\label{class_json_1_1_value_a883576e35cb03a785258edb56777a2de}} 
+bool {\bfseries is\+UInt64} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab6798954f6e80281cf22708ef45198a7}\label{class_json_1_1_value_ab6798954f6e80281cf22708ef45198a7}} 
+bool {\bfseries is\+Integral} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a4a2e2a790e19a1c09fc5dd12d7ad47b5}\label{class_json_1_1_value_a4a2e2a790e19a1c09fc5dd12d7ad47b5}} 
+bool {\bfseries is\+Double} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_af961a000cd203c895e44c195ab39b866}\label{class_json_1_1_value_af961a000cd203c895e44c195ab39b866}} 
+bool {\bfseries is\+Numeric} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a71e1f82cf1c3eaf969d400dcffb163a6}\label{class_json_1_1_value_a71e1f82cf1c3eaf969d400dcffb163a6}} 
+bool {\bfseries is\+String} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a1627eb9d6568d6d0252fa8bb711c0a59}\label{class_json_1_1_value_a1627eb9d6568d6d0252fa8bb711c0a59}} 
+bool {\bfseries is\+Array} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a8cf96c0f2a552051fcfc78ffee60e037}\label{class_json_1_1_value_a8cf96c0f2a552051fcfc78ffee60e037}} 
+bool {\bfseries is\+Object} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a39c4d3d1a63c5018d5c14c98f13b6877}\label{class_json_1_1_value_a39c4d3d1a63c5018d5c14c98f13b6877}} 
+{\footnotesize template$<$typename T $>$ }\\T {\bfseries as} () const JSONCPP\+\_\+\+TEMPLATE\+\_\+\+DELETE
+\begin{DoxyCompactList}\small\item\em The {\ttfamily as\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} and {\ttfamily is\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} member function templates and specializations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab1a2184382f41cdc88dea5fd94ce71be}\label{class_json_1_1_value_ab1a2184382f41cdc88dea5fd94ce71be}} 
+{\footnotesize template$<$typename T $>$ }\\bool {\bfseries is} () const JSONCPP\+\_\+\+TEMPLATE\+\_\+\+DELETE
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_af1ee6be27a96a7d12128efdd60deb54d}\label{class_json_1_1_value_af1ee6be27a96a7d12128efdd60deb54d}} 
+bool {\bfseries is\+Convertible\+To} (\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{Value\+Type}} other) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a0ec2808e1d7efa4e9fad938d6667be44}\label{class_json_1_1_value_a0ec2808e1d7efa4e9fad938d6667be44}} 
+Array\+Index {\bfseries size} () const
+\begin{DoxyCompactList}\small\item\em Number of values in array or object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a0519a551e37ee6665d74742b3f96bab3}\label{class_json_1_1_value_a0519a551e37ee6665d74742b3f96bab3}} 
+bool {\bfseries empty} () const
+\begin{DoxyCompactList}\small\item\em Return true if empty array, empty object, or null; otherwise, false. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a2addc2bcedbd6f8a1eafa49e9adcc729}\label{class_json_1_1_value_a2addc2bcedbd6f8a1eafa49e9adcc729}} 
+{\bfseries operator bool} () const
+\begin{DoxyCompactList}\small\item\em Return !is\+Null() \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_json_1_1_value_a501a4d67e6c875255c2ecc03ccd2019b}{clear}} ()
+\item 
+void \mbox{\hyperlink{class_json_1_1_value_a7a064d8aa47fde09a268be2aea992134}{resize}} (Array\+Index new\+Size)
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \& \mbox{\hyperlink{class_json_1_1_value_a7d99f5dba388cdaa152ce6ef933d64ef}{operator\mbox{[}$\,$\mbox{]}}} (Array\+Index index)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ac9182982c361e0ab621134d406e5f250}\label{class_json_1_1_value_ac9182982c361e0ab621134d406e5f250}} 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int index)
+\item 
+const \mbox{\hyperlink{class_json_1_1_value}{Value}} \& \mbox{\hyperlink{class_json_1_1_value_a46607236038b29695ed80c15895271e4}{operator\mbox{[}$\,$\mbox{]}}} (Array\+Index index) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a0b42557a95621a4676b46a21ffc5e949}\label{class_json_1_1_value_a0b42557a95621a4676b46a21ffc5e949}} 
+const \mbox{\hyperlink{class_json_1_1_value}{Value}} \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int index) const
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \mbox{\hyperlink{class_json_1_1_value_a034eb7bf85a44fa759bdaa232788ca66}{get}} (Array\+Index index, const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&default\+Value) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ac2928f174a6e081c1500c28c2d61ee93}\label{class_json_1_1_value_ac2928f174a6e081c1500c28c2d61ee93}} 
+bool {\bfseries is\+Valid\+Index} (Array\+Index index) const
+\begin{DoxyCompactList}\small\item\em Return true if index \texorpdfstring{$<$}{<} \mbox{\hyperlink{class_json_1_1_value_a0ec2808e1d7efa4e9fad938d6667be44}{size()}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \& \mbox{\hyperlink{class_json_1_1_value_a7e49ac977e4bcf59745a09d426669f75}{append}} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&value)
+\begin{DoxyCompactList}\small\item\em Append value to array at the end. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab723e9957d7b198eb102e8e2afc00e3a}\label{class_json_1_1_value_ab723e9957d7b198eb102e8e2afc00e3a}} 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \& {\bfseries append} (\mbox{\hyperlink{class_json_1_1_value}{Value}} \&\&value)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ae6a26b2112994b3b3149ce109e92072a}\label{class_json_1_1_value_ae6a26b2112994b3b3149ce109e92072a}} 
+bool {\bfseries insert} (Array\+Index index, const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&new\+Value)
+\begin{DoxyCompactList}\small\item\em Insert value in array at specific index. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a61337074536697bae6f5f1642521e1d1}\label{class_json_1_1_value_a61337074536697bae6f5f1642521e1d1}} 
+bool {\bfseries insert} (Array\+Index index, \mbox{\hyperlink{class_json_1_1_value}{Value}} \&\&new\+Value)
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \& \mbox{\hyperlink{class_json_1_1_value_acb912f4ec40a25ea6eb387730885f3d9}{operator\mbox{[}$\,$\mbox{]}}} (const char $\ast$key)
+\item 
+const \mbox{\hyperlink{class_json_1_1_value}{Value}} \& \mbox{\hyperlink{class_json_1_1_value_a1b0498b7b2a520a68137f682d91abdd5}{operator\mbox{[}$\,$\mbox{]}}} (const char $\ast$key) const
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \& \mbox{\hyperlink{class_json_1_1_value_a41c5088e07e80d926ae1c668a60e69cf}{operator\mbox{[}$\,$\mbox{]}}} (const String \&key)
+\item 
+const \mbox{\hyperlink{class_json_1_1_value}{Value}} \& \mbox{\hyperlink{class_json_1_1_value_a9fc43585bab16f99838081c48be3b25b}{operator\mbox{[}$\,$\mbox{]}}} (const String \&key) const
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \& \mbox{\hyperlink{class_json_1_1_value_ac3763d7d315ca65dc188e273722f7955}{operator\mbox{[}$\,$\mbox{]}}} (const \mbox{\hyperlink{class_json_1_1_static_string}{Static\+String}} \&key)
+\begin{DoxyCompactList}\small\item\em Access an object value by name, create a null member if it does not exist. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \mbox{\hyperlink{class_json_1_1_value_a57de86629ed23246f14014fb6c44fa67}{get}} (const char $\ast$key, const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&default\+Value) const
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \mbox{\hyperlink{class_json_1_1_value_aa59ed050e87e1d58d93671a38687f36c}{get}} (const char $\ast$begin, const char $\ast$end, const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&default\+Value) const
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \mbox{\hyperlink{class_json_1_1_value_a4724d1a523ddc3b6ab84340bcf34dbe4}{get}} (const String \&key, const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&default\+Value) const
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} const $\ast$ \mbox{\hyperlink{class_json_1_1_value_afb007b9ce9b2cf9d5f667a07e5e0349f}{find}} (char const $\ast$begin, char const $\ast$end) const
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} $\ast$ \mbox{\hyperlink{class_json_1_1_value_aa7000f461207c415592f564e68ee0271}{demand}} (char const $\ast$begin, char const $\ast$end)
+\item 
+void \mbox{\hyperlink{class_json_1_1_value_a92e165f04105d27a930fb3a18a053585}{remove\+Member}} (const char $\ast$key)
+\begin{DoxyCompactList}\small\item\em Remove and return the named member. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_json_1_1_value_ab0af46491e90f4c4030c450cb1f4b920}{remove\+Member}} (const String \&key)
+\item 
+bool \mbox{\hyperlink{class_json_1_1_value_a708e599489adf30d65bf85a8ee16e6fb}{remove\+Member}} (const char $\ast$key, \mbox{\hyperlink{class_json_1_1_value}{Value}} $\ast$removed)
+\item 
+bool \mbox{\hyperlink{class_json_1_1_value_a4e6bc39ae749a42a26164cffae600950}{remove\+Member}} (String const \&key, \mbox{\hyperlink{class_json_1_1_value}{Value}} $\ast$removed)
+\begin{DoxyCompactList}\small\item\em Remove the named map member. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a49c91af727d6b4eb0af02a81bb2def87}\label{class_json_1_1_value_a49c91af727d6b4eb0af02a81bb2def87}} 
+bool {\bfseries remove\+Member} (const char $\ast$begin, const char $\ast$end, \mbox{\hyperlink{class_json_1_1_value}{Value}} $\ast$removed)
+\begin{DoxyCompactList}\small\item\em Same as \mbox{\hyperlink{class_json_1_1_value_a4e6bc39ae749a42a26164cffae600950}{remove\+Member(\+String const\& key, Value$\ast$ removed)}} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_json_1_1_value_a64160c23c1f2f8b33913364f25d6c58d}{remove\+Index}} (Array\+Index index, \mbox{\hyperlink{class_json_1_1_value}{Value}} $\ast$removed)
+\begin{DoxyCompactList}\small\item\em Remove the indexed array element. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_json_1_1_value_ad6d4df2227321bab05e86667609a7fad}{is\+Member}} (const char $\ast$key) const
+\item 
+bool \mbox{\hyperlink{class_json_1_1_value_a2a5dd30c8853545963e4b7ea097cc566}{is\+Member}} (const String \&key) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a2007e1e51f21f44ecf1f13e4a1c567b9}\label{class_json_1_1_value_a2007e1e51f21f44ecf1f13e4a1c567b9}} 
+bool {\bfseries is\+Member} (const char $\ast$begin, const char $\ast$end) const
+\begin{DoxyCompactList}\small\item\em Same as \mbox{\hyperlink{class_json_1_1_value_a2a5dd30c8853545963e4b7ea097cc566}{is\+Member(\+String const\& key)const}}. \end{DoxyCompactList}\item 
+Members \mbox{\hyperlink{class_json_1_1_value_a79d7725dce6260317333e69022367ac9}{get\+Member\+Names}} () const
+\begin{DoxyCompactList}\small\item\em Return a list of the member names. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_json_1_1_value_a29f3a30f7e5d3af6f38d57999bf5b480}{set\+Comment}} (const char $\ast$comment, \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{Comment\+Placement}} placement)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a2900152a2887b410a9ddabe278b9d492}\label{class_json_1_1_value_a2900152a2887b410a9ddabe278b9d492}} 
+void {\bfseries set\+Comment} (const char $\ast$comment, size\+\_\+t len, \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{Comment\+Placement}} placement)
+\begin{DoxyCompactList}\small\item\em Comments must be //... or /$\ast$ ... $\ast$/. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_aeec137a52217bf72e9000d75eef5e46e}\label{class_json_1_1_value_aeec137a52217bf72e9000d75eef5e46e}} 
+void {\bfseries set\+Comment} (String comment, \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{Comment\+Placement}} placement)
+\begin{DoxyCompactList}\small\item\em Comments must be //... or /$\ast$ ... $\ast$/. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a65d8e3ab6a5871cbd019a3e0f0b944a3}\label{class_json_1_1_value_a65d8e3ab6a5871cbd019a3e0f0b944a3}} 
+bool {\bfseries has\+Comment} (\mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{Comment\+Placement}} placement) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a43a09822e756ba45deff61195a9ba12d}\label{class_json_1_1_value_a43a09822e756ba45deff61195a9ba12d}} 
+String {\bfseries get\+Comment} (\mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{Comment\+Placement}} placement) const
+\begin{DoxyCompactList}\small\item\em Include delimiters and embedded newlines. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a49ffe98d65426066c4356132af96c87e}\label{class_json_1_1_value_a49ffe98d65426066c4356132af96c87e}} 
+String {\bfseries to\+Styled\+String} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a015459a3950c198d63a2d3be8f5ae296}\label{class_json_1_1_value_a015459a3950c198d63a2d3be8f5ae296}} 
+\mbox{\hyperlink{class_json_1_1_value_const_iterator}{const\+\_\+iterator}} {\bfseries begin} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a3e443cd0ef24f7e028b175e47ee045e0}\label{class_json_1_1_value_a3e443cd0ef24f7e028b175e47ee045e0}} 
+\mbox{\hyperlink{class_json_1_1_value_const_iterator}{const\+\_\+iterator}} {\bfseries end} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a2d45bb2e68e8f22fe356d7d955ebd3c9}\label{class_json_1_1_value_a2d45bb2e68e8f22fe356d7d955ebd3c9}} 
+\mbox{\hyperlink{class_json_1_1_value_iterator}{iterator}} {\bfseries begin} ()
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a2f961eff73f7f79cd29260b6cbd42558}\label{class_json_1_1_value_a2f961eff73f7f79cd29260b6cbd42558}} 
+\mbox{\hyperlink{class_json_1_1_value_iterator}{iterator}} {\bfseries end} ()
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a92e32ea0f4f8a15853a3cf0beac9feb9}\label{class_json_1_1_value_a92e32ea0f4f8a15853a3cf0beac9feb9}} 
+void {\bfseries set\+Offset\+Start} (ptrdiff\+\_\+t start)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a5e4f5853fec138150c5df6004a8c2bcf}\label{class_json_1_1_value_a5e4f5853fec138150c5df6004a8c2bcf}} 
+void {\bfseries set\+Offset\+Limit} (ptrdiff\+\_\+t limit)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_afa081dc764000951a1d8d6148155508e}\label{class_json_1_1_value_afa081dc764000951a1d8d6148155508e}} 
+ptrdiff\+\_\+t {\bfseries get\+Offset\+Start} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a2cdfa01935f87fcace90d450cbd2c0a4}\label{class_json_1_1_value_a2cdfa01935f87fcace90d450cbd2c0a4}} 
+ptrdiff\+\_\+t {\bfseries get\+Offset\+Limit} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_aad0ee7d782aaa0bd5df15411a6193421}\label{class_json_1_1_value_aad0ee7d782aaa0bd5df15411a6193421}} 
+template$<$$>$ bool {\bfseries as} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}\label{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}} 
+template$<$$>$ bool {\bfseries is} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ac91fca4d1eb891f6e0190463bc658196}\label{class_json_1_1_value_ac91fca4d1eb891f6e0190463bc658196}} 
+template$<$$>$ Int {\bfseries as} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}\label{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}} 
+template$<$$>$ bool {\bfseries is} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a5630ce786a71bf08ffa71f7a8322c3e1}\label{class_json_1_1_value_a5630ce786a71bf08ffa71f7a8322c3e1}} 
+template$<$$>$ UInt {\bfseries as} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}\label{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}} 
+template$<$$>$ bool {\bfseries is} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a9df4ec3986ae1a22d6e7bc10187ee56b}\label{class_json_1_1_value_a9df4ec3986ae1a22d6e7bc10187ee56b}} 
+template$<$$>$ Int64 {\bfseries as} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}\label{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}} 
+template$<$$>$ bool {\bfseries is} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab901d8ca92d2f98797464eab3b2e6023}\label{class_json_1_1_value_ab901d8ca92d2f98797464eab3b2e6023}} 
+template$<$$>$ UInt64 {\bfseries as} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}\label{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}} 
+template$<$$>$ bool {\bfseries is} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a09c38651140fecfa6657662584b461b5}\label{class_json_1_1_value_a09c38651140fecfa6657662584b461b5}} 
+template$<$$>$ double {\bfseries as} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}\label{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}} 
+template$<$$>$ bool {\bfseries is} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ace00e8109163adad9e8cec4c368fe828}\label{class_json_1_1_value_ace00e8109163adad9e8cec4c368fe828}} 
+template$<$$>$ String {\bfseries as} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}\label{class_json_1_1_value_ab113315e14a4f2579f32f2d30b0eda21}} 
+template$<$$>$ bool {\bfseries is} () const
+\item 
+template$<$$>$ float \mbox{\hyperlink{class_json_1_1_value_afc0366cd5ed6a86290f1727175651c98}{as}} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a8f47970fd8294cb035db9d31820d3405}\label{class_json_1_1_value_a8f47970fd8294cb035db9d31820d3405}} 
+template$<$$>$ const char $\ast$ {\bfseries as} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_af2f124567acc35d021a424e53ebdfcab}\label{class_json_1_1_value_af2f124567acc35d021a424e53ebdfcab}} 
+static \mbox{\hyperlink{class_json_1_1_value}{Value}} const \& {\bfseries null\+Singleton} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_a21ddb05b92c60c7548e928bf371e7d45}\label{class_json_1_1_value_a21ddb05b92c60c7548e928bf371e7d45}} 
+static const \mbox{\hyperlink{class_json_1_1_value}{Value}} \& {\bfseries null} = Value\+::null\+Singleton()
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_aaee27e622f87266f861216d644603730}\label{class_json_1_1_value_aaee27e622f87266f861216d644603730}} 
+static const \mbox{\hyperlink{class_json_1_1_value}{Value}} \& {\bfseries null\+Ref} = Value\+::null\+Singleton()
+\item 
+static constexpr Largest\+Int \mbox{\hyperlink{class_json_1_1_value_af022bf2313a004f1f566ea7a6e24b660}{min\+Largest\+Int}}
+\begin{DoxyCompactList}\small\item\em Minimum signed integer value that can be stored in a \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a08a915ca68917f2ae15b5921747441db}\label{class_json_1_1_value_a08a915ca68917f2ae15b5921747441db}} 
+static constexpr Largest\+Int {\bfseries max\+Largest\+Int} = Largest\+Int(Largest\+UInt(-\/1) / 2)
+\begin{DoxyCompactList}\small\item\em Maximum signed integer value that can be stored in a \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_abe4fdaa8d0e044fb84d31d88a095f8a8}\label{class_json_1_1_value_abe4fdaa8d0e044fb84d31d88a095f8a8}} 
+static constexpr Largest\+UInt {\bfseries max\+Largest\+UInt} = Largest\+UInt(-\/1)
+\begin{DoxyCompactList}\small\item\em Maximum unsigned integer value that can be stored in a \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_adf754fa3bfc9897ac4b5158039b25d9f}\label{class_json_1_1_value_adf754fa3bfc9897ac4b5158039b25d9f}} 
+static constexpr Int {\bfseries min\+Int} = Int($\sim$(UInt(-\/1) / 2))
+\begin{DoxyCompactList}\small\item\em Minimum signed int value that can be stored in a \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_ab6042b06093ce9871db116aa8b8e9c90}\label{class_json_1_1_value_ab6042b06093ce9871db116aa8b8e9c90}} 
+static constexpr Int {\bfseries max\+Int} = Int(UInt(-\/1) / 2)
+\begin{DoxyCompactList}\small\item\em Maximum signed int value that can be stored in a \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_afed7d67975ffa7852d02f245c280a6b7}\label{class_json_1_1_value_afed7d67975ffa7852d02f245c280a6b7}} 
+static constexpr UInt {\bfseries max\+UInt} = UInt(-\/1)
+\begin{DoxyCompactList}\small\item\em Maximum unsigned int value that can be stored in a \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_ae6e1b822e2516c49e79782fe50b70a5f}\label{class_json_1_1_value_ae6e1b822e2516c49e79782fe50b70a5f}} 
+static constexpr Int64 {\bfseries min\+Int64} = Int64($\sim$(UInt64(-\/1) / 2))
+\begin{DoxyCompactList}\small\item\em Minimum signed 64 bits int value that can be stored in a \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a1a1fcb7db5fa9fafc1c8357765213975}\label{class_json_1_1_value_a1a1fcb7db5fa9fafc1c8357765213975}} 
+static constexpr Int64 {\bfseries max\+Int64} = Int64(UInt64(-\/1) / 2)
+\begin{DoxyCompactList}\small\item\em Maximum signed 64 bits int value that can be stored in a \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_ade2162cbad414f7770d31c88664f62e4}\label{class_json_1_1_value_ade2162cbad414f7770d31c88664f62e4}} 
+static constexpr UInt64 {\bfseries max\+UInt64} = UInt64(-\/1)
+\begin{DoxyCompactList}\small\item\em Maximum unsigned 64 bits int value that can be stored in a \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a66b0728adfe54e8f7652a180b21a2812}\label{class_json_1_1_value_a66b0728adfe54e8f7652a180b21a2812}} 
+static constexpr UInt {\bfseries default\+Real\+Precision} = 17
+\begin{DoxyCompactList}\small\item\em Default precision for real value for string representation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_value_a38a9ec974d3938d49b84db915489b76a}\label{class_json_1_1_value_a38a9ec974d3938d49b84db915489b76a}} 
+static constexpr double {\bfseries max\+UInt64\+As\+Double} = 18446744073709551615.\+0
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_ad016df56489e5d360735457afba2f649}\label{class_json_1_1_value_ad016df56489e5d360735457afba2f649}} 
+class {\bfseries Value\+Iterator\+Base}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a \href{http://www.json.org}{\texttt{ JSON}} value. 
+
+This class is a discriminated union wrapper that can represents a\+:
+\begin{DoxyItemize}
+\item signed integer \mbox{[}range\+: \mbox{\hyperlink{class_json_1_1_value_adf754fa3bfc9897ac4b5158039b25d9f}{Value\+::min\+Int}} -\/ \mbox{\hyperlink{class_json_1_1_value_ab6042b06093ce9871db116aa8b8e9c90}{Value\+::max\+Int}}\mbox{]}
+\item unsigned integer (range\+: 0 -\/ \mbox{\hyperlink{class_json_1_1_value_afed7d67975ffa7852d02f245c280a6b7}{Value\+::max\+UInt}})
+\item double
+\item UTF-\/8 string
+\item boolean
+\item \textquotesingle{}null\textquotesingle{}
+\item an ordered list of \mbox{\hyperlink{class_json_1_1_value}{Value}}
+\item collection of name/value pairs (javascript object)
+\end{DoxyItemize}
+
+The type of the held value is represented by a \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{Value\+Type}} and can be obtained using type().
+
+Values of an \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eae8386dcfc36d1ae897745f7b4f77a1f6}{object\+Value}} or \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eadc8f264f36b55b063c78126b335415f4}{array\+Value}} can be accessed using \mbox{\hyperlink{class_json_1_1_value_a7d99f5dba388cdaa152ce6ef933d64ef}{operator\mbox{[}$\,$\mbox{]}()}} methods. Non-\/const methods will automatically create the a \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea7d9899633b4409bd3fc107e6737f8391}{null\+Value}} element if it does not exist. The sequence of an \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eadc8f264f36b55b063c78126b335415f4}{array\+Value}} will be automatically resized and initialized with \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea7d9899633b4409bd3fc107e6737f8391}{null\+Value}}. \mbox{\hyperlink{class_json_1_1_value_a7a064d8aa47fde09a268be2aea992134}{resize()}} can be used to enlarge or truncate an \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eadc8f264f36b55b063c78126b335415f4}{array\+Value}}.
+
+The \mbox{\hyperlink{class_json_1_1_value_a034eb7bf85a44fa759bdaa232788ca66}{get()}} methods can be used to obtain default value in the case the required element does not exist.
+
+It is possible to iterate over the list of member keys of an object using the \mbox{\hyperlink{class_json_1_1_value_a79d7725dce6260317333e69022367ac9}{get\+Member\+Names()}} method.
+
+\begin{DoxyNote}{Note}
+\mbox{\hyperlink{class_json_1_1_value_ada6ba1369448fb0240bccc36efaa46f7}{Value}} string-\/length fit in size\+\_\+t, but keys must be \texorpdfstring{$<$}{<} 2$^\wedge$30. (The reason is an implementation detail.) A \#\+Char\+Reader will raise an exception if a bound is exceeded to avoid security holes in your app, but the \mbox{\hyperlink{class_json_1_1_value}{Value}} API does {\itshape not} check bounds. That is the responsibility of the caller. 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_json_1_1_value_ada6ba1369448fb0240bccc36efaa46f7}\label{class_json_1_1_value_ada6ba1369448fb0240bccc36efaa46f7}} 
+\index{Json::Value@{Json::Value}!Value@{Value}}
+\index{Value@{Value}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{Value()}{Value()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Json\+::\+Value\+::\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{Value\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea7d9899633b4409bd3fc107e6737f8391}{null\+Value}}} }\end{DoxyParamCaption})}
+
+
+
+Create a default \mbox{\hyperlink{class_json_1_1_value}{Value}} of the given type. 
+
+This is a very useful constructor. To create an empty array, pass array\+Value. To create an empty object, pass object\+Value. Another \mbox{\hyperlink{class_json_1_1_value}{Value}} can then be set to this one by assignment. This is useful since \mbox{\hyperlink{class_json_1_1_value_a501a4d67e6c875255c2ecc03ccd2019b}{clear()}} and \mbox{\hyperlink{class_json_1_1_value_a7a064d8aa47fde09a268be2aea992134}{resize()}} will not alter types.
+
+Examples\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ null\_value;\ \textcolor{comment}{//\ null}}
+\DoxyCodeLine{\mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ arr\_value(\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eadc8f264f36b55b063c78126b335415f4}{Json::arrayValue}});\ \textcolor{comment}{//\ []}}
+\DoxyCodeLine{\mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ obj\_value(\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eae8386dcfc36d1ae897745f7b4f77a1f6}{Json::objectValue}});\ \textcolor{comment}{//\ \{\}}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_json_1_1_value_a081830e95f88a37054da7e46c65b0766}\label{class_json_1_1_value_a081830e95f88a37054da7e46c65b0766}} 
+\index{Json::Value@{Json::Value}!Value@{Value}}
+\index{Value@{Value}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{Value()}{Value()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Json\+::\+Value\+::\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_json_1_1_static_string}{Static\+String}} \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Constructs a value from a static string. 
+
+Like other value string constructor but do not duplicate the string for internal storage. The given string must remain alive after the call to this constructor.
+
+\begin{DoxyNote}{Note}
+This works only for null-\/terminated strings. (We cannot change the size of this class, so we have nowhere to store the length, which might be computed later for various operations.)
+\end{DoxyNote}
+Example of usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static}\ StaticString\ foo(\textcolor{stringliteral}{"{}some\ text"{}});}
+\DoxyCodeLine{\mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ aValue(foo);}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_json_1_1_value_a7e49ac977e4bcf59745a09d426669f75}\label{class_json_1_1_value_a7e49ac977e4bcf59745a09d426669f75}} 
+\index{Json::Value@{Json::Value}!append@{append}}
+\index{append@{append}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} \& Json\+::\+Value\+::append (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Append value to array at the end. 
+
+Equivalent to jsonvalue\mbox{[}jsonvalue.\+size()\mbox{]} = value; \mbox{\Hypertarget{class_json_1_1_value_afc0366cd5ed6a86290f1727175651c98}\label{class_json_1_1_value_afc0366cd5ed6a86290f1727175651c98}} 
+\index{Json::Value@{Json::Value}!as@{as}}
+\index{as@{as}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{as()}{as()}}
+{\footnotesize\ttfamily template$<$$>$ \\
+float Json\+::\+Value\+::as (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+These {\ttfamily as} specializations are type conversions, and do not have a corresponding {\ttfamily is}. \mbox{\Hypertarget{class_json_1_1_value_a501a4d67e6c875255c2ecc03ccd2019b}\label{class_json_1_1_value_a501a4d67e6c875255c2ecc03ccd2019b}} 
+\index{Json::Value@{Json::Value}!clear@{clear}}
+\index{clear@{clear}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Json\+::\+Value\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Remove all object members and array elements. \begin{DoxyPrecond}{Precondition}
+type() is array\+Value, object\+Value, or null\+Value 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+type() is unchanged 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_json_1_1_value_aa7000f461207c415592f564e68ee0271}\label{class_json_1_1_value_aa7000f461207c415592f564e68ee0271}} 
+\index{Json::Value@{Json::Value}!demand@{demand}}
+\index{demand@{demand}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{demand()}{demand()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} $\ast$ Json\+::\+Value\+::demand (\begin{DoxyParamCaption}\item[{char const $\ast$}]{begin,  }\item[{char const $\ast$}]{end }\end{DoxyParamCaption})}
+
+Most general and efficient version of object-\/mutators. \begin{DoxyNote}{Note}
+As stated elsewhere, behavior is undefined if (end-\/begin) \texorpdfstring{$>$}{>}= 2$^\wedge$30 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+non-\/zero, but JSON\+\_\+\+ASSERT if this is neither object nor null\+Value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_json_1_1_value_afb007b9ce9b2cf9d5f667a07e5e0349f}\label{class_json_1_1_value_afb007b9ce9b2cf9d5f667a07e5e0349f}} 
+\index{Json::Value@{Json::Value}!find@{find}}
+\index{find@{find}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} const  $\ast$ Json\+::\+Value\+::find (\begin{DoxyParamCaption}\item[{char const $\ast$}]{begin,  }\item[{char const $\ast$}]{end }\end{DoxyParamCaption}) const}
+
+Most general and efficient version of is\+Member()const, get()const, and operator\mbox{[}\mbox{]}const \begin{DoxyNote}{Note}
+As stated elsewhere, behavior is undefined if (end-\/begin) \texorpdfstring{$>$}{>}= 2$^\wedge$30 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_json_1_1_value_a034eb7bf85a44fa759bdaa232788ca66}\label{class_json_1_1_value_a034eb7bf85a44fa759bdaa232788ca66}} 
+\index{Json::Value@{Json::Value}!get@{get}}
+\index{get@{get}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} Json\+::\+Value\+::get (\begin{DoxyParamCaption}\item[{Array\+Index}]{index,  }\item[{const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&}]{default\+Value }\end{DoxyParamCaption}) const}
+
+If the array contains at least index+1 elements, returns the element value, otherwise returns default\+Value. \mbox{\Hypertarget{class_json_1_1_value_aa59ed050e87e1d58d93671a38687f36c}\label{class_json_1_1_value_aa59ed050e87e1d58d93671a38687f36c}} 
+\index{Json::Value@{Json::Value}!get@{get}}
+\index{get@{get}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} Json\+::\+Value\+::get (\begin{DoxyParamCaption}\item[{const char $\ast$}]{begin,  }\item[{const char $\ast$}]{end,  }\item[{const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&}]{default\+Value }\end{DoxyParamCaption}) const}
+
+Return the member named key if it exist, default\+Value otherwise. \begin{DoxyNote}{Note}
+deep copy 
+
+key may contain embedded nulls. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_json_1_1_value_a57de86629ed23246f14014fb6c44fa67}\label{class_json_1_1_value_a57de86629ed23246f14014fb6c44fa67}} 
+\index{Json::Value@{Json::Value}!get@{get}}
+\index{get@{get}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} Json\+::\+Value\+::get (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key,  }\item[{const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&}]{default\+Value }\end{DoxyParamCaption}) const}
+
+Return the member named key if it exist, default\+Value otherwise. \begin{DoxyNote}{Note}
+deep copy 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_json_1_1_value_a4724d1a523ddc3b6ab84340bcf34dbe4}\label{class_json_1_1_value_a4724d1a523ddc3b6ab84340bcf34dbe4}} 
+\index{Json::Value@{Json::Value}!get@{get}}
+\index{get@{get}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} Json\+::\+Value\+::get (\begin{DoxyParamCaption}\item[{const String \&}]{key,  }\item[{const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&}]{default\+Value }\end{DoxyParamCaption}) const}
+
+Return the member named key if it exist, default\+Value otherwise. \begin{DoxyNote}{Note}
+deep copy 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & may contain embedded nulls. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_json_1_1_value_a79d7725dce6260317333e69022367ac9}\label{class_json_1_1_value_a79d7725dce6260317333e69022367ac9}} 
+\index{Json::Value@{Json::Value}!getMemberNames@{getMemberNames}}
+\index{getMemberNames@{getMemberNames}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{getMemberNames()}{getMemberNames()}}
+{\footnotesize\ttfamily Value\+::\+Members Json\+::\+Value\+::get\+Member\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return a list of the member names. 
+
+If null, return an empty list. \begin{DoxyPrecond}{Precondition}
+type() is object\+Value or null\+Value 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+if type() was null\+Value, it remains null\+Value 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_json_1_1_value_a2e1b7be6bde2fe23f15290d9ddbbdf8a}\label{class_json_1_1_value_a2e1b7be6bde2fe23f15290d9ddbbdf8a}} 
+\index{Json::Value@{Json::Value}!getString@{getString}}
+\index{getString@{getString}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{getString()}{getString()}}
+{\footnotesize\ttfamily bool Json\+::\+Value\+::get\+String (\begin{DoxyParamCaption}\item[{char const $\ast$$\ast$}]{begin,  }\item[{char const $\ast$$\ast$}]{end }\end{DoxyParamCaption}) const}
+
+Get raw char$\ast$ of string-\/value. \begin{DoxyReturn}{Returns}
+false if !string. (Seg-\/fault if str or end are NULL.) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_json_1_1_value_ad6d4df2227321bab05e86667609a7fad}\label{class_json_1_1_value_ad6d4df2227321bab05e86667609a7fad}} 
+\index{Json::Value@{Json::Value}!isMember@{isMember}}
+\index{isMember@{isMember}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{isMember()}{isMember()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Json\+::\+Value\+::is\+Member (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key }\end{DoxyParamCaption}) const}
+
+Return true if the object has a member named key. \begin{DoxyNote}{Note}
+\textquotesingle{}key\textquotesingle{} must be null-\/terminated. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_json_1_1_value_a2a5dd30c8853545963e4b7ea097cc566}\label{class_json_1_1_value_a2a5dd30c8853545963e4b7ea097cc566}} 
+\index{Json::Value@{Json::Value}!isMember@{isMember}}
+\index{isMember@{isMember}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{isMember()}{isMember()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Json\+::\+Value\+::is\+Member (\begin{DoxyParamCaption}\item[{const String \&}]{key }\end{DoxyParamCaption}) const}
+
+Return true if the object has a member named key. 
+\begin{DoxyParams}{Parameters}
+{\em key} & may contain embedded nulls. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_json_1_1_value_ade21ab9710b64fee954b5fcceb0d37dd}\label{class_json_1_1_value_ade21ab9710b64fee954b5fcceb0d37dd}} 
+\index{Json::Value@{Json::Value}!operator=@{operator=}}
+\index{operator=@{operator=}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} \& Json\+::\+Value\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&}]{other }\end{DoxyParamCaption})}
+
+\begin{DoxyNote}{Note}
+Overwrite existing comments. To preserve comments, use \mbox{\hyperlink{class_json_1_1_value_a5263476047f20e2fc6de470e4de34fe5}{swap\+Payload()}}. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_json_1_1_value_a7d99f5dba388cdaa152ce6ef933d64ef}\label{class_json_1_1_value_a7d99f5dba388cdaa152ce6ef933d64ef}} 
+\index{Json::Value@{Json::Value}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} \& Json\+::\+Value\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{Array\+Index}]{index }\end{DoxyParamCaption})}
+
+Access an array element (zero based index). If the array contains less than index element, then null value are inserted in the array so that its size is index+1. (You may need to say \textquotesingle{}value\mbox{[}0u\mbox{]}\textquotesingle{} to get your compiler to distinguish this from the operator\mbox{[}\mbox{]} which takes a string.) \mbox{\Hypertarget{class_json_1_1_value_a46607236038b29695ed80c15895271e4}\label{class_json_1_1_value_a46607236038b29695ed80c15895271e4}} 
+\index{Json::Value@{Json::Value}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_json_1_1_value}{Value}} \& Json\+::\+Value\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{Array\+Index}]{index }\end{DoxyParamCaption}) const}
+
+Access an array element (zero based index). (You may need to say \textquotesingle{}value\mbox{[}0u\mbox{]}\textquotesingle{} to get your compiler to distinguish this from the operator\mbox{[}\mbox{]} which takes a string.) \mbox{\Hypertarget{class_json_1_1_value_acb912f4ec40a25ea6eb387730885f3d9}\label{class_json_1_1_value_acb912f4ec40a25ea6eb387730885f3d9}} 
+\index{Json::Value@{Json::Value}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} \& Json\+::\+Value\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key }\end{DoxyParamCaption})}
+
+Access an object value by name, create a null member if it does not exist. \begin{DoxyNote}{Note}
+Because of our implementation, keys are limited to 2$^\wedge$30 -\/1 chars. Exceeding that will cause an exception. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_json_1_1_value_a1b0498b7b2a520a68137f682d91abdd5}\label{class_json_1_1_value_a1b0498b7b2a520a68137f682d91abdd5}} 
+\index{Json::Value@{Json::Value}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_json_1_1_value}{Value}} \& Json\+::\+Value\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key }\end{DoxyParamCaption}) const}
+
+Access an object value by name, returns null if there is no member with that name. \mbox{\Hypertarget{class_json_1_1_value_ac3763d7d315ca65dc188e273722f7955}\label{class_json_1_1_value_ac3763d7d315ca65dc188e273722f7955}} 
+\index{Json::Value@{Json::Value}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} \& Json\+::\+Value\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_json_1_1_static_string}{Static\+String}} \&}]{key }\end{DoxyParamCaption})}
+
+
+
+Access an object value by name, create a null member if it does not exist. 
+
+If the object has no entry for that name, then the member name used to store the new entry is not duplicated. Example of use\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ object;}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keyword}{const}\ StaticString\ code(\textcolor{stringliteral}{"{}code"{}});}
+\DoxyCodeLine{\textcolor{keywordtype}{object}[code]\ =\ 1234;}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_json_1_1_value_a41c5088e07e80d926ae1c668a60e69cf}\label{class_json_1_1_value_a41c5088e07e80d926ae1c668a60e69cf}} 
+\index{Json::Value@{Json::Value}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} \& Json\+::\+Value\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const String \&}]{key }\end{DoxyParamCaption})}
+
+Access an object value by name, create a null member if it does not exist. 
+\begin{DoxyParams}{Parameters}
+{\em key} & may contain embedded nulls. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_json_1_1_value_a9fc43585bab16f99838081c48be3b25b}\label{class_json_1_1_value_a9fc43585bab16f99838081c48be3b25b}} 
+\index{Json::Value@{Json::Value}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} const  \& Json\+::\+Value\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const String \&}]{key }\end{DoxyParamCaption}) const}
+
+Access an object value by name, returns null if there is no member with that name. 
+\begin{DoxyParams}{Parameters}
+{\em key} & may contain embedded nulls. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_json_1_1_value_a64160c23c1f2f8b33913364f25d6c58d}\label{class_json_1_1_value_a64160c23c1f2f8b33913364f25d6c58d}} 
+\index{Json::Value@{Json::Value}!removeIndex@{removeIndex}}
+\index{removeIndex@{removeIndex}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{removeIndex()}{removeIndex()}}
+{\footnotesize\ttfamily bool Json\+::\+Value\+::remove\+Index (\begin{DoxyParamCaption}\item[{Array\+Index}]{index,  }\item[{\mbox{\hyperlink{class_json_1_1_value}{Value}} $\ast$}]{removed }\end{DoxyParamCaption})}
+
+
+
+Remove the indexed array element. 
+
+O(n) expensive operations. Update \textquotesingle{}removed\textquotesingle{} iff removed. \begin{DoxyReturn}{Returns}
+true if removed (no exceptions) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_json_1_1_value_a92e165f04105d27a930fb3a18a053585}\label{class_json_1_1_value_a92e165f04105d27a930fb3a18a053585}} 
+\index{Json::Value@{Json::Value}!removeMember@{removeMember}}
+\index{removeMember@{removeMember}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{removeMember()}{removeMember()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void Json\+::\+Value\+::remove\+Member (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Remove and return the named member. 
+
+Do nothing if it did not exist. \begin{DoxyPrecond}{Precondition}
+type() is object\+Value or null\+Value 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+type() is unchanged 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_json_1_1_value_a708e599489adf30d65bf85a8ee16e6fb}\label{class_json_1_1_value_a708e599489adf30d65bf85a8ee16e6fb}} 
+\index{Json::Value@{Json::Value}!removeMember@{removeMember}}
+\index{removeMember@{removeMember}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{removeMember()}{removeMember()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily bool Json\+::\+Value\+::remove\+Member (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key,  }\item[{\mbox{\hyperlink{class_json_1_1_value}{Value}} $\ast$}]{removed }\end{DoxyParamCaption})}
+
+Same as \mbox{\hyperlink{class_json_1_1_value_a49c91af727d6b4eb0af02a81bb2def87}{remove\+Member(const char$\ast$ begin, const char$\ast$ end, Value$\ast$ removed)}}, but \textquotesingle{}key\textquotesingle{} is null-\/terminated. \mbox{\Hypertarget{class_json_1_1_value_ab0af46491e90f4c4030c450cb1f4b920}\label{class_json_1_1_value_ab0af46491e90f4c4030c450cb1f4b920}} 
+\index{Json::Value@{Json::Value}!removeMember@{removeMember}}
+\index{removeMember@{removeMember}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{removeMember()}{removeMember()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void Json\+::\+Value\+::remove\+Member (\begin{DoxyParamCaption}\item[{const String \&}]{key }\end{DoxyParamCaption})}
+
+Same as \mbox{\hyperlink{class_json_1_1_value_a92e165f04105d27a930fb3a18a053585}{remove\+Member(const char$\ast$)}} 
+\begin{DoxyParams}{Parameters}
+{\em key} & may contain embedded nulls. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_json_1_1_value_a4e6bc39ae749a42a26164cffae600950}\label{class_json_1_1_value_a4e6bc39ae749a42a26164cffae600950}} 
+\index{Json::Value@{Json::Value}!removeMember@{removeMember}}
+\index{removeMember@{removeMember}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{removeMember()}{removeMember()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily bool Json\+::\+Value\+::remove\+Member (\begin{DoxyParamCaption}\item[{String const \&}]{key,  }\item[{\mbox{\hyperlink{class_json_1_1_value}{Value}} $\ast$}]{removed }\end{DoxyParamCaption})}
+
+
+
+Remove the named map member. 
+
+Update \textquotesingle{}removed\textquotesingle{} iff removed. 
+\begin{DoxyParams}{Parameters}
+{\em key} & may contain embedded nulls. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true iff removed (no exceptions) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_json_1_1_value_a7a064d8aa47fde09a268be2aea992134}\label{class_json_1_1_value_a7a064d8aa47fde09a268be2aea992134}} 
+\index{Json::Value@{Json::Value}!resize@{resize}}
+\index{resize@{resize}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void Json\+::\+Value\+::resize (\begin{DoxyParamCaption}\item[{Array\+Index}]{new\+Size }\end{DoxyParamCaption})}
+
+Resize the array to new\+Size elements. New elements are initialized to null. May only be called on null\+Value or array\+Value. \begin{DoxyPrecond}{Precondition}
+type() is array\+Value or null\+Value 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+type() is array\+Value 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_json_1_1_value_a29f3a30f7e5d3af6f38d57999bf5b480}\label{class_json_1_1_value_a29f3a30f7e5d3af6f38d57999bf5b480}} 
+\index{Json::Value@{Json::Value}!setComment@{setComment}}
+\index{setComment@{setComment}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{setComment()}{setComment()}}
+{\footnotesize\ttfamily void Json\+::\+Value\+::set\+Comment (\begin{DoxyParamCaption}\item[{const char $\ast$}]{comment,  }\item[{\mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{Comment\+Placement}}}]{placement }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000001}{Deprecated}}]Always pass len. \end{DoxyRefDesc}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_json_1_1_value_af022bf2313a004f1f566ea7a6e24b660}\label{class_json_1_1_value_af022bf2313a004f1f566ea7a6e24b660}} 
+\index{Json::Value@{Json::Value}!minLargestInt@{minLargestInt}}
+\index{minLargestInt@{minLargestInt}!Json::Value@{Json::Value}}
+\doxysubsubsection{\texorpdfstring{minLargestInt}{minLargestInt}}
+{\footnotesize\ttfamily constexpr Largest\+Int Json\+::\+Value\+::min\+Largest\+Int\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ LargestInt(\string~(LargestUInt(-\/1)\ /\ 2))}
+
+\end{DoxyCode}
+
+
+Minimum signed integer value that can be stored in a \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}}. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/common/json.\+h\item 
+src/sl\+Camera/common/jsoncpp.\+cc\end{DoxyCompactItemize}

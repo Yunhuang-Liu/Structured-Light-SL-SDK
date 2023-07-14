@@ -1,0 +1,377 @@
+\hypertarget{namespace_json}{}\doxysection{Json Namespace Reference}
+\label{namespace_json}\index{Json@{Json}}
+
+
+JSON (Java\+Script Object Notation).  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_json_1_1_built_styled_stream_writer}{Built\+Styled\+Stream\+Writer}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_char_reader}{Char\+Reader}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_char_reader_builder}{Char\+Reader\+Builder}}
+\begin{DoxyCompactList}\small\item\em Build a \mbox{\hyperlink{class_json_1_1_char_reader}{Char\+Reader}} implementation. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_json_1_1_comment_style}{Comment\+Style}}
+\begin{DoxyCompactList}\small\item\em Scoped enums are not available until C++11. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_exception}{Exception}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_fast_writer}{Fast\+Writer}}
+\begin{DoxyCompactList}\small\item\em Outputs a \mbox{\hyperlink{class_json_1_1_value}{Value}} in \href{http://www.json.org}{\texttt{ JSON}} format without formatting (not human friendly). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_features}{Features}}
+\begin{DoxyCompactList}\small\item\em Configuration passed to reader and writer. This configuration object can be used to force the \mbox{\hyperlink{class_json_1_1_reader}{Reader}} or \mbox{\hyperlink{class_json_1_1_writer}{Writer}} to behave in a standard conforming way. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_logic_error}{Logic\+Error}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_our_char_reader}{Our\+Char\+Reader}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_our_features}{Our\+Features}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_our_reader}{Our\+Reader}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_path}{Path}}
+\begin{DoxyCompactList}\small\item\em Experimental and untested\+: represents a \char`\"{}path\char`\"{} to access a node. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_path_argument}{Path\+Argument}}
+\begin{DoxyCompactList}\small\item\em Experimental and untested\+: represents an element of the \char`\"{}path\char`\"{} to access a node. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_reader}{Reader}}
+\begin{DoxyCompactList}\small\item\em Unserialize a \href{http://www.json.org}{\texttt{ JSON}} document into a \mbox{\hyperlink{class_json_1_1_value}{Value}}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_runtime_error}{Runtime\+Error}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_secure_allocator}{Secure\+Allocator}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_static_string}{Static\+String}}
+\begin{DoxyCompactList}\small\item\em Lightweight wrapper to tag static string. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_stream_writer}{Stream\+Writer}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_stream_writer_builder}{Stream\+Writer\+Builder}}
+\begin{DoxyCompactList}\small\item\em Build a \mbox{\hyperlink{class_json_1_1_stream_writer}{Stream\+Writer}} implementation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_styled_stream_writer}{Styled\+Stream\+Writer}}
+\begin{DoxyCompactList}\small\item\em Writes a \mbox{\hyperlink{class_json_1_1_value}{Value}} in \href{http://www.json.org}{\texttt{ JSON}} format in a human friendly way, to a stream rather than to a string. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_styled_writer}{Styled\+Writer}}
+\begin{DoxyCompactList}\small\item\em Writes a \mbox{\hyperlink{class_json_1_1_value}{Value}} in \href{http://www.json.org}{\texttt{ JSON}} format in a human friendly way. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_value}{Value}}
+\begin{DoxyCompactList}\small\item\em Represents a \href{http://www.json.org}{\texttt{ JSON}} value. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_value_const_iterator}{Value\+Const\+Iterator}}
+\begin{DoxyCompactList}\small\item\em const iterator for object and array value. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_value_iterator}{Value\+Iterator}}
+\begin{DoxyCompactList}\small\item\em Iterator for object and array value. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_value_iterator_base}{Value\+Iterator\+Base}}
+\begin{DoxyCompactList}\small\item\em base class for \mbox{\hyperlink{class_json_1_1_value}{Value}} iterators. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_writer}{Writer}}
+\begin{DoxyCompactList}\small\item\em Abstract class for writers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_json_a08122e8005b706d982e48cca1e2119c7}\label{namespace_json_a08122e8005b706d982e48cca1e2119c7}} 
+using {\bfseries Int} = int
+\item 
+\mbox{\Hypertarget{namespace_json_a800fb90eb6ee8d5d62b600c06f87f7d4}\label{namespace_json_a800fb90eb6ee8d5d62b600c06f87f7d4}} 
+using {\bfseries UInt} = unsigned int
+\item 
+\mbox{\Hypertarget{namespace_json_ac62566f36fd33115957b91305c9ed1dc}\label{namespace_json_ac62566f36fd33115957b91305c9ed1dc}} 
+using {\bfseries Int64} = int64\+\_\+t
+\item 
+\mbox{\Hypertarget{namespace_json_adf3fa5cb60c619e4f02315ad355e0ca1}\label{namespace_json_adf3fa5cb60c619e4f02315ad355e0ca1}} 
+using {\bfseries UInt64} = uint64\+\_\+t
+\item 
+\mbox{\Hypertarget{namespace_json_a218d880af853ce786cd985e82571d297}\label{namespace_json_a218d880af853ce786cd985e82571d297}} 
+using {\bfseries Largest\+Int} = Int64
+\item 
+\mbox{\Hypertarget{namespace_json_ae202ecad69725e23443f465e257456d0}\label{namespace_json_ae202ecad69725e23443f465e257456d0}} 
+using {\bfseries Largest\+UInt} = UInt64
+\item 
+\mbox{\Hypertarget{namespace_json_ad0129778dba1202a72ed85df1bd914c4}\label{namespace_json_ad0129778dba1202a72ed85df1bd914c4}} 
+{\footnotesize template$<$typename T $>$ }\\using {\bfseries Allocator} = typename std\+::conditional$<$ JSONCPP\+\_\+\+USING\+\_\+\+SECURE\+\_\+\+MEMORY, \mbox{\hyperlink{class_json_1_1_secure_allocator}{Secure\+Allocator}}$<$ T $>$, std\+::allocator$<$ T $>$ $>$\+::type
+\item 
+\mbox{\Hypertarget{namespace_json_a2a3baadeb5e8cc1d5f0157e3128d655d}\label{namespace_json_a2a3baadeb5e8cc1d5f0157e3128d655d}} 
+using {\bfseries String} = std\+::basic\+\_\+string$<$ char, std\+::char\+\_\+traits$<$ char $>$, Allocator$<$ char $>$ $>$
+\item 
+\mbox{\Hypertarget{namespace_json_a62cda8aaf194c74647b2902739dda67e}\label{namespace_json_a62cda8aaf194c74647b2902739dda67e}} 
+using {\bfseries IString\+Stream} = std\+::basic\+\_\+istringstream$<$ String\+::value\+\_\+type, String\+::traits\+\_\+type, String\+::allocator\+\_\+type $>$
+\item 
+\mbox{\Hypertarget{namespace_json_aae1d7abd6d2d29433e217a86bc1b2ef1}\label{namespace_json_aae1d7abd6d2d29433e217a86bc1b2ef1}} 
+using {\bfseries OString\+Stream} = std\+::basic\+\_\+ostringstream$<$ String\+::value\+\_\+type, String\+::traits\+\_\+type, String\+::allocator\+\_\+type $>$
+\item 
+\mbox{\Hypertarget{namespace_json_a5784bb697fc4004307b1e17e929bb7c7}\label{namespace_json_a5784bb697fc4004307b1e17e929bb7c7}} 
+using {\bfseries IStream} = std\+::istream
+\item 
+\mbox{\Hypertarget{namespace_json_aa0186fffb3ea164d598ea6aa4d703c7e}\label{namespace_json_aa0186fffb3ea164d598ea6aa4d703c7e}} 
+using {\bfseries OStream} = std\+::ostream
+\item 
+\mbox{\Hypertarget{namespace_json_a8048e741f2177c3b5d9ede4a5b8c53c2}\label{namespace_json_a8048e741f2177c3b5d9ede4a5b8c53c2}} 
+using {\bfseries Array\+Index} = unsigned int
+\item 
+\mbox{\Hypertarget{namespace_json_a2fa31e983df5901247e0b89441fea4bd}\label{namespace_json_a2fa31e983df5901247e0b89441fea4bd}} 
+using {\bfseries UInt\+To\+String\+Buffer} = char\mbox{[}\mbox{\hyperlink{namespace_json_aaa9f7061e4fdf0b9e5cff387a3981cd2ae4f2008c7919f20d81286121d1374424}{uint\+To\+String\+Buffer\+Size}}\mbox{]}
+\item 
+\mbox{\Hypertarget{namespace_json_aee1e17f0e8a9c525428e46509aed6bb7}\label{namespace_json_aee1e17f0e8a9c525428e46509aed6bb7}} 
+using {\bfseries Char\+Reader\+Ptr} = std\+::auto\+\_\+ptr$<$ \mbox{\hyperlink{class_json_1_1_char_reader}{Char\+Reader}} $>$
+\item 
+\mbox{\Hypertarget{namespace_json_ad60cf442ea3e25294ea2a4b60be06239}\label{namespace_json_ad60cf442ea3e25294ea2a4b60be06239}} 
+using {\bfseries Stream\+Writer\+Ptr} = std\+::auto\+\_\+ptr$<$ \mbox{\hyperlink{class_json_1_1_stream_writer}{Stream\+Writer}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{Value\+Type}} \{ \newline
+\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea7d9899633b4409bd3fc107e6737f8391}{null\+Value}} = 0
+, \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eae5a9d708d5c9e23ae9bf98898522512d}{int\+Value}}
+, \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eaea788d9a3bb00adc6d68d97d43e1ccd3}{uint\+Value}}
+, \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eab837c7b869c14d8be712deb45c9e490e}{real\+Value}}
+, \newline
+\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea804ef857affea2d415843c73f261c258}{string\+Value}}
+, \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea14c30dbf4da86f7b809be299f671f7fd}{boolean\+Value}}
+, \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eadc8f264f36b55b063c78126b335415f4}{array\+Value}}
+, \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eae8386dcfc36d1ae897745f7b4f77a1f6}{object\+Value}}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of the value held by a Value object. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{Comment\+Placement}} \{ \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351a52f1733775460517b2ea6bedf4906d52}{comment\+Before}} = 0
+, \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351a008a230a0586de54f30b76afe70fdcfa}{comment\+After\+On\+Same\+Line}}
+, \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351ac5784ca53b12250888ddb642b06aebef}{comment\+After}}
+, \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351abcbd3eb00417335e094e4a03379659b5}{number\+Of\+Comment\+Placement}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8}{Precision\+Type}} \{ \mbox{\hyperlink{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8abb30ddeaa820d370a2438dda7a08996a}{significant\+Digits}} = 0
+, \mbox{\hyperlink{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8aaee1bf0411c550a0bb2996b7b67cae87}{decimal\+Places}}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of precision for formatting of real values. \end{DoxyCompactList}\item 
+enum \{ \mbox{\hyperlink{namespace_json_aaa9f7061e4fdf0b9e5cff387a3981cd2ae4f2008c7919f20d81286121d1374424}{uint\+To\+String\+Buffer\+Size}} = 3 $\ast$ sizeof(Largest\+UInt) + 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_json_a85a761cd8643a538387c0fe37bb937e8}\label{namespace_json_a85a761cd8643a538387c0fe37bb937e8}} 
+{\footnotesize template$<$typename T , typename U $>$ }\\bool {\bfseries operator==} (const \mbox{\hyperlink{class_json_1_1_secure_allocator}{Secure\+Allocator}}$<$ T $>$ \&, const \mbox{\hyperlink{class_json_1_1_secure_allocator}{Secure\+Allocator}}$<$ U $>$ \&)
+\item 
+\mbox{\Hypertarget{namespace_json_a86063654ac54c5e00f2f559f2c363b4e}\label{namespace_json_a86063654ac54c5e00f2f559f2c363b4e}} 
+{\footnotesize template$<$typename T , typename U $>$ }\\bool {\bfseries operator!=} (const \mbox{\hyperlink{class_json_1_1_secure_allocator}{Secure\+Allocator}}$<$ T $>$ \&, const \mbox{\hyperlink{class_json_1_1_secure_allocator}{Secure\+Allocator}}$<$ U $>$ \&)
+\item 
+\mbox{\Hypertarget{namespace_json_a7062be11352221ab5886f13609f70b7e}\label{namespace_json_a7062be11352221ab5886f13609f70b7e}} 
+JSONCPP\+\_\+\+NORETURN void {\bfseries throw\+Runtime\+Error} (String const \&msg)
+\begin{DoxyCompactList}\small\item\em used internally \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_json_a985ba6c9956ff5f84a96ba1fb293490f}\label{namespace_json_a985ba6c9956ff5f84a96ba1fb293490f}} 
+JSONCPP\+\_\+\+NORETURN void {\bfseries throw\+Logic\+Error} (String const \&msg)
+\begin{DoxyCompactList}\small\item\em used internally \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_json_afed1c011474d8243d72fc38f43de0f8e}\label{namespace_json_afed1c011474d8243d72fc38f43de0f8e}} 
+void {\bfseries swap} (\mbox{\hyperlink{class_json_1_1_value}{Value}} \&a, \mbox{\hyperlink{class_json_1_1_value}{Value}} \&b)
+\item 
+bool JSON\+\_\+\+API \mbox{\hyperlink{namespace_json_ad0e6a29ad2eac4ae58cd5b96d19bb01e}{parse\+From\+Stream}} (\mbox{\hyperlink{class_json_1_1_char_reader_1_1_factory}{Char\+Reader\+::\+Factory}} const \&, IStream \&, \mbox{\hyperlink{class_json_1_1_value}{Value}} $\ast$root, String $\ast$errs)
+\item 
+JSON\+\_\+\+API IStream \& \mbox{\hyperlink{namespace_json_ac21ce6d431c2a8d93fdec0def5154cbd}{operator$>$$>$}} (IStream \&, \mbox{\hyperlink{class_json_1_1_value}{Value}} \&)
+\begin{DoxyCompactList}\small\item\em Read from \textquotesingle{}sin\textquotesingle{} into \textquotesingle{}root\textquotesingle{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_json_a4cd945e3d7722c3fabc38e14efacb6f8}\label{namespace_json_a4cd945e3d7722c3fabc38e14efacb6f8}} 
+String JSON\+\_\+\+API {\bfseries write\+String} (\mbox{\hyperlink{class_json_1_1_stream_writer_1_1_factory}{Stream\+Writer\+::\+Factory}} const \&factory, \mbox{\hyperlink{class_json_1_1_value}{Value}} const \&root)
+\begin{DoxyCompactList}\small\item\em Write into stringstream, then return string, for convenience. A \mbox{\hyperlink{class_json_1_1_stream_writer}{Stream\+Writer}} will be created from the factory, used, and then deleted. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespace_json_a6a9fc77df9b882fced01b0fd6a3b439e}\label{namespace_json_a6a9fc77df9b882fced01b0fd6a3b439e}} 
+String JSON\+\_\+\+API {\bfseries value\+To\+String} (Int value)
+\item 
+\mbox{\Hypertarget{namespace_json_aa0c937cb3843c90cee0e8e48215695a3}\label{namespace_json_aa0c937cb3843c90cee0e8e48215695a3}} 
+String JSON\+\_\+\+API {\bfseries value\+To\+String} (UInt value)
+\item 
+\mbox{\Hypertarget{namespace_json_aa7c8a95ed4a381676cf58b17d5d86e0d}\label{namespace_json_aa7c8a95ed4a381676cf58b17d5d86e0d}} 
+String JSON\+\_\+\+API {\bfseries value\+To\+String} (Largest\+Int value)
+\item 
+\mbox{\Hypertarget{namespace_json_a26a301a7304febbd1066ad818add2459}\label{namespace_json_a26a301a7304febbd1066ad818add2459}} 
+String JSON\+\_\+\+API {\bfseries value\+To\+String} (Largest\+UInt value)
+\item 
+\mbox{\Hypertarget{namespace_json_a5cc541c2d1f620a118a09626899b3b56}\label{namespace_json_a5cc541c2d1f620a118a09626899b3b56}} 
+String JSON\+\_\+\+API {\bfseries value\+To\+String} (double value, unsigned int precision=\mbox{\hyperlink{class_json_1_1_value_a66b0728adfe54e8f7652a180b21a2812}{Value\+::default\+Real\+Precision}}, \mbox{\hyperlink{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8}{Precision\+Type}} precision\+Type=\mbox{\hyperlink{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8abb30ddeaa820d370a2438dda7a08996a}{Precision\+Type\+::significant\+Digits}})
+\item 
+\mbox{\Hypertarget{namespace_json_a8274afe87c7f08bca77f62ee6ef29e41}\label{namespace_json_a8274afe87c7f08bca77f62ee6ef29e41}} 
+String JSON\+\_\+\+API {\bfseries value\+To\+String} (bool value)
+\item 
+\mbox{\Hypertarget{namespace_json_a6a79f56ee8cba1cae61cf4f0a533217d}\label{namespace_json_a6a79f56ee8cba1cae61cf4f0a533217d}} 
+String JSON\+\_\+\+API {\bfseries value\+To\+Quoted\+String} (const char $\ast$value)
+\item 
+JSON\+\_\+\+API OStream \& \mbox{\hyperlink{namespace_json_a91e5bd3901936f85718362360bec35c6}{operator$<$$<$}} (OStream \&, const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&root)
+\begin{DoxyCompactList}\small\item\em Output using the \mbox{\hyperlink{class_json_1_1_styled_stream_writer}{Styled\+Stream\+Writer}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Iter $>$ }\\Iter \mbox{\hyperlink{namespace_json_a4f93f184c2890cb99b07afeed10a89ec}{fix\+Numeric\+Locale}} (Iter begin, Iter end)
+\item 
+\mbox{\Hypertarget{namespace_json_adc6272a7aca28093bc7232ada8607fe4}\label{namespace_json_adc6272a7aca28093bc7232ada8607fe4}} 
+{\footnotesize template$<$typename Iter $>$ }\\void {\bfseries fix\+Numeric\+Locale\+Input} (Iter begin, Iter end)
+\item 
+{\footnotesize template$<$typename Iter $>$ }\\Iter \mbox{\hyperlink{namespace_json_ab48d632fe16e62aca0193cf17cdf3c22}{fix\+Zeros\+In\+The\+End}} (Iter begin, Iter end, unsigned int precision)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+JSON (Java\+Script Object Notation). 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespace_json_aaa9f7061e4fdf0b9e5cff387a3981cd2}\label{namespace_json_aaa9f7061e4fdf0b9e5cff387a3981cd2}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{uintToStringBufferSize@{uintToStringBufferSize}!Json@{Json}}\index{Json@{Json}!uintToStringBufferSize@{uintToStringBufferSize}}}\mbox{\Hypertarget{namespace_json_aaa9f7061e4fdf0b9e5cff387a3981cd2ae4f2008c7919f20d81286121d1374424}\label{namespace_json_aaa9f7061e4fdf0b9e5cff387a3981cd2ae4f2008c7919f20d81286121d1374424}} 
+uint\+To\+String\+Buffer\+Size&Constant that specify the size of the buffer that must be passed to uint\+To\+String. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}\label{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}} 
+\index{Json@{Json}!CommentPlacement@{CommentPlacement}}
+\index{CommentPlacement@{CommentPlacement}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{CommentPlacement}{CommentPlacement}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{Json\+::\+Comment\+Placement}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{commentBefore@{commentBefore}!Json@{Json}}\index{Json@{Json}!commentBefore@{commentBefore}}}\mbox{\Hypertarget{namespace_json_a4fc417c23905b2ae9e2c47d197a45351a52f1733775460517b2ea6bedf4906d52}\label{namespace_json_a4fc417c23905b2ae9e2c47d197a45351a52f1733775460517b2ea6bedf4906d52}} 
+comment\+Before&a comment placed on the line before a value \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{commentAfterOnSameLine@{commentAfterOnSameLine}!Json@{Json}}\index{Json@{Json}!commentAfterOnSameLine@{commentAfterOnSameLine}}}\mbox{\Hypertarget{namespace_json_a4fc417c23905b2ae9e2c47d197a45351a008a230a0586de54f30b76afe70fdcfa}\label{namespace_json_a4fc417c23905b2ae9e2c47d197a45351a008a230a0586de54f30b76afe70fdcfa}} 
+comment\+After\+On\+Same\+Line&a comment just after a value on the same line \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{commentAfter@{commentAfter}!Json@{Json}}\index{Json@{Json}!commentAfter@{commentAfter}}}\mbox{\Hypertarget{namespace_json_a4fc417c23905b2ae9e2c47d197a45351ac5784ca53b12250888ddb642b06aebef}\label{namespace_json_a4fc417c23905b2ae9e2c47d197a45351ac5784ca53b12250888ddb642b06aebef}} 
+comment\+After&a comment on the line after a value (only make sense for \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{numberOfCommentPlacement@{numberOfCommentPlacement}!Json@{Json}}\index{Json@{Json}!numberOfCommentPlacement@{numberOfCommentPlacement}}}\mbox{\Hypertarget{namespace_json_a4fc417c23905b2ae9e2c47d197a45351abcbd3eb00417335e094e4a03379659b5}\label{namespace_json_a4fc417c23905b2ae9e2c47d197a45351abcbd3eb00417335e094e4a03379659b5}} 
+number\+Of\+Comment\+Placement&root value) \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8}\label{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8}} 
+\index{Json@{Json}!PrecisionType@{PrecisionType}}
+\index{PrecisionType@{PrecisionType}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{PrecisionType}{PrecisionType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8}{Json\+::\+Precision\+Type}}}
+
+
+
+Type of precision for formatting of real values. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{significantDigits@{significantDigits}!Json@{Json}}\index{Json@{Json}!significantDigits@{significantDigits}}}\mbox{\Hypertarget{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8abb30ddeaa820d370a2438dda7a08996a}\label{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8abb30ddeaa820d370a2438dda7a08996a}} 
+significant\+Digits&we set max number of significant digits in string \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{decimalPlaces@{decimalPlaces}!Json@{Json}}\index{Json@{Json}!decimalPlaces@{decimalPlaces}}}\mbox{\Hypertarget{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8aaee1bf0411c550a0bb2996b7b67cae87}\label{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8aaee1bf0411c550a0bb2996b7b67cae87}} 
+decimal\+Places&we set max number of digits after \char`\"{}.\char`\"{} in string \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespace_json_a7d654b75c16a57007925868e38212b4e}\label{namespace_json_a7d654b75c16a57007925868e38212b4e}} 
+\index{Json@{Json}!ValueType@{ValueType}}
+\index{ValueType@{ValueType}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{ValueType}{ValueType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{Json\+::\+Value\+Type}}}
+
+
+
+Type of the value held by a \mbox{\hyperlink{class_json_1_1_value}{Value}} object. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{nullValue@{nullValue}!Json@{Json}}\index{Json@{Json}!nullValue@{nullValue}}}\mbox{\Hypertarget{namespace_json_a7d654b75c16a57007925868e38212b4ea7d9899633b4409bd3fc107e6737f8391}\label{namespace_json_a7d654b75c16a57007925868e38212b4ea7d9899633b4409bd3fc107e6737f8391}} 
+null\+Value&\textquotesingle{}null\textquotesingle{} value \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{intValue@{intValue}!Json@{Json}}\index{Json@{Json}!intValue@{intValue}}}\mbox{\Hypertarget{namespace_json_a7d654b75c16a57007925868e38212b4eae5a9d708d5c9e23ae9bf98898522512d}\label{namespace_json_a7d654b75c16a57007925868e38212b4eae5a9d708d5c9e23ae9bf98898522512d}} 
+int\+Value&signed integer value \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{uintValue@{uintValue}!Json@{Json}}\index{Json@{Json}!uintValue@{uintValue}}}\mbox{\Hypertarget{namespace_json_a7d654b75c16a57007925868e38212b4eaea788d9a3bb00adc6d68d97d43e1ccd3}\label{namespace_json_a7d654b75c16a57007925868e38212b4eaea788d9a3bb00adc6d68d97d43e1ccd3}} 
+uint\+Value&unsigned integer value \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{realValue@{realValue}!Json@{Json}}\index{Json@{Json}!realValue@{realValue}}}\mbox{\Hypertarget{namespace_json_a7d654b75c16a57007925868e38212b4eab837c7b869c14d8be712deb45c9e490e}\label{namespace_json_a7d654b75c16a57007925868e38212b4eab837c7b869c14d8be712deb45c9e490e}} 
+real\+Value&double value \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{stringValue@{stringValue}!Json@{Json}}\index{Json@{Json}!stringValue@{stringValue}}}\mbox{\Hypertarget{namespace_json_a7d654b75c16a57007925868e38212b4ea804ef857affea2d415843c73f261c258}\label{namespace_json_a7d654b75c16a57007925868e38212b4ea804ef857affea2d415843c73f261c258}} 
+string\+Value&UTF-\/8 string value. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{booleanValue@{booleanValue}!Json@{Json}}\index{Json@{Json}!booleanValue@{booleanValue}}}\mbox{\Hypertarget{namespace_json_a7d654b75c16a57007925868e38212b4ea14c30dbf4da86f7b809be299f671f7fd}\label{namespace_json_a7d654b75c16a57007925868e38212b4ea14c30dbf4da86f7b809be299f671f7fd}} 
+boolean\+Value&bool value \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{arrayValue@{arrayValue}!Json@{Json}}\index{Json@{Json}!arrayValue@{arrayValue}}}\mbox{\Hypertarget{namespace_json_a7d654b75c16a57007925868e38212b4eadc8f264f36b55b063c78126b335415f4}\label{namespace_json_a7d654b75c16a57007925868e38212b4eadc8f264f36b55b063c78126b335415f4}} 
+array\+Value&array value (ordered list) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{objectValue@{objectValue}!Json@{Json}}\index{Json@{Json}!objectValue@{objectValue}}}\mbox{\Hypertarget{namespace_json_a7d654b75c16a57007925868e38212b4eae8386dcfc36d1ae897745f7b4f77a1f6}\label{namespace_json_a7d654b75c16a57007925868e38212b4eae8386dcfc36d1ae897745f7b4f77a1f6}} 
+object\+Value&object value (collection of name/value pairs). \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespace_json_a4f93f184c2890cb99b07afeed10a89ec}\label{namespace_json_a4f93f184c2890cb99b07afeed10a89ec}} 
+\index{Json@{Json}!fixNumericLocale@{fixNumericLocale}}
+\index{fixNumericLocale@{fixNumericLocale}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{fixNumericLocale()}{fixNumericLocale()}}
+{\footnotesize\ttfamily template$<$typename Iter $>$ \\
+Iter Json\+::fix\+Numeric\+Locale (\begin{DoxyParamCaption}\item[{Iter}]{begin,  }\item[{Iter}]{end }\end{DoxyParamCaption})}
+
+Change \textquotesingle{},\textquotesingle{} to \textquotesingle{}.\textquotesingle{} everywhere in buffer.
+
+We had a sophisticated way, but it did not work in Win\+CE. \begin{DoxySeeAlso}{See also}
+\href{https://github.com/open-source-parsers/jsoncpp/pull/9}{\texttt{ https\+://github.\+com/open-\/source-\/parsers/jsoncpp/pull/9}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespace_json_ab48d632fe16e62aca0193cf17cdf3c22}\label{namespace_json_ab48d632fe16e62aca0193cf17cdf3c22}} 
+\index{Json@{Json}!fixZerosInTheEnd@{fixZerosInTheEnd}}
+\index{fixZerosInTheEnd@{fixZerosInTheEnd}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{fixZerosInTheEnd()}{fixZerosInTheEnd()}}
+{\footnotesize\ttfamily template$<$typename Iter $>$ \\
+Iter Json\+::fix\+Zeros\+In\+The\+End (\begin{DoxyParamCaption}\item[{Iter}]{begin,  }\item[{Iter}]{end,  }\item[{unsigned int}]{precision }\end{DoxyParamCaption})}
+
+Return iterator that would be the new end of the range \mbox{[}begin,end), if we were to delete zeros in the end of string, but not the last zero before \textquotesingle{}.\textquotesingle{}. \mbox{\Hypertarget{namespace_json_a91e5bd3901936f85718362360bec35c6}\label{namespace_json_a91e5bd3901936f85718362360bec35c6}} 
+\index{Json@{Json}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily OStream \& Json\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{OStream \&}]{sout,  }\item[{const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&}]{root }\end{DoxyParamCaption})}
+
+
+
+Output using the \mbox{\hyperlink{class_json_1_1_styled_stream_writer}{Styled\+Stream\+Writer}}. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{namespace_json_ac21ce6d431c2a8d93fdec0def5154cbd}{Json\+::operator$>$$>$()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespace_json_ac21ce6d431c2a8d93fdec0def5154cbd}\label{namespace_json_ac21ce6d431c2a8d93fdec0def5154cbd}} 
+\index{Json@{Json}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily IStream \& Json\+::operator$>$$>$ (\begin{DoxyParamCaption}\item[{IStream \&}]{sin,  }\item[{\mbox{\hyperlink{class_json_1_1_value}{Value}} \&}]{root }\end{DoxyParamCaption})}
+
+
+
+Read from \textquotesingle{}sin\textquotesingle{} into \textquotesingle{}root\textquotesingle{}. 
+
+Always keep comments from the input JSON.
+
+This can be used to read a file into a particular sub-\/object. For example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ root;}
+\DoxyCodeLine{cin\ >>\ root[\textcolor{stringliteral}{"{}dir"{}}][\textcolor{stringliteral}{"{}file"{}}];}
+\DoxyCodeLine{cout\ <<\ root;}
+
+\end{DoxyCode}
+ Result\+: \begin{DoxyVerb}* {
+* "dir": {
+*    "file": {
+*    // The input stream JSON would be nested here.
+*    }
+* }
+* }
+* \end{DoxyVerb}
+ 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & on parse error. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{namespace_json_a91e5bd3901936f85718362360bec35c6}{Json\+::operator$<$$<$()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespace_json_ad0e6a29ad2eac4ae58cd5b96d19bb01e}\label{namespace_json_ad0e6a29ad2eac4ae58cd5b96d19bb01e}} 
+\index{Json@{Json}!parseFromStream@{parseFromStream}}
+\index{parseFromStream@{parseFromStream}!Json@{Json}}
+\doxysubsubsection{\texorpdfstring{parseFromStream()}{parseFromStream()}}
+{\footnotesize\ttfamily bool Json\+::parse\+From\+Stream (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_json_1_1_char_reader_1_1_factory}{Char\+Reader\+::\+Factory}} const \&}]{fact,  }\item[{IStream \&}]{sin,  }\item[{\mbox{\hyperlink{class_json_1_1_value}{Value}} $\ast$}]{root,  }\item[{String $\ast$}]{errs }\end{DoxyParamCaption})}
+
+Consume entire stream and use its begin/end. Someday we might have a real Stream\+Reader, but for now this is convenient. 

@@ -145,6 +145,17 @@
             "type" : "number"
          },
          {
+            "data" : 6.0,
+            "title" : "Shift Line Bits",
+            "type" : "number"
+         },
+         {
+            "data" : "PhaseShiftComplementaryGrayCode",
+            "enum" : [ "PhaseShiftComplementaryGrayCode", "ShiftLineGrayCode" ],
+            "title" : "Restruction Method",
+            "type" : "enum"
+         },
+         {
             "data" : true,
             "title" : "Is Vertical",
             "type" : "bool"

@@ -1,0 +1,29 @@
+\hypertarget{wrap_creator_gpu_8h_source}{}\doxysection{wrap\+Creator\+Gpu.\+h}
+\label{wrap_creator_gpu_8h_source}\index{src/slCamera/include/wrapCreator/wrapCreatorGpu.h@{src/slCamera/include/wrapCreator/wrapCreatorGpu.h}}
+\mbox{\hyperlink{wrap_creator_gpu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_WRAPCREATOR\_WRAPCREATOR\_GPU\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_WRAPCREATOR\_WRAPCREATOR\_GPU\_H\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{wrap_creator_8h}{wrapCreator.h}}>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }wrapCreator\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator_gpu}{WrapCreatorGpu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator}{WrapCreator}}\ \{}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator_gpu_a36e2f5cb7fc710dd539ba4936b45c6d3}{getWrapImg}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::cuda::GpuMat\ \&wrapImg,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::cuda::GpuMat\ \&conditionImg,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&cvStream\ =\ cv::cuda::Stream::Null(),}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ dim3\ block\ =\ dim3(32,\ 8))\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator_gpu_a36e2f5cb7fc710dd539ba4936b45c6d3}{getWrapImg}}(\textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,\ cv::Mat\ \&wrapImg,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cv::Mat\ \&conditionImg)\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ \}\ \textcolor{comment}{//\ namespace\ wrapCreator}}
+\DoxyCodeLine{00044\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_WRAPCREATOR\_WRAPCREATOR\_GPU\_H\_}}
+
+\end{DoxyCode}

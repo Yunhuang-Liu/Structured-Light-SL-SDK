@@ -1,0 +1,58 @@
+\hypertarget{classsl_1_1wrap_creator_1_1_wrap_creator}{}\doxysection{sl\+::wrap\+Creator\+::Wrap\+Creator Class Reference}
+\label{classsl_1_1wrap_creator_1_1_wrap_creator}\index{sl::wrapCreator::WrapCreator@{sl::wrapCreator::WrapCreator}}
+
+
+{\bfseries{WITH\+\_\+\+CUDA}}  
+
+
+
+
+{\ttfamily \#include $<$wrap\+Creator.\+h$>$}
+
+Inheritance diagram for sl\+::wrap\+Creator\+::Wrap\+Creator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsl_1_1wrap_creator_1_1_wrap_creator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator_a34f2a617eb6e8a82e5b646ccc3877c13}{get\+Wrap\+Img}} (IN const std\+::vector$<$ cv\+::\+Mat $>$ \&imgs, OUT cv\+::\+Mat \&wrap\+Img, OUT cv\+::\+Mat \&condition\+Img)=0
+\begin{DoxyCompactList}\small\item\em 获取包裹相位 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+{\bfseries{WITH\+\_\+\+CUDA}} 
+
+包裹求解器 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsl_1_1wrap_creator_1_1_wrap_creator_a34f2a617eb6e8a82e5b646ccc3877c13}\label{classsl_1_1wrap_creator_1_1_wrap_creator_a34f2a617eb6e8a82e5b646ccc3877c13}} 
+\index{sl::wrapCreator::WrapCreator@{sl::wrapCreator::WrapCreator}!getWrapImg@{getWrapImg}}
+\index{getWrapImg@{getWrapImg}!sl::wrapCreator::WrapCreator@{sl::wrapCreator::WrapCreator}}
+\doxysubsubsection{\texorpdfstring{getWrapImg()}{getWrapImg()}}
+{\footnotesize\ttfamily virtual void sl\+::wrap\+Creator\+::\+Wrap\+Creator\+::get\+Wrap\+Img (\begin{DoxyParamCaption}\item[{IN const std\+::vector$<$ cv\+::\+Mat $>$ \&}]{imgs,  }\item[{OUT cv\+::\+Mat \&}]{wrap\+Img,  }\item[{OUT cv\+::\+Mat \&}]{condition\+Img }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+获取包裹相位 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imgs} & 输入，图片(CV\+\_\+8\+UC1 $\vert$$\vert$ CV\+\_\+32\+FC1) \\
+\hline
+{\em wrap\+Img} & 输出，包裹图片(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em condition\+Img} & 输出，调制图片(\+CV\+\_\+32\+FC1) \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator_cpu_a3bfe74fbc843fbe385fafad0843f3ab9}{sl\+::wrap\+Creator\+::\+Wrap\+Creator\+Cpu}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/include/wrap\+Creator/\mbox{\hyperlink{wrap_creator_8h}{wrap\+Creator.\+h}}\end{DoxyCompactItemize}

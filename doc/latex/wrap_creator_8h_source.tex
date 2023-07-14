@@ -1,0 +1,48 @@
+\hypertarget{wrap_creator_8h_source}{}\doxysection{wrap\+Creator.\+h}
+\label{wrap_creator_8h_source}\index{src/slCamera/include/wrapCreator/wrapCreator.h@{src/slCamera/include/wrapCreator/wrapCreator.h}}
+\mbox{\hyperlink{wrap_creator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_WRAPCREATOR\_WRAPERCREATOR\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_WRAPCREATOR\_WRAPERCREATOR\_H\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <typeDef.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <cuda\_runtime.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{namespace\ }wrapCreator\ \{}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }cudaFunc\ \{}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ getWrapImgSync(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::cuda::GpuMat\ \&wrapImg,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::cuda::GpuMat\ \&conditionImg,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&cvStream\ =\ cv::cuda::Stream::Null(),}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ dim3\ block\ =\ dim3(32,\ 8));}
+\DoxyCodeLine{00035\ \}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator}{WrapCreator}}\ \{}
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator}{\string~WrapCreator}}()\ \{\}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator_a34f2a617eb6e8a82e5b646ccc3877c13}{getWrapImg}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::Mat\ \&wrapImg,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::Mat\ \&conditionImg)\ =\ 0;}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator_a34f2a617eb6e8a82e5b646ccc3877c13}{getWrapImg}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::cuda::GpuMat\ \&wrapImg,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::cuda::GpuMat\ \&conditionImg,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&cvStream\ =\ cv::cuda::Stream::Null(),}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ dim3\ block\ =\ dim3(32,\ 8))\ =\ 0;}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ \}\ \textcolor{comment}{//\ namespace\ wrapCreator}}
+\DoxyCodeLine{00071\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_WRAPCREATOR\_WRAPERCREATOR\_H\_}}
+
+\end{DoxyCode}

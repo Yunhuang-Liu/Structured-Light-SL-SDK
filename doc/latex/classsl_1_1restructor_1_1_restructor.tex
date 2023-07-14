@@ -1,0 +1,64 @@
+\hypertarget{classsl_1_1restructor_1_1_restructor}{}\doxysection{sl\+::restructor\+::Restructor Class Reference}
+\label{classsl_1_1restructor_1_1_restructor}\index{sl::restructor::Restructor@{sl::restructor::Restructor}}
+
+
+重建器  
+
+
+
+
+{\ttfamily \#include $<$restructor.\+h$>$}
+
+Inheritance diagram for sl\+::restructor\+::Restructor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsl_1_1restructor_1_1_restructor}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_a2a11d308324639e493cfbc67b74056f7}{restruction}} (IN const cv\+::\+Mat \&left\+Abs\+Img, IN const cv\+::\+Mat \&right\+Abs\+Img, IN const \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{Restruct\+Paramater}} param, OUT cv\+::\+Mat \&depth\+Img\+Out)=0
+\begin{DoxyCompactList}\small\item\em 重建 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsl_1_1restructor_1_1_restructor_a1e738a6efd414275c0b47bd28d8f3900}\label{classsl_1_1restructor_1_1_restructor_a1e738a6efd414275c0b47bd28d8f3900}} 
+void {\bfseries get\+Depth\+Map} ()
+\begin{DoxyCompactList}\small\item\em 获取深度和纹理 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+重建器 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsl_1_1restructor_1_1_restructor_a2a11d308324639e493cfbc67b74056f7}\label{classsl_1_1restructor_1_1_restructor_a2a11d308324639e493cfbc67b74056f7}} 
+\index{sl::restructor::Restructor@{sl::restructor::Restructor}!restruction@{restruction}}
+\index{restruction@{restruction}!sl::restructor::Restructor@{sl::restructor::Restructor}}
+\doxysubsubsection{\texorpdfstring{restruction()}{restruction()}}
+{\footnotesize\ttfamily virtual void sl\+::restructor\+::\+Restructor\+::restruction (\begin{DoxyParamCaption}\item[{IN const cv\+::\+Mat \&}]{left\+Abs\+Img,  }\item[{IN const cv\+::\+Mat \&}]{right\+Abs\+Img,  }\item[{IN const \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{Restruct\+Paramater}}}]{param,  }\item[{OUT cv\+::\+Mat \&}]{depth\+Img\+Out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+重建 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+Abs\+Img} & 左绝对相位(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em right\+Abs\+Img} & 右绝对相位(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em param} & 重建器控制参数 \\
+\hline
+{\em depth\+Img\+Out} & 深度图(\+CV\+\_\+32\+FC1) \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_cpu_a189f70f3c74f5998487daea64d151883}{sl\+::restructor\+::\+Restructor\+Cpu}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/include/restructor/\mbox{\hyperlink{restructor_8h}{restructor.\+h}}\end{DoxyCompactItemize}

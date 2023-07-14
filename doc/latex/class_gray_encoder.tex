@@ -1,0 +1,149 @@
+\hypertarget{class_gray_encoder}{}\doxysection{Gray\+Encoder Class Reference}
+\label{class_gray_encoder}\index{GrayEncoder@{GrayEncoder}}
+
+
+{\ttfamily \#include $<$code\+Maker.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gray_encoder_af1f00699edcf283e19e5f7df38e0bf84}{Gray\+Encoder}} (const cv\+::\+Size encode\+Size)
+\begin{DoxyCompactList}\small\item\em 显式构造器，禁止隐式转换 \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{class_gray_encoder_a48cf865f9631696790b91ea5e4cb2f74}{get\+Image}} ()
+\begin{DoxyCompactList}\small\item\em 获取生成的格雷码图像 \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{class_gray_encoder_a141ce0c619122491c43a70f4e85733d5}{creat\+Gray\+Image}} (const int num\+Of\+Image, const int img\+Plain\+Num, const int gray\+Bits=4)
+\begin{DoxyCompactList}\small\item\em 创建格雷码图像 $\ast$$\ast$ \textbackslash{}此处设计存在揣摩\+:接口应当尽量少的暴露给客户，但类应当维护自身的资源 /$\ast$$\ast$ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gray_encoder_a39bb1182d9fe03a1e019d92d8d3be07b}{set\+Shift\+Gray\+Code\+State}} (const bool state)
+\begin{DoxyCompactList}\small\item\em 设置位移格雷码标志位 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gray_encoder_ae8803fdda60a0dbf50500976efcaffc2}{set\+Change\+ModeY}} (const bool state)
+\begin{DoxyCompactList}\small\item\em 设置竖向条纹标志位 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gray_encoder_a81ffb8379fe70706d3cb79ec6adcc8cf}{set\+Is\+One\+Height\+Mode}} (const bool state)
+\item 
+void \mbox{\hyperlink{class_gray_encoder_a335072c3cab0e5c1e35f492bd9654e12}{set\+Counter\+First\+Bit}} (const bool state)
+\item 
+void \mbox{\hyperlink{class_gray_encoder_ad18547c343259aa09060193c4f44e9c4}{set\+Four\+Floor\+Mode}} (const bool state)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\textbackslash{}格雷码编码器 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_gray_encoder_af1f00699edcf283e19e5f7df38e0bf84}\label{class_gray_encoder_af1f00699edcf283e19e5f7df38e0bf84}} 
+\index{GrayEncoder@{GrayEncoder}!GrayEncoder@{GrayEncoder}}
+\index{GrayEncoder@{GrayEncoder}!GrayEncoder@{GrayEncoder}}
+\doxysubsubsection{\texorpdfstring{GrayEncoder()}{GrayEncoder()}}
+{\footnotesize\ttfamily Gray\+Encoder\+::\+Gray\+Encoder (\begin{DoxyParamCaption}\item[{const cv\+::\+Size}]{encode\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+显式构造器，禁止隐式转换 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encode\+Size} & 输入，编码图像尺寸(宽$\ast$高) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_gray_encoder_a141ce0c619122491c43a70f4e85733d5}\label{class_gray_encoder_a141ce0c619122491c43a70f4e85733d5}} 
+\index{GrayEncoder@{GrayEncoder}!creatGrayImage@{creatGrayImage}}
+\index{creatGrayImage@{creatGrayImage}!GrayEncoder@{GrayEncoder}}
+\doxysubsubsection{\texorpdfstring{creatGrayImage()}{creatGrayImage()}}
+{\footnotesize\ttfamily cv\+::\+Mat Gray\+Encoder\+::creat\+Gray\+Image (\begin{DoxyParamCaption}\item[{const int}]{num\+Of\+Image,  }\item[{const int}]{img\+Plain\+Num,  }\item[{const int}]{gray\+Bits = {\ttfamily 4} }\end{DoxyParamCaption})}
+
+
+
+创建格雷码图像 $\ast$$\ast$ \textbackslash{}此处设计存在揣摩\+:接口应当尽量少的暴露给客户，但类应当维护自身的资源 /$\ast$$\ast$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Of\+Image} & 输入，图片数量 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cv\+::\+Mat 输出，生成的图片 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_gray_encoder_a48cf865f9631696790b91ea5e4cb2f74}\label{class_gray_encoder_a48cf865f9631696790b91ea5e4cb2f74}} 
+\index{GrayEncoder@{GrayEncoder}!getImage@{getImage}}
+\index{getImage@{getImage}!GrayEncoder@{GrayEncoder}}
+\doxysubsubsection{\texorpdfstring{getImage()}{getImage()}}
+{\footnotesize\ttfamily cv\+::\+Mat Gray\+Encoder\+::get\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+获取生成的格雷码图像 
+
+\begin{DoxyReturn}{Returns}
+cv\+::\+Mat 输出，生成的格雷码图像 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_gray_encoder_ae8803fdda60a0dbf50500976efcaffc2}\label{class_gray_encoder_ae8803fdda60a0dbf50500976efcaffc2}} 
+\index{GrayEncoder@{GrayEncoder}!setChangeModeY@{setChangeModeY}}
+\index{setChangeModeY@{setChangeModeY}!GrayEncoder@{GrayEncoder}}
+\doxysubsubsection{\texorpdfstring{setChangeModeY()}{setChangeModeY()}}
+{\footnotesize\ttfamily void Gray\+Encoder\+::set\+Change\+ModeY (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+设置竖向条纹标志位 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & 输入，状态位 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_gray_encoder_a335072c3cab0e5c1e35f492bd9654e12}\label{class_gray_encoder_a335072c3cab0e5c1e35f492bd9654e12}} 
+\index{GrayEncoder@{GrayEncoder}!setCounterFirstBit@{setCounterFirstBit}}
+\index{setCounterFirstBit@{setCounterFirstBit}!GrayEncoder@{GrayEncoder}}
+\doxysubsubsection{\texorpdfstring{setCounterFirstBit()}{setCounterFirstBit()}}
+{\footnotesize\ttfamily void Gray\+Encoder\+::set\+Counter\+First\+Bit (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em 设置第一位取反模式} & \\
+\hline
+\end{DoxyParams}
+@state 输入，状态位 \mbox{\Hypertarget{class_gray_encoder_ad18547c343259aa09060193c4f44e9c4}\label{class_gray_encoder_ad18547c343259aa09060193c4f44e9c4}} 
+\index{GrayEncoder@{GrayEncoder}!setFourFloorMode@{setFourFloorMode}}
+\index{setFourFloorMode@{setFourFloorMode}!GrayEncoder@{GrayEncoder}}
+\doxysubsubsection{\texorpdfstring{setFourFloorMode()}{setFourFloorMode()}}
+{\footnotesize\ttfamily void Gray\+Encoder\+::set\+Four\+Floor\+Mode (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em 设置四灰度格雷编码状态} & \\
+\hline
+\end{DoxyParams}
+@state 输入，状态位 \mbox{\Hypertarget{class_gray_encoder_a81ffb8379fe70706d3cb79ec6adcc8cf}\label{class_gray_encoder_a81ffb8379fe70706d3cb79ec6adcc8cf}} 
+\index{GrayEncoder@{GrayEncoder}!setIsOneHeightMode@{setIsOneHeightMode}}
+\index{setIsOneHeightMode@{setIsOneHeightMode}!GrayEncoder@{GrayEncoder}}
+\doxysubsubsection{\texorpdfstring{setIsOneHeightMode()}{setIsOneHeightMode()}}
+{\footnotesize\ttfamily void Gray\+Encoder\+::set\+Is\+One\+Height\+Mode (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em 设置1\+Bit图片生成标志位} & \\
+\hline
+\end{DoxyParams}
+@state 输入，状态位 \mbox{\Hypertarget{class_gray_encoder_a39bb1182d9fe03a1e019d92d8d3be07b}\label{class_gray_encoder_a39bb1182d9fe03a1e019d92d8d3be07b}} 
+\index{GrayEncoder@{GrayEncoder}!setShiftGrayCodeState@{setShiftGrayCodeState}}
+\index{setShiftGrayCodeState@{setShiftGrayCodeState}!GrayEncoder@{GrayEncoder}}
+\doxysubsubsection{\texorpdfstring{setShiftGrayCodeState()}{setShiftGrayCodeState()}}
+{\footnotesize\ttfamily void Gray\+Encoder\+::set\+Shift\+Gray\+Code\+State (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+设置位移格雷码标志位 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & 输入，状态位 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/module/binoocular\+Camera/include/\mbox{\hyperlink{code_maker_8h}{code\+Maker.\+h}}\item 
+src/sl\+Camera/module/binoocular\+Camera/src/code\+Maker.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,1649 @@
+\hypertarget{json_8h_source}{}\doxysection{json.\+h}
+\label{json_8h_source}\index{src/slCamera/common/json.h@{src/slCamera/common/json.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ LICENSE}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00009\ \textcolor{comment}{The\ JsonCpp\ library's\ source\ code,\ including\ accompanying\ documentation,}}
+\DoxyCodeLine{00010\ \textcolor{comment}{tests\ and\ demonstration\ applications,\ are\ licensed\ under\ the\ following}}
+\DoxyCodeLine{00011\ \textcolor{comment}{conditions...}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors\ explicitly\ disclaim\ copyright\ in\ all}}
+\DoxyCodeLine{00014\ \textcolor{comment}{jurisdictions\ which\ recognize\ such\ a\ disclaimer.\ In\ such\ jurisdictions,}}
+\DoxyCodeLine{00015\ \textcolor{comment}{this\ software\ is\ released\ into\ the\ Public\ Domain.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{}}
+\DoxyCodeLine{00017\ \textcolor{comment}{In\ jurisdictions\ which\ do\ not\ recognize\ Public\ Domain\ property\ (e.g.\ Germany\ as\ of}}
+\DoxyCodeLine{00018\ \textcolor{comment}{2010),\ this\ software\ is\ Copyright\ (c)\ 2007-\/2010\ by\ Baptiste\ Lepilleur\ and}}
+\DoxyCodeLine{00019\ \textcolor{comment}{The\ JsonCpp\ Authors,\ and\ is\ released\ under\ the\ terms\ of\ the\ MIT\ License\ (see\ below).}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{In\ jurisdictions\ which\ recognize\ Public\ Domain\ property,\ the\ user\ of\ this}}
+\DoxyCodeLine{00022\ \textcolor{comment}{software\ may\ choose\ to\ accept\ it\ either\ as\ 1)\ Public\ Domain,\ 2)\ under\ the}}
+\DoxyCodeLine{00023\ \textcolor{comment}{conditions\ of\ the\ MIT\ License\ (see\ below),\ or\ 3)\ under\ the\ terms\ of\ dual}}
+\DoxyCodeLine{00024\ \textcolor{comment}{Public\ Domain/MIT\ License\ conditions\ described\ here,\ as\ they\ choose.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{}}
+\DoxyCodeLine{00026\ \textcolor{comment}{The\ MIT\ License\ is\ about\ as\ close\ to\ Public\ Domain\ as\ a\ license\ can\ get,\ and\ is}}
+\DoxyCodeLine{00027\ \textcolor{comment}{described\ in\ clear,\ concise\ terms\ at:}}
+\DoxyCodeLine{00028\ \textcolor{comment}{}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ http://en.wikipedia.org/wiki/MIT\_License}}
+\DoxyCodeLine{00030\ \textcolor{comment}{}}
+\DoxyCodeLine{00031\ \textcolor{comment}{The\ full\ text\ of\ the\ MIT\ License\ follows:}}
+\DoxyCodeLine{00032\ \textcolor{comment}{}}
+\DoxyCodeLine{00033\ \textcolor{comment}{========================================================================}}
+\DoxyCodeLine{00034\ \textcolor{comment}{Copyright\ (c)\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{00035\ \textcolor{comment}{}}
+\DoxyCodeLine{00036\ \textcolor{comment}{Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person}}
+\DoxyCodeLine{00037\ \textcolor{comment}{obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation}}
+\DoxyCodeLine{00038\ \textcolor{comment}{files\ (the\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without}}
+\DoxyCodeLine{00039\ \textcolor{comment}{restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,}}
+\DoxyCodeLine{00040\ \textcolor{comment}{modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell\ copies}}
+\DoxyCodeLine{00041\ \textcolor{comment}{of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00042\ \textcolor{comment}{furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00043\ \textcolor{comment}{}}
+\DoxyCodeLine{00044\ \textcolor{comment}{The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00045\ \textcolor{comment}{included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00046\ \textcolor{comment}{}}
+\DoxyCodeLine{00047\ \textcolor{comment}{THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00048\ \textcolor{comment}{EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00049\ \textcolor{comment}{MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00050\ \textcolor{comment}{NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS}}
+\DoxyCodeLine{00051\ \textcolor{comment}{BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN}}
+\DoxyCodeLine{00052\ \textcolor{comment}{ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN}}
+\DoxyCodeLine{00053\ \textcolor{comment}{CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{00054\ \textcolor{comment}{SOFTWARE.}}
+\DoxyCodeLine{00055\ \textcolor{comment}{========================================================================}}
+\DoxyCodeLine{00056\ \textcolor{comment}{(END\ LICENSE\ TEXT)}}
+\DoxyCodeLine{00057\ \textcolor{comment}{}}
+\DoxyCodeLine{00058\ \textcolor{comment}{The\ MIT\ license\ is\ compatible\ with\ both\ the\ GPL\ and\ commercial}}
+\DoxyCodeLine{00059\ \textcolor{comment}{software,\ affording\ one\ all\ of\ the\ rights\ of\ Public\ Domain\ with\ the}}
+\DoxyCodeLine{00060\ \textcolor{comment}{minor\ nuisance\ of\ being\ required\ to\ keep\ the\ above\ copyright\ notice}}
+\DoxyCodeLine{00061\ \textcolor{comment}{and\ license\ text\ in\ the\ source\ code.\ Note\ also\ that\ by\ accepting\ the}}
+\DoxyCodeLine{00062\ \textcolor{comment}{Public\ Domain\ "{}license"{}\ you\ can\ re-\/license\ your\ copy\ using\ whatever}}
+\DoxyCodeLine{00063\ \textcolor{comment}{license\ you\ like.}}
+\DoxyCodeLine{00064\ \textcolor{comment}{}}
+\DoxyCodeLine{00065\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ LICENSE}}
+\DoxyCodeLine{00069\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#ifndef\ JSON\_AMALGAMATED\_H\_INCLUDED}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#\ define\ JSON\_AMALGAMATED\_H\_INCLUDED}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ JSON\_IS\_AMALGAMATION}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/version.h}}
+\DoxyCodeLine{00083\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#ifndef\ JSON\_VERSION\_H\_INCLUDED}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ JSON\_VERSION\_H\_INCLUDED}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{comment}{//\ Note:\ version\ must\ be\ updated\ in\ three\ places\ when\ doing\ a\ release.\ This}}
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ annoying\ process\ ensures\ that\ amalgamate,\ CMake,\ and\ meson\ all\ report\ the}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//\ correct\ version.}}
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ 1.\ /meson.build}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ 2.\ /include/json/version.h}}
+\DoxyCodeLine{00093\ \textcolor{comment}{//\ 3.\ /CMakeLists.txt}}
+\DoxyCodeLine{00094\ \textcolor{comment}{//\ IMPORTANT:\ also\ update\ the\ SOVERSION!!}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ JSONCPP\_VERSION\_STRING\ "{}1.9.5"{}}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ JSONCPP\_VERSION\_MAJOR\ 1}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ JSONCPP\_VERSION\_MINOR\ 9}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ JSONCPP\_VERSION\_PATCH\ 5}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ JSONCPP\_VERSION\_QUALIFIER}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ JSONCPP\_VERSION\_HEXA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ ((JSONCPP\_VERSION\_MAJOR\ <<\ 24)\ |\ (JSONCPP\_VERSION\_MINOR\ <<\ 16)\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ (JSONCPP\_VERSION\_PATCH\ <<\ 8))}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#ifdef\ JSONCPP\_USING\_SECURE\_MEMORY}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#undef\ JSONCPP\_USING\_SECURE\_MEMORY}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ JSONCPP\_USING\_SECURE\_MEMORY\ 0}}
+\DoxyCodeLine{00109\ \textcolor{comment}{//\ If\ non-\/zero,\ the\ library\ zeroes\ any\ memory\ that\ it\ has\ allocated\ before}}
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ it\ frees\ its\ memory.}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_VERSION\_H\_INCLUDED}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/version.h}}
+\DoxyCodeLine{00116\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00124\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/allocator.h}}
+\DoxyCodeLine{00125\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{comment}{//\ Copyright\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{00128\ \textcolor{comment}{//\ Distributed\ under\ MIT\ license,\ or\ public\ domain\ if\ desired\ and}}
+\DoxyCodeLine{00129\ \textcolor{comment}{//\ recognized\ in\ your\ jurisdiction.}}
+\DoxyCodeLine{00130\ \textcolor{comment}{//\ See\ file\ LICENSE\ for\ detail\ or\ copy\ at\ http://jsoncpp.sourceforge.net/LICENSE}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#ifndef\ JSON\_ALLOCATOR\_H\_INCLUDED}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ JSON\_ALLOCATOR\_H\_INCLUDED}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#pragma\ pack(push,\ 8)}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_json}{Json}}\ \{}
+\DoxyCodeLine{00141\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{class\ }SecureAllocator\ \{}
+\DoxyCodeLine{00142\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00143\ \ \ \textcolor{comment}{//\ Type\ definitions}}
+\DoxyCodeLine{00144\ \ \ \textcolor{keyword}{using\ }value\_type\ =\ T;}
+\DoxyCodeLine{00145\ \ \ \textcolor{keyword}{using\ }pointer\ =\ T*;}
+\DoxyCodeLine{00146\ \ \ \textcolor{keyword}{using\ }const\_pointer\ =\ \textcolor{keyword}{const}\ T*;}
+\DoxyCodeLine{00147\ \ \ \textcolor{keyword}{using\ }reference\ =\ T\&;}
+\DoxyCodeLine{00148\ \ \ \textcolor{keyword}{using\ }const\_reference\ =\ \textcolor{keyword}{const}\ T\&;}
+\DoxyCodeLine{00149\ \ \ \textcolor{keyword}{using\ }size\_type\ =\ std::size\_t;}
+\DoxyCodeLine{00150\ \ \ \textcolor{keyword}{using\ }difference\_type\ =\ std::ptrdiff\_t;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00155\ \ \ pointer\ \mbox{\hyperlink{class_json_1_1_secure_allocator_a9b7d7180b360ebd673bdcfab25c1d5a4}{allocate}}(size\_type\ n)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{//\ allocate\ using\ "{}global\ operator\ new"{}}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}pointer\textcolor{keyword}{>}(::operator\ \textcolor{keyword}{new}(n\ *\ \textcolor{keyword}{sizeof}(T)));}
+\DoxyCodeLine{00158\ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00165\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_json_1_1_secure_allocator_a886d46522b21826939ef055f69deeb78}{deallocate}}(pointer\ p,\ size\_type\ n)\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{comment}{//\ memset\_s\ is\ used\ because\ memset\ may\ be\ optimized\ away\ by\ the\ compiler}}
+\DoxyCodeLine{00167\ \ \ \ \ memset\_s(p,\ n\ *\ \textcolor{keyword}{sizeof}(T),\ 0,\ n\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{comment}{//\ free\ using\ "{}global\ operator\ delete"{}}}
+\DoxyCodeLine{00169\ \ \ \ \ ::operator\ \textcolor{keyword}{delete}(p);}
+\DoxyCodeLine{00170\ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00175\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_json_1_1_secure_allocator_acd466192ba41ea5468bd2f45ae9de9fb}{construct}}(pointer\ p,\ Args\&\&...\ args)\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//\ construct\ using\ "{}placement\ new"{}\ and\ "{}perfect\ forwarding"{}}}
+\DoxyCodeLine{00177\ \ \ \ \ ::new\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(p))\ T(std::forward<Args>(args)...);}
+\DoxyCodeLine{00178\ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ size\_type\ max\_size()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ size\_t(-\/1)\ /\ \textcolor{keyword}{sizeof}(T);\ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ pointer\ address(reference\ x)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ std::addressof(x);\ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ const\_pointer\ address(const\_reference\ x)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ std::addressof(x);\ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00189\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_json_1_1_secure_allocator_a7316f4efeb3b992c69c94e345ac9f5cd}{destroy}}(pointer\ p)\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ destroy\ using\ "{}explicit\ destructor"{}}}
+\DoxyCodeLine{00191\ \ \ \ \ p-\/>\string~T();}
+\DoxyCodeLine{00192\ \ \ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \textcolor{comment}{//\ Boilerplate}}
+\DoxyCodeLine{00195\ \ \ \mbox{\hyperlink{class_json_1_1_secure_allocator}{SecureAllocator}}()\ \{\}}
+\DoxyCodeLine{00196\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>\ SecureAllocator(\textcolor{keyword}{const}\ SecureAllocator<U>\&)\ \{\}}
+\DoxyCodeLine{00197\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>\ \textcolor{keyword}{struct\ }rebind\ \{\ \textcolor{keyword}{using\ }other\ =\ SecureAllocator<U>;\ \};}
+\DoxyCodeLine{00198\ \};}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{00201\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ SecureAllocator<T>\&,\ \textcolor{keyword}{const}\ SecureAllocator<U>\&)\ \{}
+\DoxyCodeLine{00202\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00203\ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{00206\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ SecureAllocator<T>\&,\ \textcolor{keyword}{const}\ SecureAllocator<U>\&)\ \{}
+\DoxyCodeLine{00207\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00208\ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \}\ \textcolor{comment}{//\ namespace\ Json}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#pragma\ pack(pop)}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_ALLOCATOR\_H\_INCLUDED}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00217\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/allocator.h}}
+\DoxyCodeLine{00218\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00226\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/config.h}}
+\DoxyCodeLine{00227\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{comment}{//\ Copyright\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{00230\ \textcolor{comment}{//\ Distributed\ under\ MIT\ license,\ or\ public\ domain\ if\ desired\ and}}
+\DoxyCodeLine{00231\ \textcolor{comment}{//\ recognized\ in\ your\ jurisdiction.}}
+\DoxyCodeLine{00232\ \textcolor{comment}{//\ See\ file\ LICENSE\ for\ detail\ or\ copy\ at\ http://jsoncpp.sourceforge.net/LICENSE}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#ifndef\ JSON\_CONFIG\_H\_INCLUDED}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#define\ JSON\_CONFIG\_H\_INCLUDED}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#include\ <istream>}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{comment}{//\ If\ non-\/zero,\ the\ library\ uses\ exceptions\ to\ report\ bad\ input\ instead\ of\ C}}
+\DoxyCodeLine{00246\ \textcolor{comment}{//\ assertion\ macros.\ The\ default\ is\ to\ use\ exceptions.}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#ifndef\ JSON\_USE\_EXCEPTION}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#define\ JSON\_USE\_EXCEPTION\ 1}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{comment}{//\ Temporary,\ tracked\ for\ removal\ with\ issue\ \#982.}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#ifndef\ JSON\_USE\_NULLREF}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#define\ JSON\_USE\_NULLREF\ 1}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00259\ \textcolor{comment}{//\ \#define\ JSON\_IS\_AMALGAMATION}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \textcolor{comment}{//\ Export\ macros\ for\ DLL\ visibility}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#if\ defined(JSON\_DLL\_BUILD)}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ ||\ defined(\_\_MINGW32\_\_)}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#define\ JSON\_API\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#define\ JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)\ ||\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#define\ JSON\_API\ \_\_attribute\_\_((visibility("{}default"{}})))}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\#elif\ defined(JSON\_DLL)}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ ||\ defined(\_\_MINGW32\_\_)}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#define\ JSON\_API\ \_\_declspec(dllimport)}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#define\ JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ifdef\ JSON\_DLL\_BUILD}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#if\ !defined(JSON\_API)}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#define\ JSON\_API}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ \&\&\ \_MSC\_VER\ <\ 1800}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#error\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\ \ \ \ "{}ERROR:\ \ Visual\ Studio\ 12\ (2013)\ with\ \_MSC\_VER=1800\ is\ the\ oldest\ supported\ compiler\ with\ sufficient\ C++11\ capabilities"{}}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ \&\&\ \_MSC\_VER\ <\ 1900}}
+\DoxyCodeLine{00287\ \textcolor{comment}{//\ As\ recommended\ at}}
+\DoxyCodeLine{00288\ \textcolor{comment}{//\ https://stackoverflow.com/questions/2915672/snprintf-\/and-\/visual-\/studio-\/2010}}
+\DoxyCodeLine{00289\ \textcolor{keyword}{extern}\ JSON\_API\ \textcolor{keywordtype}{int}\ msvc\_pre1900\_c99\_snprintf(\textcolor{keywordtype}{char}*\ outBuf,\ \textcolor{keywordtype}{size\_t}\ size,}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format,\ ...);}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#define\ jsoncpp\_snprintf\ msvc\_pre1900\_c99\_snprintf}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#define\ jsoncpp\_snprintf\ std::snprintf}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{comment}{//\ If\ JSON\_NO\_INT64\ is\ defined,\ then\ Json\ only\ support\ C++\ "{}int"{}\ type\ for}}
+\DoxyCodeLine{00297\ \textcolor{comment}{//\ integer}}
+\DoxyCodeLine{00298\ \textcolor{comment}{//\ Storages,\ and\ 64\ bits\ integer\ support\ is\ disabled.}}
+\DoxyCodeLine{00299\ \textcolor{comment}{//\ \#define\ JSON\_NO\_INT64\ 1}}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \textcolor{comment}{//\ JSONCPP\_OVERRIDE\ is\ maintained\ for\ backwards\ compatibility\ of\ external\ tools.}}
+\DoxyCodeLine{00302\ \textcolor{comment}{//\ C++11\ should\ be\ used\ directly\ in\ JSONCPP.}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\#define\ JSONCPP\_OVERRIDE\ override}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\#ifdef\ \_\_clang\_\_}}
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\#if\ \_\_has\_extension(attribute\_deprecated\_with\_message)}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\#define\ JSONCPP\_DEPRECATED(message)\ \_\_attribute\_\_((deprecated(message)))}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)\ }\textcolor{comment}{//\ not\ clang\ (gcc\ comes\ later\ since\ clang\ emulates\ gcc)}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#if\ (\_\_GNUC\_\_\ >\ 4\ ||\ (\_\_GNUC\_\_\ ==\ 4\ \&\&\ \_\_GNUC\_MINOR\_\_\ >=\ 5))}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#define\ JSONCPP\_DEPRECATED(message)\ \_\_attribute\_\_((deprecated(message)))}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\#elif\ (\_\_GNUC\_\_\ >\ 3\ ||\ (\_\_GNUC\_\_\ ==\ 3\ \&\&\ \_\_GNUC\_MINOR\_\_\ >=\ 1))}}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\#define\ JSONCPP\_DEPRECATED(message)\ \_\_attribute\_\_((\_\_deprecated\_\_))}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#endif\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ GNUC\ version}}
+\DoxyCodeLine{00315\ \textcolor{preprocessor}{\#elif\ defined(\_MSC\_VER)\ }\textcolor{comment}{//\ MSVC\ (after\ clang\ because\ clang\ on\ Windows\ emulates}}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ MSVC)}}
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#define\ JSONCPP\_DEPRECATED(message)\ \_\_declspec(deprecated(message))}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_clang\_\_\ ||\ \_\_GNUC\_\_\ ||\ \_MSC\_VER}}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\#if\ !defined(JSONCPP\_DEPRECATED)}}
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#define\ JSONCPP\_DEPRECATED(message)}}
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ !defined(JSONCPP\_DEPRECATED)}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#if\ defined(\_\_clang\_\_)\ ||\ (defined(\_\_GNUC\_\_)\ \&\&\ (\_\_GNUC\_\_\ >=\ 6))}}
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\#define\ JSON\_USE\_INT64\_DOUBLE\_CONVERSION\ 1}}
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \textcolor{preprocessor}{\#if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\#include\ "{}allocator.h"{}}}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\#include\ "{}version.h"{}}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_json}{Json}}\ \{}
+\DoxyCodeLine{00336\ \textcolor{keyword}{using\ }Int\ =\ int;}
+\DoxyCodeLine{00337\ \textcolor{keyword}{using\ }UInt\ =\ \textcolor{keywordtype}{unsigned}\ int;}
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\#if\ defined(JSON\_NO\_INT64)}}
+\DoxyCodeLine{00339\ \textcolor{keyword}{using\ }LargestInt\ =\ int;}
+\DoxyCodeLine{00340\ \textcolor{keyword}{using\ }LargestUInt\ =\ \textcolor{keywordtype}{unsigned}\ int;}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#undef\ JSON\_HAS\_INT64}}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\#else\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ if\ defined(JSON\_NO\_INT64)}}
+\DoxyCodeLine{00343\ \textcolor{comment}{//\ For\ Microsoft\ Visual\ use\ specific\ types\ as\ long\ long\ is\ not\ supported}}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ }\textcolor{comment}{//\ Microsoft\ Visual\ Studio}}
+\DoxyCodeLine{00345\ \textcolor{keyword}{using\ }Int64\ =\ \_\_int64;}
+\DoxyCodeLine{00346\ \textcolor{keyword}{using\ }UInt64\ =\ \textcolor{keywordtype}{unsigned}\ \_\_int64;}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\#else\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ if\ defined(\_MSC\_VER)\ //\ Other\ platforms,\ use\ long\ long}}
+\DoxyCodeLine{00348\ \textcolor{keyword}{using\ }Int64\ =\ int64\_t;}
+\DoxyCodeLine{00349\ \textcolor{keyword}{using\ }UInt64\ =\ uint64\_t;}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\#endif\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{00351\ \textcolor{keyword}{using\ }LargestInt\ =\ Int64;}
+\DoxyCodeLine{00352\ \textcolor{keyword}{using\ }LargestUInt\ =\ UInt64;}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#define\ JSON\_HAS\_INT64}}
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(JSON\_NO\_INT64)}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00357\ \textcolor{keyword}{using\ }Allocator\ =}
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keyword}{typename}\ std::conditional<JSONCPP\_USING\_SECURE\_MEMORY,\ SecureAllocator<T>,}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::allocator<T>>::type;}
+\DoxyCodeLine{00360\ \textcolor{keyword}{using\ }String\ =\ std::basic\_string<char,\ std::char\_traits<char>,\ Allocator<char>>;}
+\DoxyCodeLine{00361\ \textcolor{keyword}{using\ }IStringStream\ =}
+\DoxyCodeLine{00362\ \ \ \ \ std::basic\_istringstream<String::value\_type,\ String::traits\_type,}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String::allocator\_type>;}
+\DoxyCodeLine{00364\ \textcolor{keyword}{using\ }OStringStream\ =}
+\DoxyCodeLine{00365\ \ \ \ \ std::basic\_ostringstream<String::value\_type,\ String::traits\_type,}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String::allocator\_type>;}
+\DoxyCodeLine{00367\ \textcolor{keyword}{using\ }IStream\ =\ std::istream;}
+\DoxyCodeLine{00368\ \textcolor{keyword}{using\ }OStream\ =\ std::ostream;}
+\DoxyCodeLine{00369\ \}\ \textcolor{comment}{//\ namespace\ Json}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \textcolor{comment}{//\ Legacy\ names\ (formerly\ macros).}}
+\DoxyCodeLine{00372\ \textcolor{keyword}{using\ }JSONCPP\_STRING\ =\ Json::String;}
+\DoxyCodeLine{00373\ \textcolor{keyword}{using\ }JSONCPP\_ISTRINGSTREAM\ =\ Json::IStringStream;}
+\DoxyCodeLine{00374\ \textcolor{keyword}{using\ }JSONCPP\_OSTRINGSTREAM\ =\ Json::OStringStream;}
+\DoxyCodeLine{00375\ \textcolor{keyword}{using\ }JSONCPP\_ISTREAM\ =\ Json::IStream;}
+\DoxyCodeLine{00376\ \textcolor{keyword}{using\ }JSONCPP\_OSTREAM\ =\ Json::OStream;}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_CONFIG\_H\_INCLUDED}}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00381\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/config.h}}
+\DoxyCodeLine{00382\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00390\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/forwards.h}}
+\DoxyCodeLine{00391\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \textcolor{comment}{//\ Copyright\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{00394\ \textcolor{comment}{//\ Distributed\ under\ MIT\ license,\ or\ public\ domain\ if\ desired\ and}}
+\DoxyCodeLine{00395\ \textcolor{comment}{//\ recognized\ in\ your\ jurisdiction.}}
+\DoxyCodeLine{00396\ \textcolor{comment}{//\ See\ file\ LICENSE\ for\ detail\ or\ copy\ at\ http://jsoncpp.sourceforge.net/LICENSE}}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \textcolor{preprocessor}{\#ifndef\ JSON\_FORWARDS\_H\_INCLUDED}}
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\#define\ JSON\_FORWARDS\_H\_INCLUDED}}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\#if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\#include\ "{}config.h"{}}}
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_json}{Json}}\ \{}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \textcolor{comment}{//\ writer.h}}
+\DoxyCodeLine{00408\ \textcolor{keyword}{class\ }StreamWriter;}
+\DoxyCodeLine{00409\ \textcolor{keyword}{class\ }StreamWriterBuilder;}
+\DoxyCodeLine{00410\ \textcolor{keyword}{class\ }Writer;}
+\DoxyCodeLine{00411\ \textcolor{keyword}{class\ }FastWriter;}
+\DoxyCodeLine{00412\ \textcolor{keyword}{class\ }StyledWriter;}
+\DoxyCodeLine{00413\ \textcolor{keyword}{class\ }StyledStreamWriter;}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \textcolor{comment}{//\ reader.h}}
+\DoxyCodeLine{00416\ \textcolor{keyword}{class\ }Reader;}
+\DoxyCodeLine{00417\ \textcolor{keyword}{class\ }CharReader;}
+\DoxyCodeLine{00418\ \textcolor{keyword}{class\ }CharReaderBuilder;}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \textcolor{comment}{//\ json\_features.h}}
+\DoxyCodeLine{00421\ \textcolor{keyword}{class\ }Features;}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \textcolor{comment}{//\ value.h}}
+\DoxyCodeLine{00424\ \textcolor{keyword}{using\ }ArrayIndex\ =\ \textcolor{keywordtype}{unsigned}\ int;}
+\DoxyCodeLine{00425\ \textcolor{keyword}{class\ }StaticString;}
+\DoxyCodeLine{00426\ \textcolor{keyword}{class\ }Path;}
+\DoxyCodeLine{00427\ \textcolor{keyword}{class\ }PathArgument;}
+\DoxyCodeLine{00428\ \textcolor{keyword}{class\ }Value;}
+\DoxyCodeLine{00429\ \textcolor{keyword}{class\ }ValueIteratorBase;}
+\DoxyCodeLine{00430\ \textcolor{keyword}{class\ }ValueIterator;}
+\DoxyCodeLine{00431\ \textcolor{keyword}{class\ }ValueConstIterator;}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \}\ \textcolor{comment}{//\ namespace\ Json}}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_FORWARDS\_H\_INCLUDED}}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00438\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/forwards.h}}
+\DoxyCodeLine{00439\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00446\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00447\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/json\_features.h}}
+\DoxyCodeLine{00448\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \textcolor{comment}{//\ Copyright\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{00451\ \textcolor{comment}{//\ Distributed\ under\ MIT\ license,\ or\ public\ domain\ if\ desired\ and}}
+\DoxyCodeLine{00452\ \textcolor{comment}{//\ recognized\ in\ your\ jurisdiction.}}
+\DoxyCodeLine{00453\ \textcolor{comment}{//\ See\ file\ LICENSE\ for\ detail\ or\ copy\ at\ http://jsoncpp.sourceforge.net/LICENSE}}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \textcolor{preprocessor}{\#ifndef\ JSON\_FEATURES\_H\_INCLUDED}}
+\DoxyCodeLine{00456\ \textcolor{preprocessor}{\#define\ JSON\_FEATURES\_H\_INCLUDED}}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \textcolor{preprocessor}{\#if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\#include\ "{}forwards.h"{}}}
+\DoxyCodeLine{00460\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\#pragma\ pack(push,\ 8)}}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00464\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_json}{Json}}\ \{}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00470\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_features}{Features}}\ \{}
+\DoxyCodeLine{00471\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00478\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_json_1_1_features}{Features}}\ all();}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00486\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_json_1_1_features}{Features}}\ strictMode();}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00490\ \ \ \mbox{\hyperlink{class_json_1_1_features_ad15a091cb61bb31323299a95970d2644}{Features}}();}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00493\ \ \ \textcolor{keywordtype}{bool}\ allowComments\_\{\textcolor{keyword}{true}\};}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00497\ \ \ \textcolor{keywordtype}{bool}\ strictRoot\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00500\ \ \ \textcolor{keywordtype}{bool}\ allowDroppedNullPlaceholders\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00503\ \ \ \textcolor{keywordtype}{bool}\ allowNumericKeys\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00504\ \};}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00506\ \}\ \textcolor{comment}{//\ namespace\ Json}}
+\DoxyCodeLine{00507\ }
+\DoxyCodeLine{00508\ \textcolor{preprocessor}{\#pragma\ pack(pop)}}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_FEATURES\_H\_INCLUDED}}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00513\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/json\_features.h}}
+\DoxyCodeLine{00514\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00517\ }
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00522\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/value.h}}
+\DoxyCodeLine{00523\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \textcolor{comment}{//\ Copyright\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{00526\ \textcolor{comment}{//\ Distributed\ under\ MIT\ license,\ or\ public\ domain\ if\ desired\ and}}
+\DoxyCodeLine{00527\ \textcolor{comment}{//\ recognized\ in\ your\ jurisdiction.}}
+\DoxyCodeLine{00528\ \textcolor{comment}{//\ See\ file\ LICENSE\ for\ detail\ or\ copy\ at\ http://jsoncpp.sourceforge.net/LICENSE}}
+\DoxyCodeLine{00529\ }
+\DoxyCodeLine{00530\ \textcolor{preprocessor}{\#ifndef\ JSON\_H\_INCLUDED}}
+\DoxyCodeLine{00531\ \textcolor{preprocessor}{\#define\ JSON\_H\_INCLUDED}}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00533\ \textcolor{preprocessor}{\#if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{00534\ \textcolor{preprocessor}{\#include\ "{}forwards.h"{}}}
+\DoxyCodeLine{00535\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00537\ \textcolor{comment}{//\ Conditional\ NORETURN\ attribute\ on\ the\ throw\ functions\ would:}}
+\DoxyCodeLine{00538\ \textcolor{comment}{//\ a)\ suppress\ false\ positives\ from\ static\ code\ analysis}}
+\DoxyCodeLine{00539\ \textcolor{comment}{//\ b)\ possibly\ improve\ optimization\ opportunities.}}
+\DoxyCodeLine{00540\ \textcolor{preprocessor}{\#if\ !defined(JSONCPP\_NORETURN)}}
+\DoxyCodeLine{00541\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ \&\&\ \_MSC\_VER\ ==\ 1800}}
+\DoxyCodeLine{00542\ \textcolor{preprocessor}{\#define\ JSONCPP\_NORETURN\ \_\_declspec(noreturn)}}
+\DoxyCodeLine{00543\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00544\ \textcolor{preprocessor}{\#define\ JSONCPP\_NORETURN\ [[noreturn]]}}
+\DoxyCodeLine{00545\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00546\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00548\ \textcolor{comment}{//\ Support\ for\ '=\ delete'\ with\ template\ declarations\ was\ a\ late\ addition}}
+\DoxyCodeLine{00549\ \textcolor{comment}{//\ to\ the\ c++11\ standard\ and\ is\ rejected\ by\ clang\ 3.8\ and\ Apple\ clang\ 8.2}}
+\DoxyCodeLine{00550\ \textcolor{comment}{//\ even\ though\ these\ declare\ themselves\ to\ be\ c++11\ compilers.}}
+\DoxyCodeLine{00551\ \textcolor{preprocessor}{\#if\ !defined(JSONCPP\_TEMPLATE\_DELETE)}}
+\DoxyCodeLine{00552\ \textcolor{preprocessor}{\#if\ defined(\_\_clang\_\_)\ \&\&\ defined(\_\_apple\_build\_version\_\_)}}
+\DoxyCodeLine{00553\ \textcolor{preprocessor}{\#if\ \_\_apple\_build\_version\_\_\ <=\ 8000042}}
+\DoxyCodeLine{00554\ \textcolor{preprocessor}{\#define\ JSONCPP\_TEMPLATE\_DELETE}}
+\DoxyCodeLine{00555\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00556\ \textcolor{preprocessor}{\#elif\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00557\ \textcolor{preprocessor}{\#if\ \_\_clang\_major\_\_\ ==\ 3\ \&\&\ \_\_clang\_minor\_\_\ <=\ 8}}
+\DoxyCodeLine{00558\ \textcolor{preprocessor}{\#define\ JSONCPP\_TEMPLATE\_DELETE}}
+\DoxyCodeLine{00559\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00560\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00561\ \textcolor{preprocessor}{\#if\ !defined(JSONCPP\_TEMPLATE\_DELETE)}}
+\DoxyCodeLine{00562\ \textcolor{preprocessor}{\#define\ JSONCPP\_TEMPLATE\_DELETE\ =\ delete}}
+\DoxyCodeLine{00563\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00564\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00565\ }
+\DoxyCodeLine{00566\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00567\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{00568\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00569\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00570\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00571\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00573\ \textcolor{comment}{//\ Disable\ warning\ C4251:\ <data\ member>:\ <type>\ needs\ to\ have\ dll-\/interface\ to}}
+\DoxyCodeLine{00574\ \textcolor{comment}{//\ be\ used\ by...}}
+\DoxyCodeLine{00575\ \textcolor{preprocessor}{\#if\ defined(JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING)}}
+\DoxyCodeLine{00576\ \textcolor{preprocessor}{\#pragma\ warning(push)}}
+\DoxyCodeLine{00577\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4251\ 4275)}}
+\DoxyCodeLine{00578\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING)}}
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00580\ \textcolor{preprocessor}{\#pragma\ pack(push,\ 8)}}
+\DoxyCodeLine{00581\ }
+\DoxyCodeLine{00584\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_json}{Json}}\ \{}
+\DoxyCodeLine{00585\ }
+\DoxyCodeLine{00586\ \textcolor{preprocessor}{\#if\ JSON\_USE\_EXCEPTION}}
+\DoxyCodeLine{00591\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_exception}{Exception}}\ :\ \textcolor{keyword}{public}\ std::exception\ \{}
+\DoxyCodeLine{00592\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00593\ \ \ \mbox{\hyperlink{class_json_1_1_exception}{Exception}}(String\ msg);}
+\DoxyCodeLine{00594\ \ \ \mbox{\hyperlink{class_json_1_1_exception}{\string~Exception}}()\ \textcolor{keyword}{noexcept}\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00595\ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00596\ }
+\DoxyCodeLine{00597\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00598\ \ \ String\ msg\_;}
+\DoxyCodeLine{00599\ \};}
+\DoxyCodeLine{00600\ }
+\DoxyCodeLine{00607\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_runtime_error}{RuntimeError}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_json_1_1_exception}{Exception}}\ \{}
+\DoxyCodeLine{00608\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00609\ \ \ \mbox{\hyperlink{class_json_1_1_runtime_error}{RuntimeError}}(String\ \textcolor{keyword}{const}\&\ msg);}
+\DoxyCodeLine{00610\ \};}
+\DoxyCodeLine{00611\ }
+\DoxyCodeLine{00618\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_logic_error}{LogicError}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_json_1_1_exception}{Exception}}\ \{}
+\DoxyCodeLine{00619\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00620\ \ \ \mbox{\hyperlink{class_json_1_1_logic_error}{LogicError}}(String\ \textcolor{keyword}{const}\&\ msg);}
+\DoxyCodeLine{00621\ \};}
+\DoxyCodeLine{00622\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00623\ }
+\DoxyCodeLine{00625\ JSONCPP\_NORETURN\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_json_a7062be11352221ab5886f13609f70b7e}{throwRuntimeError}}(String\ \textcolor{keyword}{const}\&\ msg);}
+\DoxyCodeLine{00627\ JSONCPP\_NORETURN\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_json_a985ba6c9956ff5f84a96ba1fb293490f}{throwLogicError}}(String\ \textcolor{keyword}{const}\&\ msg);}
+\DoxyCodeLine{00628\ }
+\DoxyCodeLine{00631\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{ValueType}}\ \{}
+\DoxyCodeLine{00632\ \ \ \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea7d9899633b4409bd3fc107e6737f8391}{nullValue}}\ =\ 0,\ }
+\DoxyCodeLine{00633\ \ \ \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eae5a9d708d5c9e23ae9bf98898522512d}{intValue}},\ \ \ \ \ \ }
+\DoxyCodeLine{00634\ \ \ \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eaea788d9a3bb00adc6d68d97d43e1ccd3}{uintValue}},\ \ \ \ \ }
+\DoxyCodeLine{00635\ \ \ \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eab837c7b869c14d8be712deb45c9e490e}{realValue}},\ \ \ \ \ }
+\DoxyCodeLine{00636\ \ \ \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea804ef857affea2d415843c73f261c258}{stringValue}},\ \ \ }
+\DoxyCodeLine{00637\ \ \ \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea14c30dbf4da86f7b809be299f671f7fd}{booleanValue}},\ \ }
+\DoxyCodeLine{00638\ \ \ \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eadc8f264f36b55b063c78126b335415f4}{arrayValue}},\ \ \ \ }
+\DoxyCodeLine{00639\ \ \ \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eae8386dcfc36d1ae897745f7b4f77a1f6}{objectValue}}\ \ \ \ }
+\DoxyCodeLine{00640\ \};}
+\DoxyCodeLine{00641\ }
+\DoxyCodeLine{00642\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{CommentPlacement}}\ \{}
+\DoxyCodeLine{00643\ \ \ \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351a52f1733775460517b2ea6bedf4906d52}{commentBefore}}\ =\ 0,\ \ \ \ \ \ }
+\DoxyCodeLine{00644\ \ \ \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351a008a230a0586de54f30b76afe70fdcfa}{commentAfterOnSameLine}},\ }
+\DoxyCodeLine{00645\ \ \ \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351ac5784ca53b12250888ddb642b06aebef}{commentAfter}},\ }
+\DoxyCodeLine{00647\ \ \ \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351abcbd3eb00417335e094e4a03379659b5}{numberOfCommentPlacement}}}
+\DoxyCodeLine{00648\ \};}
+\DoxyCodeLine{00649\ }
+\DoxyCodeLine{00652\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8}{PrecisionType}}\ \{}
+\DoxyCodeLine{00653\ \ \ \mbox{\hyperlink{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8abb30ddeaa820d370a2438dda7a08996a}{significantDigits}}\ =\ 0,\ }
+\DoxyCodeLine{00654\ \ \ \mbox{\hyperlink{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8aaee1bf0411c550a0bb2996b7b67cae87}{decimalPlaces}}\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00655\ \};}
+\DoxyCodeLine{00656\ }
+\DoxyCodeLine{00671\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_static_string}{StaticString}}\ \{}
+\DoxyCodeLine{00672\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00673\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_json_1_1_static_string}{StaticString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ czstring)\ :\ c\_str\_(czstring)\ \{\}}
+\DoxyCodeLine{00674\ }
+\DoxyCodeLine{00675\ \ \ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ c\_str\_;\ \}}
+\DoxyCodeLine{00676\ }
+\DoxyCodeLine{00677\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ c\_str()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ c\_str\_;\ \}}
+\DoxyCodeLine{00678\ }
+\DoxyCodeLine{00679\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00680\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ c\_str\_;}
+\DoxyCodeLine{00681\ \};}
+\DoxyCodeLine{00682\ }
+\DoxyCodeLine{00717\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\ \{}
+\DoxyCodeLine{00718\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_json_1_1_value_iterator_base}{ValueIteratorBase}};}
+\DoxyCodeLine{00719\ }
+\DoxyCodeLine{00720\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00721\ \ \ \textcolor{keyword}{using\ }Members\ =\ std::vector<String>;}
+\DoxyCodeLine{00722\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_json_1_1_value_iterator}{iterator}}\ =\ \mbox{\hyperlink{class_json_1_1_value_iterator}{ValueIterator}};}
+\DoxyCodeLine{00723\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_json_1_1_value_const_iterator}{const\_iterator}}\ =\ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{ValueConstIterator}};}
+\DoxyCodeLine{00724\ \ \ \textcolor{keyword}{using\ }UInt\ =\ Json::UInt;}
+\DoxyCodeLine{00725\ \ \ \textcolor{keyword}{using\ }Int\ =\ Json::Int;}
+\DoxyCodeLine{00726\ \textcolor{preprocessor}{\#if\ defined(JSON\_HAS\_INT64)}}
+\DoxyCodeLine{00727\ \ \ \textcolor{keyword}{using\ }UInt64\ =\ Json::UInt64;}
+\DoxyCodeLine{00728\ \ \ \textcolor{keyword}{using\ }Int64\ =\ Json::Int64;}
+\DoxyCodeLine{00729\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ defined(JSON\_HAS\_INT64)}}
+\DoxyCodeLine{00730\ \ \ \textcolor{keyword}{using\ }LargestInt\ =\ Json::LargestInt;}
+\DoxyCodeLine{00731\ \ \ \textcolor{keyword}{using\ }LargestUInt\ =\ Json::LargestUInt;}
+\DoxyCodeLine{00732\ \ \ \textcolor{keyword}{using\ }ArrayIndex\ =\ Json::ArrayIndex;}
+\DoxyCodeLine{00733\ }
+\DoxyCodeLine{00734\ \ \ \textcolor{comment}{//\ Required\ for\ boost\ integration,\ e.\ g.\ BOOST\_TEST}}
+\DoxyCodeLine{00735\ \ \ \textcolor{keyword}{using\ }value\_type\ =\ std::string;}
+\DoxyCodeLine{00736\ }
+\DoxyCodeLine{00737\ \textcolor{preprocessor}{\#if\ JSON\_USE\_NULLREF}}
+\DoxyCodeLine{00738\ \ \ \textcolor{comment}{//\ Binary\ compatibility\ kludges,\ do\ not\ use.}}
+\DoxyCodeLine{00739\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ null;}
+\DoxyCodeLine{00740\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ nullRef;}
+\DoxyCodeLine{00741\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00742\ }
+\DoxyCodeLine{00743\ \ \ \textcolor{comment}{//\ null\ and\ nullRef\ are\ deprecated,\ use\ this\ instead.}}
+\DoxyCodeLine{00744\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\ \textcolor{keyword}{const}\&\ nullSingleton();}
+\DoxyCodeLine{00745\ }
+\DoxyCodeLine{00747\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ LargestInt\ minLargestInt\ =}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ LargestInt(\string~(LargestUInt(-\/1)\ /\ 2));}
+\DoxyCodeLine{00750\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ LargestInt\ maxLargestInt\ =\ LargestInt(LargestUInt(-\/1)\ /\ 2);}
+\DoxyCodeLine{00752\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ LargestUInt\ maxLargestUInt\ =\ LargestUInt(-\/1);}
+\DoxyCodeLine{00753\ }
+\DoxyCodeLine{00755\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ Int\ minInt\ =\ Int(\string~(UInt(-\/1)\ /\ 2));}
+\DoxyCodeLine{00757\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ Int\ maxInt\ =\ Int(UInt(-\/1)\ /\ 2);}
+\DoxyCodeLine{00759\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ UInt\ maxUInt\ =\ UInt(-\/1);}
+\DoxyCodeLine{00760\ }
+\DoxyCodeLine{00761\ \textcolor{preprocessor}{\#if\ defined(JSON\_HAS\_INT64)}}
+\DoxyCodeLine{00763\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ Int64\ minInt64\ =\ Int64(\string~(UInt64(-\/1)\ /\ 2));}
+\DoxyCodeLine{00765\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ Int64\ maxInt64\ =\ Int64(UInt64(-\/1)\ /\ 2);}
+\DoxyCodeLine{00767\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ UInt64\ maxUInt64\ =\ UInt64(-\/1);}
+\DoxyCodeLine{00768\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ defined(JSON\_HAS\_INT64)}}
+\DoxyCodeLine{00770\ \textcolor{comment}{}\ \ static\ constexpr\ UInt\ defaultRealPrecision\ =\ 17;}
+\DoxyCodeLine{00771\ \ \ \textcolor{comment}{//\ The\ constant\ is\ hard-\/coded\ because\ some\ compiler\ have\ trouble}}
+\DoxyCodeLine{00772\ \ \ \textcolor{comment}{//\ converting\ Value::maxUInt64\ to\ a\ double\ correctly\ (AIX/xlC).}}
+\DoxyCodeLine{00773\ \ \ \textcolor{comment}{//\ Assumes\ that\ UInt64\ is\ a\ 64\ bits\ integer.}}
+\DoxyCodeLine{00774\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ maxUInt64AsDouble\ =\ 18446744073709551615.0;}
+\DoxyCodeLine{00775\ \textcolor{comment}{//\ Workaround\ for\ bug\ in\ the\ NVIDIAs\ CUDA\ 9.1\ nvcc\ compiler}}
+\DoxyCodeLine{00776\ \textcolor{comment}{//\ when\ using\ gcc\ and\ clang\ backend\ compilers.\ \ CZString}}
+\DoxyCodeLine{00777\ \textcolor{comment}{//\ cannot\ be\ defined\ as\ private.\ \ See\ issue\ \#486}}
+\DoxyCodeLine{00778\ \textcolor{preprocessor}{\#ifdef\ \_\_NVCC\_\_}}
+\DoxyCodeLine{00779\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00780\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00781\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00782\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00783\ \textcolor{preprocessor}{\#ifndef\ JSONCPP\_DOC\_EXCLUDE\_IMPLEMENTATION}}
+\DoxyCodeLine{00784\ \ \ \textcolor{keyword}{class\ }CZString\ \{}
+\DoxyCodeLine{00785\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00786\ \ \ \ \ \textcolor{keyword}{enum}\ DuplicationPolicy\ \{\ noDuplication\ =\ 0,\ duplicate,\ duplicateOnCopy\ \};}
+\DoxyCodeLine{00787\ \ \ \ \ CZString(ArrayIndex\ index);}
+\DoxyCodeLine{00788\ \ \ \ \ CZString(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ str,\ \textcolor{keywordtype}{unsigned}\ length,\ DuplicationPolicy\ allocate);}
+\DoxyCodeLine{00789\ \ \ \ \ CZString(CZString\ \textcolor{keyword}{const}\&\ other);}
+\DoxyCodeLine{00790\ \ \ \ \ CZString(CZString\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00791\ \ \ \ \ \string~CZString();}
+\DoxyCodeLine{00792\ \ \ \ \ CZString\&\ operator=(\textcolor{keyword}{const}\ CZString\&\ other);}
+\DoxyCodeLine{00793\ \ \ \ \ CZString\&\ operator=(CZString\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00794\ }
+\DoxyCodeLine{00795\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<(CZString\ \textcolor{keyword}{const}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00796\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(CZString\ \textcolor{keyword}{const}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00797\ \ \ \ \ ArrayIndex\ index()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00798\ \ \ \ \ \textcolor{comment}{//\ const\ char*\ c\_str()\ const;\ ///<\ \(\backslash\)deprecated}}
+\DoxyCodeLine{00799\ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ data()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00800\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ length()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00801\ \ \ \ \ \textcolor{keywordtype}{bool}\ isStaticString()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00802\ }
+\DoxyCodeLine{00803\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00804\ \ \ \ \ \textcolor{keywordtype}{void}\ swap(CZString\&\ other);}
+\DoxyCodeLine{00805\ }
+\DoxyCodeLine{00806\ \ \ \ \ \textcolor{keyword}{struct\ }StringStorage\ \{}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ policy\_\ :\ 2;}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ length\_\ :\ 30;\ \textcolor{comment}{//\ 1GB\ max}}
+\DoxyCodeLine{00809\ \ \ \ \ \};}
+\DoxyCodeLine{00810\ }
+\DoxyCodeLine{00811\ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ cstr\_;\ \textcolor{comment}{//\ actually,\ a\ prefixed\ string,\ unless\ policy\ is\ noDup}}
+\DoxyCodeLine{00812\ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00813\ \ \ \ \ \ \ ArrayIndex\ index\_;}
+\DoxyCodeLine{00814\ \ \ \ \ \ \ StringStorage\ storage\_;}
+\DoxyCodeLine{00815\ \ \ \ \ \};}
+\DoxyCodeLine{00816\ \ \ \};}
+\DoxyCodeLine{00817\ }
+\DoxyCodeLine{00818\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00819\ \ \ \textcolor{keyword}{typedef}\ std::map<CZString,\ Value>\ ObjectValues;}
+\DoxyCodeLine{00820\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ifndef\ JSONCPP\_DOC\_EXCLUDE\_IMPLEMENTATION}}
+\DoxyCodeLine{00821\ }
+\DoxyCodeLine{00822\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00839\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{ValueType}}\ type\ =\ nullValue);}
+\DoxyCodeLine{00840\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(Int\ value);}
+\DoxyCodeLine{00841\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(UInt\ value);}
+\DoxyCodeLine{00842\ \textcolor{preprocessor}{\#if\ defined(JSON\_HAS\_INT64)}}
+\DoxyCodeLine{00843\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(Int64\ value);}
+\DoxyCodeLine{00844\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(UInt64\ value);}
+\DoxyCodeLine{00845\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(JSON\_HAS\_INT64)}}
+\DoxyCodeLine{00846\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(\textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{00847\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ value);\ }
+\DoxyCodeLine{00848\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ begin,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ end);\ }
+\DoxyCodeLine{00866\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_static_string}{StaticString}}\&\ value);}
+\DoxyCodeLine{00867\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(\textcolor{keyword}{const}\ String\&\ value);}
+\DoxyCodeLine{00868\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(\textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00869\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(std::nullptr\_t\ ptr)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00870\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other);}
+\DoxyCodeLine{00871\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}(\mbox{\hyperlink{class_json_1_1_value}{Value}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00872\ \ \ \mbox{\hyperlink{class_json_1_1_value}{\string~Value}}();}
+\DoxyCodeLine{00873\ }
+\DoxyCodeLine{00876\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other);}
+\DoxyCodeLine{00877\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator=(\mbox{\hyperlink{class_json_1_1_value}{Value}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00878\ }
+\DoxyCodeLine{00880\ \ \ \textcolor{keywordtype}{void}\ swap(\mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other);}
+\DoxyCodeLine{00882\ \ \ \textcolor{keywordtype}{void}\ swapPayload(\mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other);}
+\DoxyCodeLine{00883\ }
+\DoxyCodeLine{00885\ \ \ \textcolor{keywordtype}{void}\ copy(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other);}
+\DoxyCodeLine{00887\ \ \ \textcolor{keywordtype}{void}\ copyPayload(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other);}
+\DoxyCodeLine{00888\ }
+\DoxyCodeLine{00889\ \ \ \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{ValueType}}\ type()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00890\ }
+\DoxyCodeLine{00892\ \ \ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00893\ \ \ \textcolor{keywordtype}{bool}\ operator<=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00894\ \ \ \textcolor{keywordtype}{bool}\ operator>=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00895\ \ \ \textcolor{keywordtype}{bool}\ operator>(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00896\ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00897\ \ \ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00898\ \ \ \textcolor{keywordtype}{int}\ compare(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00899\ }
+\DoxyCodeLine{00900\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ asCString()\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00901\ \textcolor{preprocessor}{\#if\ JSONCPP\_USING\_SECURE\_MEMORY}}
+\DoxyCodeLine{00902\ \ \ \textcolor{keywordtype}{unsigned}\ getCStringLength()\ \textcolor{keyword}{const};\ \textcolor{comment}{//\ Allows\ you\ to\ understand\ the\ length\ of}}
+\DoxyCodeLine{00903\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ CString}}
+\DoxyCodeLine{00904\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00905\ \ \ String\ asString()\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00909\ \ \ \textcolor{keywordtype}{bool}\ getString(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}**\ begin,\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}**\ end)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00910\ \ \ Int\ asInt()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00911\ \ \ UInt\ asUInt()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00912\ \textcolor{preprocessor}{\#if\ defined(JSON\_HAS\_INT64)}}
+\DoxyCodeLine{00913\ \ \ Int64\ asInt64()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00914\ \ \ UInt64\ asUInt64()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00915\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(JSON\_HAS\_INT64)}}
+\DoxyCodeLine{00916\ \ \ LargestInt\ asLargestInt()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00917\ \ \ LargestUInt\ asLargestUInt()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00918\ \ \ \textcolor{keywordtype}{float}\ asFloat()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00919\ \ \ \textcolor{keywordtype}{double}\ asDouble()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00920\ \ \ \textcolor{keywordtype}{bool}\ asBool()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00921\ }
+\DoxyCodeLine{00922\ \ \ \textcolor{keywordtype}{bool}\ isNull()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00923\ \ \ \textcolor{keywordtype}{bool}\ isBool()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00924\ \ \ \textcolor{keywordtype}{bool}\ isInt()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00925\ \ \ \textcolor{keywordtype}{bool}\ isInt64()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00926\ \ \ \textcolor{keywordtype}{bool}\ isUInt()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00927\ \ \ \textcolor{keywordtype}{bool}\ isUInt64()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00928\ \ \ \textcolor{keywordtype}{bool}\ isIntegral()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00929\ \ \ \textcolor{keywordtype}{bool}\ isDouble()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00930\ \ \ \textcolor{keywordtype}{bool}\ isNumeric()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00931\ \ \ \textcolor{keywordtype}{bool}\ isString()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00932\ \ \ \textcolor{keywordtype}{bool}\ isArray()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00933\ \ \ \textcolor{keywordtype}{bool}\ isObject()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00934\ }
+\DoxyCodeLine{00936\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ T\ \mbox{\hyperlink{class_json_1_1_value_a39c4d3d1a63c5018d5c14c98f13b6877}{as}}()\ const\ JSONCPP\_TEMPLATE\_DELETE;}
+\DoxyCodeLine{00937\ \ \ template\ <typename\ T>\ \textcolor{keywordtype}{bool}\ is()\ const\ JSONCPP\_TEMPLATE\_DELETE;}
+\DoxyCodeLine{00938\ }
+\DoxyCodeLine{00939\ \ \ \textcolor{keywordtype}{bool}\ isConvertibleTo(\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{ValueType}}\ other)\ const;}
+\DoxyCodeLine{00940\ }
+\DoxyCodeLine{00942\ \ \ ArrayIndex\ size()\ const;}
+\DoxyCodeLine{00943\ }
+\DoxyCodeLine{00946\ \ \ \textcolor{keywordtype}{bool}\ empty()\ const;}
+\DoxyCodeLine{00947\ }
+\DoxyCodeLine{00949\ \ \ explicit\ operator\ \textcolor{keywordtype}{bool}()\ const;}
+\DoxyCodeLine{00950\ }
+\DoxyCodeLine{00954\ \ \ \textcolor{keywordtype}{void}\ clear();}
+\DoxyCodeLine{00955\ }
+\DoxyCodeLine{00961\ \ \ \textcolor{keywordtype}{void}\ resize(ArrayIndex\ newSize);}
+\DoxyCodeLine{00962\ }
+\DoxyCodeLine{00964\ }
+\DoxyCodeLine{00969\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator[](ArrayIndex\ index);}
+\DoxyCodeLine{00970\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator[](\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00972\ }
+\DoxyCodeLine{00974\ }
+\DoxyCodeLine{00977\ \ \ const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator[](ArrayIndex\ index)\ const;}
+\DoxyCodeLine{00978\ \ \ const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator[](\textcolor{keywordtype}{int}\ index)\ const;}
+\DoxyCodeLine{00980\ }
+\DoxyCodeLine{00983\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\ get(ArrayIndex\ index,\ const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ defaultValue)\ const;}
+\DoxyCodeLine{00985\ \ \ \textcolor{keywordtype}{bool}\ isValidIndex(ArrayIndex\ index)\ const;}
+\DoxyCodeLine{00989\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ append(const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ value);}
+\DoxyCodeLine{00990\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ append(\mbox{\hyperlink{class_json_1_1_value}{Value}}\&\&\ value);}
+\DoxyCodeLine{00991\ }
+\DoxyCodeLine{00993\ \ \ \textcolor{keywordtype}{bool}\ insert(ArrayIndex\ index,\ const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ newValue);}
+\DoxyCodeLine{00994\ \ \ \textcolor{keywordtype}{bool}\ insert(ArrayIndex\ index,\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\&\ newValue);}
+\DoxyCodeLine{00995\ }
+\DoxyCodeLine{00999\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator[](const\ \textcolor{keywordtype}{char}*\ key);}
+\DoxyCodeLine{01002\ \ \ const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator[](const\ \textcolor{keywordtype}{char}*\ key)\ const;}
+\DoxyCodeLine{01005\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator[](const\ String\&\ key);}
+\DoxyCodeLine{01009\ \ \ const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator[](const\ String\&\ key)\ const;}
+\DoxyCodeLine{01022\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator[](const\ \mbox{\hyperlink{class_json_1_1_static_string}{StaticString}}\&\ key);}
+\DoxyCodeLine{01025\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\ get(const\ \textcolor{keywordtype}{char}*\ key,\ const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ defaultValue)\ const;}
+\DoxyCodeLine{01029\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\ get(const\ \textcolor{keywordtype}{char}*\ begin,\ const\ \textcolor{keywordtype}{char}*\ end,}
+\DoxyCodeLine{01030\ \ \ \ \ \ \ \ \ \ \ \ \ const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ defaultValue)\ const;}
+\DoxyCodeLine{01034\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\ get(const\ String\&\ key,\ const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ defaultValue)\ const;}
+\DoxyCodeLine{01038\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\ const*\ find(\textcolor{keywordtype}{char}\ const*\ begin,\ \textcolor{keywordtype}{char}\ const*\ end)\ const;}
+\DoxyCodeLine{01042\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}*\ demand(\textcolor{keywordtype}{char}\ const*\ begin,\ \textcolor{keywordtype}{char}\ const*\ end);}
+\DoxyCodeLine{01048\ \ \ \textcolor{keywordtype}{void}\ removeMember(const\ \textcolor{keywordtype}{char}*\ key);}
+\DoxyCodeLine{01051\ \ \ \textcolor{keywordtype}{void}\ removeMember(const\ String\&\ key);}
+\DoxyCodeLine{01054\ \ \ \textcolor{keywordtype}{bool}\ removeMember(const\ \textcolor{keywordtype}{char}*\ key,\ \mbox{\hyperlink{class_json_1_1_value}{Value}}*\ removed);}
+\DoxyCodeLine{01061\ \ \ \textcolor{keywordtype}{bool}\ removeMember(String\ const\&\ key,\ \mbox{\hyperlink{class_json_1_1_value}{Value}}*\ removed);}
+\DoxyCodeLine{01063\ \ \ \textcolor{keywordtype}{bool}\ removeMember(const\ \textcolor{keywordtype}{char}*\ begin,\ const\ \textcolor{keywordtype}{char}*\ end,\ \mbox{\hyperlink{class_json_1_1_value}{Value}}*\ removed);}
+\DoxyCodeLine{01070\ \ \ \textcolor{keywordtype}{bool}\ removeIndex(ArrayIndex\ index,\ \mbox{\hyperlink{class_json_1_1_value}{Value}}*\ removed);}
+\DoxyCodeLine{01071\ }
+\DoxyCodeLine{01074\ \ \ \textcolor{keywordtype}{bool}\ isMember(const\ \textcolor{keywordtype}{char}*\ key)\ const;}
+\DoxyCodeLine{01077\ \ \ \textcolor{keywordtype}{bool}\ isMember(const\ String\&\ key)\ const;}
+\DoxyCodeLine{01079\ \ \ \textcolor{keywordtype}{bool}\ isMember(const\ \textcolor{keywordtype}{char}*\ begin,\ const\ \textcolor{keywordtype}{char}*\ end)\ const;}
+\DoxyCodeLine{01080\ }
+\DoxyCodeLine{01086\ \ \ Members\ getMemberNames()\ const;}
+\DoxyCodeLine{01087\ }
+\DoxyCodeLine{01089\ \ \ JSONCPP\_DEPRECATED("{}Use\ setComment(String\ const\&)\ instead."{})}
+\DoxyCodeLine{01090\ \ \ \textcolor{keywordtype}{void}\ setComment(const\ \textcolor{keywordtype}{char}*\ comment,\ \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{CommentPlacement}}\ placement)\ \{}
+\DoxyCodeLine{01091\ \ \ \ \ setComment(String(comment,\ strlen(comment)),\ placement);}
+\DoxyCodeLine{01092\ \ \ \}}
+\DoxyCodeLine{01094\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_json_1_1_value_a2900152a2887b410a9ddabe278b9d492}{setComment}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ comment,\ \textcolor{keywordtype}{size\_t}\ len,\ \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{CommentPlacement}}\ placement)\ \{}
+\DoxyCodeLine{01095\ \ \ \ \ setComment(String(comment,\ len),\ placement);}
+\DoxyCodeLine{01096\ \ \ \}}
+\DoxyCodeLine{01098\ \ \ \textcolor{keywordtype}{void}\ setComment(String\ comment,\ \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{CommentPlacement}}\ placement);}
+\DoxyCodeLine{01099\ \ \ \textcolor{keywordtype}{bool}\ hasComment(\mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{CommentPlacement}}\ placement)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01101\ \ \ String\ getComment(\mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{CommentPlacement}}\ placement)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01102\ }
+\DoxyCodeLine{01103\ \ \ String\ toStyledString()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01104\ }
+\DoxyCodeLine{01105\ \ \ const\_iterator\ begin()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01106\ \ \ const\_iterator\ end()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01107\ }
+\DoxyCodeLine{01108\ \ \ iterator\ begin();}
+\DoxyCodeLine{01109\ \ \ iterator\ end();}
+\DoxyCodeLine{01110\ }
+\DoxyCodeLine{01111\ \ \ \textcolor{comment}{//\ Accessors\ for\ the\ [start,\ limit)\ range\ of\ bytes\ within\ the\ JSON\ text\ from}}
+\DoxyCodeLine{01112\ \ \ \textcolor{comment}{//\ which\ this\ value\ was\ parsed,\ if\ any.}}
+\DoxyCodeLine{01113\ \ \ \textcolor{keywordtype}{void}\ setOffsetStart(ptrdiff\_t\ start);}
+\DoxyCodeLine{01114\ \ \ \textcolor{keywordtype}{void}\ setOffsetLimit(ptrdiff\_t\ limit);}
+\DoxyCodeLine{01115\ \ \ ptrdiff\_t\ getOffsetStart()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01116\ \ \ ptrdiff\_t\ getOffsetLimit()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01117\ }
+\DoxyCodeLine{01118\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01119\ \ \ \textcolor{keywordtype}{void}\ setType(\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{ValueType}}\ v)\ \{}
+\DoxyCodeLine{01120\ \ \ \ \ bits\_.value\_type\_\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(v);}
+\DoxyCodeLine{01121\ \ \ \}}
+\DoxyCodeLine{01122\ \ \ \textcolor{keywordtype}{bool}\ isAllocated()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ bits\_.allocated\_;\ \}}
+\DoxyCodeLine{01123\ \ \ \textcolor{keywordtype}{void}\ setIsAllocated(\textcolor{keywordtype}{bool}\ v)\ \{\ bits\_.allocated\_\ =\ v;\ \}}
+\DoxyCodeLine{01124\ }
+\DoxyCodeLine{01125\ \ \ \textcolor{keywordtype}{void}\ initBasic(ValueType\ type,\ \textcolor{keywordtype}{bool}\ allocated\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01126\ \ \ \textcolor{keywordtype}{void}\ dupPayload(\textcolor{keyword}{const}\ Value\&\ other);}
+\DoxyCodeLine{01127\ \ \ \textcolor{keywordtype}{void}\ releasePayload();}
+\DoxyCodeLine{01128\ \ \ \textcolor{keywordtype}{void}\ dupMeta(\textcolor{keyword}{const}\ Value\&\ other);}
+\DoxyCodeLine{01129\ }
+\DoxyCodeLine{01130\ \ \ Value\&\ resolveReference(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key);}
+\DoxyCodeLine{01131\ \ \ Value\&\ resolveReference(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ end);}
+\DoxyCodeLine{01132\ }
+\DoxyCodeLine{01133\ \ \ \textcolor{comment}{//\ struct\ MemberNamesTransform}}
+\DoxyCodeLine{01134\ \ \ \textcolor{comment}{//\{}}
+\DoxyCodeLine{01135\ \ \ \textcolor{comment}{//\ \ \ typedef\ const\ char\ *result\_type;}}
+\DoxyCodeLine{01136\ \ \ \textcolor{comment}{//\ \ \ const\ char\ *operator()(\ const\ CZString\ \&name\ )\ const}}
+\DoxyCodeLine{01137\ \ \ \textcolor{comment}{//\ \ \ \{}}
+\DoxyCodeLine{01138\ \ \ \textcolor{comment}{//\ \ \ \ \ \ return\ name.c\_str();}}
+\DoxyCodeLine{01139\ \ \ \textcolor{comment}{//\ \ \ \}}}
+\DoxyCodeLine{01140\ \ \ \textcolor{comment}{//\};}}
+\DoxyCodeLine{01141\ }
+\DoxyCodeLine{01142\ \ \ \textcolor{keyword}{union\ }ValueHolder\ \{}
+\DoxyCodeLine{01143\ \ \ \ \ LargestInt\ int\_;}
+\DoxyCodeLine{01144\ \ \ \ \ LargestUInt\ uint\_;}
+\DoxyCodeLine{01145\ \ \ \ \ \textcolor{keywordtype}{double}\ real\_;}
+\DoxyCodeLine{01146\ \ \ \ \ \textcolor{keywordtype}{bool}\ bool\_;}
+\DoxyCodeLine{01147\ \ \ \ \ \textcolor{keywordtype}{char}*\ string\_;\ \textcolor{comment}{//\ if\ allocated\_,\ ptr\ to\ \{\ unsigned,\ char[]\ \}.}}
+\DoxyCodeLine{01148\ \ \ \ \ ObjectValues*\ map\_;}
+\DoxyCodeLine{01149\ \ \ \}\ value\_;}
+\DoxyCodeLine{01150\ }
+\DoxyCodeLine{01151\ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{01152\ \ \ \ \ \textcolor{comment}{//\ Really\ a\ ValueType,\ but\ types\ should\ agree\ for\ bitfield\ packing.}}
+\DoxyCodeLine{01153\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ value\_type\_\ :\ 8;}
+\DoxyCodeLine{01154\ \ \ \ \ \textcolor{comment}{//\ Unless\ allocated\_,\ string\_\ must\ be\ null-\/terminated.}}
+\DoxyCodeLine{01155\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ allocated\_\ :\ 1;}
+\DoxyCodeLine{01156\ \ \ \}\ bits\_;}
+\DoxyCodeLine{01157\ }
+\DoxyCodeLine{01158\ \ \ \textcolor{keyword}{class\ }Comments\ \{}
+\DoxyCodeLine{01159\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01160\ \ \ \ \ Comments()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{01161\ \ \ \ \ Comments(\textcolor{keyword}{const}\ Comments\&\ that);}
+\DoxyCodeLine{01162\ \ \ \ \ Comments(Comments\&\&\ that)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{01163\ \ \ \ \ Comments\&\ operator=(\textcolor{keyword}{const}\ Comments\&\ that);}
+\DoxyCodeLine{01164\ \ \ \ \ Comments\&\ operator=(Comments\&\&\ that)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{01165\ \ \ \ \ \textcolor{keywordtype}{bool}\ has(CommentPlacement\ slot)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01166\ \ \ \ \ String\ get(CommentPlacement\ slot)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01167\ \ \ \ \ \textcolor{keywordtype}{void}\ set(CommentPlacement\ slot,\ String\ comment);}
+\DoxyCodeLine{01168\ }
+\DoxyCodeLine{01169\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01170\ \ \ \ \ \textcolor{keyword}{using\ }Array\ =\ std::array<String,\ numberOfCommentPlacement>;}
+\DoxyCodeLine{01171\ \ \ \ \ std::unique\_ptr<Array>\ ptr\_;}
+\DoxyCodeLine{01172\ \ \ \};}
+\DoxyCodeLine{01173\ \ \ Comments\ comments\_;}
+\DoxyCodeLine{01174\ }
+\DoxyCodeLine{01175\ \ \ \textcolor{comment}{//\ [start,\ limit)\ byte\ offsets\ in\ the\ source\ JSON\ text\ from\ which\ this\ Value}}
+\DoxyCodeLine{01176\ \ \ \textcolor{comment}{//\ was\ extracted.}}
+\DoxyCodeLine{01177\ \ \ ptrdiff\_t\ start\_;}
+\DoxyCodeLine{01178\ \ \ ptrdiff\_t\ limit\_;}
+\DoxyCodeLine{01179\ \};}
+\DoxyCodeLine{01180\ }
+\DoxyCodeLine{01181\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Value::as<bool>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ asBool();\ \}}
+\DoxyCodeLine{01182\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Value::is<bool>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ isBool();\ \}}
+\DoxyCodeLine{01183\ }
+\DoxyCodeLine{01184\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ Int\ Value::as<Int>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ asInt();\ \}}
+\DoxyCodeLine{01185\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Value::is<Int>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ isInt();\ \}}
+\DoxyCodeLine{01186\ }
+\DoxyCodeLine{01187\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ UInt\ Value::as<UInt>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ asUInt();\ \}}
+\DoxyCodeLine{01188\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Value::is<UInt>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ isUInt();\ \}}
+\DoxyCodeLine{01189\ }
+\DoxyCodeLine{01190\ \textcolor{preprocessor}{\#if\ defined(JSON\_HAS\_INT64)}}
+\DoxyCodeLine{01191\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ Int64\ Value::as<Int64>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ asInt64();\ \}}
+\DoxyCodeLine{01192\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Value::is<Int64>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ isInt64();\ \}}
+\DoxyCodeLine{01193\ }
+\DoxyCodeLine{01194\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ UInt64\ Value::as<UInt64>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ asUInt64();\ \}}
+\DoxyCodeLine{01195\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Value::is<UInt64>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ isUInt64();\ \}}
+\DoxyCodeLine{01196\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01197\ }
+\DoxyCodeLine{01198\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Value::as<double>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ asDouble();\ \}}
+\DoxyCodeLine{01199\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Value::is<double>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ isDouble();\ \}}
+\DoxyCodeLine{01200\ }
+\DoxyCodeLine{01201\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ String\ Value::as<String>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_json_1_1_value_a52207c8d4e86160f968a40817cb2529b}{asString}}();\ \}}
+\DoxyCodeLine{01202\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Value::is<String>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ isString();\ \}}
+\DoxyCodeLine{01203\ }
+\DoxyCodeLine{01206\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ Value::as<float>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ asFloat();\ \}}
+\DoxyCodeLine{01207\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ Value::as<const\ char*>()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{01208\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_json_1_1_value_a16668c8db7ef0a5de040012f0dfd84b0}{asCString}}();}
+\DoxyCodeLine{01209\ \}}
+\DoxyCodeLine{01210\ }
+\DoxyCodeLine{01214\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}\ \{}
+\DoxyCodeLine{01215\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01216\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_json_1_1_path}{Path}};}
+\DoxyCodeLine{01217\ }
+\DoxyCodeLine{01218\ \ \ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}();}
+\DoxyCodeLine{01219\ \ \ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}(ArrayIndex\ index);}
+\DoxyCodeLine{01220\ \ \ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ key);}
+\DoxyCodeLine{01221\ \ \ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}(String\ key);}
+\DoxyCodeLine{01222\ }
+\DoxyCodeLine{01223\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01224\ \ \ \textcolor{keyword}{enum}\ Kind\ \{\ kindNone\ =\ 0,\ kindIndex,\ kindKey\ \};}
+\DoxyCodeLine{01225\ \ \ String\ key\_;}
+\DoxyCodeLine{01226\ \ \ ArrayIndex\ index\_\{\};}
+\DoxyCodeLine{01227\ \ \ Kind\ kind\_\{kindNone\};}
+\DoxyCodeLine{01228\ \};}
+\DoxyCodeLine{01229\ }
+\DoxyCodeLine{01241\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_path}{Path}}\ \{}
+\DoxyCodeLine{01242\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01243\ \ \ \mbox{\hyperlink{class_json_1_1_path}{Path}}(\textcolor{keyword}{const}\ String\&\ path,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}\&\ a1\ =\ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}(),}
+\DoxyCodeLine{01244\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}\&\ a2\ =\ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}(),}
+\DoxyCodeLine{01245\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}\&\ a3\ =\ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}(),}
+\DoxyCodeLine{01246\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}\&\ a4\ =\ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}(),}
+\DoxyCodeLine{01247\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}\&\ a5\ =\ \mbox{\hyperlink{class_json_1_1_path_argument}{PathArgument}}());}
+\DoxyCodeLine{01248\ }
+\DoxyCodeLine{01249\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ resolve(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01250\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\ resolve(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ defaultValue)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01253\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ make(\mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01254\ }
+\DoxyCodeLine{01255\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01256\ \ \ \textcolor{keyword}{using\ }InArgs\ =\ std::vector<const\ PathArgument*>;}
+\DoxyCodeLine{01257\ \ \ \textcolor{keyword}{using\ }Args\ =\ std::vector<PathArgument>;}
+\DoxyCodeLine{01258\ }
+\DoxyCodeLine{01259\ \ \ \textcolor{keywordtype}{void}\ makePath(\textcolor{keyword}{const}\ String\&\ path,\ \textcolor{keyword}{const}\ InArgs\&\ in);}
+\DoxyCodeLine{01260\ \ \ \textcolor{keywordtype}{void}\ addPathInArg(\textcolor{keyword}{const}\ String\&\ path,\ \textcolor{keyword}{const}\ InArgs\&\ in,}
+\DoxyCodeLine{01261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InArgs::const\_iterator\&\ itInArg,\ PathArgument::Kind\ kind);}
+\DoxyCodeLine{01262\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ invalidPath(\textcolor{keyword}{const}\ String\&\ path,\ \textcolor{keywordtype}{int}\ location);}
+\DoxyCodeLine{01263\ }
+\DoxyCodeLine{01264\ \ \ Args\ args\_;}
+\DoxyCodeLine{01265\ \};}
+\DoxyCodeLine{01266\ }
+\DoxyCodeLine{01270\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{ValueIteratorBase}}\ \{}
+\DoxyCodeLine{01271\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01272\ \ \ \textcolor{keyword}{using\ }iterator\_category\ =\ std::bidirectional\_iterator\_tag;}
+\DoxyCodeLine{01273\ \ \ \textcolor{keyword}{using\ }size\_t\ =\ \textcolor{keywordtype}{unsigned}\ int;}
+\DoxyCodeLine{01274\ \ \ \textcolor{keyword}{using\ }difference\_type\ =\ int;}
+\DoxyCodeLine{01275\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_json_1_1_value_iterator_base}{SelfType}}\ =\ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{ValueIteratorBase}};}
+\DoxyCodeLine{01276\ }
+\DoxyCodeLine{01277\ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{SelfType}}\&\ other)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ isEqual(other);\ \}}
+\DoxyCodeLine{01278\ }
+\DoxyCodeLine{01279\ \ \ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{SelfType}}\&\ other)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ !isEqual(other);\ \}}
+\DoxyCodeLine{01280\ }
+\DoxyCodeLine{01281\ \ \ difference\_type\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{SelfType}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{01282\ \ \ \ \ \textcolor{keywordflow}{return}\ other.computeDistance(*\textcolor{keyword}{this});}
+\DoxyCodeLine{01283\ \ \ \}}
+\DoxyCodeLine{01284\ }
+\DoxyCodeLine{01287\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\ key()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01288\ }
+\DoxyCodeLine{01291\ \ \ UInt\ index()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01292\ }
+\DoxyCodeLine{01296\ \ \ String\ name()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01297\ }
+\DoxyCodeLine{01302\ \ \ JSONCPP\_DEPRECATED(\textcolor{stringliteral}{"{}Use\ `key\ =\ name();`\ instead."{}})}
+\DoxyCodeLine{01303\ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ memberName()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01307\ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ memberName(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}**\ end)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01308\ }
+\DoxyCodeLine{01309\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{01316\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ deref()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01317\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ deref();}
+\DoxyCodeLine{01318\ }
+\DoxyCodeLine{01319\ \ \ \textcolor{keywordtype}{void}\ increment();}
+\DoxyCodeLine{01320\ }
+\DoxyCodeLine{01321\ \ \ \textcolor{keywordtype}{void}\ decrement();}
+\DoxyCodeLine{01322\ }
+\DoxyCodeLine{01323\ \ \ difference\_type\ computeDistance(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{SelfType}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01324\ }
+\DoxyCodeLine{01325\ \ \ \textcolor{keywordtype}{bool}\ isEqual(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{SelfType}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01326\ }
+\DoxyCodeLine{01327\ \ \ \textcolor{keywordtype}{void}\ copy(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{SelfType}}\&\ other);}
+\DoxyCodeLine{01328\ }
+\DoxyCodeLine{01329\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01330\ \ \ Value::ObjectValues::iterator\ current\_;}
+\DoxyCodeLine{01331\ \ \ \textcolor{comment}{//\ Indicates\ that\ iterator\ is\ for\ a\ null\ value.}}
+\DoxyCodeLine{01332\ \ \ \textcolor{keywordtype}{bool}\ isNull\_\{\textcolor{keyword}{true}\};}
+\DoxyCodeLine{01333\ }
+\DoxyCodeLine{01334\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01335\ \ \ \textcolor{comment}{//\ For\ some\ reason,\ BORLAND\ needs\ these\ at\ the\ end,\ rather}}
+\DoxyCodeLine{01336\ \ \ \textcolor{comment}{//\ than\ earlier.\ No\ idea\ why.}}
+\DoxyCodeLine{01337\ \ \ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{ValueIteratorBase}}();}
+\DoxyCodeLine{01338\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{ValueIteratorBase}}(\textcolor{keyword}{const}\ Value::ObjectValues::iterator\&\ current);}
+\DoxyCodeLine{01339\ \};}
+\DoxyCodeLine{01340\ }
+\DoxyCodeLine{01344\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{ValueConstIterator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{ValueIteratorBase}}\ \{}
+\DoxyCodeLine{01345\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_json_1_1_value}{Value}};}
+\DoxyCodeLine{01346\ }
+\DoxyCodeLine{01347\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01348\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_json_1_1_value}{value\_type}}\ =\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}};}
+\DoxyCodeLine{01349\ \ \ \textcolor{comment}{//\ typedef\ unsigned\ int\ size\_t;}}
+\DoxyCodeLine{01350\ \ \ \textcolor{comment}{//\ typedef\ int\ difference\_type;}}
+\DoxyCodeLine{01351\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_json_1_1_value}{reference}}\ =\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&;}
+\DoxyCodeLine{01352\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_json_1_1_value}{pointer}}\ =\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}*;}
+\DoxyCodeLine{01353\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_json_1_1_value_const_iterator}{SelfType}}\ =\ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{ValueConstIterator}};}
+\DoxyCodeLine{01354\ }
+\DoxyCodeLine{01355\ \ \ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{ValueConstIterator}}();}
+\DoxyCodeLine{01356\ \ \ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{ValueConstIterator}}(\mbox{\hyperlink{class_json_1_1_value_iterator}{ValueIterator}}\ \textcolor{keyword}{const}\&\ other);}
+\DoxyCodeLine{01357\ }
+\DoxyCodeLine{01358\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01361\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{ValueConstIterator}}(\textcolor{keyword}{const}\ Value::ObjectValues::iterator\&\ current);}
+\DoxyCodeLine{01362\ }
+\DoxyCodeLine{01363\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01364\ \ \ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{SelfType}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{ValueIteratorBase}}\&\ other);}
+\DoxyCodeLine{01365\ }
+\DoxyCodeLine{01366\ \ \ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{SelfType}}\ operator++(\textcolor{keywordtype}{int})\ \{}
+\DoxyCodeLine{01367\ \ \ \ \ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{SelfType}}\ temp(*\textcolor{keyword}{this});}
+\DoxyCodeLine{01368\ \ \ \ \ ++*\textcolor{keyword}{this};}
+\DoxyCodeLine{01369\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{01370\ \ \ \}}
+\DoxyCodeLine{01371\ }
+\DoxyCodeLine{01372\ \ \ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{SelfType}}\ operator-\/-\/(\textcolor{keywordtype}{int})\ \{}
+\DoxyCodeLine{01373\ \ \ \ \ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{SelfType}}\ temp(*\textcolor{keyword}{this});}
+\DoxyCodeLine{01374\ \ \ \ \ -\/-\/*\textcolor{keyword}{this};}
+\DoxyCodeLine{01375\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{01376\ \ \ \}}
+\DoxyCodeLine{01377\ }
+\DoxyCodeLine{01378\ \ \ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{SelfType}}\&\ operator-\/-\/()\ \{}
+\DoxyCodeLine{01379\ \ \ \ \ decrement();}
+\DoxyCodeLine{01380\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{01381\ \ \ \}}
+\DoxyCodeLine{01382\ }
+\DoxyCodeLine{01383\ \ \ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{SelfType}}\&\ operator++()\ \{}
+\DoxyCodeLine{01384\ \ \ \ \ increment();}
+\DoxyCodeLine{01385\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{01386\ \ \ \}}
+\DoxyCodeLine{01387\ }
+\DoxyCodeLine{01388\ \ \ \mbox{\hyperlink{class_json_1_1_value}{reference}}\ operator*()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ deref();\ \}}
+\DoxyCodeLine{01389\ }
+\DoxyCodeLine{01390\ \ \ \mbox{\hyperlink{class_json_1_1_value}{pointer}}\ operator-\/>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \&deref();\ \}}
+\DoxyCodeLine{01391\ \};}
+\DoxyCodeLine{01392\ }
+\DoxyCodeLine{01395\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_value_iterator}{ValueIterator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_json_1_1_value_iterator_base}{ValueIteratorBase}}\ \{}
+\DoxyCodeLine{01396\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_json_1_1_value}{Value}};}
+\DoxyCodeLine{01397\ }
+\DoxyCodeLine{01398\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01399\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_json_1_1_value}{value\_type}}\ =\ \mbox{\hyperlink{class_json_1_1_value}{Value}};}
+\DoxyCodeLine{01400\ \ \ \textcolor{keyword}{using\ }size\_t\ =\ \textcolor{keywordtype}{unsigned}\ int;}
+\DoxyCodeLine{01401\ \ \ \textcolor{keyword}{using\ }difference\_type\ =\ int;}
+\DoxyCodeLine{01402\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_json_1_1_value}{reference}}\ =\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&;}
+\DoxyCodeLine{01403\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_json_1_1_value}{pointer}}\ =\ \mbox{\hyperlink{class_json_1_1_value}{Value}}*;}
+\DoxyCodeLine{01404\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_json_1_1_value_iterator}{SelfType}}\ =\ \mbox{\hyperlink{class_json_1_1_value_iterator}{ValueIterator}};}
+\DoxyCodeLine{01405\ }
+\DoxyCodeLine{01406\ \ \ \mbox{\hyperlink{class_json_1_1_value_iterator}{ValueIterator}}();}
+\DoxyCodeLine{01407\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_json_1_1_value_iterator}{ValueIterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value_const_iterator}{ValueConstIterator}}\&\ other);}
+\DoxyCodeLine{01408\ \ \ \mbox{\hyperlink{class_json_1_1_value_iterator}{ValueIterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value_iterator}{ValueIterator}}\&\ other);}
+\DoxyCodeLine{01409\ }
+\DoxyCodeLine{01410\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01413\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_json_1_1_value_iterator}{ValueIterator}}(\textcolor{keyword}{const}\ Value::ObjectValues::iterator\&\ current);}
+\DoxyCodeLine{01414\ }
+\DoxyCodeLine{01415\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01416\ \ \ \mbox{\hyperlink{class_json_1_1_value_iterator}{SelfType}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value_iterator}{SelfType}}\&\ other);}
+\DoxyCodeLine{01417\ }
+\DoxyCodeLine{01418\ \ \ \mbox{\hyperlink{class_json_1_1_value_iterator}{SelfType}}\ operator++(\textcolor{keywordtype}{int})\ \{}
+\DoxyCodeLine{01419\ \ \ \ \ \mbox{\hyperlink{class_json_1_1_value_iterator}{SelfType}}\ temp(*\textcolor{keyword}{this});}
+\DoxyCodeLine{01420\ \ \ \ \ ++*\textcolor{keyword}{this};}
+\DoxyCodeLine{01421\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{01422\ \ \ \}}
+\DoxyCodeLine{01423\ }
+\DoxyCodeLine{01424\ \ \ \mbox{\hyperlink{class_json_1_1_value_iterator}{SelfType}}\ operator-\/-\/(\textcolor{keywordtype}{int})\ \{}
+\DoxyCodeLine{01425\ \ \ \ \ \mbox{\hyperlink{class_json_1_1_value_iterator}{SelfType}}\ temp(*\textcolor{keyword}{this});}
+\DoxyCodeLine{01426\ \ \ \ \ -\/-\/*\textcolor{keyword}{this};}
+\DoxyCodeLine{01427\ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{01428\ \ \ \}}
+\DoxyCodeLine{01429\ }
+\DoxyCodeLine{01430\ \ \ \mbox{\hyperlink{class_json_1_1_value_iterator}{SelfType}}\&\ operator-\/-\/()\ \{}
+\DoxyCodeLine{01431\ \ \ \ \ decrement();}
+\DoxyCodeLine{01432\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{01433\ \ \ \}}
+\DoxyCodeLine{01434\ }
+\DoxyCodeLine{01435\ \ \ \mbox{\hyperlink{class_json_1_1_value_iterator}{SelfType}}\&\ operator++()\ \{}
+\DoxyCodeLine{01436\ \ \ \ \ increment();}
+\DoxyCodeLine{01437\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{01438\ \ \ \}}
+\DoxyCodeLine{01439\ }
+\DoxyCodeLine{01445\ \ \ \mbox{\hyperlink{class_json_1_1_value}{reference}}\ \mbox{\hyperlink{class_json_1_1_value_iterator_a3be48b0c1729ec2532f1ff27ad465d32}{operator*}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{class_json_1_1_value}{reference}}\textcolor{keyword}{>}(deref());\ \}}
+\DoxyCodeLine{01446\ \ \ pointer\ operator-\/>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{const\_cast<}pointer\textcolor{keyword}{>}(\&deref());\ \}}
+\DoxyCodeLine{01447\ \};}
+\DoxyCodeLine{01448\ }
+\DoxyCodeLine{01449\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ swap(Value\&\ a,\ Value\&\ b)\ \{\ a.swap(b);\ \}}
+\DoxyCodeLine{01450\ }
+\DoxyCodeLine{01451\ \}\ \textcolor{comment}{//\ namespace\ Json}}
+\DoxyCodeLine{01452\ }
+\DoxyCodeLine{01453\ \textcolor{preprocessor}{\#pragma\ pack(pop)}}
+\DoxyCodeLine{01454\ }
+\DoxyCodeLine{01455\ \textcolor{preprocessor}{\#if\ defined(JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING)}}
+\DoxyCodeLine{01456\ \textcolor{preprocessor}{\#pragma\ warning(pop)}}
+\DoxyCodeLine{01457\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING)}}
+\DoxyCodeLine{01458\ }
+\DoxyCodeLine{01459\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_H\_INCLUDED}}
+\DoxyCodeLine{01460\ }
+\DoxyCodeLine{01461\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{01462\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/value.h}}
+\DoxyCodeLine{01463\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{01464\ }
+\DoxyCodeLine{01465\ }
+\DoxyCodeLine{01466\ }
+\DoxyCodeLine{01467\ }
+\DoxyCodeLine{01468\ }
+\DoxyCodeLine{01469\ }
+\DoxyCodeLine{01470\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{01471\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/reader.h}}
+\DoxyCodeLine{01472\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{01473\ }
+\DoxyCodeLine{01474\ \textcolor{comment}{//\ Copyright\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{01475\ \textcolor{comment}{//\ Distributed\ under\ MIT\ license,\ or\ public\ domain\ if\ desired\ and}}
+\DoxyCodeLine{01476\ \textcolor{comment}{//\ recognized\ in\ your\ jurisdiction.}}
+\DoxyCodeLine{01477\ \textcolor{comment}{//\ See\ file\ LICENSE\ for\ detail\ or\ copy\ at\ http://jsoncpp.sourceforge.net/LICENSE}}
+\DoxyCodeLine{01478\ }
+\DoxyCodeLine{01479\ \textcolor{preprocessor}{\#ifndef\ JSON\_READER\_H\_INCLUDED}}
+\DoxyCodeLine{01480\ \textcolor{preprocessor}{\#define\ JSON\_READER\_H\_INCLUDED}}
+\DoxyCodeLine{01481\ }
+\DoxyCodeLine{01482\ \textcolor{preprocessor}{\#if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{01483\ \textcolor{preprocessor}{\#include\ "{}json\_features.h"{}}}
+\DoxyCodeLine{01484\ \textcolor{preprocessor}{\#include\ "{}value.h"{}}}
+\DoxyCodeLine{01485\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{01486\ \textcolor{preprocessor}{\#include\ <deque>}}
+\DoxyCodeLine{01487\ \textcolor{preprocessor}{\#include\ <iosfwd>}}
+\DoxyCodeLine{01488\ \textcolor{preprocessor}{\#include\ <istream>}}
+\DoxyCodeLine{01489\ \textcolor{preprocessor}{\#include\ <stack>}}
+\DoxyCodeLine{01490\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{01491\ }
+\DoxyCodeLine{01492\ \textcolor{comment}{//\ Disable\ warning\ C4251:\ <data\ member>:\ <type>\ needs\ to\ have\ dll-\/interface\ to}}
+\DoxyCodeLine{01493\ \textcolor{comment}{//\ be\ used\ by...}}
+\DoxyCodeLine{01494\ \textcolor{preprocessor}{\#if\ defined(JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING)}}
+\DoxyCodeLine{01495\ \textcolor{preprocessor}{\#pragma\ warning(push)}}
+\DoxyCodeLine{01496\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4251)}}
+\DoxyCodeLine{01497\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING)}}
+\DoxyCodeLine{01498\ }
+\DoxyCodeLine{01499\ \textcolor{preprocessor}{\#pragma\ pack(push,\ 8)}}
+\DoxyCodeLine{01500\ }
+\DoxyCodeLine{01501\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_json}{Json}}\ \{}
+\DoxyCodeLine{01502\ }
+\DoxyCodeLine{01509\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_reader}{Reader}}\ \{}
+\DoxyCodeLine{01510\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01511\ \ \ \textcolor{keyword}{using\ }Char\ =\ char;}
+\DoxyCodeLine{01512\ \ \ \textcolor{keyword}{using\ }Location\ =\ \textcolor{keyword}{const}\ Char*;}
+\DoxyCodeLine{01513\ }
+\DoxyCodeLine{01519\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_json_1_1_reader_1_1_structured_error}{StructuredError}}\ \{}
+\DoxyCodeLine{01520\ \ \ \ \ ptrdiff\_t\ offset\_start;}
+\DoxyCodeLine{01521\ \ \ \ \ ptrdiff\_t\ offset\_limit;}
+\DoxyCodeLine{01522\ \ \ \ \ String\ message;}
+\DoxyCodeLine{01523\ \ \ \};}
+\DoxyCodeLine{01524\ }
+\DoxyCodeLine{01528\ \ \ \mbox{\hyperlink{class_json_1_1_reader}{Reader}}();}
+\DoxyCodeLine{01529\ }
+\DoxyCodeLine{01533\ \ \ \mbox{\hyperlink{class_json_1_1_reader}{Reader}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_features}{Features}}\&\ features);}
+\DoxyCodeLine{01534\ }
+\DoxyCodeLine{01549\ \ \ \textcolor{keywordtype}{bool}\ parse(\textcolor{keyword}{const}\ std::string\&\ document,\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root,}
+\DoxyCodeLine{01550\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ collectComments\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{01551\ }
+\DoxyCodeLine{01568\ \ \ \textcolor{keywordtype}{bool}\ parse(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ beginDoc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ endDoc,\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root,}
+\DoxyCodeLine{01569\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ collectComments\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{01570\ }
+\DoxyCodeLine{01573\ \ \ \textcolor{keywordtype}{bool}\ parse(IStream\&\ is,\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root,\ \textcolor{keywordtype}{bool}\ collectComments\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{01574\ }
+\DoxyCodeLine{01583\ \ \ JSONCPP\_DEPRECATED(\textcolor{stringliteral}{"{}Use\ getFormattedErrorMessages()\ instead."{}})}
+\DoxyCodeLine{01584\ \ \ String\ getFormatedErrorMessages()\ const;}
+\DoxyCodeLine{01585\ }
+\DoxyCodeLine{01593\ \ \ String\ getFormattedErrorMessages()\ const;}
+\DoxyCodeLine{01594\ }
+\DoxyCodeLine{01602\ \ \ std::vector<\mbox{\hyperlink{struct_json_1_1_reader_1_1_structured_error}{StructuredError}}>\ getStructuredErrors()\ const;}
+\DoxyCodeLine{01603\ }
+\DoxyCodeLine{01611\ \ \ \textcolor{keywordtype}{bool}\ pushError(const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ value,\ const\ String\&\ message);}
+\DoxyCodeLine{01612\ }
+\DoxyCodeLine{01621\ \ \ \textcolor{keywordtype}{bool}\ pushError(const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ value,\ const\ String\&\ message,\ const\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ extra);}
+\DoxyCodeLine{01622\ }
+\DoxyCodeLine{01628\ \ \ \textcolor{keywordtype}{bool}\ good()\ const;}
+\DoxyCodeLine{01629\ }
+\DoxyCodeLine{01630\ private:}
+\DoxyCodeLine{01631\ \ \ enum\ TokenType\ \{}
+\DoxyCodeLine{01632\ \ \ \ \ tokenEndOfStream\ =\ 0,}
+\DoxyCodeLine{01633\ \ \ \ \ tokenObjectBegin,}
+\DoxyCodeLine{01634\ \ \ \ \ tokenObjectEnd,}
+\DoxyCodeLine{01635\ \ \ \ \ tokenArrayBegin,}
+\DoxyCodeLine{01636\ \ \ \ \ tokenArrayEnd,}
+\DoxyCodeLine{01637\ \ \ \ \ tokenString,}
+\DoxyCodeLine{01638\ \ \ \ \ tokenNumber,}
+\DoxyCodeLine{01639\ \ \ \ \ tokenTrue,}
+\DoxyCodeLine{01640\ \ \ \ \ tokenFalse,}
+\DoxyCodeLine{01641\ \ \ \ \ tokenNull,}
+\DoxyCodeLine{01642\ \ \ \ \ tokenArraySeparator,}
+\DoxyCodeLine{01643\ \ \ \ \ tokenMemberSeparator,}
+\DoxyCodeLine{01644\ \ \ \ \ tokenComment,}
+\DoxyCodeLine{01645\ \ \ \ \ tokenError}
+\DoxyCodeLine{01646\ \ \ \};}
+\DoxyCodeLine{01647\ }
+\DoxyCodeLine{01648\ \ \ \textcolor{keyword}{class\ }Token\ \{}
+\DoxyCodeLine{01649\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01650\ \ \ \ \ TokenType\ type\_;}
+\DoxyCodeLine{01651\ \ \ \ \ Location\ start\_;}
+\DoxyCodeLine{01652\ \ \ \ \ Location\ end\_;}
+\DoxyCodeLine{01653\ \ \ \};}
+\DoxyCodeLine{01654\ }
+\DoxyCodeLine{01655\ \ \ \textcolor{keyword}{class\ }ErrorInfo\ \{}
+\DoxyCodeLine{01656\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01657\ \ \ \ \ Token\ token\_;}
+\DoxyCodeLine{01658\ \ \ \ \ String\ message\_;}
+\DoxyCodeLine{01659\ \ \ \ \ Location\ extra\_;}
+\DoxyCodeLine{01660\ \ \ \};}
+\DoxyCodeLine{01661\ }
+\DoxyCodeLine{01662\ \ \ \textcolor{keyword}{using\ }Errors\ =\ std::deque<ErrorInfo>;}
+\DoxyCodeLine{01663\ }
+\DoxyCodeLine{01664\ \ \ \textcolor{keywordtype}{bool}\ readToken(Token\&\ token);}
+\DoxyCodeLine{01665\ \ \ \textcolor{keywordtype}{void}\ skipSpaces();}
+\DoxyCodeLine{01666\ \ \ \textcolor{keywordtype}{bool}\ match(\textcolor{keyword}{const}\ Char*\ pattern,\ \textcolor{keywordtype}{int}\ patternLength);}
+\DoxyCodeLine{01667\ \ \ \textcolor{keywordtype}{bool}\ readComment();}
+\DoxyCodeLine{01668\ \ \ \textcolor{keywordtype}{bool}\ readCStyleComment();}
+\DoxyCodeLine{01669\ \ \ \textcolor{keywordtype}{bool}\ readCppStyleComment();}
+\DoxyCodeLine{01670\ \ \ \textcolor{keywordtype}{bool}\ readString();}
+\DoxyCodeLine{01671\ \ \ \textcolor{keywordtype}{void}\ readNumber();}
+\DoxyCodeLine{01672\ \ \ \textcolor{keywordtype}{bool}\ readValue();}
+\DoxyCodeLine{01673\ \ \ \textcolor{keywordtype}{bool}\ readObject(Token\&\ token);}
+\DoxyCodeLine{01674\ \ \ \textcolor{keywordtype}{bool}\ readArray(Token\&\ token);}
+\DoxyCodeLine{01675\ \ \ \textcolor{keywordtype}{bool}\ decodeNumber(Token\&\ token);}
+\DoxyCodeLine{01676\ \ \ \textcolor{keywordtype}{bool}\ decodeNumber(Token\&\ token,\ Value\&\ decoded);}
+\DoxyCodeLine{01677\ \ \ \textcolor{keywordtype}{bool}\ decodeString(Token\&\ token);}
+\DoxyCodeLine{01678\ \ \ \textcolor{keywordtype}{bool}\ decodeString(Token\&\ token,\ String\&\ decoded);}
+\DoxyCodeLine{01679\ \ \ \textcolor{keywordtype}{bool}\ decodeDouble(Token\&\ token);}
+\DoxyCodeLine{01680\ \ \ \textcolor{keywordtype}{bool}\ decodeDouble(Token\&\ token,\ Value\&\ decoded);}
+\DoxyCodeLine{01681\ \ \ \textcolor{keywordtype}{bool}\ decodeUnicodeCodePoint(Token\&\ token,\ Location\&\ current,\ Location\ end,}
+\DoxyCodeLine{01682\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ unicode);}
+\DoxyCodeLine{01683\ \ \ \textcolor{keywordtype}{bool}\ decodeUnicodeEscapeSequence(Token\&\ token,\ Location\&\ current,}
+\DoxyCodeLine{01684\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Location\ end,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ unicode);}
+\DoxyCodeLine{01685\ \ \ \textcolor{keywordtype}{bool}\ addError(\textcolor{keyword}{const}\ String\&\ message,\ Token\&\ token,\ Location\ extra\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{01686\ \ \ \textcolor{keywordtype}{bool}\ recoverFromError(TokenType\ skipUntilToken);}
+\DoxyCodeLine{01687\ \ \ \textcolor{keywordtype}{bool}\ addErrorAndRecover(\textcolor{keyword}{const}\ String\&\ message,\ Token\&\ token,}
+\DoxyCodeLine{01688\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TokenType\ skipUntilToken);}
+\DoxyCodeLine{01689\ \ \ \textcolor{keywordtype}{void}\ skipUntilSpace();}
+\DoxyCodeLine{01690\ \ \ Value\&\ currentValue();}
+\DoxyCodeLine{01691\ \ \ Char\ getNextChar();}
+\DoxyCodeLine{01692\ \ \ \textcolor{keywordtype}{void}\ getLocationLineAndColumn(Location\ location,\ \textcolor{keywordtype}{int}\&\ line,}
+\DoxyCodeLine{01693\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ column)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01694\ \ \ String\ getLocationLineAndColumn(Location\ location)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01695\ \ \ \textcolor{keywordtype}{void}\ addComment(Location\ begin,\ Location\ end,\ CommentPlacement\ placement);}
+\DoxyCodeLine{01696\ \ \ \textcolor{keywordtype}{void}\ skipCommentTokens(Token\&\ token);}
+\DoxyCodeLine{01697\ }
+\DoxyCodeLine{01698\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ containsNewLine(Location\ begin,\ Location\ end);}
+\DoxyCodeLine{01699\ \ \ \textcolor{keyword}{static}\ String\ normalizeEOL(Location\ begin,\ Location\ end);}
+\DoxyCodeLine{01700\ }
+\DoxyCodeLine{01701\ \ \ \textcolor{keyword}{using\ }Nodes\ =\ std::stack<Value*>;}
+\DoxyCodeLine{01702\ \ \ Nodes\ nodes\_;}
+\DoxyCodeLine{01703\ \ \ Errors\ errors\_;}
+\DoxyCodeLine{01704\ \ \ String\ document\_;}
+\DoxyCodeLine{01705\ \ \ Location\ begin\_\{\};}
+\DoxyCodeLine{01706\ \ \ Location\ end\_\{\};}
+\DoxyCodeLine{01707\ \ \ Location\ current\_\{\};}
+\DoxyCodeLine{01708\ \ \ Location\ lastValueEnd\_\{\};}
+\DoxyCodeLine{01709\ \ \ Value*\ lastValue\_\{\};}
+\DoxyCodeLine{01710\ \ \ String\ commentsBefore\_;}
+\DoxyCodeLine{01711\ \ \ Features\ features\_;}
+\DoxyCodeLine{01712\ \ \ \textcolor{keywordtype}{bool}\ collectComments\_\{\};}
+\DoxyCodeLine{01713\ \};\ \textcolor{comment}{//\ Reader}}
+\DoxyCodeLine{01714\ }
+\DoxyCodeLine{01717\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_char_reader}{CharReader}}\ \{}
+\DoxyCodeLine{01718\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01719\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_json_1_1_char_reader}{\string~CharReader}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{01736\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_json_1_1_char_reader_a65517004c4b5b1dc659ab966b3cea4cf}{parse}}(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ beginDoc,\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ endDoc,\ \mbox{\hyperlink{class_json_1_1_value}{Value}}*\ root,}
+\DoxyCodeLine{01737\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String*\ errs)\ =\ 0;}
+\DoxyCodeLine{01738\ }
+\DoxyCodeLine{01739\ \ \ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_char_reader_1_1_factory}{Factory}}\ \{}
+\DoxyCodeLine{01740\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01741\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_json_1_1_char_reader_1_1_factory}{\string~Factory}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{01745\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_json_1_1_char_reader}{CharReader}}*\ \mbox{\hyperlink{class_json_1_1_char_reader_1_1_factory_aa498627213eada8b64d84594c3badb35}{newCharReader}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{01746\ \ \ \};\ \textcolor{comment}{//\ Factory}}
+\DoxyCodeLine{01747\ \};\ \ \ \textcolor{comment}{//\ CharReader}}
+\DoxyCodeLine{01748\ }
+\DoxyCodeLine{01761\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_char_reader_builder}{CharReaderBuilder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_json_1_1_char_reader_1_1_factory}{CharReader::Factory}}\ \{}
+\DoxyCodeLine{01762\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01763\ \ \ \textcolor{comment}{//\ Note:\ We\ use\ a\ Json::Value\ so\ that\ we\ can\ add\ data-\/members\ to\ this\ class}}
+\DoxyCodeLine{01764\ \ \ \textcolor{comment}{//\ without\ a\ major\ version\ bump.}}
+\DoxyCodeLine{01807\ \textcolor{comment}{}\ \ \mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ \mbox{\hyperlink{class_json_1_1_char_reader_builder_ac69b7911ad64c171c51ebaf2ea26d958}{settings\_}};}
+\DoxyCodeLine{01808\ }
+\DoxyCodeLine{01809\ \ \ \mbox{\hyperlink{class_json_1_1_char_reader_builder}{CharReaderBuilder}}();}
+\DoxyCodeLine{01810\ \ \ \mbox{\hyperlink{class_json_1_1_char_reader_builder}{\string~CharReaderBuilder}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{01811\ }
+\DoxyCodeLine{01812\ \ \ \mbox{\hyperlink{class_json_1_1_char_reader}{CharReader}}*\ newCharReader()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{01813\ }
+\DoxyCodeLine{01817\ \ \ \textcolor{keywordtype}{bool}\ validate(\mbox{\hyperlink{class_json_1_1_value}{Json::Value}}*\ invalid)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01818\ }
+\DoxyCodeLine{01821\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator[](\textcolor{keyword}{const}\ String\&\ key);}
+\DoxyCodeLine{01822\ }
+\DoxyCodeLine{01828\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setDefaults(\mbox{\hyperlink{class_json_1_1_value}{Json::Value}}*\ settings);}
+\DoxyCodeLine{01834\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ strictMode(\mbox{\hyperlink{class_json_1_1_value}{Json::Value}}*\ settings);}
+\DoxyCodeLine{01835\ \};}
+\DoxyCodeLine{01836\ }
+\DoxyCodeLine{01841\ \textcolor{keywordtype}{bool}\ JSON\_API\ \mbox{\hyperlink{namespace_json_ad0e6a29ad2eac4ae58cd5b96d19bb01e}{parseFromStream}}(\mbox{\hyperlink{class_json_1_1_char_reader_1_1_factory}{CharReader::Factory}}\ \textcolor{keyword}{const}\&,\ IStream\&,\ \mbox{\hyperlink{class_json_1_1_value}{Value}}*\ root,}
+\DoxyCodeLine{01842\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String*\ errs);}
+\DoxyCodeLine{01843\ }
+\DoxyCodeLine{01868\ JSON\_API\ IStream\&\ \mbox{\hyperlink{namespace_json_ac21ce6d431c2a8d93fdec0def5154cbd}{operator>>}}(IStream\&,\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&);}
+\DoxyCodeLine{01869\ }
+\DoxyCodeLine{01870\ \}\ \textcolor{comment}{//\ namespace\ Json}}
+\DoxyCodeLine{01871\ }
+\DoxyCodeLine{01872\ \textcolor{preprocessor}{\#pragma\ pack(pop)}}
+\DoxyCodeLine{01873\ }
+\DoxyCodeLine{01874\ \textcolor{preprocessor}{\#if\ defined(JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING)}}
+\DoxyCodeLine{01875\ \textcolor{preprocessor}{\#pragma\ warning(pop)}}
+\DoxyCodeLine{01876\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING)}}
+\DoxyCodeLine{01877\ }
+\DoxyCodeLine{01878\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_READER\_H\_INCLUDED}}
+\DoxyCodeLine{01879\ }
+\DoxyCodeLine{01880\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{01881\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/reader.h}}
+\DoxyCodeLine{01882\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{01883\ }
+\DoxyCodeLine{01884\ }
+\DoxyCodeLine{01885\ }
+\DoxyCodeLine{01886\ }
+\DoxyCodeLine{01887\ }
+\DoxyCodeLine{01888\ }
+\DoxyCodeLine{01889\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{01890\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/writer.h}}
+\DoxyCodeLine{01891\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{01892\ }
+\DoxyCodeLine{01893\ \textcolor{comment}{//\ Copyright\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{01894\ \textcolor{comment}{//\ Distributed\ under\ MIT\ license,\ or\ public\ domain\ if\ desired\ and}}
+\DoxyCodeLine{01895\ \textcolor{comment}{//\ recognized\ in\ your\ jurisdiction.}}
+\DoxyCodeLine{01896\ \textcolor{comment}{//\ See\ file\ LICENSE\ for\ detail\ or\ copy\ at\ http://jsoncpp.sourceforge.net/LICENSE}}
+\DoxyCodeLine{01897\ }
+\DoxyCodeLine{01898\ \textcolor{preprocessor}{\#ifndef\ JSON\_WRITER\_H\_INCLUDED}}
+\DoxyCodeLine{01899\ \textcolor{preprocessor}{\#define\ JSON\_WRITER\_H\_INCLUDED}}
+\DoxyCodeLine{01900\ }
+\DoxyCodeLine{01901\ \textcolor{preprocessor}{\#if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{01902\ \textcolor{preprocessor}{\#include\ "{}value.h"{}}}
+\DoxyCodeLine{01903\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{01904\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{01905\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{01906\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{01907\ }
+\DoxyCodeLine{01908\ \textcolor{comment}{//\ Disable\ warning\ C4251:\ <data\ member>:\ <type>\ needs\ to\ have\ dll-\/interface\ to}}
+\DoxyCodeLine{01909\ \textcolor{comment}{//\ be\ used\ by...}}
+\DoxyCodeLine{01910\ \textcolor{preprocessor}{\#if\ defined(JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING)\ \&\&\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{01911\ \textcolor{preprocessor}{\#pragma\ warning(push)}}
+\DoxyCodeLine{01912\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4251)}}
+\DoxyCodeLine{01913\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING)}}
+\DoxyCodeLine{01914\ }
+\DoxyCodeLine{01915\ \textcolor{preprocessor}{\#pragma\ pack(push,\ 8)}}
+\DoxyCodeLine{01916\ }
+\DoxyCodeLine{01917\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_json}{Json}}\ \{}
+\DoxyCodeLine{01918\ }
+\DoxyCodeLine{01919\ \textcolor{keyword}{class\ }Value;}
+\DoxyCodeLine{01920\ }
+\DoxyCodeLine{01933\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_stream_writer}{StreamWriter}}\ \{}
+\DoxyCodeLine{01934\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{01935\ \ \ OStream*\ sout\_;\ \textcolor{comment}{//\ not\ owned;\ will\ not\ delete}}
+\DoxyCodeLine{01936\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01937\ \ \ \mbox{\hyperlink{class_json_1_1_stream_writer}{StreamWriter}}();}
+\DoxyCodeLine{01938\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_json_1_1_stream_writer}{\string~StreamWriter}}();}
+\DoxyCodeLine{01946\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_json_1_1_stream_writer_abcb52fb89a6e2302a3e055c4463a273a}{write}}(\mbox{\hyperlink{class_json_1_1_value}{Value}}\ \textcolor{keyword}{const}\&\ root,\ OStream*\ sout)\ =\ 0;}
+\DoxyCodeLine{01947\ }
+\DoxyCodeLine{01950\ \ \ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_stream_writer_1_1_factory}{Factory}}\ \{}
+\DoxyCodeLine{01951\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01952\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_json_1_1_stream_writer_1_1_factory}{\string~Factory}}();}
+\DoxyCodeLine{01956\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_json_1_1_stream_writer}{StreamWriter}}*\ \mbox{\hyperlink{class_json_1_1_stream_writer_1_1_factory_ad7e8432ba542dcb01fe9ee12dcd0e574}{newStreamWriter}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{01957\ \ \ \};\ \textcolor{comment}{//\ Factory}}
+\DoxyCodeLine{01958\ \};\ \ \ \textcolor{comment}{//\ StreamWriter}}
+\DoxyCodeLine{01959\ }
+\DoxyCodeLine{01963\ String\ JSON\_API\ \mbox{\hyperlink{namespace_json_a4cd945e3d7722c3fabc38e14efacb6f8}{writeString}}(\mbox{\hyperlink{class_json_1_1_stream_writer_1_1_factory}{StreamWriter::Factory}}\ \textcolor{keyword}{const}\&\ factory,}
+\DoxyCodeLine{01964\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\ \textcolor{keyword}{const}\&\ root);}
+\DoxyCodeLine{01965\ }
+\DoxyCodeLine{01981\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_stream_writer_builder}{StreamWriterBuilder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_json_1_1_stream_writer_1_1_factory}{StreamWriter::Factory}}\ \{}
+\DoxyCodeLine{01982\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01983\ \ \ \textcolor{comment}{//\ Note:\ We\ use\ a\ Json::Value\ so\ that\ we\ can\ add\ data-\/members\ to\ this\ class}}
+\DoxyCodeLine{01984\ \ \ \textcolor{comment}{//\ without\ a\ major\ version\ bump.}}
+\DoxyCodeLine{02013\ \textcolor{comment}{}\ \ \mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ \mbox{\hyperlink{class_json_1_1_stream_writer_builder_a79bdf2e639a52f4e758c0b95bd1d3423}{settings\_}};}
+\DoxyCodeLine{02014\ }
+\DoxyCodeLine{02015\ \ \ \mbox{\hyperlink{class_json_1_1_stream_writer_builder}{StreamWriterBuilder}}();}
+\DoxyCodeLine{02016\ \ \ \mbox{\hyperlink{class_json_1_1_stream_writer_builder}{\string~StreamWriterBuilder}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{02017\ }
+\DoxyCodeLine{02021\ \ \ \mbox{\hyperlink{class_json_1_1_stream_writer}{StreamWriter}}*\ newStreamWriter()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{02022\ }
+\DoxyCodeLine{02026\ \ \ \textcolor{keywordtype}{bool}\ validate(\mbox{\hyperlink{class_json_1_1_value}{Json::Value}}*\ invalid)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{02029\ \ \ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ operator[](\textcolor{keyword}{const}\ String\&\ key);}
+\DoxyCodeLine{02030\ }
+\DoxyCodeLine{02036\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setDefaults(\mbox{\hyperlink{class_json_1_1_value}{Json::Value}}*\ settings);}
+\DoxyCodeLine{02037\ \};}
+\DoxyCodeLine{02038\ }
+\DoxyCodeLine{02042\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_writer}{Writer}}\ \{}
+\DoxyCodeLine{02043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{02044\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_json_1_1_writer}{\string~Writer}}();}
+\DoxyCodeLine{02045\ }
+\DoxyCodeLine{02046\ \ \ \textcolor{keyword}{virtual}\ String\ write(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root)\ =\ 0;}
+\DoxyCodeLine{02047\ \};}
+\DoxyCodeLine{02048\ }
+\DoxyCodeLine{02058\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{02059\ \textcolor{preprocessor}{\#pragma\ warning(push)}}
+\DoxyCodeLine{02060\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4996)\ }\textcolor{comment}{//\ Deriving\ from\ deprecated\ class}}
+\DoxyCodeLine{02061\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02062\ \textcolor{keyword}{class\ }JSON\_API\ \mbox{\hyperlink{class_json_1_1_fast_writer}{FastWriter}}}
+\DoxyCodeLine{02063\ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_json_1_1_writer}{Writer}}\ \{}
+\DoxyCodeLine{02064\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{02065\ \ \ \mbox{\hyperlink{class_json_1_1_fast_writer}{FastWriter}}();}
+\DoxyCodeLine{02066\ \ \ \mbox{\hyperlink{class_json_1_1_fast_writer}{\string~FastWriter}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{02067\ }
+\DoxyCodeLine{02068\ \ \ \textcolor{keywordtype}{void}\ enableYAMLCompatibility();}
+\DoxyCodeLine{02069\ }
+\DoxyCodeLine{02075\ \ \ \textcolor{keywordtype}{void}\ dropNullPlaceholders();}
+\DoxyCodeLine{02076\ }
+\DoxyCodeLine{02077\ \ \ \textcolor{keywordtype}{void}\ omitEndingLineFeed();}
+\DoxyCodeLine{02078\ }
+\DoxyCodeLine{02079\ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ overridden\ from\ Writer}}
+\DoxyCodeLine{02080\ \ \ String\ write(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{02081\ }
+\DoxyCodeLine{02082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{02083\ \ \ \textcolor{keywordtype}{void}\ writeValue(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ value);}
+\DoxyCodeLine{02084\ }
+\DoxyCodeLine{02085\ \ \ String\ document\_;}
+\DoxyCodeLine{02086\ \ \ \textcolor{keywordtype}{bool}\ yamlCompatibilityEnabled\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{02087\ \ \ \textcolor{keywordtype}{bool}\ dropNullPlaceholders\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{02088\ \ \ \textcolor{keywordtype}{bool}\ omitEndingLineFeed\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{02089\ \};}
+\DoxyCodeLine{02090\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{02091\ \textcolor{preprocessor}{\#pragma\ warning(pop)}}
+\DoxyCodeLine{02092\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02093\ }
+\DoxyCodeLine{02118\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{02119\ \textcolor{preprocessor}{\#pragma\ warning(push)}}
+\DoxyCodeLine{02120\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4996)\ }\textcolor{comment}{//\ Deriving\ from\ deprecated\ class}}
+\DoxyCodeLine{02121\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02122\ \textcolor{keyword}{class\ }JSON\_API}
+\DoxyCodeLine{02123\ \ \ \ \ \mbox{\hyperlink{class_json_1_1_styled_writer}{StyledWriter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_json_1_1_writer}{Writer}}\ \{}
+\DoxyCodeLine{02124\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{02125\ \ \ \mbox{\hyperlink{class_json_1_1_styled_writer}{StyledWriter}}();}
+\DoxyCodeLine{02126\ \ \ \mbox{\hyperlink{class_json_1_1_styled_writer}{\string~StyledWriter}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{02127\ }
+\DoxyCodeLine{02128\ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ overridden\ from\ Writer}}
+\DoxyCodeLine{02133\ \textcolor{comment}{}\ \ String\ write(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{02134\ }
+\DoxyCodeLine{02135\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{02136\ \ \ \textcolor{keywordtype}{void}\ writeValue(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ value);}
+\DoxyCodeLine{02137\ \ \ \textcolor{keywordtype}{void}\ writeArrayValue(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ value);}
+\DoxyCodeLine{02138\ \ \ \textcolor{keywordtype}{bool}\ isMultilineArray(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ value);}
+\DoxyCodeLine{02139\ \ \ \textcolor{keywordtype}{void}\ pushValue(\textcolor{keyword}{const}\ String\&\ value);}
+\DoxyCodeLine{02140\ \ \ \textcolor{keywordtype}{void}\ writeIndent();}
+\DoxyCodeLine{02141\ \ \ \textcolor{keywordtype}{void}\ writeWithIndent(\textcolor{keyword}{const}\ String\&\ value);}
+\DoxyCodeLine{02142\ \ \ \textcolor{keywordtype}{void}\ indent();}
+\DoxyCodeLine{02143\ \ \ \textcolor{keywordtype}{void}\ unindent();}
+\DoxyCodeLine{02144\ \ \ \textcolor{keywordtype}{void}\ writeCommentBeforeValue(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root);}
+\DoxyCodeLine{02145\ \ \ \textcolor{keywordtype}{void}\ writeCommentAfterValueOnSameLine(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root);}
+\DoxyCodeLine{02146\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ hasCommentForValue(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ value);}
+\DoxyCodeLine{02147\ \ \ \textcolor{keyword}{static}\ String\ normalizeEOL(\textcolor{keyword}{const}\ String\&\ text);}
+\DoxyCodeLine{02148\ }
+\DoxyCodeLine{02149\ \ \ \textcolor{keyword}{using\ }ChildValues\ =\ std::vector<String>;}
+\DoxyCodeLine{02150\ }
+\DoxyCodeLine{02151\ \ \ ChildValues\ childValues\_;}
+\DoxyCodeLine{02152\ \ \ String\ document\_;}
+\DoxyCodeLine{02153\ \ \ String\ indentString\_;}
+\DoxyCodeLine{02154\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ rightMargin\_\{74\};}
+\DoxyCodeLine{02155\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ indentSize\_\{3\};}
+\DoxyCodeLine{02156\ \ \ \textcolor{keywordtype}{bool}\ addChildValues\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{02157\ \};}
+\DoxyCodeLine{02158\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{02159\ \textcolor{preprocessor}{\#pragma\ warning(pop)}}
+\DoxyCodeLine{02160\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02161\ }
+\DoxyCodeLine{02187\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{02188\ \textcolor{preprocessor}{\#pragma\ warning(push)}}
+\DoxyCodeLine{02189\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4996)\ }\textcolor{comment}{//\ Deriving\ from\ deprecated\ class}}
+\DoxyCodeLine{02190\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02191\ \textcolor{keyword}{class\ }JSON\_API}
+\DoxyCodeLine{02192\ \ \ \ \ \mbox{\hyperlink{class_json_1_1_styled_stream_writer}{StyledStreamWriter}}\ \{}
+\DoxyCodeLine{02193\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{02197\ \ \ \mbox{\hyperlink{class_json_1_1_styled_stream_writer}{StyledStreamWriter}}(String\ indentation\ =\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}});}
+\DoxyCodeLine{02198\ \ \ \mbox{\hyperlink{class_json_1_1_styled_stream_writer}{\string~StyledStreamWriter}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{02199\ }
+\DoxyCodeLine{02200\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{02207\ \ \ \textcolor{keywordtype}{void}\ write(OStream\&\ out,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root);}
+\DoxyCodeLine{02208\ }
+\DoxyCodeLine{02209\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{02210\ \ \ \textcolor{keywordtype}{void}\ writeValue(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ value);}
+\DoxyCodeLine{02211\ \ \ \textcolor{keywordtype}{void}\ writeArrayValue(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ value);}
+\DoxyCodeLine{02212\ \ \ \textcolor{keywordtype}{bool}\ isMultilineArray(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ value);}
+\DoxyCodeLine{02213\ \ \ \textcolor{keywordtype}{void}\ pushValue(\textcolor{keyword}{const}\ String\&\ value);}
+\DoxyCodeLine{02214\ \ \ \textcolor{keywordtype}{void}\ writeIndent();}
+\DoxyCodeLine{02215\ \ \ \textcolor{keywordtype}{void}\ writeWithIndent(\textcolor{keyword}{const}\ String\&\ value);}
+\DoxyCodeLine{02216\ \ \ \textcolor{keywordtype}{void}\ indent();}
+\DoxyCodeLine{02217\ \ \ \textcolor{keywordtype}{void}\ unindent();}
+\DoxyCodeLine{02218\ \ \ \textcolor{keywordtype}{void}\ writeCommentBeforeValue(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root);}
+\DoxyCodeLine{02219\ \ \ \textcolor{keywordtype}{void}\ writeCommentAfterValueOnSameLine(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root);}
+\DoxyCodeLine{02220\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ hasCommentForValue(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ value);}
+\DoxyCodeLine{02221\ \ \ \textcolor{keyword}{static}\ String\ normalizeEOL(\textcolor{keyword}{const}\ String\&\ text);}
+\DoxyCodeLine{02222\ }
+\DoxyCodeLine{02223\ \ \ \textcolor{keyword}{using\ }ChildValues\ =\ std::vector<String>;}
+\DoxyCodeLine{02224\ }
+\DoxyCodeLine{02225\ \ \ ChildValues\ childValues\_;}
+\DoxyCodeLine{02226\ \ \ OStream*\ document\_;}
+\DoxyCodeLine{02227\ \ \ String\ indentString\_;}
+\DoxyCodeLine{02228\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ rightMargin\_\{74\};}
+\DoxyCodeLine{02229\ \ \ String\ indentation\_;}
+\DoxyCodeLine{02230\ \ \ \textcolor{keywordtype}{bool}\ addChildValues\_\ :\ 1;}
+\DoxyCodeLine{02231\ \ \ \textcolor{keywordtype}{bool}\ indented\_\ :\ 1;}
+\DoxyCodeLine{02232\ \};}
+\DoxyCodeLine{02233\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{02234\ \textcolor{preprocessor}{\#pragma\ warning(pop)}}
+\DoxyCodeLine{02235\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02236\ }
+\DoxyCodeLine{02237\ \textcolor{preprocessor}{\#if\ defined(JSON\_HAS\_INT64)}}
+\DoxyCodeLine{02238\ String\ JSON\_API\ valueToString(Int\ value);}
+\DoxyCodeLine{02239\ String\ JSON\_API\ valueToString(UInt\ value);}
+\DoxyCodeLine{02240\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(JSON\_HAS\_INT64)}}
+\DoxyCodeLine{02241\ String\ JSON\_API\ valueToString(LargestInt\ value);}
+\DoxyCodeLine{02242\ String\ JSON\_API\ valueToString(LargestUInt\ value);}
+\DoxyCodeLine{02243\ String\ JSON\_API\ valueToString(}
+\DoxyCodeLine{02244\ \ \ \ \ \textcolor{keywordtype}{double}\ value,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ precision\ =\ \mbox{\hyperlink{class_json_1_1_value_a66b0728adfe54e8f7652a180b21a2812}{Value::defaultRealPrecision}},}
+\DoxyCodeLine{02245\ \ \ \ \ \mbox{\hyperlink{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8}{PrecisionType}}\ precisionType\ =\ \mbox{\hyperlink{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8abb30ddeaa820d370a2438dda7a08996a}{PrecisionType::significantDigits}});}
+\DoxyCodeLine{02246\ String\ JSON\_API\ valueToString(\textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{02247\ String\ JSON\_API\ valueToQuotedString(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ value);}
+\DoxyCodeLine{02248\ }
+\DoxyCodeLine{02251\ JSON\_API\ OStream\&\ \mbox{\hyperlink{namespace_json_a91e5bd3901936f85718362360bec35c6}{operator<<}}(OStream\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_value}{Value}}\&\ root);}
+\DoxyCodeLine{02252\ }
+\DoxyCodeLine{02253\ \}\ \textcolor{comment}{//\ namespace\ Json}}
+\DoxyCodeLine{02254\ }
+\DoxyCodeLine{02255\ \textcolor{preprocessor}{\#pragma\ pack(pop)}}
+\DoxyCodeLine{02256\ }
+\DoxyCodeLine{02257\ \textcolor{preprocessor}{\#if\ defined(JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING)}}
+\DoxyCodeLine{02258\ \textcolor{preprocessor}{\#pragma\ warning(pop)}}
+\DoxyCodeLine{02259\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING)}}
+\DoxyCodeLine{02260\ }
+\DoxyCodeLine{02261\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_WRITER\_H\_INCLUDED}}
+\DoxyCodeLine{02262\ }
+\DoxyCodeLine{02263\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{02264\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/writer.h}}
+\DoxyCodeLine{02265\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{02266\ }
+\DoxyCodeLine{02267\ }
+\DoxyCodeLine{02268\ }
+\DoxyCodeLine{02269\ }
+\DoxyCodeLine{02270\ }
+\DoxyCodeLine{02271\ }
+\DoxyCodeLine{02272\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{02273\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/assertions.h}}
+\DoxyCodeLine{02274\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{02275\ }
+\DoxyCodeLine{02276\ \textcolor{comment}{//\ Copyright\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{02277\ \textcolor{comment}{//\ Distributed\ under\ MIT\ license,\ or\ public\ domain\ if\ desired\ and}}
+\DoxyCodeLine{02278\ \textcolor{comment}{//\ recognized\ in\ your\ jurisdiction.}}
+\DoxyCodeLine{02279\ \textcolor{comment}{//\ See\ file\ LICENSE\ for\ detail\ or\ copy\ at\ http://jsoncpp.sourceforge.net/LICENSE}}
+\DoxyCodeLine{02280\ }
+\DoxyCodeLine{02281\ \textcolor{preprocessor}{\#ifndef\ JSON\_ASSERTIONS\_H\_INCLUDED}}
+\DoxyCodeLine{02282\ \textcolor{preprocessor}{\#define\ JSON\_ASSERTIONS\_H\_INCLUDED}}
+\DoxyCodeLine{02283\ }
+\DoxyCodeLine{02284\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{02285\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{02286\ }
+\DoxyCodeLine{02287\ \textcolor{preprocessor}{\#if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{02288\ \textcolor{preprocessor}{\#include\ "{}config.h"{}}}
+\DoxyCodeLine{02289\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{02290\ }
+\DoxyCodeLine{02295\ \textcolor{preprocessor}{\#if\ JSON\_USE\_EXCEPTION}}
+\DoxyCodeLine{02296\ }
+\DoxyCodeLine{02297\ \textcolor{comment}{//\ @todo\ <=\ add\ detail\ about\ condition\ in\ exception}}
+\DoxyCodeLine{02298\ \textcolor{preprocessor}{\#define\ JSON\_ASSERT(condition)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02299\ \textcolor{preprocessor}{\ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02300\ \textcolor{preprocessor}{\ \ \ \ if\ (!(condition))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02301\ \textcolor{preprocessor}{\ \ \ \ \ \ Json::throwLogicError("{}assert\ json\ failed"{}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{02302\ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{02303\ \ \ \}\ while\ (0)}
+\DoxyCodeLine{02304\ }
+\DoxyCodeLine{02305\ \textcolor{preprocessor}{\#define\ JSON\_FAIL\_MESSAGE(message)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02306\ \textcolor{preprocessor}{\ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02307\ \textcolor{preprocessor}{\ \ \ \ OStringStream\ oss;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02308\ \textcolor{preprocessor}{\ \ \ \ oss\ <<\ message;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02309\ \textcolor{preprocessor}{\ \ \ \ Json::throwLogicError(oss.str());\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02310\ \textcolor{preprocessor}{\ \ \ \ abort();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02311\ \textcolor{preprocessor}{\ \ \}\ while\ (0)}}
+\DoxyCodeLine{02312\ }
+\DoxyCodeLine{02313\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{//\ JSON\_USE\_EXCEPTION}}
+\DoxyCodeLine{02314\ }
+\DoxyCodeLine{02315\ \textcolor{preprocessor}{\#define\ JSON\_ASSERT(condition)\ assert(condition)}}
+\DoxyCodeLine{02316\ }
+\DoxyCodeLine{02317\ \textcolor{comment}{//\ The\ call\ to\ assert()\ will\ show\ the\ failure\ message\ in\ debug\ builds.\ In}}
+\DoxyCodeLine{02318\ \textcolor{comment}{//\ release\ builds\ we\ abort,\ for\ a\ core-\/dump\ or\ debugger.}}
+\DoxyCodeLine{02319\ \textcolor{preprocessor}{\#define\ JSON\_FAIL\_MESSAGE(message)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02320\ \textcolor{preprocessor}{\ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02321\ \textcolor{preprocessor}{\ \ \ \ OStringStream\ oss;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02322\ \textcolor{preprocessor}{\ \ \ \ oss\ <<\ message;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02323\ \textcolor{preprocessor}{\ \ \ \ assert(false\ \&\&\ oss.str().c\_str());\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02324\ \textcolor{preprocessor}{\ \ \ \ abort();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02325\ \textcolor{preprocessor}{\ \ \}}}
+\DoxyCodeLine{02326\ }
+\DoxyCodeLine{02327\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02328\ }
+\DoxyCodeLine{02329\ \textcolor{preprocessor}{\#define\ JSON\_ASSERT\_MESSAGE(condition,\ message)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02330\ \textcolor{preprocessor}{\ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02331\ \textcolor{preprocessor}{\ \ \ \ if\ (!(condition))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02332\ \textcolor{preprocessor}{\ \ \ \ \ \ JSON\_FAIL\_MESSAGE(message);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02333\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{02334\ \textcolor{preprocessor}{\ \ \}\ while\ (0)}}
+\DoxyCodeLine{02335\ }
+\DoxyCodeLine{02336\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_ASSERTIONS\_H\_INCLUDED}}
+\DoxyCodeLine{02337\ }
+\DoxyCodeLine{02338\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{02339\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/assertions.h}}
+\DoxyCodeLine{02340\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{02341\ }
+\DoxyCodeLine{02342\ }
+\DoxyCodeLine{02343\ }
+\DoxyCodeLine{02344\ }
+\DoxyCodeLine{02345\ }
+\DoxyCodeLine{02346\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ifndef\ JSON\_AMALGAMATED\_H\_INCLUDED}}
+
+\end{DoxyCode}

@@ -1,0 +1,35 @@
+\hypertarget{n_step_n_gray_code_master_gpu_8h_source}{}\doxysection{n\+Step\+NGray\+Code\+Master\+Gpu.\+h}
+\label{n_step_n_gray_code_master_gpu_8h_source}\index{src/slCamera/include/phaseSolver/nStepNGrayCodeMasterGpu.h@{src/slCamera/include/phaseSolver/nStepNGrayCodeMasterGpu.h}}
+\mbox{\hyperlink{n_step_n_gray_code_master_gpu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_PHASESOLVER\_NSTEPNGRAYCODEMASTER\_GPU\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_PHASESOLVER\_NSTEPNGRAYCODEMASTER\_GPU\_H\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{phase_solver_8h}{phaseSolver.h}}>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{namespace\ }phaseSolver\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1phase_solver_1_1_n_step_n_gray_code_master_gpu}{NStepNGrayCodeMasterGpu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classsl_1_1phase_solver_1_1_phase_solver}{PhaseSolver}}\ \{}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1phase_solver_1_1_n_step_n_gray_code_master_gpu_a208498d686915a93884a4b52dc69937a}{solve}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ \mbox{\hyperlink{structsl_1_1phase_solver_1_1_phase_solver_group_data_device}{PhaseSolverGroupDataDevice}}\ \&groupData,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sncThreshold,\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftTime\ =\ 4,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&stream\ =\ cv::cuda::Stream::Null(),}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ dim3\ block\ =\ dim3(32,\ 8))\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1phase_solver_1_1_n_step_n_gray_code_master_gpu_a208498d686915a93884a4b52dc69937a}{solve}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ \mbox{\hyperlink{structsl_1_1phase_solver_1_1_phase_solver_group_data_host}{PhaseSolverGroupDataHost}}\ \&groupData,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sncThreshold,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftTime\ =\ 4)\textcolor{keyword}{\ override\ }\{\};}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ \}\ \textcolor{comment}{//\ namespace\ phaseSolver}}
+\DoxyCodeLine{00061\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_\_PHASESOLVER\_NSTEPNGRAYCODEMASTER\_CPU\_H\_}}
+
+\end{DoxyCode}

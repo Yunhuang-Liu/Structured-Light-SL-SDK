@@ -1,0 +1,146 @@
+\hypertarget{class_json_1_1_stream_writer_builder}{}\doxysection{Json\+::Stream\+Writer\+Builder Class Reference}
+\label{class_json_1_1_stream_writer_builder}\index{Json::StreamWriterBuilder@{Json::StreamWriterBuilder}}
+
+
+Build a \mbox{\hyperlink{class_json_1_1_stream_writer}{Stream\+Writer}} implementation.  
+
+
+
+
+{\ttfamily \#include $<$json.\+h$>$}
+
+Inheritance diagram for Json\+::Stream\+Writer\+Builder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_json_1_1_stream_writer_builder}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_json_1_1_stream_writer}{Stream\+Writer}} $\ast$ \mbox{\hyperlink{class_json_1_1_stream_writer_builder_a042d21b84d8c5bede52a764e2ada7d65}{new\+Stream\+Writer}} () const override
+\item 
+bool \mbox{\hyperlink{class_json_1_1_stream_writer_builder_a12353b97766841db7d049da84658da09}{validate}} (\mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}} $\ast$invalid) const
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \& \mbox{\hyperlink{class_json_1_1_stream_writer_builder_acfac19e42c26ebef23844be9686d68f5}{operator\mbox{[}$\,$\mbox{]}}} (const String \&key)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_json_1_1_stream_writer}{Stream\+Writer}} $\ast$ \mbox{\hyperlink{class_json_1_1_stream_writer_1_1_factory_ad7e8432ba542dcb01fe9ee12dcd0e574}{new\+Stream\+Writer}} () const =0
+\begin{DoxyCompactList}\small\item\em Allocate a \mbox{\hyperlink{class_json_1_1_char_reader}{Char\+Reader}} via operator new(). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_json_1_1_stream_writer_builder_a53bf106b141e28637b01ad0ecd2acbf6}{set\+Defaults}} (\mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}} $\ast$settings)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}} \mbox{\hyperlink{class_json_1_1_stream_writer_builder_a79bdf2e639a52f4e758c0b95bd1d3423}{settings\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Build a \mbox{\hyperlink{class_json_1_1_stream_writer}{Stream\+Writer}} implementation. 
+
+Usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespace_json}{Json}};}
+\DoxyCodeLine{\mbox{\hyperlink{class_json_1_1_value}{Value}}\ value\ =\ ...;}
+\DoxyCodeLine{\mbox{\hyperlink{class_json_1_1_stream_writer_builder}{StreamWriterBuilder}}\ builder;}
+\DoxyCodeLine{builder[\textcolor{stringliteral}{"{}commentStyle"{}}]\ =\ \textcolor{stringliteral}{"{}None"{}};}
+\DoxyCodeLine{builder[\textcolor{stringliteral}{"{}indentation"{}}]\ =\ \textcolor{stringliteral}{"{}\ \ \ "{}};\ \ \textcolor{comment}{//\ or\ whatever\ you\ like}}
+\DoxyCodeLine{std::unique\_ptr<Json::StreamWriter>\ writer(}
+\DoxyCodeLine{\ \ \ builder.\mbox{\hyperlink{class_json_1_1_stream_writer_builder_a042d21b84d8c5bede52a764e2ada7d65}{newStreamWriter}}());}
+\DoxyCodeLine{writer-\/>write(value,\ \&std::cout);}
+\DoxyCodeLine{std::cout\ <<\ std::endl;\ \ \textcolor{comment}{//\ add\ lf\ and\ flush}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_json_1_1_stream_writer_builder_a042d21b84d8c5bede52a764e2ada7d65}\label{class_json_1_1_stream_writer_builder_a042d21b84d8c5bede52a764e2ada7d65}} 
+\index{Json::StreamWriterBuilder@{Json::StreamWriterBuilder}!newStreamWriter@{newStreamWriter}}
+\index{newStreamWriter@{newStreamWriter}!Json::StreamWriterBuilder@{Json::StreamWriterBuilder}}
+\doxysubsubsection{\texorpdfstring{newStreamWriter()}{newStreamWriter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_stream_writer}{Stream\+Writer}} $\ast$ Json\+::\+Stream\+Writer\+Builder\+::new\+Stream\+Writer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & if something goes wrong (e.\+g. invalid settings) \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_json_1_1_stream_writer_1_1_factory_ad7e8432ba542dcb01fe9ee12dcd0e574}{Json\+::\+Stream\+Writer\+::\+Factory}}.
+
+\mbox{\Hypertarget{class_json_1_1_stream_writer_builder_acfac19e42c26ebef23844be9686d68f5}\label{class_json_1_1_stream_writer_builder_acfac19e42c26ebef23844be9686d68f5}} 
+\index{Json::StreamWriterBuilder@{Json::StreamWriterBuilder}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Json::StreamWriterBuilder@{Json::StreamWriterBuilder}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Value}} \& Json\+::\+Stream\+Writer\+Builder\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const String \&}]{key }\end{DoxyParamCaption})}
+
+A simple way to update a specific setting. \mbox{\Hypertarget{class_json_1_1_stream_writer_builder_a53bf106b141e28637b01ad0ecd2acbf6}\label{class_json_1_1_stream_writer_builder_a53bf106b141e28637b01ad0ecd2acbf6}} 
+\index{Json::StreamWriterBuilder@{Json::StreamWriterBuilder}!setDefaults@{setDefaults}}
+\index{setDefaults@{setDefaults}!Json::StreamWriterBuilder@{Json::StreamWriterBuilder}}
+\doxysubsubsection{\texorpdfstring{setDefaults()}{setDefaults()}}
+{\footnotesize\ttfamily void Json\+::\+Stream\+Writer\+Builder\+::set\+Defaults (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}} $\ast$}]{settings }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Called by ctor, but you can use this to reset settings\+\_\+. \begin{DoxyPrecond}{Precondition}
+\textquotesingle{}settings\textquotesingle{} != NULL (but Json\+::null is fine) 
+\end{DoxyPrecond}
+\begin{DoxyRemark}{Remarks}
+Defaults\+: 
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+ 
+\end{DoxyRemark}
+\mbox{[}Stream\+Writer\+Builder\+Defaults\mbox{]}
+
+\mbox{[}Stream\+Writer\+Builder\+Defaults\mbox{]}\mbox{\Hypertarget{class_json_1_1_stream_writer_builder_a12353b97766841db7d049da84658da09}\label{class_json_1_1_stream_writer_builder_a12353b97766841db7d049da84658da09}} 
+\index{Json::StreamWriterBuilder@{Json::StreamWriterBuilder}!validate@{validate}}
+\index{validate@{validate}!Json::StreamWriterBuilder@{Json::StreamWriterBuilder}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily bool Json\+::\+Stream\+Writer\+Builder\+::validate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}} $\ast$}]{invalid }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+true if \textquotesingle{}settings\textquotesingle{} are legal and consistent; otherwise, indicate bad settings via \textquotesingle{}invalid\textquotesingle{}. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_json_1_1_stream_writer_builder_a79bdf2e639a52f4e758c0b95bd1d3423}\label{class_json_1_1_stream_writer_builder_a79bdf2e639a52f4e758c0b95bd1d3423}} 
+\index{Json::StreamWriterBuilder@{Json::StreamWriterBuilder}!settings\_@{settings\_}}
+\index{settings\_@{settings\_}!Json::StreamWriterBuilder@{Json::StreamWriterBuilder}}
+\doxysubsubsection{\texorpdfstring{settings\_}{settings\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}} Json\+::\+Stream\+Writer\+Builder\+::settings\+\_\+}
+
+Configuration of this builder. Available settings (case-\/sensitive)\+:
+\begin{DoxyItemize}
+\item \char`\"{}comment\+Style\char`\"{}\+: \char`\"{}\+None\char`\"{} or \char`\"{}\+All\char`\"{}
+\item \char`\"{}indentation\char`\"{}\+: \char`\"{}$<$anything$>$\char`\"{}.
+\item Setting this to an empty string also omits newline characters.
+\item \char`\"{}enable\+YAMLCompatibility\char`\"{}\+: false or true
+\item slightly change the whitespace around colons
+\item \char`\"{}drop\+Null\+Placeholders\char`\"{}\+: false or true
+\item Drop the \char`\"{}null\char`\"{} string from the writer\textquotesingle{}s output for null\+Values. Strictly speaking, this is not valid JSON. But when the output is being fed to a browser\textquotesingle{}s Java\+Script, it makes for smaller output and the browser can handle the output just fine.
+\item \char`\"{}use\+Special\+Floats\char`\"{}\+: false or true
+\item If true, outputs non-\/finite floating point values in the following way\+: NaN values as \char`\"{}\+Na\+N\char`\"{}, positive infinity as \char`\"{}\+Infinity\char`\"{}, and negative infinity as \char`\"{}-\/\+Infinity\char`\"{}.
+\item \char`\"{}precision\char`\"{}\+: int
+\item Number of precision digits for formatting of real values.
+\item \char`\"{}precision\+Type\char`\"{}\+: \char`\"{}significant\char`\"{}(default) or \char`\"{}decimal\char`\"{}
+\item Type of precision for formatting of real values.
+\item \char`\"{}emit\+UTF8\char`\"{}\+: false or true
+\item If true, outputs raw UTF8 strings instead of escaping them.
+\end{DoxyItemize}
+
+You can examine \textquotesingle{}settings\+\_\+\`{} yourself to see the defaults. You can also write and read them just like any JSON \mbox{\hyperlink{class_json_1_1_value}{Value}}. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_json_1_1_stream_writer_builder_a53bf106b141e28637b01ad0ecd2acbf6}{set\+Defaults()}} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/common/json.\+h\item 
+src/sl\+Camera/common/jsoncpp.\+cc\end{DoxyCompactItemize}

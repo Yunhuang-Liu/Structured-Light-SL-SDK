@@ -1,0 +1,93 @@
+\hypertarget{sl_camera_8h_source}{}\doxysection{sl\+Camera.\+h}
+\label{sl_camera_8h_source}\index{src/slCamera/common/slCamera.h@{src/slCamera/common/slCamera.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_SL\_CAMERA\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_SL\_CAMERA\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <pcl/point\_cloud.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <pcl/point\_types.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <typeDef.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <json.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }slCamera\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ pcl::PointXYZRGB\ Point;}
+\DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ pcl::PointCloud<Point>\ Cloud;}
+\DoxyCodeLine{00022\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsl_1_1sl_camera_1_1_frame_data}{FrameData}}\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ cv::Mat\ \_\_depthMap;\ \ \ \textcolor{comment}{//深度图}}
+\DoxyCodeLine{00024\ \ \ \ \ cv::Mat\ \_\_textureMap;\ \textcolor{comment}{//纹理图}}
+\DoxyCodeLine{00025\ \ \ \ \ Cloud\ \_\_pointCloud;\ \ \ \textcolor{comment}{//点云}}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00028\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsl_1_1sl_camera_1_1_s_l_camera_info}{SLCameraInfo}}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ std::string\ \_\_cameraName;\ \textcolor{comment}{//相机名}}
+\DoxyCodeLine{00030\ \ \ \ \ cv::Mat\ \_\_intrinsic;\ \ \ \ \ \ \textcolor{comment}{//内参}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ \_\_isFind;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//是否查找到该相机}}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera}{SLCamera}}\ \{}
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_ab5a0d8709288429c0055369f21c8c0d5}{SLCamera}}(IN\ \textcolor{keyword}{const}\ std::string\ jsonPath)\ \{\};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_ac19455f2da8d8f7f7de3bcfb48ccc2c3}{\string~SLCamera}}()\ \{\}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{structsl_1_1sl_camera_1_1_s_l_camera_info}{SLCameraInfo}}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a9b7e09ea99f5523438c1c6643c3ff13f}{getCameraInfo}}()\ =\ 0;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a1ad691672af19d3b8fbb96a5bf1e1e99}{connect}}()\ =\ 0;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_ac74efb796e3cfbd7f18d1e82d4d6e18a}{disConnect}}()\ =\ 0;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a149b41792f36d8e479a7f332d20a48f1}{isConnect}}()\ =\ 0;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a23708d2fbc61845e46c8147a9f19c1a1}{capture}}(OUT\ \mbox{\hyperlink{structsl_1_1sl_camera_1_1_frame_data}{FrameData}}\ \&frameData)\ =\ 0;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a327b79bf86231390dc7e924261900d87}{offLineCapture}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\&\ leftImgs,\ IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\&\ rightImgs,\ OUT\ \mbox{\hyperlink{structsl_1_1sl_camera_1_1_frame_data}{FrameData}}\ \&frameData)\ =\ 0;}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a1c87c90fab0a0d57bb0d088affd91ea8}{setDepthCameraEnabled}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ isEnable)\ =\ 0;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a97b543f3828b36509143f6870a58b0b2}{getStringAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ std::string\ \&val)\ =\ 0;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_ab808217ca3b8893a4fe9bba0b7b999f2}{getNumbericalAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ \textcolor{keywordtype}{double}\ \&val)\ =\ 0;}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a27a96ac07d678eeda0f4448e22cf41a1}{getBooleanAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ \textcolor{keywordtype}{bool}\ \&val)\ =\ 0;}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_aa8eb9ccec071f9b7fb22c93d3fed898b}{setStringAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ std::string\ val)\ =\ 0;}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a79e1a6b7468f24395235db40cb543d42}{setNumberAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ val)\ =\ 0;}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a62ba647730b8fbd8979994ae1f059dea}{setBooleanAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ val)\ =\ 0;}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a62f34ee7df751ff9ce0a6f66c52e2746}{resetCameraConfig}}()\ =\ 0;}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a24db652f0a14133f76455b6692a7afca}{updateCamera}}()\ =\ 0;}
+\DoxyCodeLine{00175\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ readJsonFile(\textcolor{keyword}{const}\ std::string\ jsonPath,\ \mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ \&jsonVal)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ std::ifstream\ readStream(jsonPath);}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!readStream.is\_open())\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}read\ json\ file\ error:\ can't\ open\ this\ file!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_json_1_1_char_reader_builder}{Json::CharReaderBuilder}}\ readerBuilder;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ std::string\ errs;}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespace_json_ad0e6a29ad2eac4ae58cd5b96d19bb01e}{Json::parseFromStream}}(readerBuilder,\ readStream,\ \&jsonVal,\ \&errs);}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ writeJsonFile(\textcolor{keyword}{const}\ std::string\ jsonPath,}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ \&jsonVal)\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ std::ofstream\ outStream(jsonPath);}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_json_1_1_styled_writer}{Json::StyledWriter}}\ jsonWriter;}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ styleStr\ =\ jsonWriter.\mbox{\hyperlink{class_json_1_1_styled_writer_afcdfb4c982f93890729881f44e931cd7}{write}}(jsonVal);}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ outStream\ <<\ styleStr;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ outStream.close();}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Json\ parse\ error!\ \(\backslash\)t\ Path:\ \%s\ \(\backslash\)n"{}},\ jsonPath.data());}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ outStream.close();}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00201\ \ \ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00204\ \};}
+\DoxyCodeLine{00205\ \}\ \textcolor{comment}{//\ namespace\ slCamera}}
+\DoxyCodeLine{00206\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_SL\_CAMERA\_H\_}}
+
+\end{DoxyCode}

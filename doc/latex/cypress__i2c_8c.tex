@@ -1,0 +1,63 @@
+\hypertarget{cypress__i2c_8c}{}\doxysection{src/projector/module/projector\+\_\+dlpc\+\_\+api/src/cypress\+\_\+i2c.c File Reference}
+\label{cypress__i2c_8c}\index{src/projector/module/projector\_dlpc\_api/src/cypress\_i2c.c@{src/projector/module/projector\_dlpc\_api/src/cypress\_i2c.c}}
+
+
+Sample code for I2C communication via Cypress USB-\/\+Serial Bridge Controller.  
+
+
+{\ttfamily \#include \char`\"{}cypress\+\_\+i2c.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Cy\+USBSerial.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}time.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_a5bebae8bac1b20ca114d3ca44d8d6ccc}\label{cypress__i2c_8c_a5bebae8bac1b20ca114d3ca44d8d6ccc}} 
+\#define {\bfseries REQUEST\+\_\+\+I2\+C\+\_\+\+ACCESS\+\_\+\+GPIO}~5
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_aa04868fc657bcfb0a1dd4c85af5b02e2}\label{cypress__i2c_8c_aa04868fc657bcfb0a1dd4c85af5b02e2}} 
+\#define {\bfseries I2\+C\+\_\+\+ACCESS\+\_\+\+GRANTED\+\_\+\+GPIO}~6
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_a98b0737e06ff7ebcecad9fae05e821ec}\label{cypress__i2c_8c_a98b0737e06ff7ebcecad9fae05e821ec}} 
+\#define {\bfseries START\+\_\+\+I2\+C\+\_\+\+TRANSACTION\+\_\+\+GPIO}~9
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_a2382e2f5011dce2a05f0479bdffd08cb}\label{cypress__i2c_8c_a2382e2f5011dce2a05f0479bdffd08cb}} 
+\#define {\bfseries I2\+C\+\_\+\+CLOCK\+\_\+\+FREQUENCY\+\_\+\+HZ}~100000
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_a980c9775f3513a9ae00222d9e7e16935}\label{cypress__i2c_8c_a980c9775f3513a9ae00222d9e7e16935}} 
+\#define {\bfseries DLP\+\_\+\+I2\+C\+\_\+\+SLAVE\+\_\+\+ADDRESS}~(0\+X36 $>$$>$ 1)
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_a121b8eb58ba448710ba3ee55030aff28}\label{cypress__i2c_8c_a121b8eb58ba448710ba3ee55030aff28}} 
+\#define {\bfseries I2\+C\+\_\+\+TIMEOUT\+\_\+\+MILLISECONDS}~500
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_aac6f9ad3602ea43b2c5bb278df1036d9}\label{cypress__i2c_8c_aac6f9ad3602ea43b2c5bb278df1036d9}} 
+bool {\bfseries Get\+Cy\+I2\+CHandle} (CY\+\_\+\+HANDLE $\ast$Handle)
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_a73ce600a60e72c621c9079d875a0b93a}\label{cypress__i2c_8c_a73ce600a60e72c621c9079d875a0b93a}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Get\+Cy\+Gpio} (uint8\+\_\+t Gpio\+Num, uint8\+\_\+t $\ast$Value)
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_ae659b2abae8e07bdb1ee03795a03dad3}\label{cypress__i2c_8c_ae659b2abae8e07bdb1ee03795a03dad3}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Set\+Cy\+Gpio} (uint8\+\_\+t Gpio\+Num, uint8\+\_\+t Value)
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_a211cb58b76198fc54805d7b84de85dc9}\label{cypress__i2c_8c_a211cb58b76198fc54805d7b84de85dc9}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Request\+I2\+CBus\+Access} ()
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_ae38e60253794dd0f09bd0e4acaf30534}\label{cypress__i2c_8c_ae38e60253794dd0f09bd0e4acaf30534}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Relinquish\+I2\+CBus\+Access} ()
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_adc1ebd179101264b5e15d8747abd6d0f}\label{cypress__i2c_8c_adc1ebd179101264b5e15d8747abd6d0f}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Write\+I2C} (uint32\+\_\+t Write\+Data\+Length, uint8\+\_\+t $\ast$Write\+Data)
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_acf08628bb9a5993db664a6310df4b165}\label{cypress__i2c_8c_acf08628bb9a5993db664a6310df4b165}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Read\+I2C} (uint32\+\_\+t Read\+Data\+Length, uint8\+\_\+t $\ast$Read\+Data)
+\item 
+\mbox{\Hypertarget{cypress__i2c_8c_a9f003ebc07f90586b3b6885a9cde98a6}\label{cypress__i2c_8c_a9f003ebc07f90586b3b6885a9cde98a6}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Connect\+To\+Cy\+I2C} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sample code for I2C communication via Cypress USB-\/\+Serial Bridge Controller. 
+

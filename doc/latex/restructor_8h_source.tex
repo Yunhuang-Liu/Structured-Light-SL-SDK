@@ -1,0 +1,94 @@
+\hypertarget{restructor_8h_source}{}\doxysection{restructor.\+h}
+\label{restructor_8h_source}\index{src/slCamera/include/restructor/restructor.h@{src/slCamera/include/restructor/restructor.h}}
+\mbox{\hyperlink{restructor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ \_\_RESTRUCTOR\_RESTRUCTOR\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ \_\_RESTRUCTOR\_RESTRUCTOR\_H\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <Eigen/Core>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <typeDef.h>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <cuda\_runtime.h>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <device\_launch\_parameters.h>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{namespace\ }restructor\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{RestructParamater}}\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{RestructParamater}}()\ \{\}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a1fcbefb068a8737c4641c2c96b90a4ed}{RestructParamater}}(IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ minDisparity,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ maxDisparity,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ minDepth,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ maxDepth)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a527dc34e3b089527f738e59fe32ceea8}{\_\_minDisparity}}(minDisparity),\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_ac57ed4d06d0dc88e61dd2af9fb8d912c}{\_\_maxDisparity}}(maxDisparity),}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a08c55c17cbd1debba437693e88e2e17d}{\_\_minDepth}}(minDepth),\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a8bc43d87d1d35d0e8814ca44a917d165}{\_\_maxDepth}}(maxDepth),}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a6816c4f433e405767d6de619cf7d4493}{\_\_isMapToPreDepthAxes}}(false),\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a93c21b46d62773b5b64788ab874cc96f}{\_\_isMapToColorCamera}}(false),}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_aae234177d773072490f6d0598e70dd19}{\_\_maximumCost}}(0.1)\ \{}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \_\_block\ =\ dim3(32,\ 8);}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_aa0e961b0c163650c68b3dfde5692e434}{RestructParamater}}(IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ minDepth,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ maxDepth)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a527dc34e3b089527f738e59fe32ceea8}{\_\_minDisparity}}(-\/1000),\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_ac57ed4d06d0dc88e61dd2af9fb8d912c}{\_\_maxDisparity}}(1000),\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a08c55c17cbd1debba437693e88e2e17d}{\_\_minDepth}}(minDepth),}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_aae234177d773072490f6d0598e70dd19}{\_\_maximumCost}}(0.1),\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a8bc43d87d1d35d0e8814ca44a917d165}{\_\_maxDepth}}(maxDepth),}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a6816c4f433e405767d6de619cf7d4493}{\_\_isMapToPreDepthAxes}}(false),\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a93c21b46d62773b5b64788ab874cc96f}{\_\_isMapToColorCamera}}(false)\ \{}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \_\_block\ =\ dim3(32,\ 8);}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a527dc34e3b089527f738e59fe32ceea8}{\_\_minDisparity}};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_ac57ed4d06d0dc88e61dd2af9fb8d912c}{\_\_maxDisparity}};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a08c55c17cbd1debba437693e88e2e17d}{\_\_minDepth}};}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a8bc43d87d1d35d0e8814ca44a917d165}{\_\_maxDepth}};}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_aae234177d773072490f6d0598e70dd19}{\_\_maximumCost}};}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a6816c4f433e405767d6de619cf7d4493}{\_\_isMapToPreDepthAxes}};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater_a93c21b46d62773b5b64788ab874cc96f}{\_\_isMapToColorCamera}};}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00068\ \ \ \ \ dim3\ \_\_block;}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00074\ \textcolor{keyword}{namespace\ }cudaFunc\ \{}
+\DoxyCodeLine{00075\ \textcolor{comment}{//深度映射，CUDA主机端调用函数，不进行纹理映射}}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ getDepthMap(IN\ \textcolor{keyword}{const}\ cv::cuda::GpuMat\ \&leftImg,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ cv::cuda::GpuMat\ \&rightImg,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{RestructParamater}}\ param,\ \textcolor{keyword}{const}\ Eigen::Matrix4f\ \&Q,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ Eigen::Matrix3f\ \&M1,\ \textcolor{keyword}{const}\ Eigen::Matrix3f\ \&M3,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ Eigen::Matrix3f\ \&R,\ \textcolor{keyword}{const}\ Eigen::Vector3f\ \&T,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ Eigen::Matrix3f\ \&R1Inv,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::cuda::GpuMat\ \&depthMap,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&cvStream\ =\ cv::cuda::Stream::Null(),}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ dim3\ block\ =\ dim3(32,\ 8));}
+\DoxyCodeLine{00085\ \}\ \textcolor{comment}{//\ namespace\ cudaFunc}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1restructor_1_1_restructor}{Restructor}}\ \{}
+\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor}{\string~Restructor}}()\ \{\}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_a2a11d308324639e493cfbc67b74056f7}{restruction}}(IN\ \textcolor{keyword}{const}\ cv::Mat\ \&leftAbsImg,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ cv::Mat\ \&rightAbsImg,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{RestructParamater}}\ param,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::Mat\ \&depthImgOut)\ =\ 0;}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_a2a11d308324639e493cfbc67b74056f7}{restruction}}(IN\ \textcolor{keyword}{const}\ cv::cuda::GpuMat\ \&leftAbsImg,}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ cv::cuda::GpuMat\ \&rightAbsImg,}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{RestructParamater}}\ param,}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::cuda::GpuMat\ \&depthImg,}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&stream\ =\ cv::cuda::Stream::Null())\ =\ 0;}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00121\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_a1e738a6efd414275c0b47bd28d8f3900}{getDepthMap}}()\ \{\}}
+\DoxyCodeLine{00126\ \};}
+\DoxyCodeLine{00127\ \}\ \textcolor{comment}{//\ namespace\ restructor}}
+\DoxyCodeLine{00128\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_RESTRUCTOR\_RESTRUCTOR\_H\_}}
+
+\end{DoxyCode}

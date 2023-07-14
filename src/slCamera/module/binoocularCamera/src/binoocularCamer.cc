@@ -26,7 +26,7 @@ BinocularCamera::BinocularCamera(IN const std::string jsonPath)
 #endif //!__WITH_CUDA__
         }
 
-        updateAccelerateMethod();
+        updateAlgorithmMethod();
 
         __isInitial = true;
     }
@@ -70,7 +70,7 @@ void BinocularCamera::parseArray(Json::Value &jsonVal, const bool isWrite) {
 
     for (int i = 0; i < numOfCameraInfo; ++i) {
         const std::string titleString = jsonVal[i]["type"].asString();
-        if (titleString == "string" || titleString == "enum") {
+        if (titleString == "string") {
             if (!isWrite) {
                 setStringAttribute(jsonVal[i]["title"].asString(),
                                    jsonVal[i]["data"].asString());
@@ -78,7 +78,7 @@ void BinocularCamera::parseArray(Json::Value &jsonVal, const bool isWrite) {
                 jsonVal[i]["data"] =
                     __stringProperties[jsonVal[i]["title"].asString()];
             }
-        } else if (titleString == "number") {
+        } else if (titleString == "number" || titleString == "enum") {
             if (!isWrite) {
                 setNumberAttribute(jsonVal[i]["title"].asString(),
                                    jsonVal[i]["data"].asDouble());
@@ -98,7 +98,7 @@ void BinocularCamera::parseArray(Json::Value &jsonVal, const bool isWrite) {
     }
 }
 
-void BinocularCamera::updateAccelerateMethod() {
+void BinocularCamera::updateAlgorithmMethod() {
     if (__matrixInfo) {
         delete __matrixInfo;
         __matrixInfo = nullptr;
@@ -125,13 +125,23 @@ void BinocularCamera::updateAccelerateMethod() {
     if (__booleanProperties["Gpu Accelerate"]) {
 #ifdef __WITH_CUDA__
         __rectifier = new RectifierCpu(__matrixInfo->getInfo());
-        __phaseSolver = new NStepNGrayCodeMasterGpu();
-        __restructor = new RestructorGpu(__matrixInfo->getInfo());
+        if (__numbericalProperties["Restruction Method"] == 0) {
+            __phaseSolver = new NStepNGrayCodeMasterGpu();
+            __restructor = new RestructorGpu(__matrixInfo->getInfo());
+        } else if (__numbericalProperties["Restruction Method"] == 1) {
+            printf("BinoocularCamera warning: we didn't devolpe GPU version of "
+                   "shift line gray code... \n");
+        }
 #endif //!__WITH_CUDA__
     } else {
         __rectifier = new RectifierCpu(__matrixInfo->getInfo());
-        __phaseSolver = new NStepNGrayCodeMasterCpu();
-        __restructor = new RestructorCpu(__matrixInfo->getInfo());
+        if (__numbericalProperties["Restruction Method"] == 0) {
+            __phaseSolver = new NStepNGrayCodeMasterCpu();
+            __restructor = new RestructorCpu(__matrixInfo->getInfo());
+        } else if (__numbericalProperties["Restruction Method"] == 1) {
+            __phaseSolver = new NShiftLineNGrayCodeMasterCpu();
+            __restructor = new RestructorShiftLineCpu(__matrixInfo->getInfo());
+        }
     }
 }
 
@@ -301,56 +311,106 @@ bool BinocularCamera::offLineCapture(const std::vector<cv::Mat> &leftImgs,
                          __numbericalProperties["Num of block Y"]);
 #endif //!__WITH_CUDA__
     if (__booleanProperties["Gpu Accelerate"]) {
-        PhaseSolverGroupDataDevice leftSovleData, rightSolveData;
-        __phaseSolver->solve(leftImgsConvert, leftSovleData,
-                             __numbericalProperties["Contrast Threshold"]);
-        __phaseSolver->solve(rightImgConvert, rightSolveData,
-                             __numbericalProperties["Contrast Threshold"]);
+        if (__numbericalProperties["Restruction Method"] == 0) {
+            PhaseSolverGroupDataDevice leftSovleData, rightSolveData;
+            __phaseSolver->solve(leftImgsConvert, leftSovleData,
+                                 __numbericalProperties["Contrast Threshold"],
+                                 __numbericalProperties["Phase Shift Times"]);
+            __phaseSolver->solve(rightImgConvert, rightSolveData,
+                                 __numbericalProperties["Contrast Threshold"],
+                                 __numbericalProperties["Phase Shift Times"]);
 
-        cv::cuda::GpuMat filterLeftPhase, filterRightPhase, depthMap;
-        if (__booleanProperties["Noise Filter"]) {
-            sl::tool::cudaFunc::filterPhase(leftSovleData.__unwrapMap,
-                                            filterLeftPhase, 0.5, 5);
-            sl::tool::cudaFunc::filterPhase(rightSolveData.__unwrapMap,
-                                            filterRightPhase, 0.5, 5);
-            __restructor->restruction(filterLeftPhase, filterRightPhase, param,
-                                      depthMap);
-        } else {
-            __restructor->restruction(leftSovleData.__unwrapMap,
-                                      rightSolveData.__unwrapMap, param,
-                                      depthMap);
+            cv::cuda::GpuMat filterLeftPhase, filterRightPhase, depthMap;
+            if (__booleanProperties["Noise Filter"]) {
+                sl::tool::cudaFunc::filterPhase(leftSovleData.__unwrapMap,
+                                                filterLeftPhase, 0.5, 5);
+                sl::tool::cudaFunc::filterPhase(rightSolveData.__unwrapMap,
+                                                filterRightPhase, 0.5, 5);
+                __restructor->restruction(filterLeftPhase, filterRightPhase,
+                                          param, depthMap);
+            } else {
+                __restructor->restruction(leftSovleData.__unwrapMap,
+                                          rightSolveData.__unwrapMap, param,
+                                          depthMap);
+            }
+
+            depthMap.download(frameData.__depthMap);
+        } else if (__numbericalProperties["Restruction Method"] == 1) {
+            printf("BinoocularCamera error: restruction error, we didn't "
+                   "devolope GPU version of shift line gray code... \n");
+            return false;
         }
-
-        depthMap.download(frameData.__depthMap);
     } else {
         PhaseSolverGroupDataHost leftSovleData, rightSolveData;
-        __phaseSolver->solve(leftImgsConvert, leftSovleData,
-                             __numbericalProperties["Contrast Threshold"]);
-        __phaseSolver->solve(rightImgConvert, rightSolveData,
-                             __numbericalProperties["Contrast Threshold"]);
+        if (__numbericalProperties["Restruction Method"] == 0) {
+            __phaseSolver->solve(leftImgsConvert, leftSovleData,
+                                 __numbericalProperties["Contrast Threshold"],
+                                 __numbericalProperties["Phase Shift Times"]);
+            __phaseSolver->solve(rightImgConvert, rightSolveData,
+                                 __numbericalProperties["Contrast Threshold"],
+                                 __numbericalProperties["Phase Shift Times"]);
 
-        cv::Mat filterLeftPhase, filterRightPhase;
-        if (__booleanProperties["Noise Filter"]) {
-            filterPhase(leftSovleData.__unwrapMap, filterLeftPhase);
-            filterPhase(rightSolveData.__unwrapMap, filterRightPhase);
-            __restructor->restruction(filterLeftPhase, filterRightPhase, param,
-                                      frameData.__depthMap);
-        } else {
+            cv::Mat filterLeftPhase, filterRightPhase;
+            if (__booleanProperties["Noise Filter"]) {
+                filterPhase(leftSovleData.__unwrapMap, filterLeftPhase);
+                filterPhase(rightSolveData.__unwrapMap, filterRightPhase);
+                __restructor->restruction(filterLeftPhase, filterRightPhase,
+                                          param, frameData.__depthMap);
+            } else {
+                __restructor->restruction(leftSovleData.__unwrapMap,
+                                          rightSolveData.__unwrapMap, param,
+                                          frameData.__depthMap);
+            }
+        } else if (__numbericalProperties["Restruction Method"] == 1) {
+            __phaseSolver->solve(leftImgsConvert, leftSovleData,
+                                 __numbericalProperties["Contrast Threshold"],
+                                 __numbericalProperties["Gray Code Bits"]);
+            __phaseSolver->solve(rightImgConvert, rightSolveData,
+                                 __numbericalProperties["Contrast Threshold"],
+                                 __numbericalProperties["Gray Code Bits"]);
+
             __restructor->restruction(leftSovleData.__unwrapMap,
                                       rightSolveData.__unwrapMap, param,
                                       frameData.__depthMap);
+
+            // TODO@LiuYunhuang:增加噪声滤除支持
+            if (__booleanProperties["Noise Filter"]) {
+                cv::Mat depthClone = frameData.__depthMap.clone();
+                filterPhase(depthClone, frameData.__depthMap, 2, 5);
+                /*
+                printf("BinoocualrCamera Warning: we didn't devolope Noise "
+                    "Filter of shift line gray code... \n");
+                */
+            }
         }
     }
 
-    if (!colorShiftImgs.empty()) {
-        averageTexture(colorShiftImgs, frameData.__textureMap,
-            __numbericalProperties["Phase Shift Times"]);
-    }
-    else {
-        averageTexture(leftImgs, frameData.__textureMap,
-            __numbericalProperties["Phase Shift Times"]);
-        cv::cvtColor(frameData.__textureMap, frameData.__textureMap,
-            cv::COLOR_GRAY2RGB);
+    if (__numbericalProperties["Restruction Method"] == 0) {
+        if (!colorShiftImgs.empty()) {
+            averageTexture(colorShiftImgs, frameData.__textureMap,
+                           __numbericalProperties["Phase Shift Times"]);
+        } else {
+            averageTexture(leftImgs, frameData.__textureMap,
+                           __numbericalProperties["Phase Shift Times"]);
+            cv::cvtColor(frameData.__textureMap, frameData.__textureMap,
+                         cv::COLOR_GRAY2RGB);
+        }
+    } else if (__numbericalProperties["Restruction Method"] == 1) {
+        if (!colorShiftImgs.empty()) {
+            cv::Mat convertImgBlack, convertImgWhite;
+            leftImgs[leftImgs.size() - 1].convertTo(convertImgWhite, CV_32FC3);
+            leftImgs[leftImgs.size() - 2].convertTo(convertImgBlack, CV_32FC3);
+            frameData.__textureMap = (convertImgBlack + convertImgWhite) / 2.f;
+            frameData.__textureMap.convertTo(frameData.__textureMap, CV_8UC3);
+        } else {
+            cv::Mat convertImgBlack, convertImgWhite;
+            leftImgs[leftImgs.size() - 1].convertTo(convertImgWhite, CV_32FC1);
+            leftImgs[leftImgs.size() - 2].convertTo(convertImgBlack, CV_32FC1);
+            frameData.__textureMap = (convertImgBlack + convertImgWhite) / 2.f;
+            frameData.__textureMap.convertTo(frameData.__textureMap, CV_8UC1);
+            cv::cvtColor(frameData.__textureMap, frameData.__textureMap,
+                         cv::COLOR_GRAY2RGB);
+        }
     }
 
     cv::Mat depthMapRected;
@@ -374,8 +434,13 @@ bool BinocularCamera::capture(FrameData &frameData) {
         __stringProperties["Right Camera Name"], manufator);
     auto pProjector =
         __projectorFactory.getProjector(__stringProperties["DLP Evm"]);
-    const int imgSizeWaitFor = __numbericalProperties["Phase Shift Times"] +
-                               __numbericalProperties["Gray Code Bits"];
+    const int imgSizeWaitFor =
+        (__stringProperties["Restruction Method"] ==
+                 "PhaseShiftComplementaryGrayCode"
+             ? __numbericalProperties["Phase Shift Times"] +
+                   __numbericalProperties["Gray Code Bits"]
+             : __numbericalProperties["Gray Code Bits"] +
+                   __numbericalProperties["Shift Line Bits"] + 2);
 
     if (__booleanProperties["Enable Depth Camera"]) {
         pProjector->project(false);
@@ -426,52 +491,110 @@ bool BinocularCamera::capture(FrameData &frameData) {
                              __numbericalProperties["Num of block Y"]);
 #endif //!__WITH_CUDA__
         if (__booleanProperties["Gpu Accelerate"]) {
-            PhaseSolverGroupDataDevice leftSovleData, rightSolveData;
-            __phaseSolver->solve(leftImgs, leftSovleData,
-                                 __numbericalProperties["Contrast Threshold"]);
-            __phaseSolver->solve(rightImgs, rightSolveData,
-                                 __numbericalProperties["Contrast Threshold"]);
+            if (__numbericalProperties["Restruction Method"] == 0) {
+                PhaseSolverGroupDataDevice leftSovleData, rightSolveData;
+                __phaseSolver->solve(
+                    leftImgs, leftSovleData,
+                    __numbericalProperties["Contrast Threshold"]);
+                __phaseSolver->solve(
+                    rightImgs, rightSolveData,
+                    __numbericalProperties["Contrast Threshold"]);
 
-            cv::cuda::GpuMat filterLeftPhase, filterRightPhase, depthMap;
-            if (__booleanProperties["Noise Filter"]) {
-                sl::tool::cudaFunc::filterPhase(leftSovleData.__unwrapMap,
-                                                filterLeftPhase, 0.5, 5);
-                sl::tool::cudaFunc::filterPhase(rightSolveData.__unwrapMap,
-                                                filterRightPhase, 0.5, 5);
-                __restructor->restruction(filterLeftPhase, filterRightPhase,
-                                          param, depthMap);
-            } else {
-                __restructor->restruction(leftSovleData.__unwrapMap,
-                                          rightSolveData.__unwrapMap, param,
-                                          depthMap);
+                cv::cuda::GpuMat filterLeftPhase, filterRightPhase, depthMap;
+                if (__booleanProperties["Noise Filter"]) {
+                    sl::tool::cudaFunc::filterPhase(leftSovleData.__unwrapMap,
+                                                    filterLeftPhase, 0.5, 5);
+                    sl::tool::cudaFunc::filterPhase(rightSolveData.__unwrapMap,
+                                                    filterRightPhase, 0.5, 5);
+                    __restructor->restruction(filterLeftPhase, filterRightPhase,
+                                              param, depthMap);
+                } else {
+                    __restructor->restruction(leftSovleData.__unwrapMap,
+                                              rightSolveData.__unwrapMap, param,
+                                              depthMap);
+                }
+
+                depthMap.download(frameData.__depthMap);
+            } else if (__numbericalProperties["Restruction Method"] == 1) {
+                printf("BinoocularCamera error: restruction error, we didn't "
+                       "devolope GPU version of shift line gray code... \n");
+                return false;
             }
-
-            depthMap.download(frameData.__depthMap);
         } else {
             PhaseSolverGroupDataHost leftSovleData, rightSolveData;
-            __phaseSolver->solve(leftImgs, leftSovleData,
-                                 __numbericalProperties["Contrast Threshold"]);
-            __phaseSolver->solve(rightImgs, rightSolveData,
-                                 __numbericalProperties["Contrast Threshold"]);
+            if (__numbericalProperties["Restruction Method"] == 0) {
+                __phaseSolver->solve(
+                    leftImgs, leftSovleData,
+                    __numbericalProperties["Contrast Threshold"],
+                    __numbericalProperties["Phase Shift Times"]);
+                __phaseSolver->solve(
+                    rightImgs, rightSolveData,
+                    __numbericalProperties["Contrast Threshold"],
+                    __numbericalProperties["Phase Shift Times"]);
 
-            cv::Mat filterLeftPhase, filterRightPhase;
-            if (__booleanProperties["Noise Filter"]) {
-                filterPhase(leftSovleData.__unwrapMap, filterLeftPhase);
-                filterPhase(rightSolveData.__unwrapMap, filterRightPhase);
-                __restructor->restruction(filterLeftPhase, filterRightPhase,
-                                          param, frameData.__depthMap);
-            } else {
+                if (__booleanProperties["Noise Filter"]) {
+                    cv::Mat filterLeftPhase, filterRightPhase;
+                    filterPhase(leftSovleData.__unwrapMap, filterLeftPhase);
+                    filterPhase(rightSolveData.__unwrapMap, filterRightPhase);
+                    __restructor->restruction(filterLeftPhase, filterRightPhase,
+                                              param, frameData.__depthMap);
+                } else {
+                    __restructor->restruction(leftSovleData.__unwrapMap,
+                                              rightSolveData.__unwrapMap, param,
+                                              frameData.__depthMap);
+                }
+            } else if (__numbericalProperties["Restruction Method"] == 1) {
+                __phaseSolver->solve(
+                    leftImgs, leftSovleData,
+                    __numbericalProperties["Contrast Threshold"],
+                    __numbericalProperties["Gray Code Bits"]);
+                __phaseSolver->solve(
+                    rightImgs, rightSolveData,
+                    __numbericalProperties["Contrast Threshold"],
+                    __numbericalProperties["Gray Code Bits"]);
+
+                // TODO@LiuYunhuang:增加噪声滤除支持
+                if (__booleanProperties["Noise Filter"]) {
+                    printf("BinoocualrCamera Warning: we didn't devolope Noise "
+                           "Filter of shift line gray code... \n");
+                }
                 __restructor->restruction(leftSovleData.__unwrapMap,
                                           rightSolveData.__unwrapMap, param,
                                           frameData.__depthMap);
             }
+        }
 
+        if (__numbericalProperties["Restruction Method"] == 0) {
             if (!colorShiftImgs.empty()) {
                 averageTexture(colorShiftImgs, frameData.__textureMap,
                                __numbericalProperties["Phase Shift Times"]);
             } else {
                 averageTexture(leftImgs, frameData.__textureMap,
                                __numbericalProperties["Phase Shift Times"]);
+                cv::cvtColor(frameData.__textureMap, frameData.__textureMap,
+                             cv::COLOR_GRAY2RGB);
+            }
+        } else if (__numbericalProperties["Restruction Method"] == 1) {
+            if (!colorShiftImgs.empty()) {
+                cv::Mat convertImgBlack, convertImgWhite;
+                leftImgs[leftImgs.size() - 1].convertTo(convertImgWhite,
+                                                        CV_32FC3);
+                leftImgs[leftImgs.size() - 2].convertTo(convertImgBlack,
+                                                        CV_32FC3);
+                frameData.__textureMap =
+                    (convertImgBlack + convertImgWhite) / 2.f;
+                frameData.__textureMap.convertTo(frameData.__textureMap,
+                                                 CV_8UC3);
+            } else {
+                cv::Mat convertImgBlack, convertImgWhite;
+                leftImgs[leftImgs.size() - 1].convertTo(convertImgWhite,
+                                                        CV_32FC1);
+                leftImgs[leftImgs.size() - 2].convertTo(convertImgBlack,
+                                                        CV_32FC1);
+                frameData.__textureMap =
+                    (convertImgBlack + convertImgWhite) / 2.f;
+                frameData.__textureMap.convertTo(frameData.__textureMap,
+                                                 CV_8UC1);
                 cv::cvtColor(frameData.__textureMap, frameData.__textureMap,
                              cv::COLOR_GRAY2RGB);
             }
@@ -545,11 +668,9 @@ bool BinocularCamera::setStringAttribute(const std::string attributeName,
 bool BinocularCamera::setNumberAttribute(const std::string attributeName,
                                          const double val) {
 
-
-
     __numbericalProperties[attributeName] = val;
 
-    if(__isInitial)
+    if (__isInitial)
         __propertiesChangedSignals[attributeName] = true;
 
     return true;
@@ -559,7 +680,7 @@ bool BinocularCamera::setBooleanAttribute(const std::string attributeName,
                                           const bool val) {
     __booleanProperties[attributeName] = val;
 
-    if(__isInitial)
+    if (__isInitial)
         __propertiesChangedSignals[attributeName] = true;
 
     return true;
@@ -580,6 +701,8 @@ bool BinocularCamera::resetCameraConfig() {
     __stringProperties["Left Camera Name"] = "Left";
     __stringProperties["RightCamera Name"] = "Right";
     __stringProperties["2D Camera Manufactor"] = "Huaray";
+    __stringProperties["Restruction Method"] =
+        "PhaseShiftComplementaryGrayCode";
 
     __numbericalProperties["MinimumDisparity"] = -500;
     __numbericalProperties["MaximumDisparity"] = 500;
@@ -708,8 +831,9 @@ void BinocularCamera::updateLightStrength() {
 }
 
 bool BinocularCamera::updateCamera() {
-    if (__propertiesChangedSignals["Gpu Accelerate"]) {
-        updateAccelerateMethod();
+    if (__propertiesChangedSignals["Gpu Accelerate"] ||
+        __propertiesChangedSignals["Restruction Method"]) {
+        updateAlgorithmMethod();
     }
 
     if (__propertiesChangedSignals["Enable Depth Camera"]) {

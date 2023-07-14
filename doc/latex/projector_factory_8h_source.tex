@@ -1,0 +1,49 @@
+\hypertarget{projector_factory_8h_source}{}\doxysection{projector\+Factory.\+h}
+\label{projector_factory_8h_source}\index{src/projector/common/projectorFactory.h@{src/projector/common/projectorFactory.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_PROJECTORY\_FACTORY\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_PROJECTORY\_FACTORY\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}projector.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}projectorDlpc34xx.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}projectorDlpc34xxDual.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }projector\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1projector_1_1_projector_factory}{ProjectorFactory}}\ \{}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_factory}{ProjectorFactory}}()\ \{\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classsl_1_1projector_1_1_projector}{Projector}}\ *getProjector(\textcolor{keyword}{const}\ std::string\ dlpEvm)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsl_1_1projector_1_1_projector}{Projector}}\ *projector\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_\_projectoies.count(dlpEvm))\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_\_projectoies[dlpEvm];}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{stringliteral}{"{}DLP4710"{}}\ ==\ dlpEvm)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ projector\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual}{ProjectorDlpc34xxDual}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_projectoies[dlpEvm]\ =\ projector;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{stringliteral}{"{}DLP3010"{}}\ ==\ dlpEvm)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ projector\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx}{ProjectorDlpc34xx}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_projectoies[dlpEvm]\ =\ projector;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//TODO@LiuYunhuang:增加DLP6500支持}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ projector;}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ \ \ \ \ std::unordered\_map<std::string,\ Projector\ *>\ \_\_projectoies;}
+\DoxyCodeLine{00042\ \};\ \textcolor{comment}{//\ class\ CameraFactory}}
+\DoxyCodeLine{00043\ \}\ \textcolor{comment}{//\ namespace\ camera}}
+\DoxyCodeLine{00044\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_\_PROJECTORY\_FACTORY\_H\_}}
+
+\end{DoxyCode}

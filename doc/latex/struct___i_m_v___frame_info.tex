@@ -1,0 +1,58 @@
+\hypertarget{struct___i_m_v___frame_info}{}\doxysection{\+\_\+\+IMV\+\_\+\+Frame\+Info Struct Reference}
+\label{struct___i_m_v___frame_info}\index{\_IMV\_FrameInfo@{\_IMV\_FrameInfo}}
+
+
+The frame image information.  
+
+
+
+
+{\ttfamily \#include $<$IMVDefines.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct___i_m_v___frame_info_a6c063e1049cc8fe392d5ca3191d26ed1}\label{struct___i_m_v___frame_info_a6c063e1049cc8fe392d5ca3191d26ed1}} 
+uint64\+\_\+t {\bfseries block\+Id}
+\begin{DoxyCompactList}\small\item\em The block ID(Gig\+E/\+Usb/\+PCIe camera only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___frame_info_a5250e947ddcffe504557c8f8da510b0d}\label{struct___i_m_v___frame_info_a5250e947ddcffe504557c8f8da510b0d}} 
+unsigned int {\bfseries status}
+\begin{DoxyCompactList}\small\item\em The status of frame(0 is normal status) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___frame_info_a0e386ab091315399ba91f11bb9bd3914}\label{struct___i_m_v___frame_info_a0e386ab091315399ba91f11bb9bd3914}} 
+unsigned int {\bfseries width}
+\begin{DoxyCompactList}\small\item\em The width of image. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___frame_info_ae48a4b3943e9e3615d7aed85f7797dab}\label{struct___i_m_v___frame_info_ae48a4b3943e9e3615d7aed85f7797dab}} 
+unsigned int {\bfseries height}
+\begin{DoxyCompactList}\small\item\em The height of image. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___frame_info_a03713d04737f3a2ac756beb16263e394}\label{struct___i_m_v___frame_info_a03713d04737f3a2ac756beb16263e394}} 
+unsigned int {\bfseries size}
+\begin{DoxyCompactList}\small\item\em The size of image. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___frame_info_aa7b91966ae122f3a406d4886ccf08081}\label{struct___i_m_v___frame_info_aa7b91966ae122f3a406d4886ccf08081}} 
+IMV\+\_\+\+EPixel\+Type {\bfseries pixel\+Format}
+\begin{DoxyCompactList}\small\item\em The pixel format of image. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___frame_info_a1c4da0498a1967ee52839d372cab3762}\label{struct___i_m_v___frame_info_a1c4da0498a1967ee52839d372cab3762}} 
+uint64\+\_\+t {\bfseries time\+Stamp}
+\begin{DoxyCompactList}\small\item\em The timestamp of image(Gig\+E/\+Usb/\+PCIe camera only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___frame_info_a470ac6301e3e6d1e3aa7df60a0642cb4}\label{struct___i_m_v___frame_info_a470ac6301e3e6d1e3aa7df60a0642cb4}} 
+unsigned int {\bfseries chunk\+Count}
+\begin{DoxyCompactList}\small\item\em The number of chunk in frame data(Gig\+E/\+Usb Camera Only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___frame_info_ad7e9915a52c4cf1c4b8eb9e960df946d}\label{struct___i_m_v___frame_info_ad7e9915a52c4cf1c4b8eb9e960df946d}} 
+unsigned int {\bfseries paddingX}
+\begin{DoxyCompactList}\small\item\em The paddingX of image(Gig\+E/\+Usb/\+PCIe camera only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___frame_info_ad3f671f08b068904115497d0ccd5448e}\label{struct___i_m_v___frame_info_ad3f671f08b068904115497d0ccd5448e}} 
+unsigned int {\bfseries paddingY}
+\begin{DoxyCompactList}\small\item\em The paddingY of image(Gig\+E/\+Usb/\+PCIe camera only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___frame_info_ad30bbb6e741bcba294676410fe6f2648}\label{struct___i_m_v___frame_info_ad30bbb6e741bcba294676410fe6f2648}} 
+unsigned int {\bfseries recv\+Frame\+Time}
+\begin{DoxyCompactList}\small\item\em The time taken for the image to be transmitted over the network(unit\+:us, The value is 0 for non-\/\+GigE camera) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___frame_info_a3b7ce349ef95438264a448e50b9eccf4}\label{struct___i_m_v___frame_info_a3b7ce349ef95438264a448e50b9eccf4}} 
+unsigned int {\bfseries n\+Reserved} \mbox{[}19\mbox{]}
+\begin{DoxyCompactList}\small\item\em Reserved field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The frame image information. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/camera/module/huaray\+\_\+camera/include/IMVDefines.\+h\end{DoxyCompactItemize}

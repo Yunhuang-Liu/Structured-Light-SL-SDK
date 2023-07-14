@@ -1,0 +1,355 @@
+\hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual}{}\doxysection{sl\+::projector\+::Projector\+Dlpc34xx\+Dual Class Reference}
+\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual}\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+
+
+DLPC34xx dual系列投影仪  
+
+
+
+
+{\ttfamily \#include $<$projector\+Dlpc34xx\+Dual.\+h$>$}
+
+Inheritance diagram for sl\+::projector\+::Projector\+Dlpc34xx\+Dual\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsl_1_1projector_1_1_projector_dlpc34xx_dual}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structsl_1_1projector_1_1_projector_info}{Projector\+Info}} \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a45d351889a13fa849fd86767bb0b217f}{get\+Info}} () override
+\begin{DoxyCompactList}\small\item\em 获取投影仪信息 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a42530c139ac54e7cfc31387010e22463}{connect}} () override
+\begin{DoxyCompactList}\small\item\em 连接 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a673b586edcfa4467696f8c63c5ad43c3}{dis\+Connect}} () override
+\begin{DoxyCompactList}\small\item\em 断开连接 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a869e6d74c7f61359b732cdd876137e5e}{is\+Connect}} () override
+\begin{DoxyCompactList}\small\item\em 断开连接 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a3b8a1725ae5ce8f09cad777fa11808e1}{populate\+Pattern\+Table\+Data}} (IN std\+::vector$<$ \mbox{\hyperlink{structsl_1_1projector_1_1_pattern_order_set}{Pattern\+Order\+Set}} $>$ table) override
+\begin{DoxyCompactList}\small\item\em 从图案集制作投影序列 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a58310dfd4ea7babc60bed4bcd8473474}{project}} (IN const bool is\+Continue) override
+\begin{DoxyCompactList}\small\item\em 投影 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a1ad45395bd78e28773337ec59e606c89}{stop}} () override
+\begin{DoxyCompactList}\small\item\em 停止 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_ad36f3092111681f54a1cadb6ae3abf8f}{resume}} () override
+\begin{DoxyCompactList}\small\item\em 恢复投影 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a7919de7a131fa4c8cb2c4121f95841ea}{pause}} () override
+\begin{DoxyCompactList}\small\item\em 暂停 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a3bd29c28ebf4a4c491eb3b9c7b74e616}{step}} () override
+\begin{DoxyCompactList}\small\item\em 投影下一帧 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_aeb11bb8ca9aa4bea853bd8045ebdb0a6}{get\+LEDCurrent}} (OUT double \&r, OUT double \&g, OUT double \&b) override
+\begin{DoxyCompactList}\small\item\em 获取当前\+LED三色灯电流值 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_aae30067ab105e7f7ea82e5ee4eab18cc}{set\+LEDCurrent}} (IN const double r, IN const double g, IN const double b) override
+\begin{DoxyCompactList}\small\item\em 设置当前\+LED三色灯电流值 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a6d246f14e868d898550c7340f84a2e61}{get\+Flash\+Imgs\+Num}} () override
+\begin{DoxyCompactList}\small\item\em 获取当前闪存图片数量 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{structsl_1_1projector_1_1_projector_info}{Projector\+Info}} \mbox{\hyperlink{classsl_1_1projector_1_1_projector_ad69e131c0cbf725fe8855c2648070949}{get\+Info}} ()=0
+\begin{DoxyCompactList}\small\item\em 获取投影仪信息 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a6354b15ecf0fc455b6ac01fc28a991f9}{connect}} ()=0
+\begin{DoxyCompactList}\small\item\em 连接 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a2bdf634ea2f46750010e583b37e07a94}{dis\+Connect}} ()=0
+\begin{DoxyCompactList}\small\item\em 断开连接 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_ad36614dc47a4952ccc5622a0763a141e}{is\+Connect}} ()=0
+\begin{DoxyCompactList}\small\item\em 断开连接 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_aafd004abb1f1cdea3d2f307d80d86824}{populate\+Pattern\+Table\+Data}} (IN std\+::vector$<$ \mbox{\hyperlink{structsl_1_1projector_1_1_pattern_order_set}{Pattern\+Order\+Set}} $>$ table)=0
+\begin{DoxyCompactList}\small\item\em 从图案集制作投影序列 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_adc2e8cba78bb464c6263e5c2c514b6e7}{project}} (IN const bool is\+Continue)=0
+\begin{DoxyCompactList}\small\item\em 投影 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_af5c7dc87c186be759f036045f15b3786}{pause}} ()=0
+\begin{DoxyCompactList}\small\item\em 暂停 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_acd378f7a31cbf0d17cff209fccc61960}{stop}} ()=0
+\begin{DoxyCompactList}\small\item\em 停止 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a7842a1925d7f3e06fac2e1f0e3db17e7}{resume}} ()=0
+\begin{DoxyCompactList}\small\item\em 恢复投影 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a9cf92c072f740d2e35c9b51624d46121}{step}} ()=0
+\begin{DoxyCompactList}\small\item\em 投影下一帧 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a57a73f2b9b5554b4951e802be4123233}{get\+LEDCurrent}} (OUT double \&r, OUT double \&g, OUT double \&b)=0
+\begin{DoxyCompactList}\small\item\em 获取当前\+LED三色灯电流值 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1projector_1_1_projector_af968d4a2412791c8f18572f1d6706662}{set\+LEDCurrent}} (IN const double r, IN const double g, IN const double b)=0
+\begin{DoxyCompactList}\small\item\em 设置当前\+LED三色灯电流值 \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classsl_1_1projector_1_1_projector_af52634200efffdcbbe55da3fd88637a1}{get\+Flash\+Imgs\+Num}} ()=0
+\begin{DoxyCompactList}\small\item\em 获取当前闪存图片数量 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+DLPC34xx dual系列投影仪 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a42530c139ac54e7cfc31387010e22463}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a42530c139ac54e7cfc31387010e22463}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!connect@{connect}}
+\index{connect@{connect}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily bool sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+连接 
+
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a6354b15ecf0fc455b6ac01fc28a991f9}{sl\+::projector\+::\+Projector}}.
+
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a673b586edcfa4467696f8c63c5ad43c3}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a673b586edcfa4467696f8c63c5ad43c3}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!disConnect@{disConnect}}
+\index{disConnect@{disConnect}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{disConnect()}{disConnect()}}
+{\footnotesize\ttfamily bool sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::dis\+Connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+断开连接 
+
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a2bdf634ea2f46750010e583b37e07a94}{sl\+::projector\+::\+Projector}}.
+
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a6d246f14e868d898550c7340f84a2e61}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a6d246f14e868d898550c7340f84a2e61}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!getFlashImgsNum@{getFlashImgsNum}}
+\index{getFlashImgsNum@{getFlashImgsNum}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{getFlashImgsNum()}{getFlashImgsNum()}}
+{\footnotesize\ttfamily int sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::get\+Flash\+Imgs\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+获取当前闪存图片数量 
+
+\begin{DoxyReturn}{Returns}
+int 图片数量 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_af52634200efffdcbbe55da3fd88637a1}{sl\+::projector\+::\+Projector}}.
+
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a45d351889a13fa849fd86767bb0b217f}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a45d351889a13fa849fd86767bb0b217f}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!getInfo@{getInfo}}
+\index{getInfo@{getInfo}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{getInfo()}{getInfo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsl_1_1projector_1_1_projector_info}{Projector\+Info}} sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::get\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+获取投影仪信息 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structsl_1_1projector_1_1_projector_info}{Projector\+Info}} 投影仪相关信息 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_ad69e131c0cbf725fe8855c2648070949}{sl\+::projector\+::\+Projector}}.
+
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_aeb11bb8ca9aa4bea853bd8045ebdb0a6}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_aeb11bb8ca9aa4bea853bd8045ebdb0a6}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!getLEDCurrent@{getLEDCurrent}}
+\index{getLEDCurrent@{getLEDCurrent}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{getLEDCurrent()}{getLEDCurrent()}}
+{\footnotesize\ttfamily bool sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::get\+LEDCurrent (\begin{DoxyParamCaption}\item[{OUT double \&}]{r,  }\item[{OUT double \&}]{g,  }\item[{OUT double \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+获取当前\+LED三色灯电流值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & 红色电流值 \\
+\hline
+{\em g} & 绿色电流值 \\
+\hline
+{\em b} & 蓝色电流值 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a57a73f2b9b5554b4951e802be4123233}{sl\+::projector\+::\+Projector}}.
+
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a869e6d74c7f61359b732cdd876137e5e}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a869e6d74c7f61359b732cdd876137e5e}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!isConnect@{isConnect}}
+\index{isConnect@{isConnect}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{isConnect()}{isConnect()}}
+{\footnotesize\ttfamily bool sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::is\+Connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+断开连接 
+
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_ad36614dc47a4952ccc5622a0763a141e}{sl\+::projector\+::\+Projector}}.
+
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a7919de7a131fa4c8cb2c4121f95841ea}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a7919de7a131fa4c8cb2c4121f95841ea}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!pause@{pause}}
+\index{pause@{pause}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}}
+{\footnotesize\ttfamily bool sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+暂停 
+
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_af5c7dc87c186be759f036045f15b3786}{sl\+::projector\+::\+Projector}}.
+
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a3b8a1725ae5ce8f09cad777fa11808e1}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a3b8a1725ae5ce8f09cad777fa11808e1}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!populatePatternTableData@{populatePatternTableData}}
+\index{populatePatternTableData@{populatePatternTableData}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{populatePatternTableData()}{populatePatternTableData()}}
+{\footnotesize\ttfamily bool sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::populate\+Pattern\+Table\+Data (\begin{DoxyParamCaption}\item[{IN std\+::vector$<$ \mbox{\hyperlink{structsl_1_1projector_1_1_pattern_order_set}{Pattern\+Order\+Set}} $>$}]{table }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+从图案集制作投影序列 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & 投影图案集 \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_aafd004abb1f1cdea3d2f307d80d86824}{sl\+::projector\+::\+Projector}}.
+
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a58310dfd4ea7babc60bed4bcd8473474}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a58310dfd4ea7babc60bed4bcd8473474}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!project@{project}}
+\index{project@{project}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{project()}{project()}}
+{\footnotesize\ttfamily bool sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::project (\begin{DoxyParamCaption}\item[{IN const bool}]{is\+Continue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+投影 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Continue} & 是否连续投影 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_adc2e8cba78bb464c6263e5c2c514b6e7}{sl\+::projector\+::\+Projector}}.
+
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_ad36f3092111681f54a1cadb6ae3abf8f}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_ad36f3092111681f54a1cadb6ae3abf8f}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!resume@{resume}}
+\index{resume@{resume}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{resume()}{resume()}}
+{\footnotesize\ttfamily bool sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::resume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+恢复投影 
+
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a7842a1925d7f3e06fac2e1f0e3db17e7}{sl\+::projector\+::\+Projector}}.
+
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_aae30067ab105e7f7ea82e5ee4eab18cc}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_aae30067ab105e7f7ea82e5ee4eab18cc}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!setLEDCurrent@{setLEDCurrent}}
+\index{setLEDCurrent@{setLEDCurrent}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{setLEDCurrent()}{setLEDCurrent()}}
+{\footnotesize\ttfamily bool sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::set\+LEDCurrent (\begin{DoxyParamCaption}\item[{IN const double}]{r,  }\item[{IN const double}]{g,  }\item[{IN const double}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+设置当前\+LED三色灯电流值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & 红色电流值 \\
+\hline
+{\em g} & 绿色电流值 \\
+\hline
+{\em b} & 蓝色电流值 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_af968d4a2412791c8f18572f1d6706662}{sl\+::projector\+::\+Projector}}.
+
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a3bd29c28ebf4a4c491eb3b9c7b74e616}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a3bd29c28ebf4a4c491eb3b9c7b74e616}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!step@{step}}
+\index{step@{step}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily bool sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+投影下一帧 
+
+\begin{DoxyWarning}{Warning}
+仅在步进模式下使用
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a9cf92c072f740d2e35c9b51624d46121}{sl\+::projector\+::\+Projector}}.
+
+\mbox{\Hypertarget{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a1ad45395bd78e28773337ec59e606c89}\label{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a1ad45395bd78e28773337ec59e606c89}} 
+\index{sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}!stop@{stop}}
+\index{stop@{stop}!sl::projector::ProjectorDlpc34xxDual@{sl::projector::ProjectorDlpc34xxDual}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily bool sl\+::projector\+::\+Projector\+Dlpc34xx\+Dual\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+停止 
+
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classsl_1_1projector_1_1_projector_acd378f7a31cbf0d17cff209fccc61960}{sl\+::projector\+::\+Projector}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/projector/module/projector\+\_\+dlpc\+\_\+api/include/projector\+Dlpc34xx\+Dual.\+h\item 
+src/projector/module/projector\+\_\+dlpc\+\_\+api/src/projector\+Dlpc34xx\+Dual.\+cc\end{DoxyCompactItemize}

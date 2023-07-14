@@ -1,0 +1,31 @@
+\hypertarget{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s}{}\doxysection{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Data\+\_\+s Struct Reference}
+\label{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s}\index{DLPC34XX\_INT\_PAT\_PatternData\_s@{DLPC34XX\_INT\_PAT\_PatternData\_s}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s_a7b963320bee50dca61a8d6b6e041d5e7}{Pixel\+Array\+Count}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s_aff23e4b05a1069b43286e8b4a7a204f2}{Pixel\+Array}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s_aff23e4b05a1069b43286e8b4a7a204f2}\label{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s_aff23e4b05a1069b43286e8b4a7a204f2}} 
+\index{DLPC34XX\_INT\_PAT\_PatternData\_s@{DLPC34XX\_INT\_PAT\_PatternData\_s}!PixelArray@{PixelArray}}
+\index{PixelArray@{PixelArray}!DLPC34XX\_INT\_PAT\_PatternData\_s@{DLPC34XX\_INT\_PAT\_PatternData\_s}}
+\doxysubsubsection{\texorpdfstring{PixelArray}{PixelArray}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Data\+\_\+s\+::\+Pixel\+Array}
+
+The 1-\/D pixel data array.
+
+For 1-\/bit patterns, each byte should 0 or 1. For 8-\/bit patterns, each byte can be 0-\/255. For horizontal patterns, the number of bytes should be equal to the DMD\+\_\+\+HEIGHT For vertical patterns, the number of bytes should be equal to the DMD\+\_\+\+WIDTH If the number of bytes is less than the expected value, the missing pixel data will be filled with zeros. If the number of bytes is greater than the expected value, the excess bytes are ignored. \mbox{\Hypertarget{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s_a7b963320bee50dca61a8d6b6e041d5e7}\label{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s_a7b963320bee50dca61a8d6b6e041d5e7}} 
+\index{DLPC34XX\_INT\_PAT\_PatternData\_s@{DLPC34XX\_INT\_PAT\_PatternData\_s}!PixelArrayCount@{PixelArrayCount}}
+\index{PixelArrayCount@{PixelArrayCount}!DLPC34XX\_INT\_PAT\_PatternData\_s@{DLPC34XX\_INT\_PAT\_PatternData\_s}}
+\doxysubsubsection{\texorpdfstring{PixelArrayCount}{PixelArrayCount}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Data\+\_\+s\+::\+Pixel\+Array\+Count}
+
+Number of bytes in the pixel array 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/projector/module/projector\+\_\+dlpc\+\_\+api/include/\mbox{\hyperlink{dlpc347x__internal__patterns_8h}{dlpc347x\+\_\+internal\+\_\+patterns.\+h}}\end{DoxyCompactItemize}

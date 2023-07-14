@@ -1,0 +1,41 @@
+\hypertarget{rectifier_gpu_8h_source}{}\doxysection{rectifier\+Gpu.\+h}
+\label{rectifier_gpu_8h_source}\index{src/slCamera/include/rectifier/rectifierGpu.h@{src/slCamera/include/rectifier/rectifierGpu.h}}
+\mbox{\hyperlink{rectifier_gpu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_RECTIFIER\_RECTIFIER\_GPU\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_RECTIFIER\_RECTIFIER\_GPU\_H\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{rectifier_8h}{rectifier.h}}>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }rectifier\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_gpu}{RectifierGpu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier}{Rectifier}}\ \{}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_gpu}{RectifierGpu}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_gpu_a608d1b01a95e2548e6cbd948593880cb}{RectifierGpu}}(IN\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool::Info}}\ \&info);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_gpu_ac808c71403d78ddd53f021ffbba5c641}{initialize}}(IN\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool::Info}}\ \&info)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_gpu_aebc4417be1f78b8ad2d4e4e555c9a75b}{remapImg}}(IN\ \textcolor{keyword}{const}\ cv::cuda::GpuMat\ \&imgInput,\ OUT\ cv::cuda::GpuMat\ \&imgOutput,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ isLeft\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&cvStream\ =\ cv::cuda::Stream::Null())\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_gpu_aebc4417be1f78b8ad2d4e4e555c9a75b}{remapImg}}(IN\ \textcolor{keyword}{const}\ cv::Mat\ \&imgInput,\ OUT\ cv::Mat\ \&imgOutput,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ isLeft\ =\ \textcolor{keyword}{true})\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//图像大小}}
+\DoxyCodeLine{00061\ \ \ \ \ cv::Size\ \_\_imgSize;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//左相机X方向映射表}}
+\DoxyCodeLine{00063\ \ \ \ \ cv::cuda::GpuMat\ \_\_mapLx;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//右相机Y方向映射表}}
+\DoxyCodeLine{00065\ \ \ \ \ cv::cuda::GpuMat\ \_\_mapLy;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//左相机X方向映射表}}
+\DoxyCodeLine{00067\ \ \ \ \ cv::cuda::GpuMat\ \_\_mapRx;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//右相机Y方向映射表}}
+\DoxyCodeLine{00069\ \ \ \ \ cv::cuda::GpuMat\ \_\_mapRy;}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ \}\ \textcolor{comment}{//\ namespace\ rectifier}}
+\DoxyCodeLine{00072\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_RECTIFIER\_RECTIFIER\_GPU\_H\_}}
+
+\end{DoxyCode}

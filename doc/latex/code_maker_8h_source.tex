@@ -1,0 +1,66 @@
+\hypertarget{code_maker_8h_source}{}\doxysection{code\+Maker.\+h}
+\label{code_maker_8h_source}\index{src/slCamera/module/binoocularCamera/include/codeMaker.h@{src/slCamera/module/binoocularCamera/include/codeMaker.h}}
+\mbox{\hyperlink{code_maker_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }elencode\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ cv::Mat\ createBWShiftCode(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ blockNum,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftTime);}
+\DoxyCodeLine{00016\ \}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_gray_encoder}{GrayEncoder}}\ \{}
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_gray_encoder}{GrayEncoder}}(\textcolor{keyword}{const}\ cv::Size\ encodeSize);}
+\DoxyCodeLine{00032\ \ \ \ \ cv::Mat\ \mbox{\hyperlink{class_gray_encoder_a48cf865f9631696790b91ea5e4cb2f74}{getImage}}();}
+\DoxyCodeLine{00041\ \ \ \ \ cv::Mat\ \mbox{\hyperlink{class_gray_encoder_a141ce0c619122491c43a70f4e85733d5}{creatGrayImage}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ numOfImage,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ imgPlainNum,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ grayBits\ =\ 4);}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gray_encoder_a39bb1182d9fe03a1e019d92d8d3be07b}{setShiftGrayCodeState}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gray_encoder_ae8803fdda60a0dbf50500976efcaffc2}{setChangeModeY}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gray_encoder_a81ffb8379fe70706d3cb79ec6adcc8cf}{setIsOneHeightMode}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gray_encoder_a335072c3cab0e5c1e35f492bd9654e12}{setCounterFirstBit}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gray_encoder_ad18547c343259aa09060193c4f44e9c4}{setFourFloorMode}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00075\ \ \ \ \ cv::Size\ imgSize;}
+\DoxyCodeLine{00077\ \ \ \ \ cv::Mat\ myGrayEncodeImage;}
+\DoxyCodeLine{00079\ \ \ \ \ cv::Mat\ shiftGrayCodeImage;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ isShiftGrayCode;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ isChangeModeY;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ isOneHeight;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ isCounterFirstBit;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ isFourFloorGray;}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_phase_encoder}{PhaseEncoder}}\ \{}
+\DoxyCodeLine{00094\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_phase_encoder}{PhaseEncoder}}(\textcolor{keyword}{const}\ cv::Size);}
+\DoxyCodeLine{00106\ \ \ \ \ std::vector<cv::Mat>\&\ \mbox{\hyperlink{class_phase_encoder_ad442bb7b2e1a1499da26460d6704a135}{getImage}}();}
+\DoxyCodeLine{00114\ \ \ \ \ std::vector<cv::Mat>\&\ \mbox{\hyperlink{class_phase_encoder_a937a718d2bfc62f3b2ac1e611567fdac}{creatPhaseImage}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ numOfPhaseShift,}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ patchDistance);}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_phase_encoder_a078b453a39d4b0d29ccc5a806784aa37}{setBinaryPhaseCode}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_phase_encoder_aafa4e16ce9d97ceb37705964a890545f}{setOPWMCode}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_phase_encoder_ad66afedeb29d0a24c45eb37eb5c97779}{setCounterMode}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_phase_encoder_a24658f2ccb030d84ecd5066f0a0ed59e}{setWhiteMode}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_phase_encoder_ab567c3c16261c0a0bb81d52845268b04}{setPhaseErrorExpandMode}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_phase_encoder_acbf00a7921c0e1f1d672a04d52a00af4}{createImgeableImg}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftNum,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ patchDistance,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<cv::Mat>\ \&imgs);}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_phase_encoder_a747cfa07080239d36564c9133ba07843}{setChangeModeY}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_phase_encoder_a2d5bf673f645b197d743d59d5ea25a14}{setIsOneHeightMode}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_phase_encoder_acbb86f9e7ff699662b688f1d479dadf5}{setCounterDirection}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ state);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00175\ \ \ \ \ cv::Size\ imgSize;}
+\DoxyCodeLine{00177\ \ \ \ \ std::vector<cv::Mat>\ myPhaseEncodeImage;}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{bool}\ isBinaryPhaseCoder;}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{bool}\ isOPWMCoder;}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{bool}\ isCounterMode;}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{bool}\ isWhite;}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{bool}\ isPhaseErrorExpand;}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{bool}\ isChangeModeY;}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{bool}\ isOneHeight;}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{bool}\ isCounterDirection;}
+\DoxyCodeLine{00194\ \};}
+
+\end{DoxyCode}

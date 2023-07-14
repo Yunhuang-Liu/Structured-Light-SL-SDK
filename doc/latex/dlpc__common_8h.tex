@@ -1,0 +1,143 @@
+\hypertarget{dlpc__common_8h}{}\doxysection{src/projector/module/projector\+\_\+dlpc\+\_\+api/include/dlpc\+\_\+common.h File Reference}
+\label{dlpc__common_8h}\index{src/projector/module/projector\_dlpc\_api/include/dlpc\_common.h@{src/projector/module/projector\_dlpc\_api/include/dlpc\_common.h}}
+
+
+Structs and functions to initialize the Command Library.  
+
+
+{\ttfamily \#include \char`\"{}stdint.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_d_l_p_c___c_o_m_m_o_n___command_protocol_data__s}{DLPC\+\_\+\+COMMON\+\_\+\+Command\+Protocol\+Data\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{dlpc__common_8h_a140ac92324cb073f6084df262412e979}\label{dlpc__common_8h_a140ac92324cb073f6084df262412e979}} 
+\#define {\bfseries DLPC\+\_\+\+SUCCESS}~0
+\item 
+\mbox{\Hypertarget{dlpc__common_8h_aa90cac659d18e8ef6294c7ae337f6b58}\label{dlpc__common_8h_aa90cac659d18e8ef6294c7ae337f6b58}} 
+\#define {\bfseries SUCCESS}~0
+\item 
+\mbox{\Hypertarget{dlpc__common_8h_abb508ea8227673f419e9fe3a86c30d8e}\label{dlpc__common_8h_abb508ea8227673f419e9fe3a86c30d8e}} 
+\#define {\bfseries FAIL}~1
+\item 
+\mbox{\Hypertarget{dlpc__common_8h_a84fcc52a6a632b6ab4e3a69e3faa80b1}\label{dlpc__common_8h_a84fcc52a6a632b6ab4e3a69e3faa80b1}} 
+\#define {\bfseries DLP2010\+\_\+\+WIDTH}~854
+\item 
+\mbox{\Hypertarget{dlpc__common_8h_ac6a77a26b54e91cd6b3a5c832404dba6}\label{dlpc__common_8h_ac6a77a26b54e91cd6b3a5c832404dba6}} 
+\#define {\bfseries DLP2010\+\_\+\+HEIGHT}~480
+\item 
+\mbox{\Hypertarget{dlpc__common_8h_ad4805e221817ad7a70cf18397c7f9a29}\label{dlpc__common_8h_ad4805e221817ad7a70cf18397c7f9a29}} 
+\#define {\bfseries DLP230\+GP\+\_\+\+WIDTH}~960
+\item 
+\mbox{\Hypertarget{dlpc__common_8h_ac816a973a75be7ea601b6093cac05e89}\label{dlpc__common_8h_ac816a973a75be7ea601b6093cac05e89}} 
+\#define {\bfseries DLP230\+GP\+\_\+\+HEIGHT}~540
+\item 
+\mbox{\Hypertarget{dlpc__common_8h_ad7607197d793ca79e9e8986bc450fddd}\label{dlpc__common_8h_ad7607197d793ca79e9e8986bc450fddd}} 
+\#define {\bfseries DLP3010\+\_\+\+WIDTH}~1280
+\item 
+\mbox{\Hypertarget{dlpc__common_8h_af1d55600ae38ad935ebd35f6c1ea3810}\label{dlpc__common_8h_af1d55600ae38ad935ebd35f6c1ea3810}} 
+\#define {\bfseries DLP3010\+\_\+\+HEIGHT}~720
+\item 
+\mbox{\Hypertarget{dlpc__common_8h_a3b836c5a470c91790d0aea897d972587}\label{dlpc__common_8h_a3b836c5a470c91790d0aea897d972587}} 
+\#define {\bfseries DLP4710\+\_\+\+WIDTH}~1920
+\item 
+\mbox{\Hypertarget{dlpc__common_8h_ac60ed2b14acb7d0b21107d9bfc60f3c7}\label{dlpc__common_8h_ac60ed2b14acb7d0b21107d9bfc60f3c7}} 
+\#define {\bfseries DLP4710\+\_\+\+HEIGHT}~1080
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32\+\_\+t($\ast$ \mbox{\hyperlink{dlpc__common_8h_aec19edb165c243648f1cdfe8418283f6}{DLPC\+\_\+\+COMMON\+\_\+\+Write\+Command\+Callback}}) (uint16\+\_\+t Write\+Length, uint8\+\_\+t $\ast$Write\+Buffer, \mbox{\hyperlink{struct_d_l_p_c___c_o_m_m_o_n___command_protocol_data__s}{DLPC\+\_\+\+COMMON\+\_\+\+Command\+Protocol\+Data\+\_\+s}} $\ast$Protocol\+Data)
+\item 
+typedef uint32\+\_\+t($\ast$ \mbox{\hyperlink{dlpc__common_8h_a55d3cfd3bd8afd5b9a2e7c5ebc9c34b3}{DLPC\+\_\+\+COMMON\+\_\+\+Read\+Command\+Callback}}) (uint16\+\_\+t Write\+Length, uint8\+\_\+t $\ast$Write\+Buffer, uint16\+\_\+t Read\+Length, uint8\+\_\+t $\ast$Read\+Buffer, \mbox{\hyperlink{struct_d_l_p_c___c_o_m_m_o_n___command_protocol_data__s}{DLPC\+\_\+\+COMMON\+\_\+\+Command\+Protocol\+Data\+\_\+s}} $\ast$Protocol\+Data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{dlpc__common_8h_ad2a9c5491fe7a729048bb8407212ae29}{DLPC\+\_\+\+COMMON\+\_\+\+Init\+Command\+Library}} (uint8\+\_\+t $\ast$Write\+Buffer, uint16\+\_\+t Write\+Buffer\+Size, uint8\+\_\+t $\ast$Read\+Buffer, uint16\+\_\+t Read\+Buffer\+Size, \mbox{\hyperlink{dlpc__common_8h_aec19edb165c243648f1cdfe8418283f6}{DLPC\+\_\+\+COMMON\+\_\+\+Write\+Command\+Callback}} Write\+Command\+Callback, \mbox{\hyperlink{dlpc__common_8h_a55d3cfd3bd8afd5b9a2e7c5ebc9c34b3}{DLPC\+\_\+\+COMMON\+\_\+\+Read\+Command\+Callback}} Read\+Command\+Callback)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structs and functions to initialize the Command Library. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{dlpc__common_8h_a55d3cfd3bd8afd5b9a2e7c5ebc9c34b3}\label{dlpc__common_8h_a55d3cfd3bd8afd5b9a2e7c5ebc9c34b3}} 
+\index{dlpc\_common.h@{dlpc\_common.h}!DLPC\_COMMON\_ReadCommandCallback@{DLPC\_COMMON\_ReadCommandCallback}}
+\index{DLPC\_COMMON\_ReadCommandCallback@{DLPC\_COMMON\_ReadCommandCallback}!dlpc\_common.h@{dlpc\_common.h}}
+\doxysubsubsection{\texorpdfstring{DLPC\_COMMON\_ReadCommandCallback}{DLPC\_COMMON\_ReadCommandCallback}}
+{\footnotesize\ttfamily typedef uint32\+\_\+t($\ast$ DLPC\+\_\+\+COMMON\+\_\+\+Read\+Command\+Callback) (uint16\+\_\+t Write\+Length, uint8\+\_\+t $\ast$Write\+Buffer, uint16\+\_\+t Read\+Length, uint8\+\_\+t $\ast$Read\+Buffer, \mbox{\hyperlink{struct_d_l_p_c___c_o_m_m_o_n___command_protocol_data__s}{DLPC\+\_\+\+COMMON\+\_\+\+Command\+Protocol\+Data\+\_\+s}} $\ast$Protocol\+Data)}
+
+The callback method that sends the specified number of bytes from the Write\+Buffer to the controller and reads the response data and populates it to the Read\+Buffer
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Write\+Length} & The number of bytes to transfer to the controller \\
+\hline
+\mbox{\texttt{ in}}  & {\em Write\+Buffer} & The write buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em Read\+Length} & The number of bytes to read from the controller. For variable length response, the value is 0x\+FFFF \\
+\hline
+\mbox{\texttt{ in}}  & {\em Read\+Buffer} & The read buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em Protocol\+Data} & Additional information for the command protocol\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc__common_8h_aec19edb165c243648f1cdfe8418283f6}\label{dlpc__common_8h_aec19edb165c243648f1cdfe8418283f6}} 
+\index{dlpc\_common.h@{dlpc\_common.h}!DLPC\_COMMON\_WriteCommandCallback@{DLPC\_COMMON\_WriteCommandCallback}}
+\index{DLPC\_COMMON\_WriteCommandCallback@{DLPC\_COMMON\_WriteCommandCallback}!dlpc\_common.h@{dlpc\_common.h}}
+\doxysubsubsection{\texorpdfstring{DLPC\_COMMON\_WriteCommandCallback}{DLPC\_COMMON\_WriteCommandCallback}}
+{\footnotesize\ttfamily typedef uint32\+\_\+t($\ast$ DLPC\+\_\+\+COMMON\+\_\+\+Write\+Command\+Callback) (uint16\+\_\+t Write\+Length, uint8\+\_\+t $\ast$Write\+Buffer, \mbox{\hyperlink{struct_d_l_p_c___c_o_m_m_o_n___command_protocol_data__s}{DLPC\+\_\+\+COMMON\+\_\+\+Command\+Protocol\+Data\+\_\+s}} $\ast$Protocol\+Data)}
+
+The callback method that sends the specified number of bytes from the Write\+Buffer to the controller
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Write\+Length} & The number of bytes to transfer to the controller \\
+\hline
+\mbox{\texttt{ in}}  & {\em Write\+Buffer} & The write buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em Protocol\+Data} & Additional information for the command protocol\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code returned by the Write\+Command\+Callback otherwise 
+\end{DoxyReturn}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{dlpc__common_8h_ad2a9c5491fe7a729048bb8407212ae29}\label{dlpc__common_8h_ad2a9c5491fe7a729048bb8407212ae29}} 
+\index{dlpc\_common.h@{dlpc\_common.h}!DLPC\_COMMON\_InitCommandLibrary@{DLPC\_COMMON\_InitCommandLibrary}}
+\index{DLPC\_COMMON\_InitCommandLibrary@{DLPC\_COMMON\_InitCommandLibrary}!dlpc\_common.h@{dlpc\_common.h}}
+\doxysubsubsection{\texorpdfstring{DLPC\_COMMON\_InitCommandLibrary()}{DLPC\_COMMON\_InitCommandLibrary()}}
+{\footnotesize\ttfamily void DLPC\+\_\+\+COMMON\+\_\+\+Init\+Command\+Library (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{Write\+Buffer,  }\item[{uint16\+\_\+t}]{Write\+Buffer\+Size,  }\item[{uint8\+\_\+t $\ast$}]{Read\+Buffer,  }\item[{uint16\+\_\+t}]{Read\+Buffer\+Size,  }\item[{\mbox{\hyperlink{dlpc__common_8h_aec19edb165c243648f1cdfe8418283f6}{DLPC\+\_\+\+COMMON\+\_\+\+Write\+Command\+Callback}}}]{Write\+Command\+Callback,  }\item[{\mbox{\hyperlink{dlpc__common_8h_a55d3cfd3bd8afd5b9a2e7c5ebc9c34b3}{DLPC\+\_\+\+COMMON\+\_\+\+Read\+Command\+Callback}}}]{Read\+Command\+Callback }\end{DoxyParamCaption})}
+
+Initializes the read/write buffers and callbacks for the command APIs
+
+A write command API packs command data to the Write\+Buffer. A read command API packs the read request data to the Write\+Buffer and unpacks the read response data from the Read\+Buffer. To avoid dynamic memory allocation or an arbitrarily large static buffer allocation, the command APIs use the buffers provided the caller.
+
+The command APIs do not directly transmit data to the controller or receive data from the controller. Instead, they use the Write\+Command\+Callback and Read\+Command\+Callback functions provided by the caller to send data to and receive data from the controller.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Write\+Buffer} & The write buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em Write\+Buffer\+Size} & The write buffer size in bytes \\
+\hline
+\mbox{\texttt{ in}}  & {\em Read\+Buffer} & The read buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em Read\+Buffer\+Size} & The read buffer size in bytes \\
+\hline
+\mbox{\texttt{ in}}  & {\em Write\+Command\+Callback} & The callback method that sends the specified number of bytes from the Write\+Buffer to the controller \\
+\hline
+\mbox{\texttt{ in}}  & {\em Read\+Command\+Callback} & The callback method that sends the specified number of bytes from the Write\+Buffer to the controller and reads the response data and populates it to the Read\+Buffer \\
+\hline
+\end{DoxyParams}

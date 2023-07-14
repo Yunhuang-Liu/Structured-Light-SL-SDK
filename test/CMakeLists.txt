@@ -129,7 +129,22 @@ target_link_libraries(
     gtest_main
 )
 
-message(${SLCamera_LIBRARIES})
+add_executable(
+    TestShiftLineCodeMaster
+    ${CMAKE_CURRENT_SOURCE_DIR}/testShiftLineCodeMaster.cc
+)
+
+target_include_directories(
+    TestShiftLineCodeMaster
+    PUBLIC
+    ${SLCamera_INCLUDE_DIRS}
+)
+
+target_link_libraries(
+    TestShiftLineCodeMaster
+    ${SLCamera_LIBRARIES}
+    gtest_main
+)
 
 enable_testing()
 include(GoogleTest)
@@ -137,3 +152,4 @@ gtest_discover_tests(TestProjectorDlpcApi4710)
 gtest_discover_tests(TestProjectorDlpcApi3010)
 gtest_discover_tests(TestSLCameraCpu)
 gtest_discover_tests(TestSLCameraGpu)
+gtest_discover_tests(TestShiftLineCodeMaster)

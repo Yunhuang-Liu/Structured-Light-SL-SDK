@@ -1,0 +1,80 @@
+\hypertarget{classsl_1_1tool_1_1_matrixs_info}{}\doxysection{sl\+::tool\+::Matrixs\+Info Class Reference}
+\label{classsl_1_1tool_1_1_matrixs_info}\index{sl::tool::MatrixsInfo@{sl::tool::MatrixsInfo}}
+
+
+相机标定信息类  
+
+
+
+
+{\ttfamily \#include $<$matrixs\+Info.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsl_1_1tool_1_1_matrixs_info_a595b0981274d9aae2aef29e956693998}{Matrixs\+Info}} (IN const std\+::string intrinsics\+Path, IN const std\+::string extrinsics\+Path)
+\begin{DoxyCompactList}\small\item\em 类的初始化，完成内外参数信息的导入 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsl_1_1tool_1_1_matrixs_info_a7d4b7360dbf1b9b274c06c3b026b9f78}{Matrixs\+Info}} (IN const std\+::string calibration\+File\+Dir)
+\begin{DoxyCompactList}\small\item\em 类的初始化，完成内外参数信息的导入 \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{Info}} \& \mbox{\hyperlink{classsl_1_1tool_1_1_matrixs_info_a18f877e1ceb6460db2fd88709c2b1347}{get\+Info}} ()
+\begin{DoxyCompactList}\small\item\em 获取标定信息 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+相机标定信息类 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsl_1_1tool_1_1_matrixs_info_a595b0981274d9aae2aef29e956693998}\label{classsl_1_1tool_1_1_matrixs_info_a595b0981274d9aae2aef29e956693998}} 
+\index{sl::tool::MatrixsInfo@{sl::tool::MatrixsInfo}!MatrixsInfo@{MatrixsInfo}}
+\index{MatrixsInfo@{MatrixsInfo}!sl::tool::MatrixsInfo@{sl::tool::MatrixsInfo}}
+\doxysubsubsection{\texorpdfstring{MatrixsInfo()}{MatrixsInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily sl\+::tool\+::\+Matrixs\+Info\+::\+Matrixs\+Info (\begin{DoxyParamCaption}\item[{IN const std\+::string}]{intrinsics\+Path,  }\item[{IN const std\+::string}]{extrinsics\+Path }\end{DoxyParamCaption})}
+
+
+
+类的初始化，完成内外参数信息的导入 
+
+
+\begin{DoxyParams}{Parameters}
+{\em intrinsics\+Path} & 内参文件路径 \\
+\hline
+{\em extrinsics\+Path} & 外参文件路径 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsl_1_1tool_1_1_matrixs_info_a7d4b7360dbf1b9b274c06c3b026b9f78}\label{classsl_1_1tool_1_1_matrixs_info_a7d4b7360dbf1b9b274c06c3b026b9f78}} 
+\index{sl::tool::MatrixsInfo@{sl::tool::MatrixsInfo}!MatrixsInfo@{MatrixsInfo}}
+\index{MatrixsInfo@{MatrixsInfo}!sl::tool::MatrixsInfo@{sl::tool::MatrixsInfo}}
+\doxysubsubsection{\texorpdfstring{MatrixsInfo()}{MatrixsInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily sl\+::tool\+::\+Matrixs\+Info\+::\+Matrixs\+Info (\begin{DoxyParamCaption}\item[{IN const std\+::string}]{calibration\+File\+Dir }\end{DoxyParamCaption})}
+
+
+
+类的初始化，完成内外参数信息的导入 
+
+
+\begin{DoxyParams}{Parameters}
+{\em intrinsics\+Path} & 系统参数文件路径 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsl_1_1tool_1_1_matrixs_info_a18f877e1ceb6460db2fd88709c2b1347}\label{classsl_1_1tool_1_1_matrixs_info_a18f877e1ceb6460db2fd88709c2b1347}} 
+\index{sl::tool::MatrixsInfo@{sl::tool::MatrixsInfo}!getInfo@{getInfo}}
+\index{getInfo@{getInfo}!sl::tool::MatrixsInfo@{sl::tool::MatrixsInfo}}
+\doxysubsubsection{\texorpdfstring{getInfo()}{getInfo()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{Info}} \& sl\+::tool\+::\+Matrixs\+Info\+::get\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+获取标定信息 
+
+\begin{DoxyReturn}{Returns}
+const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{Info}}\& 信息结构体 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/include/tool/\mbox{\hyperlink{matrixs_info_8h}{matrixs\+Info.\+h}}\item 
+src/sl\+Camera/src/tool/matrixs\+Info.\+cc\end{DoxyCompactItemize}

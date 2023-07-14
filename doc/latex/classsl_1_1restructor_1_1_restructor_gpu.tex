@@ -1,0 +1,115 @@
+\hypertarget{classsl_1_1restructor_1_1_restructor_gpu}{}\doxysection{sl\+::restructor\+::Restructor\+Gpu Class Reference}
+\label{classsl_1_1restructor_1_1_restructor_gpu}\index{sl::restructor::RestructorGpu@{sl::restructor::RestructorGpu}}
+
+
+GPU加速重建器  
+
+
+
+
+{\ttfamily \#include $<$restructor\+Gpu.\+h$>$}
+
+Inheritance diagram for sl\+::restructor\+::Restructor\+Gpu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsl_1_1restructor_1_1_restructor_gpu}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_gpu_aaf3018280b01fa5a1471b298d7da9b2a}{Restructor\+Gpu}} (IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool\+::\+Info}} \&calibration\+Info)
+\begin{DoxyCompactList}\small\item\em 构造函数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_gpu_af1dbe849cdda4ed8ae381fa6693ef40a}{restruction}} (IN const cv\+::cuda\+::\+Gpu\+Mat \&left\+Abs\+Img, IN const cv\+::cuda\+::\+Gpu\+Mat \&right\+Abs\+Img, IN const \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{Restruct\+Paramater}} param, OUT cv\+::cuda\+::\+Gpu\+Mat \&depth\+Img, IN cv\+::cuda\+::\+Stream \&stream=cv\+::cuda\+::\+Stream\+::\+Null()) override
+\begin{DoxyCompactList}\small\item\em 重建 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_a2a11d308324639e493cfbc67b74056f7}{restruction}} (IN const cv\+::\+Mat \&left\+Abs\+Img, IN const cv\+::\+Mat \&right\+Abs\+Img, IN const \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{Restruct\+Paramater}} param, OUT cv\+::\+Mat \&depth\+Img\+Out)=0
+\begin{DoxyCompactList}\small\item\em 重建 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_gpu_a883b5e0f7cd29f9734ae412eb52a3e04}{get\+Depth\+Map}} (IN const cv\+::cuda\+::\+Gpu\+Mat \&left\+Img, IN const cv\+::cuda\+::\+Gpu\+Mat \&right\+Img, IN const \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{Restruct\+Paramater}} param, OUT cv\+::cuda\+::\+Gpu\+Mat \&depth\+Img, IN cv\+::cuda\+::\+Stream \&p\+Stream=cv\+::cuda\+::\+Stream\+::\+Null())
+\begin{DoxyCompactList}\small\item\em 映射深度纹理 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor}{sl\+::restructor\+::\+Restructor}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsl_1_1restructor_1_1_restructor_a1e738a6efd414275c0b47bd28d8f3900}\label{classsl_1_1restructor_1_1_restructor_a1e738a6efd414275c0b47bd28d8f3900}} 
+void {\bfseries get\+Depth\+Map} ()
+\begin{DoxyCompactList}\small\item\em 获取深度和纹理 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+GPU加速重建器 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsl_1_1restructor_1_1_restructor_gpu_aaf3018280b01fa5a1471b298d7da9b2a}\label{classsl_1_1restructor_1_1_restructor_gpu_aaf3018280b01fa5a1471b298d7da9b2a}} 
+\index{sl::restructor::RestructorGpu@{sl::restructor::RestructorGpu}!RestructorGpu@{RestructorGpu}}
+\index{RestructorGpu@{RestructorGpu}!sl::restructor::RestructorGpu@{sl::restructor::RestructorGpu}}
+\doxysubsubsection{\texorpdfstring{RestructorGpu()}{RestructorGpu()}}
+{\footnotesize\ttfamily sl\+::restructor\+::\+Restructor\+Gpu\+::\+Restructor\+Gpu (\begin{DoxyParamCaption}\item[{IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool\+::\+Info}} \&}]{calibration\+Info }\end{DoxyParamCaption})}
+
+
+
+构造函数 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calibration\+Info} & 标定信息 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsl_1_1restructor_1_1_restructor_gpu_a883b5e0f7cd29f9734ae412eb52a3e04}\label{classsl_1_1restructor_1_1_restructor_gpu_a883b5e0f7cd29f9734ae412eb52a3e04}} 
+\index{sl::restructor::RestructorGpu@{sl::restructor::RestructorGpu}!getDepthMap@{getDepthMap}}
+\index{getDepthMap@{getDepthMap}!sl::restructor::RestructorGpu@{sl::restructor::RestructorGpu}}
+\doxysubsubsection{\texorpdfstring{getDepthMap()}{getDepthMap()}}
+{\footnotesize\ttfamily void sl\+::restructor\+::\+Restructor\+Gpu\+::get\+Depth\+Map (\begin{DoxyParamCaption}\item[{IN const cv\+::cuda\+::\+Gpu\+Mat \&}]{left\+Img,  }\item[{IN const cv\+::cuda\+::\+Gpu\+Mat \&}]{right\+Img,  }\item[{IN const \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{Restruct\+Paramater}}}]{param,  }\item[{OUT cv\+::cuda\+::\+Gpu\+Mat \&}]{depth\+Img,  }\item[{IN cv\+::cuda\+::\+Stream \&}]{p\+Stream = {\ttfamily cv\+:\+:cuda\+:\+:Stream\+:\+:Null()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+映射深度纹理 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+Img} & 输入，左绝对相位(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em right\+Img} & 输入，右绝对相位(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em param} & 重建器控制参数 \\
+\hline
+{\em depth\+Img} & 输入/输出，深度图(CV\+\_\+32\+FC1) \\
+\hline
+{\em p\+Stream} & 输入，异步流 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsl_1_1restructor_1_1_restructor_gpu_af1dbe849cdda4ed8ae381fa6693ef40a}\label{classsl_1_1restructor_1_1_restructor_gpu_af1dbe849cdda4ed8ae381fa6693ef40a}} 
+\index{sl::restructor::RestructorGpu@{sl::restructor::RestructorGpu}!restruction@{restruction}}
+\index{restruction@{restruction}!sl::restructor::RestructorGpu@{sl::restructor::RestructorGpu}}
+\doxysubsubsection{\texorpdfstring{restruction()}{restruction()}}
+{\footnotesize\ttfamily void sl\+::restructor\+::\+Restructor\+Gpu\+::restruction (\begin{DoxyParamCaption}\item[{IN const cv\+::cuda\+::\+Gpu\+Mat \&}]{left\+Abs\+Img,  }\item[{IN const cv\+::cuda\+::\+Gpu\+Mat \&}]{right\+Abs\+Img,  }\item[{IN const \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{Restruct\+Paramater}}}]{param,  }\item[{OUT cv\+::cuda\+::\+Gpu\+Mat \&}]{depth\+Img,  }\item[{IN cv\+::cuda\+::\+Stream \&}]{stream = {\ttfamily cv\+:\+:cuda\+:\+:Stream\+:\+:Null()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+重建 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+Abs\+Img} & 左绝对相位(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em right\+Abs\+Img} & 右绝对相位(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em param} & 重建器控制参数 \\
+\hline
+{\em depth\+Img} & 深度图(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em stream} & 输入，异步流 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/include/restructor/restructor\+Gpu.\+h\item 
+src/sl\+Camera/src/restructor/restructor\+Gpu.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,54 @@
+\hypertarget{n_step_n_gray_code_master_cpu_8h_source}{}\doxysection{n\+Step\+NGray\+Code\+Master\+Cpu.\+h}
+\label{n_step_n_gray_code_master_cpu_8h_source}\index{src/slCamera/include/phaseSolver/nStepNGrayCodeMasterCpu.h@{src/slCamera/include/phaseSolver/nStepNGrayCodeMasterCpu.h}}
+\mbox{\hyperlink{n_step_n_gray_code_master_cpu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_PHASESOLVER\_NSTEPNGRAYCODEMASTER\_CPU\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_PHASESOLVER\_NSTEPNGRAYCODEMASTER\_CPU\_H\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{phase_solver_8h}{phaseSolver.h}}>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{namespace\ }phaseSolver\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1phase_solver_1_1_n_step_n_gray_code_master_cpu}{NStepNGrayCodeMasterCpu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classsl_1_1phase_solver_1_1_phase_solver}{PhaseSolver}}\ \{}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1phase_solver_1_1_n_step_n_gray_code_master_cpu_a538eaebfd43cd84bf020f81e5830f8b8}{solve}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ \mbox{\hyperlink{structsl_1_1phase_solver_1_1_phase_solver_group_data_host}{PhaseSolverGroupDataHost}}\ \&groupData,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sncThreshold,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftTime\ =\ 4)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1phase_solver_1_1_n_step_n_gray_code_master_cpu_a538eaebfd43cd84bf020f81e5830f8b8}{solve}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ \mbox{\hyperlink{structsl_1_1phase_solver_1_1_phase_solver_group_data_device}{PhaseSolverGroupDataDevice}}\ \&groupData,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sncThreshold,\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftTime\ =\ 4,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&stream\ =\ cv::cuda::Stream::Null(),}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ dim3\ block\ =\ dim3(32,\ 8))\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ getPrepareDate(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::Mat\ \&wrapImg,\ cv::Mat\ \&conditionImg,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftStep\ =\ 4);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ solveTextureImgs(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::Mat\ \&conditionImg,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftStep\ =\ 4);}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ entrySolveTextureImgs(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftStep,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ cv::Point2i\ region,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::Mat\ \&conditionImg);}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ entryUnwrap(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftStep,\ IN\ \textcolor{keyword}{const}\ cv::Mat\ \&conditionImg,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sncThreshold,\ IN\ \textcolor{keyword}{const}\ cv::Mat\ \&wrapImg,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ cv::Point2i\ region,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::Mat\ \&absolutePhaseImg);}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ entryWrap(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftStep,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ cv::Point2i\ \&region,\ OUT\ cv::Mat\ \&wrapImg);}
+\DoxyCodeLine{00122\ \};}
+\DoxyCodeLine{00123\ \}\ \textcolor{comment}{//\ namespace\ phaseSolver}}
+\DoxyCodeLine{00124\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_\_PHASESOLVER\_NSTEPNGRAYCODEMASTER\_CPU\_H\_}}
+
+\end{DoxyCode}

@@ -1,0 +1,129 @@
+\hypertarget{dlpc347x__internal__patterns_8h_source}{}\doxysection{dlpc347x\+\_\+internal\+\_\+patterns.\+h}
+\label{dlpc347x__internal__patterns_8h_source}\index{src/projector/module/projector\_dlpc\_api/include/dlpc347x\_internal\_patterns.h@{src/projector/module/projector\_dlpc\_api/include/dlpc347x\_internal\_patterns.h}}
+\mbox{\hyperlink{dlpc347x__internal__patterns_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019\ Texas\ Instruments\ Incorporated\ -\/\ http://www.ti.com/}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ are\ met:}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ \ \ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ \ \ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ documentation\ and/or\ other\ materials\ provided\ with\ the}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ \ \ distribution.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ \ Neither\ the\ name\ of\ Texas\ Instruments\ Incorporated\ nor\ the\ names\ of}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ \ \ its\ contributors\ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ \ \ from\ this\ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ \ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ \ OWNER\ OR\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ \ SPECIAL,\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ LIMITED\ TO,\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ \ DATA,\ OR\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ \ THEORY\ OF\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ \ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ \ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifndef\ DLPC34XX\_INT\_PAT\_H}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ DLPC34XX\_INT\_PAT\_H}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}stdbool.h"{}}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ ERR\_UNSUPPORTED\_DMD\ 100}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00053\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ DLPC34XX\_INT\_PAT\_BITDEPTH\_ONE\ =\ 1,}
+\DoxyCodeLine{00055\ \ \ \ \ DLPC34XX\_INT\_PAT\_BITDEPTH\_EIGHT\ =\ 8}
+\DoxyCodeLine{00056\ \}\ DLPC34XX\_INT\_PAT\_BitDepth\_e;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00059\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ DLPC34XX\_INT\_PAT\_DIRECTION\_HORIZONTAL,}
+\DoxyCodeLine{00061\ \ \ \ \ DLPC34XX\_INT\_PAT\_DIRECTION\_VERTICAL}
+\DoxyCodeLine{00062\ \}\ DLPC34XX\_INT\_PAT\_Direction\_e;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00065\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ DLPC34XX\_INT\_PAT\_ILLUMINATION\_NONE\ =\ 0,}
+\DoxyCodeLine{00067\ \ \ \ \ DLPC34XX\_INT\_PAT\_ILLUMINATION\_RED\ =\ 1,}
+\DoxyCodeLine{00068\ \ \ \ \ DLPC34XX\_INT\_PAT\_ILLUMINATION\_GREEN\ =\ 2,}
+\DoxyCodeLine{00069\ \ \ \ \ DLPC34XX\_INT\_PAT\_ILLUMINATION\_BLUE\ =\ 4,}
+\DoxyCodeLine{00070\ \ \ \ \ DLPC34XX\_INT\_PAT\_ILLUMINATION\_RGB\ =\ 7}
+\DoxyCodeLine{00071\ \}\ DLPC34XX\_INT\_PAT\_IlluminationSelect\_e;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ DLPC34XX\_INT\_PAT\_DMD\_DLP2010,}
+\DoxyCodeLine{00075\ \ \ \ \ DLPC34XX\_INT\_PAT\_DMD\_DLP3010,}
+\DoxyCodeLine{00076\ \ \ \ \ DLPC34XX\_INT\_PAT\_DMD\_DLP4710}
+\DoxyCodeLine{00077\ \}\ DLPC34XX\_INT\_PAT\_DMD\_e;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00080\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s_a7b963320bee50dca61a8d6b6e041d5e7}{PixelArrayCount}};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00098\ \ \ \ \ uint8\_t*\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s_aff23e4b05a1069b43286e8b4a7a204f2}{PixelArray}};}
+\DoxyCodeLine{00099\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s}{DLPC34XX\_INT\_PAT\_PatternData\_s}};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00102\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ DLPC34XX\_INT\_PAT\_BitDepth\_e\ \ \ \ \ BitDepth;}
+\DoxyCodeLine{00104\ \ \ \ \ DLPC34XX\_INT\_PAT\_Direction\_e\ \ \ \ Direction;}
+\DoxyCodeLine{00105\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PatternCount;}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s}{DLPC34XX\_INT\_PAT\_PatternData\_s}}*\ PatternArray;}
+\DoxyCodeLine{00107\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34XX\_INT\_PAT\_PatternSet\_s}};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00110\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ uint8\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PatternSetIndex;}
+\DoxyCodeLine{00112\ \ \ \ \ uint8\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NumDisplayPatterns;}
+\DoxyCodeLine{00113\ \ \ \ \ DLPC34XX\_INT\_PAT\_IlluminationSelect\_e\ IlluminationSelect;}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InvertPatterns;}
+\DoxyCodeLine{00115\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IlluminationTimeInMicroseconds;}
+\DoxyCodeLine{00116\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PreIlluminationDarkTimeInMicroseconds;}
+\DoxyCodeLine{00117\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PostIlluminationDarkTimeInMicroseconds;}
+\DoxyCodeLine{00118\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_order_table_entry__s}{DLPC34XX\_INT\_PAT\_PatternOrderTableEntry\_s}};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00127\ \textcolor{keyword}{typedef}\ void(*\mbox{\hyperlink{dlpc347x__internal__patterns_8h_a6f5199f36fabbc49b49da52d77d8d87c}{DLPC34XX\_INT\_PAT\_WritePatternDataCallback}})(uint8\_t\ Length,\ uint8\_t*\ Data);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00152\ uint32\_t\ \mbox{\hyperlink{dlpc347x__internal__patterns_8h_a6df617502365e56c6a7d6e6f44948f4f}{DLPC34XX\_INT\_PAT\_GeneratePatternDataBlock}}(}
+\DoxyCodeLine{00153\ \ \ \ \ DLPC34XX\_INT\_PAT\_DMD\_e\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DMD,}
+\DoxyCodeLine{00154\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PatternSetCount,}
+\DoxyCodeLine{00155\ \ \ \ \ \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34XX\_INT\_PAT\_PatternSet\_s}}*\ \ \ \ \ \ \ \ \ \ \ \ \ PatternSetArray,}
+\DoxyCodeLine{00156\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PatternOrderTableCount,}
+\DoxyCodeLine{00157\ \ \ \ \ \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_order_table_entry__s}{DLPC34XX\_INT\_PAT\_PatternOrderTableEntry\_s}}*\ PatternOrderTable,}
+\DoxyCodeLine{00158\ \ \ \ \ \mbox{\hyperlink{dlpc347x__internal__patterns_8h_a6f5199f36fabbc49b49da52d77d8d87c}{DLPC34XX\_INT\_PAT\_WritePatternDataCallback}}\ \ WritePatternDataCallback,}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EastWestFlip,}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LongAxisFlip}
+\DoxyCodeLine{00161\ );}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00176\ uint32\_t\ \mbox{\hyperlink{dlpc347x__internal__patterns_8h_af47083db1d51c8c7b90c0cc808330ba1}{DLPC34XX\_INT\_PAT\_GetPatternDataBlockSize}}(}
+\DoxyCodeLine{00177\ \ \ \ \ DLPC34XX\_INT\_PAT\_DMD\_e\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DMD,}
+\DoxyCodeLine{00178\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PatternSetCount,}
+\DoxyCodeLine{00179\ \ \ \ \ \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34XX\_INT\_PAT\_PatternSet\_s}}*\ \ \ \ \ \ \ \ \ \ \ \ \ PatternSetArray,}
+\DoxyCodeLine{00180\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PatternOrderTableCount,}
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_order_table_entry__s}{DLPC34XX\_INT\_PAT\_PatternOrderTableEntry\_s}}*\ PatternOrderTable}
+\DoxyCodeLine{00182\ );}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ \ \ }\textcolor{comment}{/*\ matches\ \_\_cplusplus\ construct\ above\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00185\ \}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DLPC34XX\_INT\_PAT\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

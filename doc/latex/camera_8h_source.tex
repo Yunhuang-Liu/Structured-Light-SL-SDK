@@ -1,0 +1,60 @@
+\hypertarget{camera_8h_source}{}\doxysection{camera.\+h}
+\label{camera_8h_source}\index{src/camera/common/camera.h@{src/camera/common/camera.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_CAMERA\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_CAMERA\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}typeDef.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{namespace\ }camera\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsl_1_1camera_1_1_camera_info}{CameraInfo}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \_\_cameraKey;\ \ \ \ \ \ \textcolor{comment}{//\ 相机序列号}}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \_\_cameraUserId;\ \ \ \textcolor{comment}{//\ 相机用户名}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \_\_deviceType;\ \ \ \ \ \textcolor{comment}{//\ 相机传输数据类型}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_\_isFind;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacesl_1_1camera_af9cbf50e7ac0e3f2e1b81a24386e48f5}{TrigMode}}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ trigContinous\ =\ 0,\ \textcolor{comment}{//\ 连续拉流}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ trigSoftware\ =\ 1,\ \ \textcolor{comment}{//\ 软件触发}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ trigLine\ =\ 2,\ \ \ \ \ \ \textcolor{comment}{//\ 外部触发}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1camera_1_1_camera}{Camera}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_aea57615844b59f3aa789d20052ddf6e9}{\string~Camera}}()\ \{\ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{structsl_1_1camera_1_1_camera_info}{CameraInfo}}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_af6619bca7aae6be423ee9e8e69aa78ff}{getCameraInfo}}()\ =\ 0;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_abd902b640e9d1c090cc5f547ce294be8}{connect}}()\ =\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_ade88080c2e197401f36e693ab4bb4df4}{disConnect}}()\ =\ 0;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::queue<cv::Mat>\&\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_a6a7dd8498bce707118c586972146e157}{getImgs}}()\ =\ 0;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_aff22305858c9655ba0b518ddeddd996f}{pushImg}}(IN\ \textcolor{keyword}{const}\ cv::Mat\&\ img)\ =\ 0;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ cv::Mat\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_ac2c75babc16abcd5123fef48b450673c}{popImg}}()\ =\ 0;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_a71bc2111a34e0d474573c6a7d0291b75}{clearImgs}}()\ =\ 0;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_afc283a9238a134bf30131290a1e927c2}{isConnect}}()\ =\ 0;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ cv::Mat\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_aba47c844e1255ce37ccdf04cca6e94d4}{capture}}()\ =\ 0;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_ae18f8ee3950f6375f9439badda19768e}{start}}()\ =\ 0;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_a241e814b563e98e389a78b5b90e3c795}{pause}}()\ =\ 0;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_ab5762d4a646d8d73a9d4d9ee3854bc27}{setTrigMode}}(IN\ \mbox{\hyperlink{namespacesl_1_1camera_af9cbf50e7ac0e3f2e1b81a24386e48f5}{TrigMode}}\ mode)\ =\ 0;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_a324a80eaa8c8f3c964edf5d8a0d0fe01}{setEnumAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,\ IN\ \textcolor{keyword}{const}\ std::string\ val)\ =\ 0;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_ae48c47f3f6232b4f8e8abcc2d6bc4871}{setStringAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,\ IN\ \textcolor{keyword}{const}\ std::string\ val)\ =\ 0;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_a4c2bf21ece0ded2885abadf93b7aab5a}{setNumberAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ val)\ =\ 0;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_afb57bca4fb95d65cb7cb3c4ee5cf3698}{setBooleanAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ val)\ =\ 0;}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_a25374de3b308cc4d74faddbfe67d17f5}{getEnumAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,\ OUT\ std::string\&\ val)\ =\ 0;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_ac5ad126cc3d47208ca925818092f3fbf}{getStringAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,\ OUT\ std::string\&\ val)\ =\ 0;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_a19a9f8984d2749827dd6c1fbd7774bad}{getNumbericalAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,\ OUT\ \textcolor{keywordtype}{double}\&\ val)\ =\ 0;}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_aa7932401c425869517352e29e9277989}{getBooleanAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,\ OUT\ \textcolor{keywordtype}{bool}\&\ val)\ =\ 0;}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_\_CAMERA\_H\_}}
+
+\end{DoxyCode}

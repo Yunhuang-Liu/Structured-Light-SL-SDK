@@ -1,0 +1,1814 @@
+\hypertarget{dlpc34xx__dual_8c}{}\doxysection{src/projector/module/projector\+\_\+dlpc\+\_\+api/src/dlpc34xx\+\_\+dual.c File Reference}
+\label{dlpc34xx__dual_8c}\index{src/projector/module/projector\_dlpc\_api/src/dlpc34xx\_dual.c@{src/projector/module/projector\_dlpc\_api/src/dlpc34xx\_dual.c}}
+
+
+DLPC347x Dual Commands.  
+
+
+{\ttfamily \#include \char`\"{}stdlib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dlpc34xx\+\_\+dual.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dlpc\+\_\+common\+\_\+private.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a6c464a7a50d0ec76a63465660ea4f471}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Operating\+Mode\+Select}} (\mbox{\hyperlink{dlpc34xx__dual_8h_ae568e46d08305563131de28c6b289da0}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Operating\+Mode\+\_\+e}} Operating\+Mode)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a7fd5562862f16d53c9215feb3ecbbb2b}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Operating\+Mode\+Select}} (\mbox{\hyperlink{dlpc34xx__dual_8h_ae568e46d08305563131de28c6b289da0}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Operating\+Mode\+\_\+e}} $\ast$Operating\+Mode)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_af7123476ea1e41546db4c1d86220b746}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Splash\+Screen\+Select}} (uint8\+\_\+t Splash\+Screen\+Index)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_abf800e5493e1e266bdfe08fe2ff86ef8}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Splash\+Screen\+Select}} (uint8\+\_\+t $\ast$Splash\+Screen\+Index)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a82b8cca2294b45e74ea45b830186b7ce}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Splash\+Screen\+Execute}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a5c41e01038189b47189c4df64d13ddab}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Splash\+Screen\+Header}} (uint8\+\_\+t Splash\+Screen\+Index, \mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___splash_screen_header__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Splash\+Screen\+Header\+\_\+s}} $\ast$Splash\+Screen\+Header)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a42fab6a5374b9c883e351c829fdf95b3}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+External\+Video\+Source\+Format\+Select}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a305b6aca09560d0d6c70b8cded545d94}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+External\+Video\+Format\+\_\+e}} Video\+Format)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ac0744fb5994d4d1160af89436c9ceafd}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+External\+Video\+Source\+Format\+Select}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a305b6aca09560d0d6c70b8cded545d94}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+External\+Video\+Format\+\_\+e}} $\ast$Video\+Format)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a7002320ee6cdde7b8f4996802d649c5a}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Video\+Chroma\+Processing\+Select}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a9abc4c534e0c653fc14d32fb05a85db9}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Chroma\+Interpolation\+Method\+\_\+e}} Chroma\+Interpolation\+Method, \mbox{\hyperlink{dlpc34xx__dual_8h_a8499cb3910431724cca0eb4f1c726880}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Chroma\+Channel\+Swap\+\_\+e}} Chroma\+Channel\+Swap, uint8\+\_\+t Csc\+Coefficient\+Set)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a09652e60b6090de4dd7133963a56652e}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Video\+Chroma\+Processing\+Select}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a9abc4c534e0c653fc14d32fb05a85db9}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Chroma\+Interpolation\+Method\+\_\+e}} $\ast$Chroma\+Interpolation\+Method, \mbox{\hyperlink{dlpc34xx__dual_8h_a8499cb3910431724cca0eb4f1c726880}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Chroma\+Channel\+Swap\+\_\+e}} $\ast$Chroma\+Channel\+Swap, uint8\+\_\+t $\ast$Csc\+Coefficient\+Set)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a651e8767fe363c053a91f4c712c32932}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write3\+DControl}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a4b0ab3effccf5f59720ea8a2e997f980}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Three\+DDominance\+\_\+e}} Three\+DFrame\+Dominance, \mbox{\hyperlink{dlpc34xx__dual_8h_a1fc5e684b2cd2d268041bc77fd9d397d}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Three\+DReference\+Polarity\+\_\+e}} Three\+DReference\+Polarity)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a82885504f44ecff78d99c3139f0c52b6}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read3\+DControl}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a49ffaa7879be51cccdd95ef2116e2873}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Three\+DModes\+\_\+e}} $\ast$Three\+DMode, \mbox{\hyperlink{dlpc34xx__dual_8h_a4b0ab3effccf5f59720ea8a2e997f980}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Three\+DDominance\+\_\+e}} $\ast$Three\+DFrame\+Dominance, \mbox{\hyperlink{dlpc34xx__dual_8h_a1fc5e684b2cd2d268041bc77fd9d397d}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Three\+DReference\+Polarity\+\_\+e}} $\ast$Three\+DReference\+Polarity)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a98dc5bc743dfbcfbac38a64621d7288d}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Input\+Image\+Size}} (uint16\+\_\+t Pixels\+Per\+Line, uint16\+\_\+t Lines\+Per\+Frame)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ad2df88444bf7f83d14a6ccb9cd56123a}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Input\+Image\+Size}} (uint16\+\_\+t $\ast$Pixels\+Per\+Line, uint16\+\_\+t $\ast$Lines\+Per\+Frame)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_acea1d52e7650e7dd8bfc0d7341ab0e14}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Display\+Size}} (uint16\+\_\+t Pixels\+Per\+Line, uint16\+\_\+t Lines\+Per\+Frame)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a9b624cdf894f7ae6b64272ea8af0c5c6}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Display\+Size}} (uint16\+\_\+t $\ast$Pixels\+Per\+Line, uint16\+\_\+t $\ast$Lines\+Per\+Frame)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_af9499527b6f7e87314ddc4c5f2c72612}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Display\+Image\+Orientation}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a6423abddfafce6c3285bc0cf15f26854}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Image\+Flip\+\_\+e}} Long\+Axis\+Image\+Flip, \mbox{\hyperlink{dlpc34xx__dual_8h_a6423abddfafce6c3285bc0cf15f26854}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Image\+Flip\+\_\+e}} Short\+Axis\+Image\+Flip)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ad0547a0d4f33d690c2fc4be6b01cfc74}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Display\+Image\+Orientation}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a6423abddfafce6c3285bc0cf15f26854}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Image\+Flip\+\_\+e}} $\ast$Long\+Axis\+Image\+Flip, \mbox{\hyperlink{dlpc34xx__dual_8h_a6423abddfafce6c3285bc0cf15f26854}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Image\+Flip\+\_\+e}} $\ast$Short\+Axis\+Image\+Flip)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_accb5138641c0118ef564fe2668012b6a}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Display\+Image\+Curtain}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a492ed790fc47656f8ceb5803076cf6df}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Image\+Curtain\+Enable\+\_\+e}} Enable, \mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}} Color)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ad5854d5ac303d886d1fa3d5be6f93da4}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Display\+Image\+Curtain}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a492ed790fc47656f8ceb5803076cf6df}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Image\+Curtain\+Enable\+\_\+e}} $\ast$Enable, \mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}} $\ast$Color)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_aca1bc5a8896baa4bed9dc2a8f4d1dbc1}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Image\+Freeze}} (bool Enable)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a665b76bb684c694772015871484a2215}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Image\+Freeze}} (bool $\ast$Enable)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a97b478c88367a13488d5ed29b4a70fb7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Border\+Color}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}} Display\+Border\+Color)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_acb83f21ae4657df94a18da9f1a8a8b69}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Border\+Color}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}} $\ast$Display\+Border\+Color, \mbox{\hyperlink{dlpc34xx__dual_8h_a48379f380aa51234778efb6363f4ec0c}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Border\+Color\+Source\+\_\+e}} $\ast$Pillar\+Box\+Border\+Color\+Source)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a18737ac395cba35b156bd11215ef6a14}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Solid\+Field}} (\mbox{\hyperlink{dlpc34xx__dual_8h_abb1ab7bb35fc8f7815a7a57e9b5db0ba}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Border\+Enable\+\_\+e}} Border, \mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}} Foreground\+Color)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_aa3f7429ed4d9a200402edea8a9f2d2fe}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Horizontal\+Ramp}} (\mbox{\hyperlink{dlpc34xx__dual_8h_abb1ab7bb35fc8f7815a7a57e9b5db0ba}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Border\+Enable\+\_\+e}} Border, \mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}} Foreground\+Color, uint8\+\_\+t Start\+Value, uint8\+\_\+t End\+Value)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ad201ad0116b0b987084aafae2d6be574}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Vertical\+Ramp}} (\mbox{\hyperlink{dlpc34xx__dual_8h_abb1ab7bb35fc8f7815a7a57e9b5db0ba}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Border\+Enable\+\_\+e}} Border, \mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}} Foreground\+Color, uint8\+\_\+t Start\+Value, uint8\+\_\+t End\+Value)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ac22935b38675242a4686f807b4ec5a03}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Horizontal\+Lines}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___horizontal_lines__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Horizontal\+Lines\+\_\+s}} $\ast$Horizontal\+Lines)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ae9a0096d2f4ef576b87d0793ab546530}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Diagonal\+Lines}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___diagonal_lines__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Diagonal\+Lines\+\_\+s}} $\ast$Diagonal\+Lines)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_acb1f6fbb4ba68a6ab42992a9edf5d684}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Vertical\+Lines}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___vertical_lines__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Vertical\+Lines\+\_\+s}} $\ast$Vertical\+Lines)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a9c9e86fd8896a0cca5c705d251d7dc7e}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Grid\+Lines}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___grid_lines__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Grid\+Lines\+\_\+s}} $\ast$Grid\+Lines)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ab44acd8d4200c436cfdeae308955dea8}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Checkerboard}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___checkerboard__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Checkerboard\+\_\+s}} $\ast$Checkerboard)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_aff13501c45def8f112099a6b84514b41}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Colorbars}} (\mbox{\hyperlink{dlpc34xx__dual_8h_abb1ab7bb35fc8f7815a7a57e9b5db0ba}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Border\+Enable\+\_\+e}} Border)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a357dc36a31d19c9dfe69221f3fb7ecfa}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Test\+Pattern\+Select}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___test_pattern_select__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Test\+Pattern\+Select\+\_\+s}} $\ast$Test\+Pattern\+Select)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a884fa881840a50698187335605b472c2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Execute\+Flash\+Batch\+File}} (uint8\+\_\+t Batch\+File\+Number)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a9dc174c5a64364063a5372c577642a88}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Batch\+File\+Delay}} (uint16\+\_\+t Delay\+In\+Microseconds)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_aad09b0950d9dc71de809ef642494600a}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Led\+Output\+Control\+Method}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a241a9a0257e7d65e707cfc50f0cc531d}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Led\+Control\+Method\+\_\+e}} Led\+Control\+Method)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a75bedb65a3b62b17b046f7d45f223c14}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Led\+Output\+Control\+Method}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a241a9a0257e7d65e707cfc50f0cc531d}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Led\+Control\+Method\+\_\+e}} $\ast$Led\+Control\+Method)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_aa50dd60709bc51c41d48e0088c12bb37}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Rgb\+Led\+Enable}} (bool Red\+Led\+Enable, bool Green\+Led\+Enable, bool Blue\+Led\+Enable)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a414fda66072db4c42e9b8acedeff9ad2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Rgb\+Led\+Enable}} (bool $\ast$Red\+Led\+Enable, bool $\ast$Green\+Led\+Enable, bool $\ast$Blue\+Led\+Enable)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ae917e5aeb7c97a2cf7394076ee9f8f63}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Rgb\+Led\+Current}} (uint16\+\_\+t Red\+Led\+Current, uint16\+\_\+t Green\+Led\+Current, uint16\+\_\+t Blue\+Led\+Current)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ada177e60da14f7a3145cc783c7598769}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Rgb\+Led\+Current}} (uint16\+\_\+t $\ast$Red\+Led\+Current, uint16\+\_\+t $\ast$Green\+Led\+Current, uint16\+\_\+t $\ast$Blue\+Led\+Current)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a48b11f3f849bf17d2368c5ee423fe0ee}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Caic\+Led\+Max\+Available\+Power}} (double $\ast$Max\+Led\+Power)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a64e707a5f704f1ff19faca5ff6993c73}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Rgb\+Led\+Max\+Current}} (uint16\+\_\+t Max\+Red\+Led\+Current, uint16\+\_\+t Max\+Green\+Led\+Current, uint16\+\_\+t Max\+Blue\+Led\+Current)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ad9e7e1ec699b63b9019673b75281a79e}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Rgb\+Led\+Max\+Current}} (uint16\+\_\+t $\ast$Max\+Red\+Led\+Current, uint16\+\_\+t $\ast$Max\+Green\+Led\+Current, uint16\+\_\+t $\ast$Max\+Blue\+Led\+Current)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_adf7b2a632583bb12acfac54720d04dee}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Caic\+Rgb\+Led\+Current}} (uint16\+\_\+t $\ast$Red\+Led\+Current, uint16\+\_\+t $\ast$Green\+Led\+Current, uint16\+\_\+t $\ast$Blue\+Led\+Current)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ae6c6b519a0e58570936b21b8119cce20}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Look\+Select}} (uint8\+\_\+t Look\+Number)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ab9a3dda9a4ade0f2ac245297fa3c7973}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Look\+Select}} (uint8\+\_\+t $\ast$Look\+Number, uint8\+\_\+t $\ast$Sequence\+Index, double $\ast$Sequence\+Frame\+Time)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a341561b960960f8c36f6f3f48fc708f8}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Sequence\+Header\+Attributes}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___sequence_header_attributes__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Sequence\+Header\+Attributes\+\_\+s}} $\ast$Sequence\+Header\+Attributes)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ad9111e3d545d1e2841b92e79423a3395}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Local\+Area\+Brightness\+Boost\+Control}} (\mbox{\hyperlink{dlpc34xx__dual_8h_ad99501b9d5a2866f528faae3ac2f87cc}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Labb\+Control\+\_\+e}} Labb\+Control, uint8\+\_\+t Sharpness\+Strength, uint8\+\_\+t Labb\+Strength\+Setting)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a79509469cab6e2241fd201a2ce5b5b91}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Local\+Area\+Brightness\+Boost\+Control}} (\mbox{\hyperlink{dlpc34xx__dual_8h_ad99501b9d5a2866f528faae3ac2f87cc}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Labb\+Control\+\_\+e}} $\ast$Labb\+Control, uint8\+\_\+t $\ast$Sharpness\+Strength, uint8\+\_\+t $\ast$Labb\+Strength\+Setting, uint8\+\_\+t $\ast$Labb\+Gain\+Value)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a046f63fa05fa9a6ee18150cd2b7289d2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Caic\+Image\+Processing\+Control}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a28300f4e1e0a5b43214b34cde6e80d18}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Caic\+Gain\+Display\+Scale\+\_\+e}} Caic\+Gain\+Display\+Scale, bool Caic\+Gain\+Display\+Enable, double Caic\+Max\+Lumens\+Gain, double Caic\+Clipping\+Threshold)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a7e640be934771f14efa9459164aeddeb}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Caic\+Image\+Processing\+Control}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a28300f4e1e0a5b43214b34cde6e80d18}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Caic\+Gain\+Display\+Scale\+\_\+e}} $\ast$Caic\+Gain\+Display\+Scale, bool $\ast$Caic\+Gain\+Display\+Enable, double $\ast$Caic\+Max\+Lumens\+Gain, double $\ast$Caic\+Clipping\+Threshold)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a73af56a7a2c8f66baa62ae35a3dddc53}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Color\+Coordinate\+Adjustment\+Control}} (bool Cca\+Enable)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a5150289afa3ec336433870c4d9dbaed8}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Color\+Coordinate\+Adjustment\+Control}} (bool $\ast$Cca\+Enable)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_abd9d3e61b14c7079a8750329519e367f}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Short\+Status}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___short_status__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Short\+Status\+\_\+s}} $\ast$Short\+Status)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a355670db9cd9f0425d573c079cb0cf6e}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+System\+Status}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___system_status__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+System\+Status\+\_\+s}} $\ast$System\+Status)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_adceac9a8454840cc287bdf2a0246a7ae}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Communication\+Status}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___communication_status__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Communication\+Status\+\_\+s}} $\ast$Communication\+Status)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a7cdbd75977f3f3186fe7b0ad1f79e0a7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+System\+Software\+Version}} (uint16\+\_\+t $\ast$Patch\+Version, uint8\+\_\+t $\ast$Minor\+Version, uint8\+\_\+t $\ast$Major\+Version)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a91a2c6e5b04c34b11a6ee49d516bd438}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Controller\+Device\+Id}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a060b2c4c49a27ad12c1b0da0de6205a7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Controller\+Device\+Id\+\_\+e}} $\ast$Device\+Id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_aa4fda97c7a1cb2c5b3db05de83554696}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Dmd\+Device\+Id}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a55895f44d670af144d906ea814cacfac}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Dmd\+Data\+Selection\+\_\+e}} Dmd\+Data\+Selection, uint32\+\_\+t $\ast$Device\+Id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a70baa534a6e7d562bc5f4bab8d7f028c}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Firmware\+Build\+Version}} (uint16\+\_\+t $\ast$Patch\+Version, uint8\+\_\+t $\ast$Minor\+Version, uint8\+\_\+t $\ast$Major\+Version)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ae1cecbe1812785556dd7926f86f1cad9}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+System\+Temperature}} (double $\ast$Temperature)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_abfe3f30efc239a701ad7bacc10df01ff}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Flash\+Update\+Precheck}} (uint32\+\_\+t Flash\+Update\+Package\+Size, \mbox{\hyperlink{dlpc34xx__dual_8h_ae88d9587919915cc8348b29ab4f8d1df}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Error\+\_\+e}} $\ast$Package\+Size\+Status, \mbox{\hyperlink{dlpc34xx__dual_8h_ae88d9587919915cc8348b29ab4f8d1df}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Error\+\_\+e}} $\ast$Pacakge\+Configuration\+Collapsed, \mbox{\hyperlink{dlpc34xx__dual_8h_ae88d9587919915cc8348b29ab4f8d1df}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Error\+\_\+e}} $\ast$Pacakge\+Configuration\+Identifier)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a3c650fc1eb3ff71c57f5ce66570d239d}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Flash\+Data\+Type\+Select}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a5c778093841252a53387a79d269cd437}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Flash\+Data\+Type\+Select\+\_\+e}} Flash\+Select)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_af871240e374d8773c5ca5d3aca369e6f}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Flash\+Data\+Length}} (uint16\+\_\+t Flash\+Data\+Length)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a640f270bf5e822a9b3aaacd6e93b85be}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Flash\+Erase}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a6db70e5084742f375d413acf595cb45e}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Flash\+Start}} (uint16\+\_\+t Data\+Length, uint8\+\_\+t $\ast$Data)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_aae40c3ceb9a5abe42da0112539fd5b3f}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Flash\+Start}} (uint16\+\_\+t Length, uint8\+\_\+t $\ast$Data)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a4a0c736752192e5a6082447244933683}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Flash\+Continue}} (uint16\+\_\+t Data\+Length, uint8\+\_\+t $\ast$Data)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a33fee98a6af43c1b3ee5906b6755f1a6}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Flash\+Continue}} (uint16\+\_\+t Length, uint8\+\_\+t $\ast$Data)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ae12aec81ff0f865ca6bc3a0e776a0d14}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Sequence\+Binary\+Version}} (uint8\+\_\+t $\ast$Patch\+Version, uint8\+\_\+t $\ast$Minor\+Version, uint8\+\_\+t $\ast$Major\+Version)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a257bb2735f3450a22bfa296fd31015d3}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Internal\+Pattern\+Control}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a973511ac474645e10ea9cac1b750ba9c}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Pattern\+Control\+\_\+e}} Pattern\+Control, uint8\+\_\+t Repeat\+Count)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ad77c9325bd07213a138917595dcfa85e}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Validate\+Exposure\+Time}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a61bb53ba637ca2acbd8a01c177bb4988}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Pattern\+Mode\+\_\+e}} Pattern\+Mode, \mbox{\hyperlink{dlpc34xx__dual_8h_aad5033e4a20d5ad741db852ceb0d4cbb}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Sequence\+Type\+\_\+e}} Bit\+Depth, uint32\+\_\+t Exposure\+Time, \mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___validate_exposure_time__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Validate\+Exposure\+Time\+\_\+s}} $\ast$Validate\+Exposure\+Time)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_adda94947ed44e93fe4e1f2dfd5e63b11}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Trigger\+In\+Configuration}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a3e0710538936f5300b21ca5d2d62aae7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Enable\+\_\+e}} Trigger\+Enable, \mbox{\hyperlink{dlpc34xx__dual_8h_a03982ef6091d94e3e3bbdc16e79b1b66}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Polarity\+\_\+e}} Trigger\+Polarity)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a7060ff6bc77a7f0cdc3675a40c797d64}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Trigger\+In\+Configuration}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a3e0710538936f5300b21ca5d2d62aae7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Enable\+\_\+e}} $\ast$Trigger\+Enable, \mbox{\hyperlink{dlpc34xx__dual_8h_a03982ef6091d94e3e3bbdc16e79b1b66}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Polarity\+\_\+e}} $\ast$Trigger\+Polarity)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_ae11e688019119b0e88441f3a322995df}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Trigger\+Out\+Configuration}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a949f5be7afd943a6f1c861d8696b5b74}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Type\+\_\+e}} Trigger\+Type, \mbox{\hyperlink{dlpc34xx__dual_8h_a3e0710538936f5300b21ca5d2d62aae7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Enable\+\_\+e}} Trigger\+Enable, \mbox{\hyperlink{dlpc34xx__dual_8h_adeb0a0f82c89e57f6a2dfe9b204c1805}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Inversion\+\_\+e}} Trigger\+Inversion, int32\+\_\+t Delay)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a30c3eeb8584ad565a71d393bd12dd381}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Trigger\+Out\+Configuration}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a949f5be7afd943a6f1c861d8696b5b74}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Type\+\_\+e}} Trigger, \mbox{\hyperlink{dlpc34xx__dual_8h_a3e0710538936f5300b21ca5d2d62aae7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Enable\+\_\+e}} $\ast$Trigger\+Enable, \mbox{\hyperlink{dlpc34xx__dual_8h_adeb0a0f82c89e57f6a2dfe9b204c1805}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Inversion\+\_\+e}} $\ast$Trigger\+Inversion, int32\+\_\+t $\ast$Delay)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_aa6bf7c3a75db6f59810663f78b373f27}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Pattern\+Ready\+Configuration}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a3e0710538936f5300b21ca5d2d62aae7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Enable\+\_\+e}} Trigger\+Enable, \mbox{\hyperlink{dlpc34xx__dual_8h_a03982ef6091d94e3e3bbdc16e79b1b66}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Polarity\+\_\+e}} Trigger\+Polarity)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_acd9cc74f29ad7534bf8261cc78a3a3c9}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Pattern\+Ready\+Configuration}} (\mbox{\hyperlink{dlpc34xx__dual_8h_a3e0710538936f5300b21ca5d2d62aae7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Enable\+\_\+e}} $\ast$Trigger\+Enable, \mbox{\hyperlink{dlpc34xx__dual_8h_a03982ef6091d94e3e3bbdc16e79b1b66}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Polarity\+\_\+e}} $\ast$Trigger\+Polarity)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a55b72bef14a3d08037bac6e54c9f215a}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Pattern\+Configuration}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___pattern_configuration__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Pattern\+Configuration\+\_\+s}} $\ast$Pattern\+Configuration)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a28373065c8df2112f88e8fef59f95676}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Pattern\+Configuration}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___pattern_configuration__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Pattern\+Configuration\+\_\+s}} $\ast$Pattern\+Configuration)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_aaa3a89afba129011b2bcde7b003ea591}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Pattern\+Order\+Table\+Entry}} (\mbox{\hyperlink{dlpc34xx__dual_8h_aaa89b2c12c9da6d788c0bbf6603cc7c6}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Control\+\_\+e}} Write\+Control, \mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___pattern_order_table_entry__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Pattern\+Order\+Table\+Entry\+\_\+s}} $\ast$Pattern\+Order\+Table\+Entry)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_afac6ed2bcce0500979cc7c8a1a06cb5b}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Pattern\+Order\+Table\+Entry}} (uint8\+\_\+t Pattern\+Order\+Table\+Entry\+Index, \mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___pattern_order_table_entry__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Pattern\+Order\+Table\+Entry\+\_\+s}} $\ast$Pattern\+Order\+Table\+Entry)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc34xx__dual_8c_a563ab4de8a0d2b4e9143cc4913a00eb2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Internal\+Pattern\+Status}} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___internal_pattern_status__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Internal\+Pattern\+Status\+\_\+s}} $\ast$Internal\+Pattern\+Status)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+DLPC347x Dual Commands. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a82885504f44ecff78d99c3139f0c52b6}\label{dlpc34xx__dual_8c_a82885504f44ecff78d99c3139f0c52b6}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_Read3DControl@{DLPC34XX\_DUAL\_Read3DControl}}
+\index{DLPC34XX\_DUAL\_Read3DControl@{DLPC34XX\_DUAL\_Read3DControl}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_Read3DControl()}{DLPC34XX\_DUAL\_Read3DControl()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read3\+DControl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a49ffaa7879be51cccdd95ef2116e2873}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Three\+DModes\+\_\+e}} $\ast$}]{Three\+DMode,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a4b0ab3effccf5f59720ea8a2e997f980}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Three\+DDominance\+\_\+e}} $\ast$}]{Three\+DFrame\+Dominance,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a1fc5e684b2cd2d268041bc77fd9d397d}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Three\+DReference\+Polarity\+\_\+e}} $\ast$}]{Three\+DReference\+Polarity }\end{DoxyParamCaption})}
+
+Reads the 3D frame dominance and reference polarity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Three\+DMode} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Three\+DFrame\+Dominance} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Three\+DReference\+Polarity} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_acb83f21ae4657df94a18da9f1a8a8b69}\label{dlpc34xx__dual_8c_acb83f21ae4657df94a18da9f1a8a8b69}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadBorderColor@{DLPC34XX\_DUAL\_ReadBorderColor}}
+\index{DLPC34XX\_DUAL\_ReadBorderColor@{DLPC34XX\_DUAL\_ReadBorderColor}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadBorderColor()}{DLPC34XX\_DUAL\_ReadBorderColor()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Border\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}} $\ast$}]{Display\+Border\+Color,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a48379f380aa51234778efb6363f4ec0c}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Border\+Color\+Source\+\_\+e}} $\ast$}]{Pillar\+Box\+Border\+Color\+Source }\end{DoxyParamCaption})}
+
+Reads the state of the on screen border color for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Display\+Border\+Color} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Pillar\+Box\+Border\+Color\+Source} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a7e640be934771f14efa9459164aeddeb}\label{dlpc34xx__dual_8c_a7e640be934771f14efa9459164aeddeb}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadCaicImageProcessingControl@{DLPC34XX\_DUAL\_ReadCaicImageProcessingControl}}
+\index{DLPC34XX\_DUAL\_ReadCaicImageProcessingControl@{DLPC34XX\_DUAL\_ReadCaicImageProcessingControl}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadCaicImageProcessingControl()}{DLPC34XX\_DUAL\_ReadCaicImageProcessingControl()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Caic\+Image\+Processing\+Control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a28300f4e1e0a5b43214b34cde6e80d18}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Caic\+Gain\+Display\+Scale\+\_\+e}} $\ast$}]{Caic\+Gain\+Display\+Scale,  }\item[{bool $\ast$}]{Caic\+Gain\+Display\+Enable,  }\item[{double $\ast$}]{Caic\+Max\+Lumens\+Gain,  }\item[{double $\ast$}]{Caic\+Clipping\+Threshold }\end{DoxyParamCaption})}
+
+Reads the state of the CAIC functionality within the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Caic\+Gain\+Display\+Scale} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Caic\+Gain\+Display\+Enable} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Caic\+Max\+Lumens\+Gain} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Caic\+Clipping\+Threshold} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a48b11f3f849bf17d2368c5ee423fe0ee}\label{dlpc34xx__dual_8c_a48b11f3f849bf17d2368c5ee423fe0ee}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadCaicLedMaxAvailablePower@{DLPC34XX\_DUAL\_ReadCaicLedMaxAvailablePower}}
+\index{DLPC34XX\_DUAL\_ReadCaicLedMaxAvailablePower@{DLPC34XX\_DUAL\_ReadCaicLedMaxAvailablePower}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadCaicLedMaxAvailablePower()}{DLPC34XX\_DUAL\_ReadCaicLedMaxAvailablePower()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Caic\+Led\+Max\+Available\+Power (\begin{DoxyParamCaption}\item[{double $\ast$}]{Max\+Led\+Power }\end{DoxyParamCaption})}
+
+Reads the specified maximum LED power (Watts) allowed for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Max\+Led\+Power} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_adf7b2a632583bb12acfac54720d04dee}\label{dlpc34xx__dual_8c_adf7b2a632583bb12acfac54720d04dee}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadCaicRgbLedCurrent@{DLPC34XX\_DUAL\_ReadCaicRgbLedCurrent}}
+\index{DLPC34XX\_DUAL\_ReadCaicRgbLedCurrent@{DLPC34XX\_DUAL\_ReadCaicRgbLedCurrent}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadCaicRgbLedCurrent()}{DLPC34XX\_DUAL\_ReadCaicRgbLedCurrent()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Caic\+Rgb\+Led\+Current (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{Red\+Led\+Current,  }\item[{uint16\+\_\+t $\ast$}]{Green\+Led\+Current,  }\item[{uint16\+\_\+t $\ast$}]{Blue\+Led\+Current }\end{DoxyParamCaption})}
+
+Reads the state of the current for the red, green, and blue LEDs of the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Red\+Led\+Current} & LSB first. \\
+\hline
+\mbox{\texttt{ out}}  & {\em Green\+Led\+Current} & LSB first. \\
+\hline
+\mbox{\texttt{ out}}  & {\em Blue\+Led\+Current} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a5150289afa3ec336433870c4d9dbaed8}\label{dlpc34xx__dual_8c_a5150289afa3ec336433870c4d9dbaed8}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadColorCoordinateAdjustmentControl@{DLPC34XX\_DUAL\_ReadColorCoordinateAdjustmentControl}}
+\index{DLPC34XX\_DUAL\_ReadColorCoordinateAdjustmentControl@{DLPC34XX\_DUAL\_ReadColorCoordinateAdjustmentControl}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadColorCoordinateAdjustmentControl()}{DLPC34XX\_DUAL\_ReadColorCoordinateAdjustmentControl()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Color\+Coordinate\+Adjustment\+Control (\begin{DoxyParamCaption}\item[{bool $\ast$}]{Cca\+Enable }\end{DoxyParamCaption})}
+
+Reads the state of the Color Coordinate Adjustment (CCA) image processing within the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Cca\+Enable} & 0\+: Disable, 1\+: Enable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_adceac9a8454840cc287bdf2a0246a7ae}\label{dlpc34xx__dual_8c_adceac9a8454840cc287bdf2a0246a7ae}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadCommunicationStatus@{DLPC34XX\_DUAL\_ReadCommunicationStatus}}
+\index{DLPC34XX\_DUAL\_ReadCommunicationStatus@{DLPC34XX\_DUAL\_ReadCommunicationStatus}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadCommunicationStatus()}{DLPC34XX\_DUAL\_ReadCommunicationStatus()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Communication\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___communication_status__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Communication\+Status\+\_\+s}} $\ast$}]{Communication\+Status }\end{DoxyParamCaption})}
+
+Reads I2C communication status information for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Communication\+Status} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a91a2c6e5b04c34b11a6ee49d516bd438}\label{dlpc34xx__dual_8c_a91a2c6e5b04c34b11a6ee49d516bd438}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadControllerDeviceId@{DLPC34XX\_DUAL\_ReadControllerDeviceId}}
+\index{DLPC34XX\_DUAL\_ReadControllerDeviceId@{DLPC34XX\_DUAL\_ReadControllerDeviceId}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadControllerDeviceId()}{DLPC34XX\_DUAL\_ReadControllerDeviceId()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Controller\+Device\+Id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a060b2c4c49a27ad12c1b0da0de6205a7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Controller\+Device\+Id\+\_\+e}} $\ast$}]{Device\+Id }\end{DoxyParamCaption})}
+
+Reads the controller device ID for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Device\+Id} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ad5854d5ac303d886d1fa3d5be6f93da4}\label{dlpc34xx__dual_8c_ad5854d5ac303d886d1fa3d5be6f93da4}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadDisplayImageCurtain@{DLPC34XX\_DUAL\_ReadDisplayImageCurtain}}
+\index{DLPC34XX\_DUAL\_ReadDisplayImageCurtain@{DLPC34XX\_DUAL\_ReadDisplayImageCurtain}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadDisplayImageCurtain()}{DLPC34XX\_DUAL\_ReadDisplayImageCurtain()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Display\+Image\+Curtain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a492ed790fc47656f8ceb5803076cf6df}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Image\+Curtain\+Enable\+\_\+e}} $\ast$}]{Enable,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}} $\ast$}]{Color }\end{DoxyParamCaption})}
+
+Reads the state of the image curtain control function for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Enable} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Color} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ad0547a0d4f33d690c2fc4be6b01cfc74}\label{dlpc34xx__dual_8c_ad0547a0d4f33d690c2fc4be6b01cfc74}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadDisplayImageOrientation@{DLPC34XX\_DUAL\_ReadDisplayImageOrientation}}
+\index{DLPC34XX\_DUAL\_ReadDisplayImageOrientation@{DLPC34XX\_DUAL\_ReadDisplayImageOrientation}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadDisplayImageOrientation()}{DLPC34XX\_DUAL\_ReadDisplayImageOrientation()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Display\+Image\+Orientation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a6423abddfafce6c3285bc0cf15f26854}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Image\+Flip\+\_\+e}} $\ast$}]{Long\+Axis\+Image\+Flip,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a6423abddfafce6c3285bc0cf15f26854}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Image\+Flip\+\_\+e}} $\ast$}]{Short\+Axis\+Image\+Flip }\end{DoxyParamCaption})}
+
+Reads the state of the displayed image orientation function for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Long\+Axis\+Image\+Flip} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Short\+Axis\+Image\+Flip} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a9b624cdf894f7ae6b64272ea8af0c5c6}\label{dlpc34xx__dual_8c_a9b624cdf894f7ae6b64272ea8af0c5c6}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadDisplaySize@{DLPC34XX\_DUAL\_ReadDisplaySize}}
+\index{DLPC34XX\_DUAL\_ReadDisplaySize@{DLPC34XX\_DUAL\_ReadDisplaySize}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadDisplaySize()}{DLPC34XX\_DUAL\_ReadDisplaySize()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Display\+Size (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{Pixels\+Per\+Line,  }\item[{uint16\+\_\+t $\ast$}]{Lines\+Per\+Frame }\end{DoxyParamCaption})}
+
+Reads the state of the display size settings for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Pixels\+Per\+Line} & LSB first. \\
+\hline
+\mbox{\texttt{ out}}  & {\em Lines\+Per\+Frame} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_aa4fda97c7a1cb2c5b3db05de83554696}\label{dlpc34xx__dual_8c_aa4fda97c7a1cb2c5b3db05de83554696}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadDmdDeviceId@{DLPC34XX\_DUAL\_ReadDmdDeviceId}}
+\index{DLPC34XX\_DUAL\_ReadDmdDeviceId@{DLPC34XX\_DUAL\_ReadDmdDeviceId}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadDmdDeviceId()}{DLPC34XX\_DUAL\_ReadDmdDeviceId()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Dmd\+Device\+Id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a55895f44d670af144d906ea814cacfac}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Dmd\+Data\+Selection\+\_\+e}}}]{Dmd\+Data\+Selection,  }\item[{uint32\+\_\+t $\ast$}]{Device\+Id }\end{DoxyParamCaption})}
+
+Reads the DMD device ID or DMD fuse data for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Dmd\+Data\+Selection} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Device\+Id} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ac0744fb5994d4d1160af89436c9ceafd}\label{dlpc34xx__dual_8c_ac0744fb5994d4d1160af89436c9ceafd}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadExternalVideoSourceFormatSelect@{DLPC34XX\_DUAL\_ReadExternalVideoSourceFormatSelect}}
+\index{DLPC34XX\_DUAL\_ReadExternalVideoSourceFormatSelect@{DLPC34XX\_DUAL\_ReadExternalVideoSourceFormatSelect}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadExternalVideoSourceFormatSelect()}{DLPC34XX\_DUAL\_ReadExternalVideoSourceFormatSelect()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+External\+Video\+Source\+Format\+Select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a305b6aca09560d0d6c70b8cded545d94}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+External\+Video\+Format\+\_\+e}} $\ast$}]{Video\+Format }\end{DoxyParamCaption})}
+
+Reads the state of the active external video port and the source data type for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Video\+Format} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a70baa534a6e7d562bc5f4bab8d7f028c}\label{dlpc34xx__dual_8c_a70baa534a6e7d562bc5f4bab8d7f028c}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadFirmwareBuildVersion@{DLPC34XX\_DUAL\_ReadFirmwareBuildVersion}}
+\index{DLPC34XX\_DUAL\_ReadFirmwareBuildVersion@{DLPC34XX\_DUAL\_ReadFirmwareBuildVersion}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadFirmwareBuildVersion()}{DLPC34XX\_DUAL\_ReadFirmwareBuildVersion()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Firmware\+Build\+Version (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{Patch\+Version,  }\item[{uint8\+\_\+t $\ast$}]{Minor\+Version,  }\item[{uint8\+\_\+t $\ast$}]{Major\+Version }\end{DoxyParamCaption})}
+
+Reads the controller firmware version for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Patch\+Version} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Minor\+Version} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Major\+Version} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a33fee98a6af43c1b3ee5906b6755f1a6}\label{dlpc34xx__dual_8c_a33fee98a6af43c1b3ee5906b6755f1a6}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadFlashContinue@{DLPC34XX\_DUAL\_ReadFlashContinue}}
+\index{DLPC34XX\_DUAL\_ReadFlashContinue@{DLPC34XX\_DUAL\_ReadFlashContinue}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadFlashContinue()}{DLPC34XX\_DUAL\_ReadFlashContinue()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Flash\+Continue (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Length,  }\item[{uint8\+\_\+t $\ast$}]{Data }\end{DoxyParamCaption})}
+
+Reads data from the flash.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Length} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Data} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_aae40c3ceb9a5abe42da0112539fd5b3f}\label{dlpc34xx__dual_8c_aae40c3ceb9a5abe42da0112539fd5b3f}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadFlashStart@{DLPC34XX\_DUAL\_ReadFlashStart}}
+\index{DLPC34XX\_DUAL\_ReadFlashStart@{DLPC34XX\_DUAL\_ReadFlashStart}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadFlashStart()}{DLPC34XX\_DUAL\_ReadFlashStart()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Flash\+Start (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Length,  }\item[{uint8\+\_\+t $\ast$}]{Data }\end{DoxyParamCaption})}
+
+Reads data from the flash.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Length} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Data} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_abfe3f30efc239a701ad7bacc10df01ff}\label{dlpc34xx__dual_8c_abfe3f30efc239a701ad7bacc10df01ff}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadFlashUpdatePrecheck@{DLPC34XX\_DUAL\_ReadFlashUpdatePrecheck}}
+\index{DLPC34XX\_DUAL\_ReadFlashUpdatePrecheck@{DLPC34XX\_DUAL\_ReadFlashUpdatePrecheck}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadFlashUpdatePrecheck()}{DLPC34XX\_DUAL\_ReadFlashUpdatePrecheck()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Flash\+Update\+Precheck (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Flash\+Update\+Package\+Size,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_ae88d9587919915cc8348b29ab4f8d1df}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Error\+\_\+e}} $\ast$}]{Package\+Size\+Status,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_ae88d9587919915cc8348b29ab4f8d1df}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Error\+\_\+e}} $\ast$}]{Pacakge\+Configuration\+Collapsed,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_ae88d9587919915cc8348b29ab4f8d1df}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Error\+\_\+e}} $\ast$}]{Pacakge\+Configuration\+Identifier }\end{DoxyParamCaption})}
+
+Verifies that a pending flash update (write) is appropriate for the specified block of the projection module flash. Must have called Write Flash Data Type Select prior.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Flash\+Update\+Package\+Size} & LSB first. \\
+\hline
+\mbox{\texttt{ out}}  & {\em Package\+Size\+Status} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Pacakge\+Configuration\+Collapsed} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Pacakge\+Configuration\+Identifier} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a665b76bb684c694772015871484a2215}\label{dlpc34xx__dual_8c_a665b76bb684c694772015871484a2215}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadImageFreeze@{DLPC34XX\_DUAL\_ReadImageFreeze}}
+\index{DLPC34XX\_DUAL\_ReadImageFreeze@{DLPC34XX\_DUAL\_ReadImageFreeze}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadImageFreeze()}{DLPC34XX\_DUAL\_ReadImageFreeze()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Image\+Freeze (\begin{DoxyParamCaption}\item[{bool $\ast$}]{Enable }\end{DoxyParamCaption})}
+
+Reads the state of the image freeze function for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Enable} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ad2df88444bf7f83d14a6ccb9cd56123a}\label{dlpc34xx__dual_8c_ad2df88444bf7f83d14a6ccb9cd56123a}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadInputImageSize@{DLPC34XX\_DUAL\_ReadInputImageSize}}
+\index{DLPC34XX\_DUAL\_ReadInputImageSize@{DLPC34XX\_DUAL\_ReadInputImageSize}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadInputImageSize()}{DLPC34XX\_DUAL\_ReadInputImageSize()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Input\+Image\+Size (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{Pixels\+Per\+Line,  }\item[{uint16\+\_\+t $\ast$}]{Lines\+Per\+Frame }\end{DoxyParamCaption})}
+
+Reads the specified data size of the external input image to the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Pixels\+Per\+Line} & LSB first. \\
+\hline
+\mbox{\texttt{ out}}  & {\em Lines\+Per\+Frame} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a563ab4de8a0d2b4e9143cc4913a00eb2}\label{dlpc34xx__dual_8c_a563ab4de8a0d2b4e9143cc4913a00eb2}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadInternalPatternStatus@{DLPC34XX\_DUAL\_ReadInternalPatternStatus}}
+\index{DLPC34XX\_DUAL\_ReadInternalPatternStatus@{DLPC34XX\_DUAL\_ReadInternalPatternStatus}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadInternalPatternStatus()}{DLPC34XX\_DUAL\_ReadInternalPatternStatus()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Internal\+Pattern\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___internal_pattern_status__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Internal\+Pattern\+Status\+\_\+s}} $\ast$}]{Internal\+Pattern\+Status }\end{DoxyParamCaption})}
+
+Reads the Status of the Internal Pattern Streaming.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Internal\+Pattern\+Status} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a75bedb65a3b62b17b046f7d45f223c14}\label{dlpc34xx__dual_8c_a75bedb65a3b62b17b046f7d45f223c14}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadLedOutputControlMethod@{DLPC34XX\_DUAL\_ReadLedOutputControlMethod}}
+\index{DLPC34XX\_DUAL\_ReadLedOutputControlMethod@{DLPC34XX\_DUAL\_ReadLedOutputControlMethod}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadLedOutputControlMethod()}{DLPC34XX\_DUAL\_ReadLedOutputControlMethod()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Led\+Output\+Control\+Method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a241a9a0257e7d65e707cfc50f0cc531d}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Led\+Control\+Method\+\_\+e}} $\ast$}]{Led\+Control\+Method }\end{DoxyParamCaption})}
+
+Reads the state of the LED output control method for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Led\+Control\+Method} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a79509469cab6e2241fd201a2ce5b5b91}\label{dlpc34xx__dual_8c_a79509469cab6e2241fd201a2ce5b5b91}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadLocalAreaBrightnessBoostControl@{DLPC34XX\_DUAL\_ReadLocalAreaBrightnessBoostControl}}
+\index{DLPC34XX\_DUAL\_ReadLocalAreaBrightnessBoostControl@{DLPC34XX\_DUAL\_ReadLocalAreaBrightnessBoostControl}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadLocalAreaBrightnessBoostControl()}{DLPC34XX\_DUAL\_ReadLocalAreaBrightnessBoostControl()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Local\+Area\+Brightness\+Boost\+Control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_ad99501b9d5a2866f528faae3ac2f87cc}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Labb\+Control\+\_\+e}} $\ast$}]{Labb\+Control,  }\item[{uint8\+\_\+t $\ast$}]{Sharpness\+Strength,  }\item[{uint8\+\_\+t $\ast$}]{Labb\+Strength\+Setting,  }\item[{uint8\+\_\+t $\ast$}]{Labb\+Gain\+Value }\end{DoxyParamCaption})}
+
+Reads the state of the local area brightness boost image processing functionality for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Labb\+Control} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Sharpness\+Strength} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Labb\+Strength\+Setting} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Labb\+Gain\+Value} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ab9a3dda9a4ade0f2ac245297fa3c7973}\label{dlpc34xx__dual_8c_ab9a3dda9a4ade0f2ac245297fa3c7973}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadLookSelect@{DLPC34XX\_DUAL\_ReadLookSelect}}
+\index{DLPC34XX\_DUAL\_ReadLookSelect@{DLPC34XX\_DUAL\_ReadLookSelect}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadLookSelect()}{DLPC34XX\_DUAL\_ReadLookSelect()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Look\+Select (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{Look\+Number,  }\item[{uint8\+\_\+t $\ast$}]{Sequence\+Index,  }\item[{double $\ast$}]{Sequence\+Frame\+Time }\end{DoxyParamCaption})}
+
+Reads the state of the Look select command for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Look\+Number} & Zero-\/based index. \\
+\hline
+\mbox{\texttt{ out}}  & {\em Sequence\+Index} & Zero-\/based index. \\
+\hline
+\mbox{\texttt{ out}}  & {\em Sequence\+Frame\+Time} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a7fd5562862f16d53c9215feb3ecbbb2b}\label{dlpc34xx__dual_8c_a7fd5562862f16d53c9215feb3ecbbb2b}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadOperatingModeSelect@{DLPC34XX\_DUAL\_ReadOperatingModeSelect}}
+\index{DLPC34XX\_DUAL\_ReadOperatingModeSelect@{DLPC34XX\_DUAL\_ReadOperatingModeSelect}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadOperatingModeSelect()}{DLPC34XX\_DUAL\_ReadOperatingModeSelect()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Operating\+Mode\+Select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_ae568e46d08305563131de28c6b289da0}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Operating\+Mode\+\_\+e}} $\ast$}]{Operating\+Mode }\end{DoxyParamCaption})}
+
+Reads the state of the image operating mode for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Operating\+Mode} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a28373065c8df2112f88e8fef59f95676}\label{dlpc34xx__dual_8c_a28373065c8df2112f88e8fef59f95676}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadPatternConfiguration@{DLPC34XX\_DUAL\_ReadPatternConfiguration}}
+\index{DLPC34XX\_DUAL\_ReadPatternConfiguration@{DLPC34XX\_DUAL\_ReadPatternConfiguration}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadPatternConfiguration()}{DLPC34XX\_DUAL\_ReadPatternConfiguration()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Pattern\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___pattern_configuration__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Pattern\+Configuration\+\_\+s}} $\ast$}]{Pattern\+Configuration }\end{DoxyParamCaption})}
+
+Reads the configuration for external and internal patterns.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Pattern\+Configuration} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_afac6ed2bcce0500979cc7c8a1a06cb5b}\label{dlpc34xx__dual_8c_afac6ed2bcce0500979cc7c8a1a06cb5b}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadPatternOrderTableEntry@{DLPC34XX\_DUAL\_ReadPatternOrderTableEntry}}
+\index{DLPC34XX\_DUAL\_ReadPatternOrderTableEntry@{DLPC34XX\_DUAL\_ReadPatternOrderTableEntry}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadPatternOrderTableEntry()}{DLPC34XX\_DUAL\_ReadPatternOrderTableEntry()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Pattern\+Order\+Table\+Entry (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Pattern\+Order\+Table\+Entry\+Index,  }\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___pattern_order_table_entry__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Pattern\+Order\+Table\+Entry\+\_\+s}} $\ast$}]{Pattern\+Order\+Table\+Entry }\end{DoxyParamCaption})}
+
+Reads the configuration for the Pattern Order Table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Pattern\+Order\+Table\+Entry\+Index} & pattern\+\_\+order\+\_\+table\+\_\+entry\+\_\+index \\
+\hline
+\mbox{\texttt{ out}}  & {\em Pattern\+Order\+Table\+Entry} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_acd9cc74f29ad7534bf8261cc78a3a3c9}\label{dlpc34xx__dual_8c_acd9cc74f29ad7534bf8261cc78a3a3c9}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadPatternReadyConfiguration@{DLPC34XX\_DUAL\_ReadPatternReadyConfiguration}}
+\index{DLPC34XX\_DUAL\_ReadPatternReadyConfiguration@{DLPC34XX\_DUAL\_ReadPatternReadyConfiguration}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadPatternReadyConfiguration()}{DLPC34XX\_DUAL\_ReadPatternReadyConfiguration()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Pattern\+Ready\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a3e0710538936f5300b21ca5d2d62aae7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Enable\+\_\+e}} $\ast$}]{Trigger\+Enable,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a03982ef6091d94e3e3bbdc16e79b1b66}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Polarity\+\_\+e}} $\ast$}]{Trigger\+Polarity }\end{DoxyParamCaption})}
+
+Reads the configuration for Pattern Ready output signal.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Trigger\+Enable} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Trigger\+Polarity} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ada177e60da14f7a3145cc783c7598769}\label{dlpc34xx__dual_8c_ada177e60da14f7a3145cc783c7598769}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadRgbLedCurrent@{DLPC34XX\_DUAL\_ReadRgbLedCurrent}}
+\index{DLPC34XX\_DUAL\_ReadRgbLedCurrent@{DLPC34XX\_DUAL\_ReadRgbLedCurrent}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadRgbLedCurrent()}{DLPC34XX\_DUAL\_ReadRgbLedCurrent()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Rgb\+Led\+Current (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{Red\+Led\+Current,  }\item[{uint16\+\_\+t $\ast$}]{Green\+Led\+Current,  }\item[{uint16\+\_\+t $\ast$}]{Blue\+Led\+Current }\end{DoxyParamCaption})}
+
+Reads the state of the current for the red, green, and blue LEDs. This value directly controls the LED current.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Red\+Led\+Current} & LSB first. \\
+\hline
+\mbox{\texttt{ out}}  & {\em Green\+Led\+Current} & LSB first. \\
+\hline
+\mbox{\texttt{ out}}  & {\em Blue\+Led\+Current} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a414fda66072db4c42e9b8acedeff9ad2}\label{dlpc34xx__dual_8c_a414fda66072db4c42e9b8acedeff9ad2}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadRgbLedEnable@{DLPC34XX\_DUAL\_ReadRgbLedEnable}}
+\index{DLPC34XX\_DUAL\_ReadRgbLedEnable@{DLPC34XX\_DUAL\_ReadRgbLedEnable}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadRgbLedEnable()}{DLPC34XX\_DUAL\_ReadRgbLedEnable()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Rgb\+Led\+Enable (\begin{DoxyParamCaption}\item[{bool $\ast$}]{Red\+Led\+Enable,  }\item[{bool $\ast$}]{Green\+Led\+Enable,  }\item[{bool $\ast$}]{Blue\+Led\+Enable }\end{DoxyParamCaption})}
+
+Reads the state of the LED enables for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Red\+Led\+Enable} & 0\+: Disable, 1\+: Enable \\
+\hline
+\mbox{\texttt{ out}}  & {\em Green\+Led\+Enable} & 0\+: Disable, 1\+: Enable \\
+\hline
+\mbox{\texttt{ out}}  & {\em Blue\+Led\+Enable} & 0\+: Disable, 1\+: Enable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ad9e7e1ec699b63b9019673b75281a79e}\label{dlpc34xx__dual_8c_ad9e7e1ec699b63b9019673b75281a79e}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadRgbLedMaxCurrent@{DLPC34XX\_DUAL\_ReadRgbLedMaxCurrent}}
+\index{DLPC34XX\_DUAL\_ReadRgbLedMaxCurrent@{DLPC34XX\_DUAL\_ReadRgbLedMaxCurrent}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadRgbLedMaxCurrent()}{DLPC34XX\_DUAL\_ReadRgbLedMaxCurrent()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Rgb\+Led\+Max\+Current (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{Max\+Red\+Led\+Current,  }\item[{uint16\+\_\+t $\ast$}]{Max\+Green\+Led\+Current,  }\item[{uint16\+\_\+t $\ast$}]{Max\+Blue\+Led\+Current }\end{DoxyParamCaption})}
+
+Reads the specified maximum LED current allowed for each LED in the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Max\+Red\+Led\+Current} & LSB first. \\
+\hline
+\mbox{\texttt{ out}}  & {\em Max\+Green\+Led\+Current} & LSB first. \\
+\hline
+\mbox{\texttt{ out}}  & {\em Max\+Blue\+Led\+Current} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ae12aec81ff0f865ca6bc3a0e776a0d14}\label{dlpc34xx__dual_8c_ae12aec81ff0f865ca6bc3a0e776a0d14}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadSequenceBinaryVersion@{DLPC34XX\_DUAL\_ReadSequenceBinaryVersion}}
+\index{DLPC34XX\_DUAL\_ReadSequenceBinaryVersion@{DLPC34XX\_DUAL\_ReadSequenceBinaryVersion}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadSequenceBinaryVersion()}{DLPC34XX\_DUAL\_ReadSequenceBinaryVersion()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Sequence\+Binary\+Version (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{Patch\+Version,  }\item[{uint8\+\_\+t $\ast$}]{Minor\+Version,  }\item[{uint8\+\_\+t $\ast$}]{Major\+Version }\end{DoxyParamCaption})}
+
+Reads the Light Control Sequence Binary version.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Patch\+Version} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Minor\+Version} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Major\+Version} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a341561b960960f8c36f6f3f48fc708f8}\label{dlpc34xx__dual_8c_a341561b960960f8c36f6f3f48fc708f8}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadSequenceHeaderAttributes@{DLPC34XX\_DUAL\_ReadSequenceHeaderAttributes}}
+\index{DLPC34XX\_DUAL\_ReadSequenceHeaderAttributes@{DLPC34XX\_DUAL\_ReadSequenceHeaderAttributes}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadSequenceHeaderAttributes()}{DLPC34XX\_DUAL\_ReadSequenceHeaderAttributes()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Sequence\+Header\+Attributes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___sequence_header_attributes__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Sequence\+Header\+Attributes\+\_\+s}} $\ast$}]{Sequence\+Header\+Attributes }\end{DoxyParamCaption})}
+
+Reads Look and Sequence header information for the active Look and Sequence of the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Sequence\+Header\+Attributes} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_abd9d3e61b14c7079a8750329519e367f}\label{dlpc34xx__dual_8c_abd9d3e61b14c7079a8750329519e367f}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadShortStatus@{DLPC34XX\_DUAL\_ReadShortStatus}}
+\index{DLPC34XX\_DUAL\_ReadShortStatus@{DLPC34XX\_DUAL\_ReadShortStatus}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadShortStatus()}{DLPC34XX\_DUAL\_ReadShortStatus()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Short\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___short_status__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Short\+Status\+\_\+s}} $\ast$}]{Short\+Status }\end{DoxyParamCaption})}
+
+Provides a brief system status for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Short\+Status} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a5c41e01038189b47189c4df64d13ddab}\label{dlpc34xx__dual_8c_a5c41e01038189b47189c4df64d13ddab}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadSplashScreenHeader@{DLPC34XX\_DUAL\_ReadSplashScreenHeader}}
+\index{DLPC34XX\_DUAL\_ReadSplashScreenHeader@{DLPC34XX\_DUAL\_ReadSplashScreenHeader}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadSplashScreenHeader()}{DLPC34XX\_DUAL\_ReadSplashScreenHeader()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Splash\+Screen\+Header (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Splash\+Screen\+Index,  }\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___splash_screen_header__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Splash\+Screen\+Header\+\_\+s}} $\ast$}]{Splash\+Screen\+Header }\end{DoxyParamCaption})}
+
+Read Splash screen header
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Splash\+Screen\+Index} & The splash screen index, zero-\/based (the first splash screen stored in flash is index 0). \\
+\hline
+\mbox{\texttt{ out}}  & {\em Splash\+Screen\+Header} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_abf800e5493e1e266bdfe08fe2ff86ef8}\label{dlpc34xx__dual_8c_abf800e5493e1e266bdfe08fe2ff86ef8}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadSplashScreenSelect@{DLPC34XX\_DUAL\_ReadSplashScreenSelect}}
+\index{DLPC34XX\_DUAL\_ReadSplashScreenSelect@{DLPC34XX\_DUAL\_ReadSplashScreenSelect}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadSplashScreenSelect()}{DLPC34XX\_DUAL\_ReadSplashScreenSelect()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Splash\+Screen\+Select (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{Splash\+Screen\+Index }\end{DoxyParamCaption})}
+
+Returns the index of a splash screen that is to be displayed (or is being displayed).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Splash\+Screen\+Index} & The splash screen index, zero-\/based (the first splash screen stored in flash is index 0).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a7cdbd75977f3f3186fe7b0ad1f79e0a7}\label{dlpc34xx__dual_8c_a7cdbd75977f3f3186fe7b0ad1f79e0a7}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadSystemSoftwareVersion@{DLPC34XX\_DUAL\_ReadSystemSoftwareVersion}}
+\index{DLPC34XX\_DUAL\_ReadSystemSoftwareVersion@{DLPC34XX\_DUAL\_ReadSystemSoftwareVersion}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadSystemSoftwareVersion()}{DLPC34XX\_DUAL\_ReadSystemSoftwareVersion()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+System\+Software\+Version (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{Patch\+Version,  }\item[{uint8\+\_\+t $\ast$}]{Minor\+Version,  }\item[{uint8\+\_\+t $\ast$}]{Major\+Version }\end{DoxyParamCaption})}
+
+Reads the Arm software version (main application) information for the projection module. This application is part of the firmware image.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Patch\+Version} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Minor\+Version} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Major\+Version} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a355670db9cd9f0425d573c079cb0cf6e}\label{dlpc34xx__dual_8c_a355670db9cd9f0425d573c079cb0cf6e}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadSystemStatus@{DLPC34XX\_DUAL\_ReadSystemStatus}}
+\index{DLPC34XX\_DUAL\_ReadSystemStatus@{DLPC34XX\_DUAL\_ReadSystemStatus}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadSystemStatus()}{DLPC34XX\_DUAL\_ReadSystemStatus()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+System\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___system_status__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+System\+Status\+\_\+s}} $\ast$}]{System\+Status }\end{DoxyParamCaption})}
+
+Reads system status information for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em System\+Status} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ae1cecbe1812785556dd7926f86f1cad9}\label{dlpc34xx__dual_8c_ae1cecbe1812785556dd7926f86f1cad9}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadSystemTemperature@{DLPC34XX\_DUAL\_ReadSystemTemperature}}
+\index{DLPC34XX\_DUAL\_ReadSystemTemperature@{DLPC34XX\_DUAL\_ReadSystemTemperature}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadSystemTemperature()}{DLPC34XX\_DUAL\_ReadSystemTemperature()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+System\+Temperature (\begin{DoxyParamCaption}\item[{double $\ast$}]{Temperature }\end{DoxyParamCaption})}
+
+Reads the System Temperature.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Temperature} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a357dc36a31d19c9dfe69221f3fb7ecfa}\label{dlpc34xx__dual_8c_a357dc36a31d19c9dfe69221f3fb7ecfa}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadTestPatternSelect@{DLPC34XX\_DUAL\_ReadTestPatternSelect}}
+\index{DLPC34XX\_DUAL\_ReadTestPatternSelect@{DLPC34XX\_DUAL\_ReadTestPatternSelect}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadTestPatternSelect()}{DLPC34XX\_DUAL\_ReadTestPatternSelect()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Test\+Pattern\+Select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___test_pattern_select__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Test\+Pattern\+Select\+\_\+s}} $\ast$}]{Test\+Pattern\+Select }\end{DoxyParamCaption})}
+
+Reads back the host-\/specified parameters for an internal test pattern.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Test\+Pattern\+Select} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a7060ff6bc77a7f0cdc3675a40c797d64}\label{dlpc34xx__dual_8c_a7060ff6bc77a7f0cdc3675a40c797d64}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadTriggerInConfiguration@{DLPC34XX\_DUAL\_ReadTriggerInConfiguration}}
+\index{DLPC34XX\_DUAL\_ReadTriggerInConfiguration@{DLPC34XX\_DUAL\_ReadTriggerInConfiguration}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadTriggerInConfiguration()}{DLPC34XX\_DUAL\_ReadTriggerInConfiguration()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Trigger\+In\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a3e0710538936f5300b21ca5d2d62aae7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Enable\+\_\+e}} $\ast$}]{Trigger\+Enable,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a03982ef6091d94e3e3bbdc16e79b1b66}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Polarity\+\_\+e}} $\ast$}]{Trigger\+Polarity }\end{DoxyParamCaption})}
+
+Reads the configuration for Trigger In.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Trigger\+Enable} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Trigger\+Polarity} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a30c3eeb8584ad565a71d393bd12dd381}\label{dlpc34xx__dual_8c_a30c3eeb8584ad565a71d393bd12dd381}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadTriggerOutConfiguration@{DLPC34XX\_DUAL\_ReadTriggerOutConfiguration}}
+\index{DLPC34XX\_DUAL\_ReadTriggerOutConfiguration@{DLPC34XX\_DUAL\_ReadTriggerOutConfiguration}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadTriggerOutConfiguration()}{DLPC34XX\_DUAL\_ReadTriggerOutConfiguration()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Trigger\+Out\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a949f5be7afd943a6f1c861d8696b5b74}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Type\+\_\+e}}}]{Trigger,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a3e0710538936f5300b21ca5d2d62aae7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Enable\+\_\+e}} $\ast$}]{Trigger\+Enable,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_adeb0a0f82c89e57f6a2dfe9b204c1805}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Inversion\+\_\+e}} $\ast$}]{Trigger\+Inversion,  }\item[{int32\+\_\+t $\ast$}]{Delay }\end{DoxyParamCaption})}
+
+Reads the configuration for Trigger Out1 or Trigger Out2.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Trigger} & Trigger Type \\
+\hline
+\mbox{\texttt{ out}}  & {\em Trigger\+Enable} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Trigger\+Inversion} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Delay} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ad77c9325bd07213a138917595dcfa85e}\label{dlpc34xx__dual_8c_ad77c9325bd07213a138917595dcfa85e}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadValidateExposureTime@{DLPC34XX\_DUAL\_ReadValidateExposureTime}}
+\index{DLPC34XX\_DUAL\_ReadValidateExposureTime@{DLPC34XX\_DUAL\_ReadValidateExposureTime}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadValidateExposureTime()}{DLPC34XX\_DUAL\_ReadValidateExposureTime()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Validate\+Exposure\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a61bb53ba637ca2acbd8a01c177bb4988}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Pattern\+Mode\+\_\+e}}}]{Pattern\+Mode,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_aad5033e4a20d5ad741db852ceb0d4cbb}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Sequence\+Type\+\_\+e}}}]{Bit\+Depth,  }\item[{uint32\+\_\+t}]{Exposure\+Time,  }\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___validate_exposure_time__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Validate\+Exposure\+Time\+\_\+s}} $\ast$}]{Validate\+Exposure\+Time }\end{DoxyParamCaption})}
+
+Checks the sequence database for support of the exposure time.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Pattern\+Mode} & Pattern Mode \\
+\hline
+\mbox{\texttt{ in}}  & {\em Bit\+Depth} & Bit Depth \\
+\hline
+\mbox{\texttt{ in}}  & {\em Exposure\+Time} & Exposure Time \\
+\hline
+\mbox{\texttt{ out}}  & {\em Validate\+Exposure\+Time} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a09652e60b6090de4dd7133963a56652e}\label{dlpc34xx__dual_8c_a09652e60b6090de4dd7133963a56652e}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_ReadVideoChromaProcessingSelect@{DLPC34XX\_DUAL\_ReadVideoChromaProcessingSelect}}
+\index{DLPC34XX\_DUAL\_ReadVideoChromaProcessingSelect@{DLPC34XX\_DUAL\_ReadVideoChromaProcessingSelect}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_ReadVideoChromaProcessingSelect()}{DLPC34XX\_DUAL\_ReadVideoChromaProcessingSelect()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Read\+Video\+Chroma\+Processing\+Select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a9abc4c534e0c653fc14d32fb05a85db9}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Chroma\+Interpolation\+Method\+\_\+e}} $\ast$}]{Chroma\+Interpolation\+Method,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a8499cb3910431724cca0eb4f1c726880}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Chroma\+Channel\+Swap\+\_\+e}} $\ast$}]{Chroma\+Channel\+Swap,  }\item[{uint8\+\_\+t $\ast$}]{Csc\+Coefficient\+Set }\end{DoxyParamCaption})}
+
+Reads the specified characteristics for the selected YCr\+Cb source and the chroma processing used.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em Chroma\+Interpolation\+Method} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Chroma\+Channel\+Swap} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ out}}  & {\em Csc\+Coefficient\+Set} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a651e8767fe363c053a91f4c712c32932}\label{dlpc34xx__dual_8c_a651e8767fe363c053a91f4c712c32932}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_Write3DControl@{DLPC34XX\_DUAL\_Write3DControl}}
+\index{DLPC34XX\_DUAL\_Write3DControl@{DLPC34XX\_DUAL\_Write3DControl}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_Write3DControl()}{DLPC34XX\_DUAL\_Write3DControl()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write3\+DControl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a4b0ab3effccf5f59720ea8a2e997f980}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Three\+DDominance\+\_\+e}}}]{Three\+DFrame\+Dominance,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a1fc5e684b2cd2d268041bc77fd9d397d}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Three\+DReference\+Polarity\+\_\+e}}}]{Three\+DReference\+Polarity }\end{DoxyParamCaption})}
+
+Specifies the 3D frame dominance and reference polarity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Three\+DFrame\+Dominance} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Three\+DReference\+Polarity} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a9dc174c5a64364063a5372c577642a88}\label{dlpc34xx__dual_8c_a9dc174c5a64364063a5372c577642a88}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteBatchFileDelay@{DLPC34XX\_DUAL\_WriteBatchFileDelay}}
+\index{DLPC34XX\_DUAL\_WriteBatchFileDelay@{DLPC34XX\_DUAL\_WriteBatchFileDelay}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteBatchFileDelay()}{DLPC34XX\_DUAL\_WriteBatchFileDelay()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Batch\+File\+Delay (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Delay\+In\+Microseconds }\end{DoxyParamCaption})}
+
+Delays for the specified number of microseconds. Only valid within a batch file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Delay\+In\+Microseconds} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a97b478c88367a13488d5ed29b4a70fb7}\label{dlpc34xx__dual_8c_a97b478c88367a13488d5ed29b4a70fb7}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteBorderColor@{DLPC34XX\_DUAL\_WriteBorderColor}}
+\index{DLPC34XX\_DUAL\_WriteBorderColor@{DLPC34XX\_DUAL\_WriteBorderColor}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteBorderColor()}{DLPC34XX\_DUAL\_WriteBorderColor()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Border\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}}}]{Display\+Border\+Color }\end{DoxyParamCaption})}
+
+Specifies the on screen border color for the projection module. Whenever the display image size is smaller than the display active area, this color fills the unused area.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Display\+Border\+Color} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a046f63fa05fa9a6ee18150cd2b7289d2}\label{dlpc34xx__dual_8c_a046f63fa05fa9a6ee18150cd2b7289d2}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteCaicImageProcessingControl@{DLPC34XX\_DUAL\_WriteCaicImageProcessingControl}}
+\index{DLPC34XX\_DUAL\_WriteCaicImageProcessingControl@{DLPC34XX\_DUAL\_WriteCaicImageProcessingControl}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteCaicImageProcessingControl()}{DLPC34XX\_DUAL\_WriteCaicImageProcessingControl()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Caic\+Image\+Processing\+Control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a28300f4e1e0a5b43214b34cde6e80d18}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Caic\+Gain\+Display\+Scale\+\_\+e}}}]{Caic\+Gain\+Display\+Scale,  }\item[{bool}]{Caic\+Gain\+Display\+Enable,  }\item[{double}]{Caic\+Max\+Lumens\+Gain,  }\item[{double}]{Caic\+Clipping\+Threshold }\end{DoxyParamCaption})}
+
+Controls the CAIC functionality for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Caic\+Gain\+Display\+Scale} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Caic\+Gain\+Display\+Enable} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Caic\+Max\+Lumens\+Gain} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Caic\+Clipping\+Threshold} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ab44acd8d4200c436cfdeae308955dea8}\label{dlpc34xx__dual_8c_ab44acd8d4200c436cfdeae308955dea8}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteCheckerboard@{DLPC34XX\_DUAL\_WriteCheckerboard}}
+\index{DLPC34XX\_DUAL\_WriteCheckerboard@{DLPC34XX\_DUAL\_WriteCheckerboard}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteCheckerboard()}{DLPC34XX\_DUAL\_WriteCheckerboard()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Checkerboard (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___checkerboard__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Checkerboard\+\_\+s}} $\ast$}]{Checkerboard }\end{DoxyParamCaption})}
+
+Writes a checkerboard pattern as internal test pattern for display. 0\+: Disable, 1\+: Enable
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Checkerboard} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_aff13501c45def8f112099a6b84514b41}\label{dlpc34xx__dual_8c_aff13501c45def8f112099a6b84514b41}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteColorbars@{DLPC34XX\_DUAL\_WriteColorbars}}
+\index{DLPC34XX\_DUAL\_WriteColorbars@{DLPC34XX\_DUAL\_WriteColorbars}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteColorbars()}{DLPC34XX\_DUAL\_WriteColorbars()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Colorbars (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_abb1ab7bb35fc8f7815a7a57e9b5db0ba}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Border\+Enable\+\_\+e}}}]{Border }\end{DoxyParamCaption})}
+
+Writes a colorbars pattern as internal test pattern for display.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Border} & Enable 1 pixel wide white border around the test pattern. 0\+: Disable, 1\+: Enable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a73af56a7a2c8f66baa62ae35a3dddc53}\label{dlpc34xx__dual_8c_a73af56a7a2c8f66baa62ae35a3dddc53}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteColorCoordinateAdjustmentControl@{DLPC34XX\_DUAL\_WriteColorCoordinateAdjustmentControl}}
+\index{DLPC34XX\_DUAL\_WriteColorCoordinateAdjustmentControl@{DLPC34XX\_DUAL\_WriteColorCoordinateAdjustmentControl}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteColorCoordinateAdjustmentControl()}{DLPC34XX\_DUAL\_WriteColorCoordinateAdjustmentControl()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Color\+Coordinate\+Adjustment\+Control (\begin{DoxyParamCaption}\item[{bool}]{Cca\+Enable }\end{DoxyParamCaption})}
+
+Controls the Color Coordinate Adjustment (CCA) image processing functionality for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Cca\+Enable} & Must be enabled during normal operation. 0\+: Disable, 1\+: Enable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ae9a0096d2f4ef576b87d0793ab546530}\label{dlpc34xx__dual_8c_ae9a0096d2f4ef576b87d0793ab546530}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteDiagonalLines@{DLPC34XX\_DUAL\_WriteDiagonalLines}}
+\index{DLPC34XX\_DUAL\_WriteDiagonalLines@{DLPC34XX\_DUAL\_WriteDiagonalLines}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteDiagonalLines()}{DLPC34XX\_DUAL\_WriteDiagonalLines()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Diagonal\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___diagonal_lines__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Diagonal\+Lines\+\_\+s}} $\ast$}]{Diagonal\+Lines }\end{DoxyParamCaption})}
+
+Writes a diagonal lines pattern as internal test pattern for display.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Diagonal\+Lines} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_accb5138641c0118ef564fe2668012b6a}\label{dlpc34xx__dual_8c_accb5138641c0118ef564fe2668012b6a}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteDisplayImageCurtain@{DLPC34XX\_DUAL\_WriteDisplayImageCurtain}}
+\index{DLPC34XX\_DUAL\_WriteDisplayImageCurtain@{DLPC34XX\_DUAL\_WriteDisplayImageCurtain}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteDisplayImageCurtain()}{DLPC34XX\_DUAL\_WriteDisplayImageCurtain()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Display\+Image\+Curtain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a492ed790fc47656f8ceb5803076cf6df}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Image\+Curtain\+Enable\+\_\+e}}}]{Enable,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}}}]{Color }\end{DoxyParamCaption})}
+
+Controls the display image curtain for the projection module. An image curtain fills the entire display with the selected color regardless of selected operating mode (except for Internal Pattern Streaming).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Enable} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Color} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_af9499527b6f7e87314ddc4c5f2c72612}\label{dlpc34xx__dual_8c_af9499527b6f7e87314ddc4c5f2c72612}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteDisplayImageOrientation@{DLPC34XX\_DUAL\_WriteDisplayImageOrientation}}
+\index{DLPC34XX\_DUAL\_WriteDisplayImageOrientation@{DLPC34XX\_DUAL\_WriteDisplayImageOrientation}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteDisplayImageOrientation()}{DLPC34XX\_DUAL\_WriteDisplayImageOrientation()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Display\+Image\+Orientation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a6423abddfafce6c3285bc0cf15f26854}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Image\+Flip\+\_\+e}}}]{Long\+Axis\+Image\+Flip,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a6423abddfafce6c3285bc0cf15f26854}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Image\+Flip\+\_\+e}}}]{Short\+Axis\+Image\+Flip }\end{DoxyParamCaption})}
+
+Specifies the image orientation of the displayed image for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Long\+Axis\+Image\+Flip} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Short\+Axis\+Image\+Flip} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_acea1d52e7650e7dd8bfc0d7341ab0e14}\label{dlpc34xx__dual_8c_acea1d52e7650e7dd8bfc0d7341ab0e14}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteDisplaySize@{DLPC34XX\_DUAL\_WriteDisplaySize}}
+\index{DLPC34XX\_DUAL\_WriteDisplaySize@{DLPC34XX\_DUAL\_WriteDisplaySize}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteDisplaySize()}{DLPC34XX\_DUAL\_WriteDisplaySize()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Display\+Size (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Pixels\+Per\+Line,  }\item[{uint16\+\_\+t}]{Lines\+Per\+Frame }\end{DoxyParamCaption})}
+
+Specifies the size of the active image to be displayed on the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Pixels\+Per\+Line} & LSB first. \\
+\hline
+\mbox{\texttt{ in}}  & {\em Lines\+Per\+Frame} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a884fa881840a50698187335605b472c2}\label{dlpc34xx__dual_8c_a884fa881840a50698187335605b472c2}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteExecuteFlashBatchFile@{DLPC34XX\_DUAL\_WriteExecuteFlashBatchFile}}
+\index{DLPC34XX\_DUAL\_WriteExecuteFlashBatchFile@{DLPC34XX\_DUAL\_WriteExecuteFlashBatchFile}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteExecuteFlashBatchFile()}{DLPC34XX\_DUAL\_WriteExecuteFlashBatchFile()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Execute\+Flash\+Batch\+File (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Batch\+File\+Number }\end{DoxyParamCaption})}
+
+Executes a batch file stored in the flash image.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Batch\+File\+Number} & Zero-\/based index.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a42fab6a5374b9c883e351c829fdf95b3}\label{dlpc34xx__dual_8c_a42fab6a5374b9c883e351c829fdf95b3}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteExternalVideoSourceFormatSelect@{DLPC34XX\_DUAL\_WriteExternalVideoSourceFormatSelect}}
+\index{DLPC34XX\_DUAL\_WriteExternalVideoSourceFormatSelect@{DLPC34XX\_DUAL\_WriteExternalVideoSourceFormatSelect}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteExternalVideoSourceFormatSelect()}{DLPC34XX\_DUAL\_WriteExternalVideoSourceFormatSelect()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+External\+Video\+Source\+Format\+Select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a305b6aca09560d0d6c70b8cded545d94}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+External\+Video\+Format\+\_\+e}}}]{Video\+Format }\end{DoxyParamCaption})}
+
+Specifies the active external video port and the source data type for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Video\+Format} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a4a0c736752192e5a6082447244933683}\label{dlpc34xx__dual_8c_a4a0c736752192e5a6082447244933683}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteFlashContinue@{DLPC34XX\_DUAL\_WriteFlashContinue}}
+\index{DLPC34XX\_DUAL\_WriteFlashContinue@{DLPC34XX\_DUAL\_WriteFlashContinue}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteFlashContinue()}{DLPC34XX\_DUAL\_WriteFlashContinue()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Flash\+Continue (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Data\+Length,  }\item[{uint8\+\_\+t $\ast$}]{Data }\end{DoxyParamCaption})}
+
+Writes data to the flash.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Data\+Length} & Byte Length for Data \\
+\hline
+\mbox{\texttt{ in}}  & {\em Data} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_af871240e374d8773c5ca5d3aca369e6f}\label{dlpc34xx__dual_8c_af871240e374d8773c5ca5d3aca369e6f}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteFlashDataLength@{DLPC34XX\_DUAL\_WriteFlashDataLength}}
+\index{DLPC34XX\_DUAL\_WriteFlashDataLength@{DLPC34XX\_DUAL\_WriteFlashDataLength}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteFlashDataLength()}{DLPC34XX\_DUAL\_WriteFlashDataLength()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Flash\+Data\+Length (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Flash\+Data\+Length }\end{DoxyParamCaption})}
+
+Specifies the length in bytes of data that will be written/read from the flash.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Flash\+Data\+Length} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a3c650fc1eb3ff71c57f5ce66570d239d}\label{dlpc34xx__dual_8c_a3c650fc1eb3ff71c57f5ce66570d239d}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteFlashDataTypeSelect@{DLPC34XX\_DUAL\_WriteFlashDataTypeSelect}}
+\index{DLPC34XX\_DUAL\_WriteFlashDataTypeSelect@{DLPC34XX\_DUAL\_WriteFlashDataTypeSelect}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteFlashDataTypeSelect()}{DLPC34XX\_DUAL\_WriteFlashDataTypeSelect()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Flash\+Data\+Type\+Select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a5c778093841252a53387a79d269cd437}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Flash\+Data\+Type\+Select\+\_\+e}}}]{Flash\+Select }\end{DoxyParamCaption})}
+
+Selects the data block that will be written/read from the flash.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Flash\+Select} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a640f270bf5e822a9b3aaacd6e93b85be}\label{dlpc34xx__dual_8c_a640f270bf5e822a9b3aaacd6e93b85be}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteFlashErase@{DLPC34XX\_DUAL\_WriteFlashErase}}
+\index{DLPC34XX\_DUAL\_WriteFlashErase@{DLPC34XX\_DUAL\_WriteFlashErase}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteFlashErase()}{DLPC34XX\_DUAL\_WriteFlashErase()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Flash\+Erase (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Erases the selected flash data.
+
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a6db70e5084742f375d413acf595cb45e}\label{dlpc34xx__dual_8c_a6db70e5084742f375d413acf595cb45e}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteFlashStart@{DLPC34XX\_DUAL\_WriteFlashStart}}
+\index{DLPC34XX\_DUAL\_WriteFlashStart@{DLPC34XX\_DUAL\_WriteFlashStart}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteFlashStart()}{DLPC34XX\_DUAL\_WriteFlashStart()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Flash\+Start (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Data\+Length,  }\item[{uint8\+\_\+t $\ast$}]{Data }\end{DoxyParamCaption})}
+
+Writes data to the flash.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Data\+Length} & Byte Length for Data \\
+\hline
+\mbox{\texttt{ in}}  & {\em Data} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a9c9e86fd8896a0cca5c705d251d7dc7e}\label{dlpc34xx__dual_8c_a9c9e86fd8896a0cca5c705d251d7dc7e}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteGridLines@{DLPC34XX\_DUAL\_WriteGridLines}}
+\index{DLPC34XX\_DUAL\_WriteGridLines@{DLPC34XX\_DUAL\_WriteGridLines}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteGridLines()}{DLPC34XX\_DUAL\_WriteGridLines()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Grid\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___grid_lines__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Grid\+Lines\+\_\+s}} $\ast$}]{Grid\+Lines }\end{DoxyParamCaption})}
+
+Writes a grid lines pattern as internal test pattern for display.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Grid\+Lines} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ac22935b38675242a4686f807b4ec5a03}\label{dlpc34xx__dual_8c_ac22935b38675242a4686f807b4ec5a03}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteHorizontalLines@{DLPC34XX\_DUAL\_WriteHorizontalLines}}
+\index{DLPC34XX\_DUAL\_WriteHorizontalLines@{DLPC34XX\_DUAL\_WriteHorizontalLines}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteHorizontalLines()}{DLPC34XX\_DUAL\_WriteHorizontalLines()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Horizontal\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___horizontal_lines__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Horizontal\+Lines\+\_\+s}} $\ast$}]{Horizontal\+Lines }\end{DoxyParamCaption})}
+
+Writes a horizontal lines pattern as internal test pattern for display.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Horizontal\+Lines} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_aa3f7429ed4d9a200402edea8a9f2d2fe}\label{dlpc34xx__dual_8c_aa3f7429ed4d9a200402edea8a9f2d2fe}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteHorizontalRamp@{DLPC34XX\_DUAL\_WriteHorizontalRamp}}
+\index{DLPC34XX\_DUAL\_WriteHorizontalRamp@{DLPC34XX\_DUAL\_WriteHorizontalRamp}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteHorizontalRamp()}{DLPC34XX\_DUAL\_WriteHorizontalRamp()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Horizontal\+Ramp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_abb1ab7bb35fc8f7815a7a57e9b5db0ba}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Border\+Enable\+\_\+e}}}]{Border,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}}}]{Foreground\+Color,  }\item[{uint8\+\_\+t}]{Start\+Value,  }\item[{uint8\+\_\+t}]{End\+Value }\end{DoxyParamCaption})}
+
+Writes a horizontal ramp pattern as internal test pattern for display.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Border} & Enable 1 pixel wide white border around the test pattern. 0\+: Disable, 1\+: Enable \\
+\hline
+\mbox{\texttt{ in}}  & {\em Foreground\+Color} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Start\+Value} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em End\+Value} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_aca1bc5a8896baa4bed9dc2a8f4d1dbc1}\label{dlpc34xx__dual_8c_aca1bc5a8896baa4bed9dc2a8f4d1dbc1}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteImageFreeze@{DLPC34XX\_DUAL\_WriteImageFreeze}}
+\index{DLPC34XX\_DUAL\_WriteImageFreeze@{DLPC34XX\_DUAL\_WriteImageFreeze}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteImageFreeze()}{DLPC34XX\_DUAL\_WriteImageFreeze()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Image\+Freeze (\begin{DoxyParamCaption}\item[{bool}]{Enable }\end{DoxyParamCaption})}
+
+Enables or disables the image freeze function for the projection module. If enabled, this preserves the current image data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Enable} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a98dc5bc743dfbcfbac38a64621d7288d}\label{dlpc34xx__dual_8c_a98dc5bc743dfbcfbac38a64621d7288d}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteInputImageSize@{DLPC34XX\_DUAL\_WriteInputImageSize}}
+\index{DLPC34XX\_DUAL\_WriteInputImageSize@{DLPC34XX\_DUAL\_WriteInputImageSize}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteInputImageSize()}{DLPC34XX\_DUAL\_WriteInputImageSize()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Input\+Image\+Size (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Pixels\+Per\+Line,  }\item[{uint16\+\_\+t}]{Lines\+Per\+Frame }\end{DoxyParamCaption})}
+
+Specifies the active data size of the external input image to the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Pixels\+Per\+Line} & LSB first. \\
+\hline
+\mbox{\texttt{ in}}  & {\em Lines\+Per\+Frame} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a257bb2735f3450a22bfa296fd31015d3}\label{dlpc34xx__dual_8c_a257bb2735f3450a22bfa296fd31015d3}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteInternalPatternControl@{DLPC34XX\_DUAL\_WriteInternalPatternControl}}
+\index{DLPC34XX\_DUAL\_WriteInternalPatternControl@{DLPC34XX\_DUAL\_WriteInternalPatternControl}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteInternalPatternControl()}{DLPC34XX\_DUAL\_WriteInternalPatternControl()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Internal\+Pattern\+Control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a973511ac474645e10ea9cac1b750ba9c}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Pattern\+Control\+\_\+e}}}]{Pattern\+Control,  }\item[{uint8\+\_\+t}]{Repeat\+Count }\end{DoxyParamCaption})}
+
+Specifies the control for the Internal Pattern.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Pattern\+Control} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Repeat\+Count} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_aad09b0950d9dc71de809ef642494600a}\label{dlpc34xx__dual_8c_aad09b0950d9dc71de809ef642494600a}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteLedOutputControlMethod@{DLPC34XX\_DUAL\_WriteLedOutputControlMethod}}
+\index{DLPC34XX\_DUAL\_WriteLedOutputControlMethod@{DLPC34XX\_DUAL\_WriteLedOutputControlMethod}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteLedOutputControlMethod()}{DLPC34XX\_DUAL\_WriteLedOutputControlMethod()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Led\+Output\+Control\+Method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a241a9a0257e7d65e707cfc50f0cc531d}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Led\+Control\+Method\+\_\+e}}}]{Led\+Control\+Method }\end{DoxyParamCaption})}
+
+Specifies the method for controlling the LED outputs for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Led\+Control\+Method} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ad9111e3d545d1e2841b92e79423a3395}\label{dlpc34xx__dual_8c_ad9111e3d545d1e2841b92e79423a3395}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteLocalAreaBrightnessBoostControl@{DLPC34XX\_DUAL\_WriteLocalAreaBrightnessBoostControl}}
+\index{DLPC34XX\_DUAL\_WriteLocalAreaBrightnessBoostControl@{DLPC34XX\_DUAL\_WriteLocalAreaBrightnessBoostControl}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteLocalAreaBrightnessBoostControl()}{DLPC34XX\_DUAL\_WriteLocalAreaBrightnessBoostControl()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Local\+Area\+Brightness\+Boost\+Control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_ad99501b9d5a2866f528faae3ac2f87cc}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Labb\+Control\+\_\+e}}}]{Labb\+Control,  }\item[{uint8\+\_\+t}]{Sharpness\+Strength,  }\item[{uint8\+\_\+t}]{Labb\+Strength\+Setting }\end{DoxyParamCaption})}
+
+Controls the local area brightness boost image processing functionality for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Labb\+Control} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Sharpness\+Strength} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Labb\+Strength\+Setting} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ae6c6b519a0e58570936b21b8119cce20}\label{dlpc34xx__dual_8c_ae6c6b519a0e58570936b21b8119cce20}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteLookSelect@{DLPC34XX\_DUAL\_WriteLookSelect}}
+\index{DLPC34XX\_DUAL\_WriteLookSelect@{DLPC34XX\_DUAL\_WriteLookSelect}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteLookSelect()}{DLPC34XX\_DUAL\_WriteLookSelect()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Look\+Select (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Look\+Number }\end{DoxyParamCaption})}
+
+Specifies the Look for the image on the projection module. A Look typically specifies a target white point.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Look\+Number} & Zero-\/based index.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a6c464a7a50d0ec76a63465660ea4f471}\label{dlpc34xx__dual_8c_a6c464a7a50d0ec76a63465660ea4f471}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteOperatingModeSelect@{DLPC34XX\_DUAL\_WriteOperatingModeSelect}}
+\index{DLPC34XX\_DUAL\_WriteOperatingModeSelect@{DLPC34XX\_DUAL\_WriteOperatingModeSelect}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteOperatingModeSelect()}{DLPC34XX\_DUAL\_WriteOperatingModeSelect()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Operating\+Mode\+Select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_ae568e46d08305563131de28c6b289da0}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Operating\+Mode\+\_\+e}}}]{Operating\+Mode }\end{DoxyParamCaption})}
+
+Selects the image operating mode for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Operating\+Mode} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a55b72bef14a3d08037bac6e54c9f215a}\label{dlpc34xx__dual_8c_a55b72bef14a3d08037bac6e54c9f215a}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WritePatternConfiguration@{DLPC34XX\_DUAL\_WritePatternConfiguration}}
+\index{DLPC34XX\_DUAL\_WritePatternConfiguration@{DLPC34XX\_DUAL\_WritePatternConfiguration}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WritePatternConfiguration()}{DLPC34XX\_DUAL\_WritePatternConfiguration()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Pattern\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___pattern_configuration__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Pattern\+Configuration\+\_\+s}} $\ast$}]{Pattern\+Configuration }\end{DoxyParamCaption})}
+
+Specifies the configuration for external and internal patterns.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Pattern\+Configuration} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_aaa3a89afba129011b2bcde7b003ea591}\label{dlpc34xx__dual_8c_aaa3a89afba129011b2bcde7b003ea591}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WritePatternOrderTableEntry@{DLPC34XX\_DUAL\_WritePatternOrderTableEntry}}
+\index{DLPC34XX\_DUAL\_WritePatternOrderTableEntry@{DLPC34XX\_DUAL\_WritePatternOrderTableEntry}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WritePatternOrderTableEntry()}{DLPC34XX\_DUAL\_WritePatternOrderTableEntry()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Pattern\+Order\+Table\+Entry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_aaa89b2c12c9da6d788c0bbf6603cc7c6}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Control\+\_\+e}}}]{Write\+Control,  }\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___pattern_order_table_entry__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Pattern\+Order\+Table\+Entry\+\_\+s}} $\ast$}]{Pattern\+Order\+Table\+Entry }\end{DoxyParamCaption})}
+
+Specifies the configuration for the Pattern Order Table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Write\+Control} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Pattern\+Order\+Table\+Entry} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_aa6bf7c3a75db6f59810663f78b373f27}\label{dlpc34xx__dual_8c_aa6bf7c3a75db6f59810663f78b373f27}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WritePatternReadyConfiguration@{DLPC34XX\_DUAL\_WritePatternReadyConfiguration}}
+\index{DLPC34XX\_DUAL\_WritePatternReadyConfiguration@{DLPC34XX\_DUAL\_WritePatternReadyConfiguration}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WritePatternReadyConfiguration()}{DLPC34XX\_DUAL\_WritePatternReadyConfiguration()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Pattern\+Ready\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a3e0710538936f5300b21ca5d2d62aae7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Enable\+\_\+e}}}]{Trigger\+Enable,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a03982ef6091d94e3e3bbdc16e79b1b66}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Polarity\+\_\+e}}}]{Trigger\+Polarity }\end{DoxyParamCaption})}
+
+Specifies the configuration for the Pattern Ready output signal.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Trigger\+Enable} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Trigger\+Polarity} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ae917e5aeb7c97a2cf7394076ee9f8f63}\label{dlpc34xx__dual_8c_ae917e5aeb7c97a2cf7394076ee9f8f63}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteRgbLedCurrent@{DLPC34XX\_DUAL\_WriteRgbLedCurrent}}
+\index{DLPC34XX\_DUAL\_WriteRgbLedCurrent@{DLPC34XX\_DUAL\_WriteRgbLedCurrent}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteRgbLedCurrent()}{DLPC34XX\_DUAL\_WriteRgbLedCurrent()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Rgb\+Led\+Current (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Red\+Led\+Current,  }\item[{uint16\+\_\+t}]{Green\+Led\+Current,  }\item[{uint16\+\_\+t}]{Blue\+Led\+Current }\end{DoxyParamCaption})}
+
+Sets the IDAC register value of the PMIC for the red, green, and blue LEDs. This value directly controls the LED current.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Red\+Led\+Current} & LSB first. \\
+\hline
+\mbox{\texttt{ in}}  & {\em Green\+Led\+Current} & LSB first. \\
+\hline
+\mbox{\texttt{ in}}  & {\em Blue\+Led\+Current} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_aa50dd60709bc51c41d48e0088c12bb37}\label{dlpc34xx__dual_8c_aa50dd60709bc51c41d48e0088c12bb37}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteRgbLedEnable@{DLPC34XX\_DUAL\_WriteRgbLedEnable}}
+\index{DLPC34XX\_DUAL\_WriteRgbLedEnable@{DLPC34XX\_DUAL\_WriteRgbLedEnable}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteRgbLedEnable()}{DLPC34XX\_DUAL\_WriteRgbLedEnable()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Rgb\+Led\+Enable (\begin{DoxyParamCaption}\item[{bool}]{Red\+Led\+Enable,  }\item[{bool}]{Green\+Led\+Enable,  }\item[{bool}]{Blue\+Led\+Enable }\end{DoxyParamCaption})}
+
+Enables the LEDs for the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Red\+Led\+Enable} & 0\+: Disable, 1\+: Enable \\
+\hline
+\mbox{\texttt{ in}}  & {\em Green\+Led\+Enable} & 0\+: Disable, 1\+: Enable \\
+\hline
+\mbox{\texttt{ in}}  & {\em Blue\+Led\+Enable} & 0\+: Disable, 1\+: Enable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a64e707a5f704f1ff19faca5ff6993c73}\label{dlpc34xx__dual_8c_a64e707a5f704f1ff19faca5ff6993c73}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteRgbLedMaxCurrent@{DLPC34XX\_DUAL\_WriteRgbLedMaxCurrent}}
+\index{DLPC34XX\_DUAL\_WriteRgbLedMaxCurrent@{DLPC34XX\_DUAL\_WriteRgbLedMaxCurrent}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteRgbLedMaxCurrent()}{DLPC34XX\_DUAL\_WriteRgbLedMaxCurrent()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Rgb\+Led\+Max\+Current (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Max\+Red\+Led\+Current,  }\item[{uint16\+\_\+t}]{Max\+Green\+Led\+Current,  }\item[{uint16\+\_\+t}]{Max\+Blue\+Led\+Current }\end{DoxyParamCaption})}
+
+Specifies the maximum LED current allowed for each LED in the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Max\+Red\+Led\+Current} & LSB first. \\
+\hline
+\mbox{\texttt{ in}}  & {\em Max\+Green\+Led\+Current} & LSB first. \\
+\hline
+\mbox{\texttt{ in}}  & {\em Max\+Blue\+Led\+Current} & LSB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a18737ac395cba35b156bd11215ef6a14}\label{dlpc34xx__dual_8c_a18737ac395cba35b156bd11215ef6a14}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteSolidField@{DLPC34XX\_DUAL\_WriteSolidField}}
+\index{DLPC34XX\_DUAL\_WriteSolidField@{DLPC34XX\_DUAL\_WriteSolidField}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteSolidField()}{DLPC34XX\_DUAL\_WriteSolidField()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Solid\+Field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_abb1ab7bb35fc8f7815a7a57e9b5db0ba}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Border\+Enable\+\_\+e}}}]{Border,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}}}]{Foreground\+Color }\end{DoxyParamCaption})}
+
+Writes a solid field pattern as internal test pattern for display.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Border} & Enable 1 pixel wide white border around the test pattern. 0\+: Disable, 1\+: Enable \\
+\hline
+\mbox{\texttt{ in}}  & {\em Foreground\+Color} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a82b8cca2294b45e74ea45b830186b7ce}\label{dlpc34xx__dual_8c_a82b8cca2294b45e74ea45b830186b7ce}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteSplashScreenExecute@{DLPC34XX\_DUAL\_WriteSplashScreenExecute}}
+\index{DLPC34XX\_DUAL\_WriteSplashScreenExecute@{DLPC34XX\_DUAL\_WriteSplashScreenExecute}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteSplashScreenExecute()}{DLPC34XX\_DUAL\_WriteSplashScreenExecute()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Splash\+Screen\+Execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieves the select splash screen from flash for display on the projection module. See also Write Splash Screen Select.
+
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_af7123476ea1e41546db4c1d86220b746}\label{dlpc34xx__dual_8c_af7123476ea1e41546db4c1d86220b746}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteSplashScreenSelect@{DLPC34XX\_DUAL\_WriteSplashScreenSelect}}
+\index{DLPC34XX\_DUAL\_WriteSplashScreenSelect@{DLPC34XX\_DUAL\_WriteSplashScreenSelect}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteSplashScreenSelect()}{DLPC34XX\_DUAL\_WriteSplashScreenSelect()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Splash\+Screen\+Select (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Splash\+Screen\+Index }\end{DoxyParamCaption})}
+
+Selects the index of a splash screen that is to be displayed. See also Write Splash Screen Execute.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Splash\+Screen\+Index} & The splash screen index, zero-\/based (the first splash screen stored in flash is index 0).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_adda94947ed44e93fe4e1f2dfd5e63b11}\label{dlpc34xx__dual_8c_adda94947ed44e93fe4e1f2dfd5e63b11}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteTriggerInConfiguration@{DLPC34XX\_DUAL\_WriteTriggerInConfiguration}}
+\index{DLPC34XX\_DUAL\_WriteTriggerInConfiguration@{DLPC34XX\_DUAL\_WriteTriggerInConfiguration}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteTriggerInConfiguration()}{DLPC34XX\_DUAL\_WriteTriggerInConfiguration()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Trigger\+In\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a3e0710538936f5300b21ca5d2d62aae7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Enable\+\_\+e}}}]{Trigger\+Enable,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a03982ef6091d94e3e3bbdc16e79b1b66}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Polarity\+\_\+e}}}]{Trigger\+Polarity }\end{DoxyParamCaption})}
+
+Specifies the configuration for Trigger In.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Trigger\+Enable} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Trigger\+Polarity} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ae11e688019119b0e88441f3a322995df}\label{dlpc34xx__dual_8c_ae11e688019119b0e88441f3a322995df}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteTriggerOutConfiguration@{DLPC34XX\_DUAL\_WriteTriggerOutConfiguration}}
+\index{DLPC34XX\_DUAL\_WriteTriggerOutConfiguration@{DLPC34XX\_DUAL\_WriteTriggerOutConfiguration}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteTriggerOutConfiguration()}{DLPC34XX\_DUAL\_WriteTriggerOutConfiguration()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Trigger\+Out\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a949f5be7afd943a6f1c861d8696b5b74}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Type\+\_\+e}}}]{Trigger\+Type,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a3e0710538936f5300b21ca5d2d62aae7}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Enable\+\_\+e}}}]{Trigger\+Enable,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_adeb0a0f82c89e57f6a2dfe9b204c1805}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Trigger\+Inversion\+\_\+e}}}]{Trigger\+Inversion,  }\item[{int32\+\_\+t}]{Delay }\end{DoxyParamCaption})}
+
+Specifies the configuration for Trigger Out1 or Trigger Out2.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Trigger\+Type} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Trigger\+Enable} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Trigger\+Inversion} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Delay} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_acb1f6fbb4ba68a6ab42992a9edf5d684}\label{dlpc34xx__dual_8c_acb1f6fbb4ba68a6ab42992a9edf5d684}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteVerticalLines@{DLPC34XX\_DUAL\_WriteVerticalLines}}
+\index{DLPC34XX\_DUAL\_WriteVerticalLines@{DLPC34XX\_DUAL\_WriteVerticalLines}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteVerticalLines()}{DLPC34XX\_DUAL\_WriteVerticalLines()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Vertical\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___d_u_a_l___vertical_lines__s}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Vertical\+Lines\+\_\+s}} $\ast$}]{Vertical\+Lines }\end{DoxyParamCaption})}
+
+Writes a vertical lines pattern as internal test pattern for display.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Vertical\+Lines} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_ad201ad0116b0b987084aafae2d6be574}\label{dlpc34xx__dual_8c_ad201ad0116b0b987084aafae2d6be574}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteVerticalRamp@{DLPC34XX\_DUAL\_WriteVerticalRamp}}
+\index{DLPC34XX\_DUAL\_WriteVerticalRamp@{DLPC34XX\_DUAL\_WriteVerticalRamp}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteVerticalRamp()}{DLPC34XX\_DUAL\_WriteVerticalRamp()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Vertical\+Ramp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_abb1ab7bb35fc8f7815a7a57e9b5db0ba}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Border\+Enable\+\_\+e}}}]{Border,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a83509364bbc95df01f30e25ebc335bd2}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Color\+\_\+e}}}]{Foreground\+Color,  }\item[{uint8\+\_\+t}]{Start\+Value,  }\item[{uint8\+\_\+t}]{End\+Value }\end{DoxyParamCaption})}
+
+Writes a vertical ramp pattern as internal test pattern for display.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Border} & Enable 1 pixel wide white border around the test pattern. 0\+: Disable, 1\+: Enable \\
+\hline
+\mbox{\texttt{ in}}  & {\em Foreground\+Color} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Start\+Value} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em End\+Value} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc34xx__dual_8c_a7002320ee6cdde7b8f4996802d649c5a}\label{dlpc34xx__dual_8c_a7002320ee6cdde7b8f4996802d649c5a}} 
+\index{dlpc34xx\_dual.c@{dlpc34xx\_dual.c}!DLPC34XX\_DUAL\_WriteVideoChromaProcessingSelect@{DLPC34XX\_DUAL\_WriteVideoChromaProcessingSelect}}
+\index{DLPC34XX\_DUAL\_WriteVideoChromaProcessingSelect@{DLPC34XX\_DUAL\_WriteVideoChromaProcessingSelect}!dlpc34xx\_dual.c@{dlpc34xx\_dual.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_DUAL\_WriteVideoChromaProcessingSelect()}{DLPC34XX\_DUAL\_WriteVideoChromaProcessingSelect()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Write\+Video\+Chroma\+Processing\+Select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a9abc4c534e0c653fc14d32fb05a85db9}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Chroma\+Interpolation\+Method\+\_\+e}}}]{Chroma\+Interpolation\+Method,  }\item[{\mbox{\hyperlink{dlpc34xx__dual_8h_a8499cb3910431724cca0eb4f1c726880}{DLPC34\+XX\+\_\+\+DUAL\+\_\+\+Chroma\+Channel\+Swap\+\_\+e}}}]{Chroma\+Channel\+Swap,  }\item[{uint8\+\_\+t}]{Csc\+Coefficient\+Set }\end{DoxyParamCaption})}
+
+Specifies the characteristics of the selected YCb\+Cr source and the type of chroma processing that will be used for the YCb\+Cr source in the projection module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Chroma\+Interpolation\+Method} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Chroma\+Channel\+Swap} & ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Csc\+Coefficient\+Set} & ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, error code otherwise 
+\end{DoxyReturn}

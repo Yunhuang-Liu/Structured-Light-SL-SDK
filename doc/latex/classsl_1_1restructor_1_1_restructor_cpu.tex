@@ -1,0 +1,115 @@
+\hypertarget{classsl_1_1restructor_1_1_restructor_cpu}{}\doxysection{sl\+::restructor\+::Restructor\+Cpu Class Reference}
+\label{classsl_1_1restructor_1_1_restructor_cpu}\index{sl::restructor::RestructorCpu@{sl::restructor::RestructorCpu}}
+
+
+CPU加速重建器  
+
+
+
+
+{\ttfamily \#include $<$restructor\+Cpu.\+h$>$}
+
+Inheritance diagram for sl\+::restructor\+::Restructor\+Cpu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsl_1_1restructor_1_1_restructor_cpu}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_cpu_a6100e7b712a2aa2a8caa44c9291da48d}{Restructor\+Cpu}} (IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool\+::\+Info}} \&calibration\+Info)
+\begin{DoxyCompactList}\small\item\em 构造函数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_cpu_a189f70f3c74f5998487daea64d151883}{restruction}} (IN const cv\+::\+Mat \&left\+Abs\+Img, IN const cv\+::\+Mat \&right\+Abs\+Img, IN const \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{Restruct\+Paramater}} param, OUT cv\+::\+Mat \&depth\+Img\+Out) override
+\begin{DoxyCompactList}\small\item\em 重建 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_a2a11d308324639e493cfbc67b74056f7}{restruction}} (IN const cv\+::\+Mat \&left\+Abs\+Img, IN const cv\+::\+Mat \&right\+Abs\+Img, IN const \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{Restruct\+Paramater}} param, OUT cv\+::\+Mat \&depth\+Img\+Out)=0
+\begin{DoxyCompactList}\small\item\em 重建 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_cpu_accff270d22a590ee173f853c48c76a28}{get\+Depth\+Color\+Map}} (IN const cv\+::\+Mat \&left\+Abs\+Img, IN const cv\+::\+Mat \&right\+Abs\+Img, IN const \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{Restruct\+Paramater}} param, OUT cv\+::\+Mat \&depth\+Img\+Out)
+\begin{DoxyCompactList}\small\item\em 获取深度纹理 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor}{sl\+::restructor\+::\+Restructor}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsl_1_1restructor_1_1_restructor_a1e738a6efd414275c0b47bd28d8f3900}\label{classsl_1_1restructor_1_1_restructor_a1e738a6efd414275c0b47bd28d8f3900}} 
+void {\bfseries get\+Depth\+Map} ()
+\begin{DoxyCompactList}\small\item\em 获取深度和纹理 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+CPU加速重建器 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsl_1_1restructor_1_1_restructor_cpu_a6100e7b712a2aa2a8caa44c9291da48d}\label{classsl_1_1restructor_1_1_restructor_cpu_a6100e7b712a2aa2a8caa44c9291da48d}} 
+\index{sl::restructor::RestructorCpu@{sl::restructor::RestructorCpu}!RestructorCpu@{RestructorCpu}}
+\index{RestructorCpu@{RestructorCpu}!sl::restructor::RestructorCpu@{sl::restructor::RestructorCpu}}
+\doxysubsubsection{\texorpdfstring{RestructorCpu()}{RestructorCpu()}}
+{\footnotesize\ttfamily sl\+::restructor\+::\+Restructor\+Cpu\+::\+Restructor\+Cpu (\begin{DoxyParamCaption}\item[{IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool\+::\+Info}} \&}]{calibration\+Info }\end{DoxyParamCaption})}
+
+
+
+构造函数 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calibration\+Info} & 标定信息 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsl_1_1restructor_1_1_restructor_cpu_accff270d22a590ee173f853c48c76a28}\label{classsl_1_1restructor_1_1_restructor_cpu_accff270d22a590ee173f853c48c76a28}} 
+\index{sl::restructor::RestructorCpu@{sl::restructor::RestructorCpu}!getDepthColorMap@{getDepthColorMap}}
+\index{getDepthColorMap@{getDepthColorMap}!sl::restructor::RestructorCpu@{sl::restructor::RestructorCpu}}
+\doxysubsubsection{\texorpdfstring{getDepthColorMap()}{getDepthColorMap()}}
+{\footnotesize\ttfamily void sl\+::restructor\+::\+Restructor\+Cpu\+::get\+Depth\+Color\+Map (\begin{DoxyParamCaption}\item[{IN const cv\+::\+Mat \&}]{left\+Abs\+Img,  }\item[{IN const cv\+::\+Mat \&}]{right\+Abs\+Img,  }\item[{IN const \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{Restruct\+Paramater}}}]{param,  }\item[{OUT cv\+::\+Mat \&}]{depth\+Img\+Out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+获取深度纹理 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+Abs\+Img} & 左绝对相位(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em right\+Abs\+Img} & 右绝对相位(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em param} & 重建器控制参数 \\
+\hline
+{\em depth\+Img\+Out} & 深度图(\+CV\+\_\+32\+FC1) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsl_1_1restructor_1_1_restructor_cpu_a189f70f3c74f5998487daea64d151883}\label{classsl_1_1restructor_1_1_restructor_cpu_a189f70f3c74f5998487daea64d151883}} 
+\index{sl::restructor::RestructorCpu@{sl::restructor::RestructorCpu}!restruction@{restruction}}
+\index{restruction@{restruction}!sl::restructor::RestructorCpu@{sl::restructor::RestructorCpu}}
+\doxysubsubsection{\texorpdfstring{restruction()}{restruction()}}
+{\footnotesize\ttfamily void sl\+::restructor\+::\+Restructor\+Cpu\+::restruction (\begin{DoxyParamCaption}\item[{IN const cv\+::\+Mat \&}]{left\+Abs\+Img,  }\item[{IN const cv\+::\+Mat \&}]{right\+Abs\+Img,  }\item[{IN const \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{Restruct\+Paramater}}}]{param,  }\item[{OUT cv\+::\+Mat \&}]{depth\+Img\+Out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+重建 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+Abs\+Img} & 左绝对相位(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em right\+Abs\+Img} & 右绝对相位(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em param} & 重建器控制参数 \\
+\hline
+{\em depth\+Img\+Out} & 深度图(\+CV\+\_\+32\+FC1) \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_a2a11d308324639e493cfbc67b74056f7}{sl\+::restructor\+::\+Restructor}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/include/restructor/\mbox{\hyperlink{restructor_cpu_8h}{restructor\+Cpu.\+h}}\item 
+src/sl\+Camera/src/restructor/restructor\+Cpu.\+cc\end{DoxyCompactItemize}

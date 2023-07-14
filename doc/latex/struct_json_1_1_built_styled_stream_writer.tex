@@ -1,0 +1,56 @@
+\hypertarget{struct_json_1_1_built_styled_stream_writer}{}\doxysection{Json\+::Built\+Styled\+Stream\+Writer Struct Reference}
+\label{struct_json_1_1_built_styled_stream_writer}\index{Json::BuiltStyledStreamWriter@{Json::BuiltStyledStreamWriter}}
+Inheritance diagram for Json\+::Built\+Styled\+Stream\+Writer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_json_1_1_built_styled_stream_writer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_json_1_1_built_styled_stream_writer_a9f5ec1245c38bb027f8bab89beebe67d}\label{struct_json_1_1_built_styled_stream_writer_a9f5ec1245c38bb027f8bab89beebe67d}} 
+{\bfseries Built\+Styled\+Stream\+Writer} (String indentation, \mbox{\hyperlink{struct_json_1_1_comment_style_a51fc08f3518fd81eba12f340d19a3d0c}{Comment\+Style\+::\+Enum}} cs, String colon\+Symbol, String null\+Symbol, String ending\+Line\+Feed\+Symbol, bool use\+Special\+Floats, bool emit\+UTF8, unsigned int precision, \mbox{\hyperlink{namespace_json_af6e1447a3c43e3a62e11050dd0a11ce8}{Precision\+Type}} precision\+Type)
+\item 
+int \mbox{\hyperlink{struct_json_1_1_built_styled_stream_writer_ae50be640f3d53d885fa262d8d15e1ac7}{write}} (\mbox{\hyperlink{class_json_1_1_value}{Value}} const \&root, OStream $\ast$sout) override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \mbox{\hyperlink{class_json_1_1_stream_writer_abcb52fb89a6e2302a3e055c4463a273a}{write}} (\mbox{\hyperlink{class_json_1_1_value}{Value}} const \&root, OStream $\ast$sout)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_json_1_1_stream_writer}{Json\+::\+Stream\+Writer}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_json_1_1_stream_writer_afcaf15b7e1c6c6b4b3d3847413588c8f}\label{class_json_1_1_stream_writer_afcaf15b7e1c6c6b4b3d3847413588c8f}} 
+OStream $\ast$ {\bfseries sout\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_json_1_1_built_styled_stream_writer_ae50be640f3d53d885fa262d8d15e1ac7}\label{struct_json_1_1_built_styled_stream_writer_ae50be640f3d53d885fa262d8d15e1ac7}} 
+\index{Json::BuiltStyledStreamWriter@{Json::BuiltStyledStreamWriter}!write@{write}}
+\index{write@{write}!Json::BuiltStyledStreamWriter@{Json::BuiltStyledStreamWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily int Json\+::\+Built\+Styled\+Stream\+Writer\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_json_1_1_value}{Value}} const \&}]{root,  }\item[{OStream $\ast$}]{sout }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Write \mbox{\hyperlink{class_json_1_1_value}{Value}} into document as configured in sub-\/class. Do not take ownership of sout, but maintain a reference during function. \begin{DoxyPrecond}{Precondition}
+sout != NULL 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+zero on success (For now, we always return zero, so check the stream instead.) 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & possibly, depending on configuration \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{class_json_1_1_stream_writer_abcb52fb89a6e2302a3e055c4463a273a}{Json\+::\+Stream\+Writer}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/common/jsoncpp.\+cc\end{DoxyCompactItemize}

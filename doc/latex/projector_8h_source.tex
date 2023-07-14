@@ -1,0 +1,61 @@
+\hypertarget{projector_8h_source}{}\doxysection{projector.\+h}
+\label{projector_8h_source}\index{src/projector/common/projector.h@{src/projector/common/projector.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_PROJECTOR\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_PROJECTOR\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}typeDef.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }projector\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacesl_1_1projector_aa6072305cad4b8ee2ceb96efa512d125}{Illumination}}\ \{\ Red\ =\ 0,\ Grren,\ Blue,\ RGB\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsl_1_1projector_1_1_pattern_order_set}{PatternOrderSet}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<cv::Mat>\ \_\_imgs;\ \textcolor{comment}{//需要制作集合的图片}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ int\ \_\_patternSetIndex;\ \ \ \ \ \ \ \ //集合索引}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \_\_patternArrayCounts;\ \ \ \ \textcolor{comment}{//图片数组数量}}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{namespacesl_1_1projector_aa6072305cad4b8ee2ceb96efa512d125}{Illumination}}\ \_\_illumination;\ \textcolor{comment}{//\ LED控制}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ \_\_invertPatterns;\ \ \ \ \ \ \ \textcolor{comment}{//反转图片}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ \_\_isVertical;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//是否水平图片}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ \_\_isOneBit;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//是否为一位深度}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ \_\_exposureTime;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//曝光时间(us)}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ \_\_preExposureTime;\ \ \ \ \ \ \ \textcolor{comment}{//曝光前时间(us)}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \_\_postExposureTime;\ \ \ \ \ \ \textcolor{comment}{//曝光后时间(us)}}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsl_1_1projector_1_1_projector_info}{ProjectorInfo}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ std::string\ \_\_dlpEvmType;\ \textcolor{comment}{//\ DLP评估模块}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \_\_width;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//幅面宽度}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ \_\_height;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//幅面高度}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \_\_isFind;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//是否找到}}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1projector_1_1_projector}{Projector}}\ \{}
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector}{\string~Projector}}()\ \{\}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{structsl_1_1projector_1_1_projector_info}{ProjectorInfo}}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_ad69e131c0cbf725fe8855c2648070949}{getInfo}}()\ =\ 0;}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a6354b15ecf0fc455b6ac01fc28a991f9}{connect}}()\ =\ 0;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a2bdf634ea2f46750010e583b37e07a94}{disConnect}}()\ =\ 0;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_ad36614dc47a4952ccc5622a0763a141e}{isConnect}}()\ =\ 0;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_aafd004abb1f1cdea3d2f307d80d86824}{populatePatternTableData}}(IN\ std::vector<PatternOrderSet>\ table)\ =\ 0;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_adc2e8cba78bb464c6263e5c2c514b6e7}{project}}(IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ isContinue)\ =\ 0;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_af5c7dc87c186be759f036045f15b3786}{pause}}()\ =\ 0;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_acd378f7a31cbf0d17cff209fccc61960}{stop}}()\ =\ 0;}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a7842a1925d7f3e06fac2e1f0e3db17e7}{resume}}()\ =\ 0;}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a9cf92c072f740d2e35c9b51624d46121}{step}}()\ =\ 0;}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_a57a73f2b9b5554b4951e802be4123233}{getLEDCurrent}}(OUT\ \textcolor{keywordtype}{double}\ \&r,\ OUT\ \textcolor{keywordtype}{double}\ \&g,\ OUT\ \textcolor{keywordtype}{double}\ \&b)\ =\ 0;}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_af968d4a2412791c8f18572f1d6706662}{setLEDCurrent}}(IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ r,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ g,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ b)\ =\ 0;}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_af52634200efffdcbbe55da3fd88637a1}{getFlashImgsNum}}()\ =\ 0;}
+\DoxyCodeLine{00139\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00140\ \};}
+\DoxyCodeLine{00141\ \}\ \textcolor{comment}{//\ namespace\ projector}}
+\DoxyCodeLine{00142\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

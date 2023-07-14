@@ -1,0 +1,155 @@
+\hypertarget{class_json_1_1_value_iterator}{}\doxysection{Json\+::Value\+Iterator Class Reference}
+\label{class_json_1_1_value_iterator}\index{Json::ValueIterator@{Json::ValueIterator}}
+
+
+Iterator for object and array value.  
+
+
+
+
+{\ttfamily \#include $<$json.\+h$>$}
+
+Inheritance diagram for Json\+::Value\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_json_1_1_value_iterator}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a911d93e7ba03694a35b5950ae311ed61}\label{class_json_1_1_value_iterator_a911d93e7ba03694a35b5950ae311ed61}} 
+using {\bfseries value\+\_\+type} = \mbox{\hyperlink{class_json_1_1_value}{Value}}
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a4c079b3a3dae9409b4a3838b167d83c1}\label{class_json_1_1_value_iterator_a4c079b3a3dae9409b4a3838b167d83c1}} 
+using {\bfseries size\+\_\+t} = unsigned int
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a6b1402fc664f1c4442ce3267e3d7f14f}\label{class_json_1_1_value_iterator_a6b1402fc664f1c4442ce3267e3d7f14f}} 
+using {\bfseries difference\+\_\+type} = int
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a650c999384cd2a90ad68ca6d028124de}\label{class_json_1_1_value_iterator_a650c999384cd2a90ad68ca6d028124de}} 
+using {\bfseries reference} = \mbox{\hyperlink{class_json_1_1_value}{Value}} \&
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a3705be714322498068bc1ed378e9e07c}\label{class_json_1_1_value_iterator_a3705be714322498068bc1ed378e9e07c}} 
+using {\bfseries pointer} = \mbox{\hyperlink{class_json_1_1_value}{Value}} $\ast$
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a43d06b7b4541a214b0a7a5ed305594d3}\label{class_json_1_1_value_iterator_a43d06b7b4541a214b0a7a5ed305594d3}} 
+using {\bfseries Self\+Type} = \mbox{\hyperlink{class_json_1_1_value_iterator}{Value\+Iterator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types inherited from \mbox{\hyperlink{class_json_1_1_value_iterator_base}{Json\+::\+Value\+Iterator\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_a897d60682e16813474864bcd78d9b66c}\label{class_json_1_1_value_iterator_base_a897d60682e16813474864bcd78d9b66c}} 
+using {\bfseries iterator\+\_\+category} = std\+::bidirectional\+\_\+iterator\+\_\+tag
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_a3d5019805c499cbe864081536a1d59d6}\label{class_json_1_1_value_iterator_base_a3d5019805c499cbe864081536a1d59d6}} 
+using {\bfseries size\+\_\+t} = unsigned int
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_afea6c61bcdf1ad448a5d64f2eede6f40}\label{class_json_1_1_value_iterator_base_afea6c61bcdf1ad448a5d64f2eede6f40}} 
+using {\bfseries difference\+\_\+type} = int
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_adc7c2bd674d8064cc61ff3f1982ab9bd}\label{class_json_1_1_value_iterator_base_adc7c2bd674d8064cc61ff3f1982ab9bd}} 
+using {\bfseries Self\+Type} = \mbox{\hyperlink{class_json_1_1_value_iterator_base}{Value\+Iterator\+Base}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_aa85aa208670891670392259efa0143bb}\label{class_json_1_1_value_iterator_aa85aa208670891670392259efa0143bb}} 
+{\bfseries Value\+Iterator} (const \mbox{\hyperlink{class_json_1_1_value_const_iterator}{Value\+Const\+Iterator}} \&other)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a7d5e58a9a4a553968acdf3064b39d21c}\label{class_json_1_1_value_iterator_a7d5e58a9a4a553968acdf3064b39d21c}} 
+{\bfseries Value\+Iterator} (const \mbox{\hyperlink{class_json_1_1_value_iterator}{Value\+Iterator}} \&other)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a8e23312b1db874f7e403fd7e76611bdc}\label{class_json_1_1_value_iterator_a8e23312b1db874f7e403fd7e76611bdc}} 
+\mbox{\hyperlink{class_json_1_1_value_iterator}{Self\+Type}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_json_1_1_value_iterator}{Self\+Type}} \&other)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_abcf4ddd994a010742cd4a436d65acd08}\label{class_json_1_1_value_iterator_abcf4ddd994a010742cd4a436d65acd08}} 
+\mbox{\hyperlink{class_json_1_1_value_iterator}{Self\+Type}} {\bfseries operator++} (int)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a06d6a29d96caf6af324a53973159e12b}\label{class_json_1_1_value_iterator_a06d6a29d96caf6af324a53973159e12b}} 
+\mbox{\hyperlink{class_json_1_1_value_iterator}{Self\+Type}} {\bfseries operator-\/-\/} (int)
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a368e2a9cfdec41f705808a68e19cce70}\label{class_json_1_1_value_iterator_a368e2a9cfdec41f705808a68e19cce70}} 
+\mbox{\hyperlink{class_json_1_1_value_iterator}{Self\+Type}} \& {\bfseries operator-\/-\/} ()
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a3f9582dea007281909d2690f72c98333}\label{class_json_1_1_value_iterator_a3f9582dea007281909d2690f72c98333}} 
+\mbox{\hyperlink{class_json_1_1_value_iterator}{Self\+Type}} \& {\bfseries operator++} ()
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{reference}} \mbox{\hyperlink{class_json_1_1_value_iterator_a3be48b0c1729ec2532f1ff27ad465d32}{operator$\ast$}} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a8dfc1603f92467591d524d0326f35534}\label{class_json_1_1_value_iterator_a8dfc1603f92467591d524d0326f35534}} 
+\mbox{\hyperlink{class_json_1_1_value}{pointer}} {\bfseries operator-\/$>$} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_json_1_1_value_iterator_base}{Json\+::\+Value\+Iterator\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_a1248d8016f88b51371a0fcbd355b3cfd}\label{class_json_1_1_value_iterator_base_a1248d8016f88b51371a0fcbd355b3cfd}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_json_1_1_value_iterator_base}{Self\+Type}} \&other) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_aa83bdcc8114b7d040eb8eb42eeed5f4a}\label{class_json_1_1_value_iterator_base_aa83bdcc8114b7d040eb8eb42eeed5f4a}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{class_json_1_1_value_iterator_base}{Self\+Type}} \&other) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_a98e254263fca5f1fc8fcac7bcb0260bf}\label{class_json_1_1_value_iterator_base_a98e254263fca5f1fc8fcac7bcb0260bf}} 
+difference\+\_\+type {\bfseries operator-\/} (const \mbox{\hyperlink{class_json_1_1_value_iterator_base}{Self\+Type}} \&other) const
+\item 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \mbox{\hyperlink{class_json_1_1_value_iterator_base_a3838ba39c43c518cf3ed4aa6ce78ccad}{key}} () const
+\item 
+UInt \mbox{\hyperlink{class_json_1_1_value_iterator_base_a549c66a0bd20e9ae772175a5c0d2e88a}{index}} () const
+\item 
+String \mbox{\hyperlink{class_json_1_1_value_iterator_base_ab68610aea87eba9b0d9b3829c7bfa33f}{name}} () const
+\item 
+char const $\ast$ \mbox{\hyperlink{class_json_1_1_value_iterator_base_a54765da6759fd3f1edcbfbaf308ec263}{member\+Name}} () const
+\item 
+char const $\ast$ \mbox{\hyperlink{class_json_1_1_value_iterator_base_a391c9cbd0edf9a447b37df00e8ce6059}{member\+Name}} (char const $\ast$$\ast$end) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_a640e990e5f03a96fd650122a2906f59d}\label{class_json_1_1_value_iterator_base_a640e990e5f03a96fd650122a2906f59d}} 
+{\bfseries Value\+Iterator\+Base} (const Value\+::\+Object\+Values\+::iterator \&current)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_aeceedf6e1a7d48a588516ce2b1983d6f}\label{class_json_1_1_value_iterator_aeceedf6e1a7d48a588516ce2b1983d6f}} 
+class {\bfseries Value}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_json_1_1_value_iterator_base}{Json\+::\+Value\+Iterator\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_json_1_1_value}{Value}} \& \mbox{\hyperlink{class_json_1_1_value_iterator_base_ac75f6062c1ad2cd0d0243aeea2312d57}{deref}} () const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_a38a04ec053dabf3d0f112c9dd97bdcbe}\label{class_json_1_1_value_iterator_base_a38a04ec053dabf3d0f112c9dd97bdcbe}} 
+\mbox{\hyperlink{class_json_1_1_value}{Value}} \& {\bfseries deref} ()
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_afe58f9534e1fd2033419fd9fe244551e}\label{class_json_1_1_value_iterator_base_afe58f9534e1fd2033419fd9fe244551e}} 
+void {\bfseries increment} ()
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_affc8cf5ff54a9f432cc693362c153fa6}\label{class_json_1_1_value_iterator_base_affc8cf5ff54a9f432cc693362c153fa6}} 
+void {\bfseries decrement} ()
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_af11473c9e20d07782e42b52a2f9e4540}\label{class_json_1_1_value_iterator_base_af11473c9e20d07782e42b52a2f9e4540}} 
+difference\+\_\+type {\bfseries compute\+Distance} (const \mbox{\hyperlink{class_json_1_1_value_iterator_base}{Self\+Type}} \&other) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_a010b5ad3f3337ae3732e5d7e16ca5e25}\label{class_json_1_1_value_iterator_base_a010b5ad3f3337ae3732e5d7e16ca5e25}} 
+bool {\bfseries is\+Equal} (const \mbox{\hyperlink{class_json_1_1_value_iterator_base}{Self\+Type}} \&other) const
+\item 
+\mbox{\Hypertarget{class_json_1_1_value_iterator_base_a496e6aba44808433ec5858c178be5719}\label{class_json_1_1_value_iterator_base_a496e6aba44808433ec5858c178be5719}} 
+void {\bfseries copy} (const \mbox{\hyperlink{class_json_1_1_value_iterator_base}{Self\+Type}} \&other)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Iterator for object and array value. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_json_1_1_value_iterator_a3be48b0c1729ec2532f1ff27ad465d32}\label{class_json_1_1_value_iterator_a3be48b0c1729ec2532f1ff27ad465d32}} 
+\index{Json::ValueIterator@{Json::ValueIterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Json::ValueIterator@{Json::ValueIterator}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_json_1_1_value}{reference}} Json\+::\+Value\+Iterator\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+The return value of non-\/const iterators can be changed, so the these functions are not const because the returned references/pointers can be used to change state of the base class. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/common/json.\+h\item 
+src/sl\+Camera/common/jsoncpp.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,138 @@
+\hypertarget{dlpc347x__internal__patterns_8c}{}\doxysection{src/projector/module/projector\+\_\+dlpc\+\_\+api/src/dlpc347x\+\_\+internal\+\_\+patterns.c File Reference}
+\label{dlpc347x__internal__patterns_8c}\index{src/projector/module/projector\_dlpc\_api/src/dlpc347x\_internal\_patterns.c@{src/projector/module/projector\_dlpc\_api/src/dlpc347x\_internal\_patterns.c}}
+
+
+Implements the APIs for creating internal pattern data for the 347x controllers (DLP2010, DLP3010, and DLP4710).  
+
+
+{\ttfamily \#include \char`\"{}dlpc\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dlpc347x\+\_\+internal\+\_\+patterns.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stdio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}math.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_pattern_set_header__s}{Pattern\+Set\+Header\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{struct_pattern_block_header__s}{Pattern\+Block\+Header\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{struct_pattern_order_table_entry__s}{Pattern\+Order\+Table\+Entry\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{struct_pattern_order_table_header__s}{Pattern\+Order\+Table\+Header\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{struct_pattern_set_block_header__s}{Pattern\+Set\+Block\+Header\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{struct_d_m_d_info__s}{DMDInfo\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_a9646f8ded883116f1e2e82f27309c90a}\label{dlpc347x__internal__patterns_8c_a9646f8ded883116f1e2e82f27309c90a}} 
+uint32\+\_\+t {\bfseries Set\+DMDInfo} (DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+DMD\+\_\+e DMD)
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_a130347df437590995b7c032a9959ca0a}\label{dlpc347x__internal__patterns_8c_a130347df437590995b7c032a9959ca0a}} 
+void {\bfseries Write\+Zero\+Bytes} (uint32\+\_\+t Count)
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_aebc508af47dbd9817ddac5940ad33598}\label{dlpc347x__internal__patterns_8c_aebc508af47dbd9817ddac5940ad33598}} 
+void {\bfseries Write\+Pixel\+Data\+Range} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Set\+\_\+s}} $\ast$Pattern\+Set, \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Data\+\_\+s}} $\ast$Pattern\+Data, uint32\+\_\+t Start\+Pixel, uint32\+\_\+t End\+Pixel)
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_a9d9470757d2bca371725845a54b87396}\label{dlpc347x__internal__patterns_8c_a9d9470757d2bca371725845a54b87396}} 
+void {\bfseries Write\+Pattern\+Data} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Set\+\_\+s}} $\ast$Pattern\+Set, \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_data__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Data\+\_\+s}} $\ast$Pattern\+Data, bool Master\+ASIC)
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_add6ab7071d2b008d247f3aa8c7c9d36c}\label{dlpc347x__internal__patterns_8c_add6ab7071d2b008d247f3aa8c7c9d36c}} 
+uint32\+\_\+t {\bfseries Get\+Num\+Of\+Bytes\+Per\+Pattern\+Per\+Controller} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Set\+\_\+s}} $\ast$Pattern\+Set)
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_a3a032e11dd89cf3360f70a4682d45002}\label{dlpc347x__internal__patterns_8c_a3a032e11dd89cf3360f70a4682d45002}} 
+uint32\+\_\+t {\bfseries Get\+Pattern\+Data\+Size} (\mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Set\+\_\+s}} $\ast$Pattern\+Set)
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_a8e3fdd68e63642f252e97916d01e4d38}\label{dlpc347x__internal__patterns_8c_a8e3fdd68e63642f252e97916d01e4d38}} 
+uint32\+\_\+t {\bfseries Get\+Pattern\+Sets\+Size} ()
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_a8d1905c4888aeeec186dc580c2340d53}\label{dlpc347x__internal__patterns_8c_a8d1905c4888aeeec186dc580c2340d53}} 
+uint32\+\_\+t {\bfseries Get\+Pattern\+Order\+Table\+Size} ()
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_a882d257d765e62e96a2d0539345d2b8c}\label{dlpc347x__internal__patterns_8c_a882d257d765e62e96a2d0539345d2b8c}} 
+uint32\+\_\+t {\bfseries Get\+Pattern\+Set\+Start} ()
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_a47193dbddfeb0488263654a96fdeb57a}\label{dlpc347x__internal__patterns_8c_a47193dbddfeb0488263654a96fdeb57a}} 
+uint32\+\_\+t {\bfseries Get\+Pattern\+Data\+Block\+Size} ()
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_ad847fcb1ee9ba067bf1cf4a6d0a1c22d}\label{dlpc347x__internal__patterns_8c_ad847fcb1ee9ba067bf1cf4a6d0a1c22d}} 
+void {\bfseries Write\+Pattern\+Block\+Header} ()
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_ac30214927d65ad5b7d4613ecf306ab6d}\label{dlpc347x__internal__patterns_8c_ac30214927d65ad5b7d4613ecf306ab6d}} 
+void {\bfseries Write\+Pattern\+Order\+Table} ()
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_a920c4a65d63e4130833ad08890afebe6}\label{dlpc347x__internal__patterns_8c_a920c4a65d63e4130833ad08890afebe6}} 
+void {\bfseries Reverse} (uint8\+\_\+t $\ast$Data, uint32\+\_\+t Index, uint32\+\_\+t Length)
+\item 
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_a1bb8b17f7d9ed3b5f984e203aac1ebe6}\label{dlpc347x__internal__patterns_8c_a1bb8b17f7d9ed3b5f984e203aac1ebe6}} 
+void {\bfseries Write\+Pattern\+Sets} (bool East\+West\+Flip, bool Long\+Axis\+Flip)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc347x__internal__patterns_8c_a6df617502365e56c6a7d6e6f44948f4f}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Generate\+Pattern\+Data\+Block}} (DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+DMD\+\_\+e DMD, uint32\+\_\+t Pattern\+Set\+Count, \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Set\+\_\+s}} $\ast$Pattern\+Set\+Array, uint32\+\_\+t Pattern\+Order\+Table\+Count, \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_order_table_entry__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Order\+Table\+Entry\+\_\+s}} $\ast$Pattern\+Order\+Table, \mbox{\hyperlink{dlpc347x__internal__patterns_8h_a6f5199f36fabbc49b49da52d77d8d87c}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Write\+Pattern\+Data\+Callback}} Write\+Pattern\+Data\+Callback, bool East\+West\+Flip, bool Long\+Axis\+Flip)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{dlpc347x__internal__patterns_8c_af47083db1d51c8c7b90c0cc808330ba1}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Get\+Pattern\+Data\+Block\+Size}} (DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+DMD\+\_\+e DMD, uint32\+\_\+t Pattern\+Set\+Count, \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Set\+\_\+s}} $\ast$Pattern\+Set\+Array, uint32\+\_\+t Pattern\+Order\+Table\+Count, \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_order_table_entry__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Order\+Table\+Entry\+\_\+s}} $\ast$Pattern\+Order\+Table)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements the APIs for creating internal pattern data for the 347x controllers (DLP2010, DLP3010, and DLP4710). 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_a6df617502365e56c6a7d6e6f44948f4f}\label{dlpc347x__internal__patterns_8c_a6df617502365e56c6a7d6e6f44948f4f}} 
+\index{dlpc347x\_internal\_patterns.c@{dlpc347x\_internal\_patterns.c}!DLPC34XX\_INT\_PAT\_GeneratePatternDataBlock@{DLPC34XX\_INT\_PAT\_GeneratePatternDataBlock}}
+\index{DLPC34XX\_INT\_PAT\_GeneratePatternDataBlock@{DLPC34XX\_INT\_PAT\_GeneratePatternDataBlock}!dlpc347x\_internal\_patterns.c@{dlpc347x\_internal\_patterns.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_INT\_PAT\_GeneratePatternDataBlock()}{DLPC34XX\_INT\_PAT\_GeneratePatternDataBlock()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Generate\+Pattern\+Data\+Block (\begin{DoxyParamCaption}\item[{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+DMD\+\_\+e}]{DMD,  }\item[{uint32\+\_\+t}]{Pattern\+Set\+Count,  }\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Set\+\_\+s}} $\ast$}]{Pattern\+Set\+Array,  }\item[{uint32\+\_\+t}]{Pattern\+Order\+Table\+Count,  }\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_order_table_entry__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Order\+Table\+Entry\+\_\+s}} $\ast$}]{Pattern\+Order\+Table,  }\item[{\mbox{\hyperlink{dlpc347x__internal__patterns_8h_a6f5199f36fabbc49b49da52d77d8d87c}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Write\+Pattern\+Data\+Callback}}}]{Write\+Pattern\+Data\+Callback,  }\item[{bool}]{East\+West\+Flip,  }\item[{bool}]{Long\+Axis\+Flip }\end{DoxyParamCaption})}
+
+Generates the pattern data block from the given inputs. In order to avoid dynamic memory allocation, this function uses a callback to transfer data to the caller as it generates pattern data. This function calls the Write\+Pattern\+Data\+Callback function several times with one or more bytes of pattern data transfered to the caller at a time. The function is synchronous and waits for the callback to finish execution before continuing generation of the rest of the data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em DMD} & The DMD for which pattern data is being generated \\
+\hline
+\mbox{\texttt{ in}}  & {\em Pattern\+Set\+Count} & Number of pattern sets \\
+\hline
+\mbox{\texttt{ in}}  & {\em Pattern\+Set\+Array} & An array of \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Set\+\_\+s}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em Pattern\+Order\+Table\+Count} & Number of rows in the pattern order table \\
+\hline
+\mbox{\texttt{ in}}  & {\em Pattern\+Order\+Table} & An array of \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_order_table_entry__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Order\+Table\+Entry\+\_\+s}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em Write\+Pattern\+Data\+Callback} & The callback used to transfer data to the caller \\
+\hline
+\mbox{\texttt{ in}}  & {\em East\+West\+Flip} & Whether to E/W flip pattern data \\
+\hline
+\mbox{\texttt{ in}}  & {\em Long\+Axis\+Flip} & Whether to flip pattern data along the long axis\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+DLPC\+\_\+\+SUCCESS if successful ERR\+\_\+\+UNSUPPORTED\+\_\+\+DMD if the DMD is not supported 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dlpc347x__internal__patterns_8c_af47083db1d51c8c7b90c0cc808330ba1}\label{dlpc347x__internal__patterns_8c_af47083db1d51c8c7b90c0cc808330ba1}} 
+\index{dlpc347x\_internal\_patterns.c@{dlpc347x\_internal\_patterns.c}!DLPC34XX\_INT\_PAT\_GetPatternDataBlockSize@{DLPC34XX\_INT\_PAT\_GetPatternDataBlockSize}}
+\index{DLPC34XX\_INT\_PAT\_GetPatternDataBlockSize@{DLPC34XX\_INT\_PAT\_GetPatternDataBlockSize}!dlpc347x\_internal\_patterns.c@{dlpc347x\_internal\_patterns.c}}
+\doxysubsubsection{\texorpdfstring{DLPC34XX\_INT\_PAT\_GetPatternDataBlockSize()}{DLPC34XX\_INT\_PAT\_GetPatternDataBlockSize()}}
+{\footnotesize\ttfamily uint32\+\_\+t DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Get\+Pattern\+Data\+Block\+Size (\begin{DoxyParamCaption}\item[{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+DMD\+\_\+e}]{DMD,  }\item[{uint32\+\_\+t}]{Pattern\+Set\+Count,  }\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Set\+\_\+s}} $\ast$}]{Pattern\+Set\+Array,  }\item[{uint32\+\_\+t}]{Pattern\+Order\+Table\+Count,  }\item[{\mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_order_table_entry__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Order\+Table\+Entry\+\_\+s}} $\ast$}]{Pattern\+Order\+Table }\end{DoxyParamCaption})}
+
+Gets the size of the pattern data block in bytes for the given inputs
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em DMD} & The DMD for which pattern data is being generated \\
+\hline
+\mbox{\texttt{ in}}  & {\em Pattern\+Set\+Count} & Number of pattern sets \\
+\hline
+\mbox{\texttt{ in}}  & {\em Pattern\+Set\+Array} & An array of \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_set__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Set\+\_\+s}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em Pattern\+Order\+Table\+Count} & Number of rows in the pattern order table \\
+\hline
+\mbox{\texttt{ in}}  & {\em Pattern\+Order\+Table} & An array of \mbox{\hyperlink{struct_d_l_p_c34_x_x___i_n_t___p_a_t___pattern_order_table_entry__s}{DLPC34\+XX\+\_\+\+INT\+\_\+\+PAT\+\_\+\+Pattern\+Order\+Table\+Entry\+\_\+s}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+UINT32\+\_\+\+MAX if the DMD is not supported otherwise, the size of the pattern data block in bytes 
+\end{DoxyReturn}

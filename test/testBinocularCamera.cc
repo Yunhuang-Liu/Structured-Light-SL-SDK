@@ -4,7 +4,7 @@
 #include <pcl/io/ply_io.h>
 
 const std::string configPath = "../../test/data/binoocularCameraConfig.json";
-/*
+
 TEST(BinocularCamera, contrust) {
     sl::slCamera::BinocularCamera* pCamera = new sl::slCamera::BinocularCamera(configPath);
     ASSERT_NE(pCamera, nullptr);
@@ -37,7 +37,7 @@ TEST(BinocularCamera, disableDepth) {
     sl::slCamera::FrameData frameData;
     pCamera->capture(frameData);
 }
-*/
+
 TEST(BinocularCamera, capture) {
     sl::slCamera::BinocularCamera* pCamera = new sl::slCamera::BinocularCamera(configPath);
     auto info = pCamera->getCameraInfo();

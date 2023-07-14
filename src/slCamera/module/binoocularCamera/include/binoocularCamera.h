@@ -6,9 +6,11 @@
 #include <cameraFactory.h>
 #include <matrixsInfo.h>
 #include <nStepNGrayCodeMasterCpu.h>
+#include <nShiftLineNGrayCodeMasterCpu.h>
 #include <projectorFactory.h>
 #include <rectifierCpu.h>
 #include <restructorCpu.h>
+#include <restructorShiftLineCpu.h>
 #include <codeMaker.h>
 #ifdef __WITH_CUDA__
 #include <nStepNGrayCodeMasterGpu.h>
@@ -188,7 +190,7 @@ class BinocularCamera : public SLCamera {
      * @brief 更新加速方法
      *
      */
-    void updateAccelerateMethod();
+    void updateAlgorithmMethod();
     /**
      * @brief 更新曝光时间
      * 

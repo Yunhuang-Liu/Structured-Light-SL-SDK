@@ -1,0 +1,595 @@
+\hypertarget{_i_m_v_defines_8h_source}{}\doxysection{IMVDefines.\+h}
+\label{_i_m_v_defines_8h_source}\index{src/camera/module/huaray\_camera/include/IMVDefines.h@{src/camera/module/huaray\_camera/include/IMVDefines.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_IMV\_DEFINES\_H\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_IMV\_DEFINES\_H\_\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifdef\ WIN32}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{typedef}\ \_\_int64\ int64\_t;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \_\_int64\ uint64\_t;}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ IN}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ IN\ \ \ \ \ \ }}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ OUT}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ OUT\ \ \ \ \ }}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ IN\_OUT}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ IN\_OUT\ \ }}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifndef\ \_\_cplusplus}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{char}\ \ \ \ bool;}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ true\ \ \ \ 1}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ false\ \ \ 0}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ IMV\_OK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ IMV\_ERROR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/101\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ IMV\_INVALID\_HANDLE\ \ \ \ \ \ \ \ \ \ -\/102\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ IMV\_INVALID\_PARAM\ \ \ \ \ \ \ \ \ \ \ -\/103\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ IMV\_INVALID\_FRAME\_HANDLE\ \ \ \ -\/104\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ IMV\_INVALID\_FRAME\ \ \ \ \ \ \ \ \ \ \ -\/105\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ IMV\_INVALID\_RESOURCE\ \ \ \ \ \ \ \ -\/106\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ IMV\_INVALID\_IP\ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/107\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ IMV\_NO\_MEMORY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/108\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ IMV\_INSUFFICIENT\_MEMORY\ \ \ \ \ -\/109\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ IMV\_ERROR\_PROPERTY\_TYPE\ \ \ \ \ -\/110\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ IMV\_INVALID\_ACCESS\ \ \ \ \ \ \ \ \ \ -\/111\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ IMV\_INVALID\_RANGE\ \ \ \ \ \ \ \ \ \ \ -\/112\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ IMV\_NOT\_SUPPORT\ \ \ \ \ \ \ \ \ \ \ \ \ -\/113\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ IMV\_MAX\_DEVICE\_ENUM\_NUM\ \ \ \ \ 100\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ IMV\_MAX\_STRING\_LENTH\ \ \ \ \ \ \ \ 256\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ IMV\_MAX\_ERROR\_LIST\_NUM\ \ \ \ \ \ 128\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}*\ \ \ IMV\_HANDLE;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}*\ \ \ IMV\_FRAME\_HANDLE;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_EFeatureType}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ featureInt\ =\ 0x10000000,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ featureFloat\ =\ 0x20000000,\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ featureEnum\ =\ 0x30000000,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ featureBool\ =\ 0x40000000,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ featureString\ =\ 0x50000000,\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ featureCommand\ =\ 0x60000000,\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ featureGroup\ =\ 0x70000000,\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ featureReg\ =\ 0x80000000,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ featureUndefined\ =\ 0x90000000\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00071\ \}IMV\_EFeatureType;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_EInterfaceType}
+\DoxyCodeLine{00078\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ interfaceTypeGige\ =\ 0x00000001,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ interfaceTypeUsb3\ =\ 0x00000002,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ interfaceTypeCL\ =\ 0x00000004,\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00082\ \ \ \ \ interfaceTypePCIe\ =\ 0x00000008,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00083\ \ \ \ \ interfaceTypeAll\ =\ 0x00000000,\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ interfaceInvalidType\ =\ 0xFFFFFFFF\ \ \ \ \ \ \ }
+\DoxyCodeLine{00085\ \}IMV\_EInterfaceType;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_ECameraType}
+\DoxyCodeLine{00092\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ typeGigeCamera\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00094\ \ \ \ \ typeU3vCamera\ =\ 1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ typeCLCamera\ =\ 2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00096\ \ \ \ \ typePCIeCamera\ =\ 3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ typeUndefinedCamera\ =\ 255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00098\ \}IMV\_ECameraType;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_ECreateHandleMode}
+\DoxyCodeLine{00105\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ modeByIndex\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ modeByCameraKey,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ modeByDeviceUserID,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ modeByIPAddress,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00110\ \}IMV\_ECreateHandleMode;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00116\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_ECameraAccessPermission}
+\DoxyCodeLine{00117\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ accessPermissionOpen\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00119\ \ \ \ \ accessPermissionExclusive,\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00120\ \ \ \ \ accessPermissionControl,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00121\ \ \ \ \ accessPermissionControlWithSwitchover,\ \ }
+\DoxyCodeLine{00122\ \ \ \ \ accessPermissionUnknown\ =\ 254,\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ accessPermissionUndefined\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00124\ \}IMV\_ECameraAccessPermission;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00130\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_EGrabStrategy}
+\DoxyCodeLine{00131\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ grabStrartegySequential\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00133\ \ \ \ \ grabStrartegyLatestImage\ =\ 1,\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ grabStrartegyUpcomingImage\ =\ 2,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ grabStrartegyUndefined\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00136\ \}IMV\_EGrabStrategy;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00142\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_EEventStatus}
+\DoxyCodeLine{00143\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ streamEventNormal\ =\ 1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00145\ \ \ \ \ streamEventLostFrame\ =\ 2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00146\ \ \ \ \ streamEventLostPacket\ =\ 3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00147\ \ \ \ \ streamEventImageError\ =\ 4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00148\ \ \ \ \ streamEventStreamChannelError\ =\ 5,\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00149\ \ \ \ \ streamEventTooManyConsecutiveResends\ =\ 6,\ \ \ }
+\DoxyCodeLine{00150\ \ \ \ \ streamEventTooManyLostPacket\ =\ 7\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00151\ \}IMV\_EEventStatus;}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00157\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_EBayerDemosaic}
+\DoxyCodeLine{00158\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ demosaicNearestNeighbor,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00160\ \ \ \ \ demosaicBilinear,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00161\ \ \ \ \ demosaicEdgeSensing,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00162\ \ \ \ \ demosaicNotSupport\ =\ 255,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00163\ \}IMV\_EBayerDemosaic;}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_EVType}
+\DoxyCodeLine{00170\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ offLine,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00172\ \ \ \ \ onLine\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00173\ \}IMV\_EVType;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00179\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_EVideoType}
+\DoxyCodeLine{00180\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ typeVideoFormatAVI\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00182\ \ \ \ \ typeVideoFormatNotSupport\ =\ 255\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00183\ \}IMV\_EVideoType;}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00189\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_EFlipType}
+\DoxyCodeLine{00190\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ typeFlipVertical,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00192\ \ \ \ \ typeFlipHorizontal\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00193\ \}IMV\_EFlipType;}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00199\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_ERotationAngle}
+\DoxyCodeLine{00200\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ rotationAngle90,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00202\ \ \ \ \ rotationAngle180,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00203\ \ \ \ \ rotationAngle270,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00204\ \}IMV\_ERotationAngle;}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_MONO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x01000000}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_RGB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x02000000}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_COLOR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x02000000}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_CUSTOM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x80000000}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_COLOR\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xFF000000}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{comment}{//\ Indicate\ effective\ number\ of\ bits\ occupied\ by\ the\ pixel\ (including\ padding).}}
+\DoxyCodeLine{00213\ \textcolor{comment}{//\ This\ can\ be\ used\ to\ compute\ amount\ of\ memory\ required\ to\ store\ an\ image.}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_OCCUPY1BIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00010000}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_OCCUPY2BIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00020000}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_OCCUPY4BIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00040000}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_OCCUPY8BIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00080000}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x000C0000}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00100000}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_OCCUPY24BIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00180000}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_OCCUPY32BIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00200000}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_OCCUPY36BIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00240000}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#define\ IMV\_GVSP\_PIX\_OCCUPY48BIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00300000}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00229\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_IMV\_EPixelType}
+\DoxyCodeLine{00230\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{comment}{//\ Undefined\ pixel\ type}}
+\DoxyCodeLine{00232\ \ \ \ \ gvspPixelTypeUndefined\ =\ -\/1,}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{comment}{//\ Mono\ Format}}
+\DoxyCodeLine{00235\ \ \ \ \ gvspPixelMono1p\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY1BIT\ |\ 0x0037),}
+\DoxyCodeLine{00236\ \ \ \ \ gvspPixelMono2p\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY2BIT\ |\ 0x0038),}
+\DoxyCodeLine{00237\ \ \ \ \ gvspPixelMono4p\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY4BIT\ |\ 0x0039),}
+\DoxyCodeLine{00238\ \ \ \ \ gvspPixelMono8\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY8BIT\ |\ 0x0001),}
+\DoxyCodeLine{00239\ \ \ \ \ gvspPixelMono8S\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY8BIT\ |\ 0x0002),}
+\DoxyCodeLine{00240\ \ \ \ \ gvspPixelMono10\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0003),}
+\DoxyCodeLine{00241\ \ \ \ \ gvspPixelMono10Packed\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x0004),}
+\DoxyCodeLine{00242\ \ \ \ \ gvspPixelMono12\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0005),}
+\DoxyCodeLine{00243\ \ \ \ \ gvspPixelMono12Packed\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x0006),}
+\DoxyCodeLine{00244\ \ \ \ \ gvspPixelMono14\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0025),}
+\DoxyCodeLine{00245\ \ \ \ \ gvspPixelMono16\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0007),}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{comment}{//\ Bayer\ Format}}
+\DoxyCodeLine{00248\ \ \ \ \ gvspPixelBayGR8\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY8BIT\ |\ 0x0008),}
+\DoxyCodeLine{00249\ \ \ \ \ gvspPixelBayRG8\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY8BIT\ |\ 0x0009),}
+\DoxyCodeLine{00250\ \ \ \ \ gvspPixelBayGB8\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY8BIT\ |\ 0x000A),}
+\DoxyCodeLine{00251\ \ \ \ \ gvspPixelBayBG8\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY8BIT\ |\ 0x000B),}
+\DoxyCodeLine{00252\ \ \ \ \ gvspPixelBayGR10\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x000C),}
+\DoxyCodeLine{00253\ \ \ \ \ gvspPixelBayRG10\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x000D),}
+\DoxyCodeLine{00254\ \ \ \ \ gvspPixelBayGB10\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x000E),}
+\DoxyCodeLine{00255\ \ \ \ \ gvspPixelBayBG10\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x000F),}
+\DoxyCodeLine{00256\ \ \ \ \ gvspPixelBayGR12\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0010),}
+\DoxyCodeLine{00257\ \ \ \ \ gvspPixelBayRG12\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0011),}
+\DoxyCodeLine{00258\ \ \ \ \ gvspPixelBayGB12\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0012),}
+\DoxyCodeLine{00259\ \ \ \ \ gvspPixelBayBG12\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0013),}
+\DoxyCodeLine{00260\ \ \ \ \ gvspPixelBayGR10Packed\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x0026),}
+\DoxyCodeLine{00261\ \ \ \ \ gvspPixelBayRG10Packed\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x0027),}
+\DoxyCodeLine{00262\ \ \ \ \ gvspPixelBayGB10Packed\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x0028),}
+\DoxyCodeLine{00263\ \ \ \ \ gvspPixelBayBG10Packed\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x0029),}
+\DoxyCodeLine{00264\ \ \ \ \ gvspPixelBayGR12Packed\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x002A),}
+\DoxyCodeLine{00265\ \ \ \ \ gvspPixelBayRG12Packed\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x002B),}
+\DoxyCodeLine{00266\ \ \ \ \ gvspPixelBayGB12Packed\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x002C),}
+\DoxyCodeLine{00267\ \ \ \ \ gvspPixelBayBG12Packed\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x002D),}
+\DoxyCodeLine{00268\ \ \ \ \ gvspPixelBayGR16\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x002E),}
+\DoxyCodeLine{00269\ \ \ \ \ gvspPixelBayRG16\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x002F),}
+\DoxyCodeLine{00270\ \ \ \ \ gvspPixelBayGB16\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0030),}
+\DoxyCodeLine{00271\ \ \ \ \ gvspPixelBayBG16\ =\ (IMV\_GVSP\_PIX\_MONO\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0031),}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{comment}{//\ RGB\ Format}}
+\DoxyCodeLine{00274\ \ \ \ \ gvspPixelRGB8\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY24BIT\ |\ 0x0014),}
+\DoxyCodeLine{00275\ \ \ \ \ gvspPixelBGR8\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY24BIT\ |\ 0x0015),}
+\DoxyCodeLine{00276\ \ \ \ \ gvspPixelRGBA8\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY32BIT\ |\ 0x0016),}
+\DoxyCodeLine{00277\ \ \ \ \ gvspPixelBGRA8\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY32BIT\ |\ 0x0017),}
+\DoxyCodeLine{00278\ \ \ \ \ gvspPixelRGB10\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY48BIT\ |\ 0x0018),}
+\DoxyCodeLine{00279\ \ \ \ \ gvspPixelBGR10\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY48BIT\ |\ 0x0019),}
+\DoxyCodeLine{00280\ \ \ \ \ gvspPixelRGB12\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY48BIT\ |\ 0x001A),}
+\DoxyCodeLine{00281\ \ \ \ \ gvspPixelBGR12\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY48BIT\ |\ 0x001B),}
+\DoxyCodeLine{00282\ \ \ \ \ gvspPixelRGB16\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY48BIT\ |\ 0x0033),}
+\DoxyCodeLine{00283\ \ \ \ \ gvspPixelRGB10V1Packed\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY32BIT\ |\ 0x001C),}
+\DoxyCodeLine{00284\ \ \ \ \ gvspPixelRGB10P32\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY32BIT\ |\ 0x001D),}
+\DoxyCodeLine{00285\ \ \ \ \ gvspPixelRGB12V1Packed\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY36BIT\ |\ 0X0034),}
+\DoxyCodeLine{00286\ \ \ \ \ gvspPixelRGB565P\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0035),}
+\DoxyCodeLine{00287\ \ \ \ \ gvspPixelBGR565P\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0X0036),}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{comment}{//\ YVR\ Format}}
+\DoxyCodeLine{00290\ \ \ \ \ gvspPixelYUV411\_8\_UYYVYY\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x001E),}
+\DoxyCodeLine{00291\ \ \ \ \ gvspPixelYUV422\_8\_UYVY\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x001F),}
+\DoxyCodeLine{00292\ \ \ \ \ gvspPixelYUV422\_8\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0032),}
+\DoxyCodeLine{00293\ \ \ \ \ gvspPixelYUV8\_UYV\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY24BIT\ |\ 0x0020),}
+\DoxyCodeLine{00294\ \ \ \ \ gvspPixelYCbCr8CbYCr\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY24BIT\ |\ 0x003A),}
+\DoxyCodeLine{00295\ \ \ \ \ gvspPixelYCbCr422\_8\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x003B),}
+\DoxyCodeLine{00296\ \ \ \ \ gvspPixelYCbCr422\_8\_CbYCrY\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0043),}
+\DoxyCodeLine{00297\ \ \ \ \ gvspPixelYCbCr411\_8\_CbYYCrYY\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x003C),}
+\DoxyCodeLine{00298\ \ \ \ \ gvspPixelYCbCr601\_8\_CbYCr\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY24BIT\ |\ 0x003D),}
+\DoxyCodeLine{00299\ \ \ \ \ gvspPixelYCbCr601\_422\_8\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x003E),}
+\DoxyCodeLine{00300\ \ \ \ \ gvspPixelYCbCr601\_422\_8\_CbYCrY\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0044),}
+\DoxyCodeLine{00301\ \ \ \ \ gvspPixelYCbCr601\_411\_8\_CbYYCrYY\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x003F),}
+\DoxyCodeLine{00302\ \ \ \ \ gvspPixelYCbCr709\_8\_CbYCr\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY24BIT\ |\ 0x0040),}
+\DoxyCodeLine{00303\ \ \ \ \ gvspPixelYCbCr709\_422\_8\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0041),}
+\DoxyCodeLine{00304\ \ \ \ \ gvspPixelYCbCr709\_422\_8\_CbYCrY\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY16BIT\ |\ 0x0045),}
+\DoxyCodeLine{00305\ \ \ \ \ gvspPixelYCbCr709\_411\_8\_CbYYCrYY\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY12BIT\ |\ 0x0042),}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{comment}{//\ RGB\ Planar}}
+\DoxyCodeLine{00308\ \ \ \ \ gvspPixelRGB8Planar\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY24BIT\ |\ 0x0021),}
+\DoxyCodeLine{00309\ \ \ \ \ gvspPixelRGB10Planar\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY48BIT\ |\ 0x0022),}
+\DoxyCodeLine{00310\ \ \ \ \ gvspPixelRGB12Planar\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY48BIT\ |\ 0x0023),}
+\DoxyCodeLine{00311\ \ \ \ \ gvspPixelRGB16Planar\ =\ (IMV\_GVSP\_PIX\_COLOR\ |\ IMV\_GVSP\_PIX\_OCCUPY48BIT\ |\ 0x0024),}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{comment}{//BayerRG10p和BayerRG12p格式，针对特定项目临时添加,请不要使用}}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{comment}{//BayerRG10p\ and\ BayerRG12p,\ currently\ used\ for\ specific\ project,\ please\ do\ not\ use\ them}}
+\DoxyCodeLine{00315\ \ \ \ \ gvspPixelBayRG10p\ =\ 0x010A0058,}
+\DoxyCodeLine{00316\ \ \ \ \ gvspPixelBayRG12p\ =\ 0x010c0059,}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{comment}{//mono1c格式，自定义格式}}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{comment}{//mono1c,\ customized\ image\ format,\ used\ for\ binary\ output}}
+\DoxyCodeLine{00320\ \ \ \ \ gvspPixelMono1c\ =\ 0x012000FF,}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{comment}{//mono1e格式，自定义格式，用来显示连通域}}
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{comment}{//mono1e,\ customized\ image\ format,\ used\ for\ displaying\ connected\ domain}}
+\DoxyCodeLine{00324\ \ \ \ \ gvspPixelMono1e\ =\ 0x01080FFF}
+\DoxyCodeLine{00325\ \}IMV\_EPixelType;}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00331\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___string}{\_IMV\_String}}}
+\DoxyCodeLine{00332\ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___string_a135ebe340b09a1a024814a68763a4748}{str}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00334\ \}\mbox{\hyperlink{struct___i_m_v___string}{IMV\_String}};}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00340\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___gig_e_interface_info}{\_IMV\_GigEInterfaceInfo}}}
+\DoxyCodeLine{00341\ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_interface_info_a32bd5fefc6bc3209a16becd1a5a8e7d9}{description}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_interface_info_a1782d977ecefd90468ad82432c51d220}{macAddress}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_interface_info_a3e87db76e111c49589d33110084a64b9}{ipAddress}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_interface_info_a1c0301d6e84ceb702f8272a85623f219}{subnetMask}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_interface_info_ac6c591b20668ab4701575231bb927fc0}{defaultGateWay}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00347\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_interface_info_af7a00ec3f3b3fa6a1324512d31bb0c06}{chReserved}}[5][IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00348\ \}\mbox{\hyperlink{struct___i_m_v___gig_e_interface_info}{IMV\_GigEInterfaceInfo}};}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00354\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___usb_interface_info}{\_IMV\_UsbInterfaceInfo}}}
+\DoxyCodeLine{00355\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_interface_info_aae8607eaee46e81d7b89e88449b2792e}{description}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_interface_info_a3671ab6f6e4a0a100edf270d560bc356}{vendorID}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_interface_info_a9b38c16bfeb632d4de2eeb260a7923d6}{deviceID}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_interface_info_ae1395f8ce975cee7add3c05c5f7e0d03}{subsystemID}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_interface_info_aee0fff61b133d942c428eeda2a8159ec}{revision}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_interface_info_a26c987fdf6d9e8fbbe90762cb2bb4b0e}{speed}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_interface_info_a9822f07ca64c9cf824a78b352173de80}{chReserved}}[4][IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00363\ \}\mbox{\hyperlink{struct___i_m_v___usb_interface_info}{IMV\_UsbInterfaceInfo}};}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00369\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___gig_e_device_info}{\_IMV\_GigEDeviceInfo}}}
+\DoxyCodeLine{00370\ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_ad502674b4a1ca44cf0f009daab31efe6}{nIpConfigOptions}};}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_a4375af43bb528f9be2a301afec06e1ad}{nIpConfigCurrent}};}
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_ae9aff2a25c511cc63b9d7644330152f0}{nReserved}}[3];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_a437964c938d75a045f7a2fbbcf597154}{macAddress}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_af16855057eb0b5379784047b0bcdbb71}{ipAddress}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_aa8ebc7c90c1aa96d2410f2f3fa0fbcce}{subnetMask}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_a2676acb912d9b563a2b04f9d7085a6d7}{defaultGateWay}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_a49b82bd4a151f59e285e7bed3d0b831b}{protocolVersion}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ }
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_a814fceb043767877be15394470dfcf35}{ipConfiguration}}[IMV\_MAX\_STRING\_LENTH];}
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_a7e7c92ba1cf7438573fb686b32a4ce5b}{chReserved}}[6][IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ }
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \}\mbox{\hyperlink{struct___i_m_v___gig_e_device_info}{IMV\_GigEDeviceInfo}};}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00425\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___usb_device_info}{\_IMV\_UsbDeviceInfo}}}
+\DoxyCodeLine{00426\ \{}
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_af1619762360f90bde66d887bf92f8ed2}{bLowSpeedSupported}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_a8fd29cec7d9d15379be74f11e6bf6152}{bFullSpeedSupported}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_abd18f4efbb1b839b957ade916c929dce}{bHighSpeedSupported}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_a0fc9fb7cc43ea74159e68f46c07fa33c}{bSuperSpeedSupported}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_a7a4b0146a61872b46588f103fbd2ec80}{bDriverInstalled}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordtype}{bool}\ boolReserved[3];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_a06cf84df2e0df6c0631319369bb26880}{Reserved}}[4];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_ae0862fc51010dc616a1b7f3ea98fc938}{configurationValid}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ }
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_a129aeef74a1f6327cacd7bf5f1e39489}{genCPVersion}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_a8050213331191345b2137fd4be4d7aeb}{u3vVersion}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_a776a4e68db3f1b390f6f59f30a36ff71}{deviceGUID}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_a18861d1cfbe2f7587344966e2c59acc4}{familyName}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_ad012524a2787859248d782887c47cf1e}{u3vSerialNumber}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ }
+\DoxyCodeLine{00441\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_a2420cbe0798fcdf83528df684724c89c}{speed}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_a2b4d54de0ffbac1ec4d7a7f5dce12a20}{maxPower}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct___i_m_v___usb_device_info_aa01a639f485a69376f4978577327c915}{chReserved}}[4][IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ }
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \}\mbox{\hyperlink{struct___i_m_v___usb_device_info}{IMV\_UsbDeviceInfo}};}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00451\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___device_info}{\_IMV\_DeviceInfo}}}
+\DoxyCodeLine{00452\ \{}
+\DoxyCodeLine{00453\ \ \ \ \ IMV\_ECameraType\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_a6775571480ed789647d4463cb04d3581}{nCameraType}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00454\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_ae3c3de9a921329765211a2d4561f7083}{nCameraReserved}}[5];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00456\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_ae5e4dc41d62c46734d81c0b6734830f4}{cameraKey}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00457\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_a420b03c06e9648964b4ba6b65d11ac97}{cameraName}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00458\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_a82c182bc3fa19938cb0fc07584dbd673}{serialNumber}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_ae2594291a802ab6937058cbd7d793a28}{vendorName}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_a773d31bc0898a46eb1a78e9864410f9d}{modelName}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00461\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_a912f14d37efeb3131cb88a4d84683991}{manufactureInfo}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ }
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_a22ca2ba4985c5038040cb7ecc4ddd8b0}{deviceVersion}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ }
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_a4526995ec9e48f3b0b9530b7226e0c77}{cameraReserved}}[5][IMV\_MAX\_STRING\_LENTH];\ \ }
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keyword}{union}}
+\DoxyCodeLine{00465\ \ \ \ \ \{}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___gig_e_device_info}{IMV\_GigEDeviceInfo}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_ad30429a1522084c3050a7a07a12dc012}{gigeDeviceInfo}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___usb_device_info}{IMV\_UsbDeviceInfo}}\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_aa27ba67651440262f12b904f9e7b391f}{usbDeviceInfo}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00468\ \ \ \ \ \}DeviceSpecificInfo;}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00470\ \ \ \ \ IMV\_EInterfaceType\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_ad035f5ee64fe2c7811df27ae06cac206}{nInterfaceType}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00471\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_a44a30b97ff61e90acdf603a11da38fb6}{nInterfaceReserved}}[5];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_af7cfbd3fa019166bbf2e798965f11c98}{interfaceName}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ \ \ }
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_aabe75f20de6a64dd950a2eb3a91c58dc}{interfaceReserved}}[5][IMV\_MAX\_STRING\_LENTH];\ \ \ \ }
+\DoxyCodeLine{00474\ \ \ \ \ \textcolor{keyword}{union}}
+\DoxyCodeLine{00475\ \ \ \ \ \{}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___gig_e_interface_info}{IMV\_GigEInterfaceInfo}}\ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_a141eee370712eae01d611a7047052df1}{gigeInterfaceInfo}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___usb_interface_info}{IMV\_UsbInterfaceInfo}}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info_aebefea757da501645003af4ccd00f14d}{usbInterfaceInfo}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00478\ \ \ \ \ \}InterfaceInfo;}
+\DoxyCodeLine{00479\ \}\mbox{\hyperlink{struct___i_m_v___device_info}{IMV\_DeviceInfo}};}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00485\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___error_list}{\_IMV\_ErrorList}}}
+\DoxyCodeLine{00486\ \{}
+\DoxyCodeLine{00487\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___error_list_adde7d0c2d84a82a234a9bfa44dc3555b}{nParamCnt}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00488\ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___string}{IMV\_String}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___error_list_a85443f697a9e066a8fdcad85b911e584}{paramNameList}}[IMV\_MAX\_ERROR\_LIST\_NUM];\ \ \ \ \ }
+\DoxyCodeLine{00489\ \}\mbox{\hyperlink{struct___i_m_v___error_list}{IMV\_ErrorList}};}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00495\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___device_list}{\_IMV\_DeviceList}}}
+\DoxyCodeLine{00496\ \{}
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_list_a03960c72024d37e607246f2e48ca7b31}{nDevNum}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00498\ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_info}{IMV\_DeviceInfo}}*\ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___device_list_ab01f6515a748bcaefe1ad07b412cd1a4}{pDevInfo}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00499\ \}\mbox{\hyperlink{struct___i_m_v___device_list}{IMV\_DeviceList}};}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00505\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___s_connect_arg}{\_IMV\_SConnectArg}}}
+\DoxyCodeLine{00506\ \{}
+\DoxyCodeLine{00507\ \ \ \ \ IMV\_EVType\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_connect_arg_aa58b3e6bf82c971e6a78b1b303a1c64c}{event}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00508\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_connect_arg_a2a368e2bf0574525026bd797bd5b6778}{nReserve}}[10];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00509\ \}\mbox{\hyperlink{struct___i_m_v___s_connect_arg}{IMV\_SConnectArg}};}
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00515\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___s_param_update_arg}{\_IMV\_SParamUpdateArg}}}
+\DoxyCodeLine{00516\ \{}
+\DoxyCodeLine{00517\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_param_update_arg_ae2d2c6d0d5ff0ab2431efc82892b2398}{isPoll}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00518\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_param_update_arg_a12d841d94ac2f32a89b80d103ac30893}{nReserve}}[10];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00519\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_param_update_arg_a258fefc007519ee9e9ac67883255fc60}{nParamCnt}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00520\ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___string}{IMV\_String}}*\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_param_update_arg_aca9f88d503e5bcba375c5f854a3f65de}{pParamNameList}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00521\ \}\mbox{\hyperlink{struct___i_m_v___s_param_update_arg}{IMV\_SParamUpdateArg}};}
+\DoxyCodeLine{00522\ }
+\DoxyCodeLine{00527\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___s_stream_arg}{\_IMV\_SStreamArg}}}
+\DoxyCodeLine{00528\ \{}
+\DoxyCodeLine{00529\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_stream_arg_a2833ff799f65d07af5ab71d143315bd9}{channel}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00530\ \ \ \ \ uint64\_t\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_stream_arg_a545bb8453a902606ed988c8be260457f}{blockId}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00531\ \ \ \ \ uint64\_t\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_stream_arg_ac84322a79ebb45a67fa220c4c501f0b7}{timeStamp}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00532\ \ \ \ \ IMV\_EEventStatus\ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_stream_arg_a503cd69a8634bb06fa04d29b8b7d382d}{eStreamEventStatus}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00533\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_stream_arg_a89428bec9848d49cb0ddd1a24771730d}{status}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_stream_arg_a8703ef0d1e9ae8f5967fe54221116edd}{nReserve}}[9];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00535\ \}\mbox{\hyperlink{struct___i_m_v___s_stream_arg}{IMV\_SStreamArg}};}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00541\ \textcolor{preprocessor}{\#define\ IMV\_MSG\_EVENT\_ID\_EXPOSURE\_END\ \ \ \ \ \ \ \ \ \ \ 0x9001}}
+\DoxyCodeLine{00542\ \textcolor{preprocessor}{\#define\ IMV\_MSG\_EVENT\_ID\_FRAME\_TRIGGER\ \ \ \ \ \ \ \ \ \ 0x9002}}
+\DoxyCodeLine{00543\ \textcolor{preprocessor}{\#define\ IMV\_MSG\_EVENT\_ID\_FRAME\_START\ \ \ \ \ \ \ \ \ \ \ \ 0x9003}}
+\DoxyCodeLine{00544\ \textcolor{preprocessor}{\#define\ IMV\_MSG\_EVENT\_ID\_ACQ\_START\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x9004}}
+\DoxyCodeLine{00545\ \textcolor{preprocessor}{\#define\ IMV\_MSG\_EVENT\_ID\_ACQ\_TRIGGER\ \ \ \ \ \ \ \ \ \ \ \ 0x9005}}
+\DoxyCodeLine{00546\ \textcolor{preprocessor}{\#define\ IMV\_MSG\_EVENT\_ID\_DATA\_READ\_OUT\ \ \ \ \ \ \ \ \ \ 0x9006}}
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00552\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___s_msg_channel_arg}{\_IMV\_SMsgChannelArg}}}
+\DoxyCodeLine{00553\ \{}
+\DoxyCodeLine{00554\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_msg_channel_arg_a94337931940e09a02558ffa417e257fd}{eventId}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00555\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_msg_channel_arg_a9855e24fb49e42cd78e58dc6594bf09a}{channelId}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00556\ \ \ \ \ uint64\_t\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_msg_channel_arg_a3d3709b7c13c367f5f6bccf4fde78501}{blockId}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00557\ \ \ \ \ uint64\_t\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_msg_channel_arg_a8f7a89c1100792bc49c8a60e707bdb89}{timeStamp}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00558\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_msg_channel_arg_a782c0be890aa48585761856957adf4b1}{nReserve}}[8];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00559\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_msg_channel_arg_a628f4e584d4ed89e2362f60641a381ad}{nParamCnt}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00560\ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___string}{IMV\_String}}*\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___s_msg_channel_arg_a072b81981e28970078cf83e8d1f57073}{pParamNameList}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00561\ \}\mbox{\hyperlink{struct___i_m_v___s_msg_channel_arg}{IMV\_SMsgChannelArg}};}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00567\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___chunk_data_info}{\_IMV\_ChunkDataInfo}}}
+\DoxyCodeLine{00568\ \{}
+\DoxyCodeLine{00569\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___chunk_data_info_a82e0bd0ab57498164b2af32b0f965b08}{chunkID}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00570\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___chunk_data_info_afc9bfbf9db9f0d5b771648735dbbb3e9}{nParamCnt}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00571\ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___string}{IMV\_String}}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___chunk_data_info_a04def9db21c163da10b0192a79806ac0}{pParamNameList}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00572\ \}\mbox{\hyperlink{struct___i_m_v___chunk_data_info}{IMV\_ChunkDataInfo}};}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00578\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___frame_info}{\_IMV\_FrameInfo}}}
+\DoxyCodeLine{00579\ \{}
+\DoxyCodeLine{00580\ \ \ \ \ uint64\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info_a6c063e1049cc8fe392d5ca3191d26ed1}{blockId}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00581\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info_a5250e947ddcffe504557c8f8da510b0d}{status}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00582\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info_a0e386ab091315399ba91f11bb9bd3914}{width}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00583\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info_ae48a4b3943e9e3615d7aed85f7797dab}{height}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00584\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info_a03713d04737f3a2ac756beb16263e394}{size}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00585\ \ \ \ \ IMV\_EPixelType\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info_aa7b91966ae122f3a406d4886ccf08081}{pixelFormat}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00586\ \ \ \ \ uint64\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info_a1c4da0498a1967ee52839d372cab3762}{timeStamp}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00587\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info_a470ac6301e3e6d1e3aa7df60a0642cb4}{chunkCount}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00588\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info_ad7e9915a52c4cf1c4b8eb9e960df946d}{paddingX}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00589\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info_ad3f671f08b068904115497d0ccd5448e}{paddingY}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00590\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info_ad30bbb6e741bcba294676410fe6f2648}{recvFrameTime}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00591\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info_a3b7ce349ef95438264a448e50b9eccf4}{nReserved}}[19];\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00592\ \}\mbox{\hyperlink{struct___i_m_v___frame_info}{IMV\_FrameInfo}};}
+\DoxyCodeLine{00593\ }
+\DoxyCodeLine{00598\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___frame}{\_IMV\_Frame}}}
+\DoxyCodeLine{00599\ \{}
+\DoxyCodeLine{00600\ \ \ \ \ IMV\_FRAME\_HANDLE\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_a9d6ff35e339857bff3ef71c29e10602c}{frameHandle}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00601\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_a58290dbf03b488281e1b1c8fdf10bbb0}{pData}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00602\ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_info}{IMV\_FrameInfo}}\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_abd535bba0c435060938aab668d6c0c2a}{frameInfo}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00603\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___frame_a0920b432d96924194118f457941a2ed2}{nReserved}}[10];\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00604\ \}\mbox{\hyperlink{struct___i_m_v___frame}{IMV\_Frame}};}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00610\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___p_c_i_e_stream_stats_info}{\_IMV\_PCIEStreamStatsInfo}}}
+\DoxyCodeLine{00611\ \{}
+\DoxyCodeLine{00612\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___p_c_i_e_stream_stats_info_a049ed581c37204ffa78cc8a67a1a8ccf}{imageError}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00613\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___p_c_i_e_stream_stats_info_a39ecfdaabab73ec042f74ebf9b0fd8ff}{lostPacketBlock}};\ \ \ \ \ }
+\DoxyCodeLine{00614\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___p_c_i_e_stream_stats_info_a100b84767b9d1c5a5344e1bd6fefd4c4}{nReserved0}}[10];\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00616\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___p_c_i_e_stream_stats_info_a98942873acbd5c767493c4f06d87e325}{imageReceived}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00617\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___p_c_i_e_stream_stats_info_adf14db2b3fcdf42066983bd2e5968797}{fps}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00618\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___p_c_i_e_stream_stats_info_ac11ef6afa16db16f0537f14cb99ebd33}{bandwidth}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00619\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___p_c_i_e_stream_stats_info_a21db028225c417a95e27066c078f6c6d}{nReserved}}[8];\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00620\ \}\mbox{\hyperlink{struct___i_m_v___p_c_i_e_stream_stats_info}{IMV\_PCIEStreamStatsInfo}};}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00626\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___u3_v_stream_stats_info}{\_IMV\_U3VStreamStatsInfo}}}
+\DoxyCodeLine{00627\ \{}
+\DoxyCodeLine{00628\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___u3_v_stream_stats_info_aac4d4aa8c5e05b5a6376961729d60116}{imageError}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00629\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___u3_v_stream_stats_info_a33f929ff8a584634d6a35a99d6fd924d}{lostPacketBlock}};\ \ \ \ \ }
+\DoxyCodeLine{00630\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___u3_v_stream_stats_info_ae02f2460a2f581d7623e3f8e5382e6bd}{nReserved0}}[10];\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00631\ }
+\DoxyCodeLine{00632\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___u3_v_stream_stats_info_a0000a377371d8c5b1b0ec7276deebf7e}{imageReceived}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00633\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___u3_v_stream_stats_info_a7dbd7e9a9d9a440c0876acb22d456493}{fps}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00634\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___u3_v_stream_stats_info_a3b3ebbb89d4d48ce0e1bb8bdabd50c6a}{bandwidth}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00635\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___u3_v_stream_stats_info_ad87cbf6d0d2ee1c9470bf64dcb37879f}{nReserved}}[8];\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00636\ \}\mbox{\hyperlink{struct___i_m_v___u3_v_stream_stats_info}{IMV\_U3VStreamStatsInfo}};}
+\DoxyCodeLine{00637\ }
+\DoxyCodeLine{00642\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___gig_e_stream_stats_info}{\_IMV\_GigEStreamStatsInfo}}}
+\DoxyCodeLine{00643\ \{}
+\DoxyCodeLine{00644\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___gig_e_stream_stats_info_a8969308158f81b189558a8237a20616f}{nReserved0}}[10];\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00645\ }
+\DoxyCodeLine{00646\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___gig_e_stream_stats_info_a597641b081611b216d9b74d3426b08df}{imageError}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00647\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___gig_e_stream_stats_info_a096b78e79bbda5702935492de4809ea8}{lostPacketBlock}};\ \ \ \ \ }
+\DoxyCodeLine{00648\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___gig_e_stream_stats_info_a544370471dbc691b88cf987a879a0a30}{nReserved1}}[4];\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00649\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___gig_e_stream_stats_info_a912daf048280ef4c1e42dd2577c856db}{nReserved2}}[5];\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___gig_e_stream_stats_info_a621d1028342890a5e7fe77dbf6225f9f}{imageReceived}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00652\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___gig_e_stream_stats_info_a6a205d319acf3df0ab06f08ddffcf6b3}{fps}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00653\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___gig_e_stream_stats_info_a8dc2fdf2a8b407c037f5464431910354}{bandwidth}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00654\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___gig_e_stream_stats_info_ae6bd505e72a0e5997ce6c951c3ef8c1d}{nReserved}}[4];\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00655\ \}\mbox{\hyperlink{struct___i_m_v___gig_e_stream_stats_info}{IMV\_GigEStreamStatsInfo}};}
+\DoxyCodeLine{00656\ }
+\DoxyCodeLine{00661\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___stream_statistics_info}{\_IMV\_StreamStatisticsInfo}}}
+\DoxyCodeLine{00662\ \{}
+\DoxyCodeLine{00663\ \ \ \ \ IMV\_ECameraType\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___stream_statistics_info_a040f06d904fab637c6cd0d4e8ac51c4a}{nCameraType}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00664\ }
+\DoxyCodeLine{00665\ \ \ \ \ \textcolor{keyword}{union}}
+\DoxyCodeLine{00666\ \ \ \ \ \{}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___p_c_i_e_stream_stats_info}{IMV\_PCIEStreamStatsInfo}}\ \ \mbox{\hyperlink{struct___i_m_v___stream_statistics_info_ab5d4c8f95cf47abecd13ace341fbbef5}{pcieStatisticsInfo}};\ \ \ }
+\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___u3_v_stream_stats_info}{IMV\_U3VStreamStatsInfo}}\ \ \ \ \mbox{\hyperlink{struct___i_m_v___stream_statistics_info_a59108d26999d3f2cda466856d5eb2b43}{u3vStatisticsInfo}};\ }
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___gig_e_stream_stats_info}{IMV\_GigEStreamStatsInfo}}\ \ \mbox{\hyperlink{struct___i_m_v___stream_statistics_info_a70a56a110d5280f7a64f80013f3aa81f}{gigeStatisticsInfo}};\ \ \ }
+\DoxyCodeLine{00670\ \ \ \ \ \};}
+\DoxyCodeLine{00671\ \}\mbox{\hyperlink{struct___i_m_v___stream_statistics_info}{IMV\_StreamStatisticsInfo}};}
+\DoxyCodeLine{00672\ }
+\DoxyCodeLine{00677\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___enum_entry_info}{\_IMV\_EnumEntryInfo}}}
+\DoxyCodeLine{00678\ \{}
+\DoxyCodeLine{00679\ \ \ \ \ uint64\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___enum_entry_info_abad3ce24eb8b216dc10739738c9d021f}{value}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00680\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___enum_entry_info_a92a517e9c69e6d3427baf745d22967c2}{name}}[IMV\_MAX\_STRING\_LENTH];\ \ \ \ \ }
+\DoxyCodeLine{00681\ \}\mbox{\hyperlink{struct___i_m_v___enum_entry_info}{IMV\_EnumEntryInfo}};}
+\DoxyCodeLine{00682\ }
+\DoxyCodeLine{00687\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___enum_entry_list}{\_IMV\_EnumEntryList}}}
+\DoxyCodeLine{00688\ \{}
+\DoxyCodeLine{00689\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___enum_entry_list_ab7a81463e764dae49bc253a3de1a0cb7}{nEnumEntryBufferSize}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00690\ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___enum_entry_info}{IMV\_EnumEntryInfo}}*\ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___enum_entry_list_a245d2aeb6c6594bb91c776eba476be0f}{pEnumEntryInfo}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00691\ \}\mbox{\hyperlink{struct___i_m_v___enum_entry_list}{IMV\_EnumEntryList}};}
+\DoxyCodeLine{00692\ }
+\DoxyCodeLine{00697\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___pixel_convert_param}{\_IMV\_PixelConvertParam}}}
+\DoxyCodeLine{00698\ \{}
+\DoxyCodeLine{00699\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_a93c22fe7e5ae8aaad820bfae67dc7143}{nWidth}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00700\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_a8786ca7b28b0c88907802c2a39f96530}{nHeight}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00701\ \ \ \ \ IMV\_EPixelType\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_a820f2c8492a4e873a5adccd558727692}{ePixelFormat}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00702\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_ada84a02c1cdd179f3cb28106a9efd500}{pSrcData}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00703\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_ad5b9d9e91ba55948e040a22b13dcb642}{nSrcDataLen}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00704\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_a60b5962f23f9deb254d74b1fbbfbd7d9}{nPaddingX}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00705\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_a88d969b13012801ed6088eb808c79fbe}{nPaddingY}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00706\ \ \ \ \ IMV\_EBayerDemosaic\ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_a835bcd3466f4a633d2363016bc28f4c0}{eBayerDemosaic}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00707\ \ \ \ \ IMV\_EPixelType\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_a2c1ac097efad55d3e4ce2c2aa8d42fea}{eDstPixelFormat}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00708\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_ab94ee1b03740cd1d152d79dc08277d73}{pDstBuf}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00709\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_a10e7966617f3ca529fd7dc95a13315af}{nDstBufSize}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00710\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_a296ac973c14c776c6324352d928143b3}{nDstDataLen}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00711\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param_a15d3884fe2af9bb7ba643e1568e0bb9c}{nReserved}}[8];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00712\ \}\mbox{\hyperlink{struct___i_m_v___pixel_convert_param}{IMV\_PixelConvertParam}};}
+\DoxyCodeLine{00713\ }
+\DoxyCodeLine{00718\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___record_param}{\_IMV\_RecordParam}}}
+\DoxyCodeLine{00719\ \{}
+\DoxyCodeLine{00720\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_param_ab75ef696420aa9c179b80820b4776cff}{nWidth}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00721\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_param_ac80ec978f4b28af175a328917a78b629}{nHeight}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00722\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_param_a8b1374f846e3a9f73a8e66d452092742}{fFameRate}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00723\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_param_a286d0a7b46427f752da5991c3b97bf70}{nQuality}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00724\ \ \ \ \ IMV\_EVideoType\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_param_a20e329183b61228a22b8f36abf34841a}{recordFormat}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00725\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_param_a6a09282d54773f939fe5e729e7697f61}{pRecordFilePath}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00726\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_param_a86b5af51fe57dec753f1755d9f3c2f33}{nReserved}}[5];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00727\ \}\mbox{\hyperlink{struct___i_m_v___record_param}{IMV\_RecordParam}};}
+\DoxyCodeLine{00728\ }
+\DoxyCodeLine{00733\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___record_frame_info_param}{\_IMV\_RecordFrameInfoParam}}}
+\DoxyCodeLine{00734\ \{}
+\DoxyCodeLine{00735\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_frame_info_param_a1031396c674568754be9ecd87eedf0a5}{pData}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00736\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_frame_info_param_ad4d0688445e75ec4c7b9fcf7a8de2a0b}{nDataLen}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00737\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_frame_info_param_a7be73c17a62e397248ed6651e3bfe786}{nPaddingX}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00738\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_frame_info_param_a81db84aa3071753f0edd873793d71702}{nPaddingY}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00739\ \ \ \ \ IMV\_EPixelType\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_frame_info_param_a328e14b9efee8bfc45853def0c9cec4b}{ePixelFormat}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00740\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___record_frame_info_param_a4d7aed636558f1d340646c384984ea16}{nReserved}}[5];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00741\ \}\mbox{\hyperlink{struct___i_m_v___record_frame_info_param}{IMV\_RecordFrameInfoParam}};}
+\DoxyCodeLine{00742\ }
+\DoxyCodeLine{00747\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___flip_image_param}{\_IMV\_FlipImageParam}}}
+\DoxyCodeLine{00748\ \{}
+\DoxyCodeLine{00749\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___flip_image_param_a76ecf4ad8f45f33c1437d3a56bd9011c}{nWidth}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00750\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___flip_image_param_a8701113bf15b3eced4fb5ac284b94d59}{nHeight}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00751\ \ \ \ \ IMV\_EPixelType\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___flip_image_param_ac6cf292f5611a0e04770b9371ddde568}{ePixelFormat}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00752\ \ \ \ \ IMV\_EFlipType\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___flip_image_param_a74925e9083cd6846fc35564fbb3124e8}{eFlipType}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00753\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___flip_image_param_af6c4a9cae628f43ff0bd42b0fa1fb810}{pSrcData}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00754\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___flip_image_param_ae67b00e76f75879a74ba23adf741c38f}{nSrcDataLen}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00755\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___flip_image_param_a3b2537596dc66a314a27274a11a587af}{pDstBuf}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00756\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___flip_image_param_a603d00a1d060f628dfb7629bc71c839f}{nDstBufSize}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00757\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___flip_image_param_a5e374e75fb2f38377f2a87e3f11ceb9f}{nDstDataLen}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00758\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___flip_image_param_a970021ff92acb31972b29bb4791dd7d6}{nReserved}}[8];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00759\ \}\mbox{\hyperlink{struct___i_m_v___flip_image_param}{IMV\_FlipImageParam}};}
+\DoxyCodeLine{00760\ }
+\DoxyCodeLine{00765\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___i_m_v___rotate_image_param}{\_IMV\_RotateImageParam}}}
+\DoxyCodeLine{00766\ \{}
+\DoxyCodeLine{00767\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___rotate_image_param_a989be2501a2b83b09902a7345c804c10}{nWidth}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00768\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___rotate_image_param_a255257cc872824c1f5ffc5bff7d92d01}{nHeight}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00769\ \ \ \ \ IMV\_EPixelType\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___rotate_image_param_ae7ae6eeccd6cfbdc95d6d049250b1dad}{ePixelFormat}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00770\ \ \ \ \ IMV\_ERotationAngle\ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___rotate_image_param_a5cce3d179c1623d0a3f24a8a4129e4de}{eRotationAngle}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00771\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___rotate_image_param_a014acc273b1654761dcfbc93adbc5201}{pSrcData}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00772\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___rotate_image_param_a68007d39c7acf7179a1d186af6e9d133}{nSrcDataLen}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00773\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___rotate_image_param_ae13ed7a70873e9fa054c252d5ae7eed6}{pDstBuf}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00774\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___rotate_image_param_afa2fe08cb958675e6be6990e996e5f46}{nDstBufSize}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00775\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___rotate_image_param_a95ba17b1368d510e5175b217d4db3f33}{nDstDataLen}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00776\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct___i_m_v___rotate_image_param_a6c41d7a3d71581988b82bc32668103a0}{nReserved}}[8];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00777\ \}\mbox{\hyperlink{struct___i_m_v___rotate_image_param}{IMV\_RotateImageParam}};}
+\DoxyCodeLine{00778\ }
+\DoxyCodeLine{00787\ \textcolor{keyword}{typedef}\ void(*IMV\_ConnectCallBack)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct___i_m_v___s_connect_arg}{IMV\_SConnectArg}}*\ pConnectArg,\ \textcolor{keywordtype}{void}*\ pUser);}
+\DoxyCodeLine{00788\ }
+\DoxyCodeLine{00797\ \textcolor{keyword}{typedef}\ void(*IMV\_ParamUpdateCallBack)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct___i_m_v___s_param_update_arg}{IMV\_SParamUpdateArg}}*\ pParamUpdateArg,\ \textcolor{keywordtype}{void}*\ pUser);}
+\DoxyCodeLine{00798\ }
+\DoxyCodeLine{00807\ \textcolor{keyword}{typedef}\ void(*IMV\_StreamCallBack)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct___i_m_v___s_stream_arg}{IMV\_SStreamArg}}*\ pStreamArg,\ \textcolor{keywordtype}{void}*\ pUser);}
+\DoxyCodeLine{00808\ }
+\DoxyCodeLine{00817\ \textcolor{keyword}{typedef}\ void(*IMV\_MsgChannelCallBack)(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct___i_m_v___s_msg_channel_arg}{IMV\_SMsgChannelArg}}*\ pMsgChannelArg,\ \textcolor{keywordtype}{void}*\ pUser);}
+\DoxyCodeLine{00818\ }
+\DoxyCodeLine{00827\ \textcolor{keyword}{typedef}\ void(*IMV\_FrameCallBack)(\mbox{\hyperlink{struct___i_m_v___frame}{IMV\_Frame}}*\ pFrame,\ \textcolor{keywordtype}{void}*\ pUser);}
+\DoxyCodeLine{00828\ }
+\DoxyCodeLine{00829\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_IMV\_DEFINES\_H\_\_}}
+
+\end{DoxyCode}

@@ -1,0 +1,38 @@
+\hypertarget{cypress__i2c_8h}{}\doxysection{src/projector/module/projector\+\_\+dlpc\+\_\+api/include/cypress\+\_\+i2c.h File Reference}
+\label{cypress__i2c_8h}\index{src/projector/module/projector\_dlpc\_api/include/cypress\_i2c.h@{src/projector/module/projector\_dlpc\_api/include/cypress\_i2c.h}}
+
+
+Sample code for I2C communication via Cypress USB-\/\+Serial Bridge Controller.  
+
+
+{\ttfamily \#include \char`\"{}stdbool.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stdint.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{cypress__i2c_8h_a211cb58b76198fc54805d7b84de85dc9}\label{cypress__i2c_8h_a211cb58b76198fc54805d7b84de85dc9}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Request\+I2\+CBus\+Access} ()
+\item 
+\mbox{\Hypertarget{cypress__i2c_8h_ae38e60253794dd0f09bd0e4acaf30534}\label{cypress__i2c_8h_ae38e60253794dd0f09bd0e4acaf30534}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Relinquish\+I2\+CBus\+Access} ()
+\item 
+\mbox{\Hypertarget{cypress__i2c_8h_adc1ebd179101264b5e15d8747abd6d0f}\label{cypress__i2c_8h_adc1ebd179101264b5e15d8747abd6d0f}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Write\+I2C} (uint32\+\_\+t Write\+Data\+Length, uint8\+\_\+t $\ast$Write\+Data)
+\item 
+\mbox{\Hypertarget{cypress__i2c_8h_acf08628bb9a5993db664a6310df4b165}\label{cypress__i2c_8h_acf08628bb9a5993db664a6310df4b165}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Read\+I2C} (uint32\+\_\+t Read\+Data\+Length, uint8\+\_\+t $\ast$Read\+Data)
+\item 
+\mbox{\Hypertarget{cypress__i2c_8h_a9f003ebc07f90586b3b6885a9cde98a6}\label{cypress__i2c_8h_a9f003ebc07f90586b3b6885a9cde98a6}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Connect\+To\+Cy\+I2C} ()
+\item 
+\mbox{\Hypertarget{cypress__i2c_8h_a73ce600a60e72c621c9079d875a0b93a}\label{cypress__i2c_8h_a73ce600a60e72c621c9079d875a0b93a}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Get\+Cy\+Gpio} (uint8\+\_\+t Gpio\+Num, uint8\+\_\+t $\ast$Value)
+\item 
+\mbox{\Hypertarget{cypress__i2c_8h_ae659b2abae8e07bdb1ee03795a03dad3}\label{cypress__i2c_8h_ae659b2abae8e07bdb1ee03795a03dad3}} 
+bool {\bfseries CYPRESS\+\_\+\+I2\+C\+\_\+\+Set\+Cy\+Gpio} (uint8\+\_\+t Gpio\+Num, uint8\+\_\+t Value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sample code for I2C communication via Cypress USB-\/\+Serial Bridge Controller. 
+

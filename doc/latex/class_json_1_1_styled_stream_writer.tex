@@ -1,0 +1,88 @@
+\hypertarget{class_json_1_1_styled_stream_writer}{}\doxysection{Json\+::Styled\+Stream\+Writer Class Reference}
+\label{class_json_1_1_styled_stream_writer}\index{Json::StyledStreamWriter@{Json::StyledStreamWriter}}
+
+
+Writes a \mbox{\hyperlink{class_json_1_1_value}{Value}} in \href{http://www.json.org}{\texttt{ JSON}} format in a human friendly way, to a stream rather than to a string.  
+
+
+
+
+{\ttfamily \#include $<$json.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_json_1_1_styled_stream_writer_aba02f94aa7f50d9835abef1530d17a0c}{Styled\+Stream\+Writer}} (String indentation=\char`\"{}\textbackslash{}t\char`\"{})
+\item 
+void \mbox{\hyperlink{class_json_1_1_styled_stream_writer_aaaeb88acc1bd7df1c805611afaf09728}{write}} (OStream \&out, const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&root)
+\begin{DoxyCompactList}\small\item\em Serialize a \mbox{\hyperlink{class_json_1_1_value}{Value}} in \href{http://www.json.org}{\texttt{ JSON}} format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Writes a \mbox{\hyperlink{class_json_1_1_value}{Value}} in \href{http://www.json.org}{\texttt{ JSON}} format in a human friendly way, to a stream rather than to a string. 
+
+The rules for line break and indent are as follow\+:
+\begin{DoxyItemize}
+\item Object value\+:
+\begin{DoxyItemize}
+\item if empty then print \{\} without indent and line break
+\item if not empty the print \textquotesingle{}\{\textquotesingle{}, line break \& indent, print one value per line and then unindent and line break and print \textquotesingle{}\}\textquotesingle{}.
+\end{DoxyItemize}
+\item Array value\+:
+\begin{DoxyItemize}
+\item if empty then print \mbox{[}\mbox{]} without indent and line break
+\item if the array contains no object value, empty array or some other value types, and all the values fit on one lines, then print the array on a single line.
+\item otherwise, it the values do not fit on one line, or the array contains object or non empty array, then print one value per line.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+If the \mbox{\hyperlink{class_json_1_1_value}{Value}} have comments then they are outputed according to their \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{Comment\+Placement}}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_json_1_1_reader}{Reader}}, \mbox{\hyperlink{class_json_1_1_value}{Value}}, \mbox{\hyperlink{class_json_1_1_value_a29f3a30f7e5d3af6f38d57999bf5b480}{Value\+::set\+Comment()}} 
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000010}{Deprecated}}]Use \mbox{\hyperlink{class_json_1_1_stream_writer_builder}{Stream\+Writer\+Builder}}. \end{DoxyRefDesc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_json_1_1_styled_stream_writer_aba02f94aa7f50d9835abef1530d17a0c}\label{class_json_1_1_styled_stream_writer_aba02f94aa7f50d9835abef1530d17a0c}} 
+\index{Json::StyledStreamWriter@{Json::StyledStreamWriter}!StyledStreamWriter@{StyledStreamWriter}}
+\index{StyledStreamWriter@{StyledStreamWriter}!Json::StyledStreamWriter@{Json::StyledStreamWriter}}
+\doxysubsubsection{\texorpdfstring{StyledStreamWriter()}{StyledStreamWriter()}}
+{\footnotesize\ttfamily Json\+::\+Styled\+Stream\+Writer\+::\+Styled\+Stream\+Writer (\begin{DoxyParamCaption}\item[{String}]{indentation = {\ttfamily \char`\"{}\textbackslash{}t\char`\"{}} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em indentation} & Each level will be indented by this amount extra. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_json_1_1_styled_stream_writer_aaaeb88acc1bd7df1c805611afaf09728}\label{class_json_1_1_styled_stream_writer_aaaeb88acc1bd7df1c805611afaf09728}} 
+\index{Json::StyledStreamWriter@{Json::StyledStreamWriter}!write@{write}}
+\index{write@{write}!Json::StyledStreamWriter@{Json::StyledStreamWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void Json\+::\+Styled\+Stream\+Writer\+::write (\begin{DoxyParamCaption}\item[{OStream \&}]{out,  }\item[{const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&}]{root }\end{DoxyParamCaption})}
+
+
+
+Serialize a \mbox{\hyperlink{class_json_1_1_value}{Value}} in \href{http://www.json.org}{\texttt{ JSON}} format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Stream to write to. (Can be ostringstream, e.\+g.) \\
+\hline
+{\em root} & \mbox{\hyperlink{class_json_1_1_value}{Value}} to serialize. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+There is no point in deriving from \mbox{\hyperlink{class_json_1_1_writer}{Writer}}, since \mbox{\hyperlink{class_json_1_1_styled_stream_writer_aaaeb88acc1bd7df1c805611afaf09728}{write()}} should not return a value. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/common/json.\+h\item 
+src/sl\+Camera/common/jsoncpp.\+cc\end{DoxyCompactItemize}

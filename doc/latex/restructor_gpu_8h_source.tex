@@ -1,0 +1,55 @@
+\hypertarget{restructor_gpu_8h_source}{}\doxysection{restructor\+Gpu.\+h}
+\label{restructor_gpu_8h_source}\index{src/slCamera/include/restructor/restructorGpu.h@{src/slCamera/include/restructor/restructorGpu.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ \_\_RESTRUCTOR\_RESTRUCTOR\_GPU\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ \_\_RESTRUCTOR\_RESTRUCTOR\_GPU\_H\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{restructor_8h}{restructor.h}}>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{matrixs_info_8h}{matrixsInfo.h}}>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <Eigen/Core>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <opencv2/core/eigen.hpp>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <device\_launch\_parameters.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <cuda\_runtime.h>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{namespace\ }restructor\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_gpu}{RestructorGpu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor}{Restructor}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_gpu}{RestructorGpu}}(IN\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool::Info}}\ \&calibrationInfo);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_gpu_af1dbe849cdda4ed8ae381fa6693ef40a}{restruction}}(IN\ \textcolor{keyword}{const}\ cv::cuda::GpuMat\ \&leftAbsImg,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ cv::cuda::GpuMat\ \&rightAbsImg,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{RestructParamater}}\ param,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::cuda::GpuMat\ \&depthImg,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&stream\ =\ cv::cuda::Stream::Null())\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_a1e738a6efd414275c0b47bd28d8f3900}{getDepthMap}}(IN\ \textcolor{keyword}{const}\ cv::cuda::GpuMat\ \&leftImg,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ cv::cuda::GpuMat\ \&rightImg,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{RestructParamater}}\ param,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::cuda::GpuMat\ \&depthImg,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&pStream\ =\ cv::cuda::Stream::Null());}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool::Info}}\ \&\_\_calibrationInfo;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//CPU端函数}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor_gpu_af1dbe849cdda4ed8ae381fa6693ef40a}{restruction}}(IN\ \textcolor{keyword}{const}\ cv::Mat\ \&leftAbsImg,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ cv::Mat\ \&rightAbsImg,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1restructor_1_1_restruct_paramater}{RestructParamater}}\ param,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::Mat\ \&depthImgOut)\textcolor{keyword}{\ \ override\ }\{\}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix4f\ \_\_Q;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix3f\ \_\_R1Inv;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix3f\ \_\_R;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Vector3f\ \_\_T;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix3f\ \_\_M1;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ Eigen::Matrix3f\ \_\_M3;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00089\ \ \ \ \ \}\textcolor{comment}{//\ namespace\ restructor}}
+\DoxyCodeLine{00090\ \}\textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_RESTRUCTOR\_RESTRUCTOR\_GPU\_H\_}}
+
+\end{DoxyCode}

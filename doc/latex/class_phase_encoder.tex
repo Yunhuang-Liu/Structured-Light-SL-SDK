@@ -1,0 +1,224 @@
+\hypertarget{class_phase_encoder}{}\doxysection{Phase\+Encoder Class Reference}
+\label{class_phase_encoder}\index{PhaseEncoder@{PhaseEncoder}}
+
+
+{\ttfamily \#include $<$code\+Maker.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_phase_encoder_a9f9ca19844eea4df0febc98073159d23}{Phase\+Encoder}} (const cv\+::\+Size)
+\begin{DoxyCompactList}\small\item\em 显式构造器，禁止隐式转换 \end{DoxyCompactList}\item 
+std\+::vector$<$ cv\+::\+Mat $>$ \& \mbox{\hyperlink{class_phase_encoder_ad442bb7b2e1a1499da26460d6704a135}{get\+Image}} ()
+\begin{DoxyCompactList}\small\item\em 获取生成的相移光栅图像 \end{DoxyCompactList}\item 
+std\+::vector$<$ cv\+::\+Mat $>$ \& \mbox{\hyperlink{class_phase_encoder_a937a718d2bfc62f3b2ac1e611567fdac}{creat\+Phase\+Image}} (const int num\+Of\+Phase\+Shift, const float patch\+Distance)
+\begin{DoxyCompactList}\small\item\em 创建相移光栅图像 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_phase_encoder_a078b453a39d4b0d29ccc5a806784aa37}{set\+Binary\+Phase\+Code}} (const bool state)
+\begin{DoxyCompactList}\small\item\em 设置二元光栅标志位 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_phase_encoder_aafa4e16ce9d97ceb37705964a890545f}{set\+OPWMCode}} (const bool state)
+\begin{DoxyCompactList}\small\item\em 设置\+OPWM光栅标志位 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_phase_encoder_ad66afedeb29d0a24c45eb37eb5c97779}{set\+Counter\+Mode}} (const bool state)
+\begin{DoxyCompactList}\small\item\em 设置反向相移模式标志位 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_phase_encoder_a24658f2ccb030d84ecd5066f0a0ed59e}{set\+White\+Mode}} (const bool state)
+\begin{DoxyCompactList}\small\item\em 设置纯白模式标志位 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_phase_encoder_ab567c3c16261c0a0bb81d52845268b04}{set\+Phase\+Error\+Expand\+Mode}} (const bool state)
+\begin{DoxyCompactList}\small\item\em 设置二维抖动标志位 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_phase_encoder_acbf00a7921c0e1f1d672a04d52a00af4}{create\+Imgeable\+Img}} (const int shift\+Num, const int patch\+Distance, std\+::vector$<$ cv\+::\+Mat $>$ \&imgs)
+\begin{DoxyCompactList}\small\item\em 生成理想正弦图片 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_phase_encoder_a747cfa07080239d36564c9133ba07843}{set\+Change\+ModeY}} (const bool state)
+\begin{DoxyCompactList}\small\item\em 设置竖直条纹生成标志位 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_phase_encoder_a2d5bf673f645b197d743d59d5ea25a14}{set\+Is\+One\+Height\+Mode}} (const bool state)
+\item 
+void \mbox{\hyperlink{class_phase_encoder_acbb86f9e7ff699662b688f1d479dadf5}{set\+Counter\+Direction}} (const bool state)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\textbackslash{}正弦相移光栅编码器 此编码器编码8bit图像，适配\+DLP3100投影仪 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_phase_encoder_a9f9ca19844eea4df0febc98073159d23}\label{class_phase_encoder_a9f9ca19844eea4df0febc98073159d23}} 
+\index{PhaseEncoder@{PhaseEncoder}!PhaseEncoder@{PhaseEncoder}}
+\index{PhaseEncoder@{PhaseEncoder}!PhaseEncoder@{PhaseEncoder}}
+\doxysubsubsection{\texorpdfstring{PhaseEncoder()}{PhaseEncoder()}}
+{\footnotesize\ttfamily Phase\+Encoder\+::\+Phase\+Encoder (\begin{DoxyParamCaption}\item[{const cv\+::\+Size}]{image\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+显式构造器，禁止隐式转换 
+
+
+\begin{DoxyParams}{Parameters}
+{\em encode\+Size} & 输入，编码图像尺寸(宽$\ast$高) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_phase_encoder_acbf00a7921c0e1f1d672a04d52a00af4}\label{class_phase_encoder_acbf00a7921c0e1f1d672a04d52a00af4}} 
+\index{PhaseEncoder@{PhaseEncoder}!createImgeableImg@{createImgeableImg}}
+\index{createImgeableImg@{createImgeableImg}!PhaseEncoder@{PhaseEncoder}}
+\doxysubsubsection{\texorpdfstring{createImgeableImg()}{createImgeableImg()}}
+{\footnotesize\ttfamily void Phase\+Encoder\+::create\+Imgeable\+Img (\begin{DoxyParamCaption}\item[{const int}]{shift\+Num,  }\item[{const int}]{patch\+Distance,  }\item[{std\+::vector$<$ cv\+::\+Mat $>$ \&}]{imgs }\end{DoxyParamCaption})}
+
+
+
+生成理想正弦图片 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shift\+Num} & 输入，相移步数 \\
+\hline
+{\em imgs} & 输入，生成的相移图片 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_phase_encoder_a937a718d2bfc62f3b2ac1e611567fdac}\label{class_phase_encoder_a937a718d2bfc62f3b2ac1e611567fdac}} 
+\index{PhaseEncoder@{PhaseEncoder}!creatPhaseImage@{creatPhaseImage}}
+\index{creatPhaseImage@{creatPhaseImage}!PhaseEncoder@{PhaseEncoder}}
+\doxysubsubsection{\texorpdfstring{creatPhaseImage()}{creatPhaseImage()}}
+{\footnotesize\ttfamily std\+::vector$<$ cv\+::\+Mat $>$ \& Phase\+Encoder\+::creat\+Phase\+Image (\begin{DoxyParamCaption}\item[{const int}]{num\+Of\+Phase\+Shift,  }\item[{const float}]{patch\+Distance }\end{DoxyParamCaption})}
+
+
+
+创建相移光栅图像 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Of\+Phase\+Shift} & 输入，相移步数 \\
+\hline
+{\em patch\+Distance} & 输入，莫尔条纹节距 \\
+\hline
+{\em 输出，创建的相移图片} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_phase_encoder_ad442bb7b2e1a1499da26460d6704a135}\label{class_phase_encoder_ad442bb7b2e1a1499da26460d6704a135}} 
+\index{PhaseEncoder@{PhaseEncoder}!getImage@{getImage}}
+\index{getImage@{getImage}!PhaseEncoder@{PhaseEncoder}}
+\doxysubsubsection{\texorpdfstring{getImage()}{getImage()}}
+{\footnotesize\ttfamily std\+::vector$<$ cv\+::\+Mat $>$ \& Phase\+Encoder\+::get\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+获取生成的相移光栅图像 
+
+\begin{DoxyReturn}{Returns}
+const cv\+::\+Mat 输出，生成的格雷码图像 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_phase_encoder_a078b453a39d4b0d29ccc5a806784aa37}\label{class_phase_encoder_a078b453a39d4b0d29ccc5a806784aa37}} 
+\index{PhaseEncoder@{PhaseEncoder}!setBinaryPhaseCode@{setBinaryPhaseCode}}
+\index{setBinaryPhaseCode@{setBinaryPhaseCode}!PhaseEncoder@{PhaseEncoder}}
+\doxysubsubsection{\texorpdfstring{setBinaryPhaseCode()}{setBinaryPhaseCode()}}
+{\footnotesize\ttfamily void Phase\+Encoder\+::set\+Binary\+Phase\+Code (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+设置二元光栅标志位 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & 输入，标志位 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_phase_encoder_a747cfa07080239d36564c9133ba07843}\label{class_phase_encoder_a747cfa07080239d36564c9133ba07843}} 
+\index{PhaseEncoder@{PhaseEncoder}!setChangeModeY@{setChangeModeY}}
+\index{setChangeModeY@{setChangeModeY}!PhaseEncoder@{PhaseEncoder}}
+\doxysubsubsection{\texorpdfstring{setChangeModeY()}{setChangeModeY()}}
+{\footnotesize\ttfamily void Phase\+Encoder\+::set\+Change\+ModeY (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+设置竖直条纹生成标志位 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & 输入，标志位 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_phase_encoder_acbb86f9e7ff699662b688f1d479dadf5}\label{class_phase_encoder_acbb86f9e7ff699662b688f1d479dadf5}} 
+\index{PhaseEncoder@{PhaseEncoder}!setCounterDirection@{setCounterDirection}}
+\index{setCounterDirection@{setCounterDirection}!PhaseEncoder@{PhaseEncoder}}
+\doxysubsubsection{\texorpdfstring{setCounterDirection()}{setCounterDirection()}}
+{\footnotesize\ttfamily void Phase\+Encoder\+::set\+Counter\+Direction (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em 设置反方向位移模式} & \\
+\hline
+\end{DoxyParams}
+@state 输入，状态位 \mbox{\Hypertarget{class_phase_encoder_ad66afedeb29d0a24c45eb37eb5c97779}\label{class_phase_encoder_ad66afedeb29d0a24c45eb37eb5c97779}} 
+\index{PhaseEncoder@{PhaseEncoder}!setCounterMode@{setCounterMode}}
+\index{setCounterMode@{setCounterMode}!PhaseEncoder@{PhaseEncoder}}
+\doxysubsubsection{\texorpdfstring{setCounterMode()}{setCounterMode()}}
+{\footnotesize\ttfamily void Phase\+Encoder\+::set\+Counter\+Mode (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+设置反向相移模式标志位 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & 输入，标志位 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_phase_encoder_a2d5bf673f645b197d743d59d5ea25a14}\label{class_phase_encoder_a2d5bf673f645b197d743d59d5ea25a14}} 
+\index{PhaseEncoder@{PhaseEncoder}!setIsOneHeightMode@{setIsOneHeightMode}}
+\index{setIsOneHeightMode@{setIsOneHeightMode}!PhaseEncoder@{PhaseEncoder}}
+\doxysubsubsection{\texorpdfstring{setIsOneHeightMode()}{setIsOneHeightMode()}}
+{\footnotesize\ttfamily void Phase\+Encoder\+::set\+Is\+One\+Height\+Mode (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em 设置1\+Bit图片生成标志位} & \\
+\hline
+\end{DoxyParams}
+@state 输入，状态位 \mbox{\Hypertarget{class_phase_encoder_aafa4e16ce9d97ceb37705964a890545f}\label{class_phase_encoder_aafa4e16ce9d97ceb37705964a890545f}} 
+\index{PhaseEncoder@{PhaseEncoder}!setOPWMCode@{setOPWMCode}}
+\index{setOPWMCode@{setOPWMCode}!PhaseEncoder@{PhaseEncoder}}
+\doxysubsubsection{\texorpdfstring{setOPWMCode()}{setOPWMCode()}}
+{\footnotesize\ttfamily void Phase\+Encoder\+::set\+OPWMCode (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+设置\+OPWM光栅标志位 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & 输入，标志位 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_phase_encoder_ab567c3c16261c0a0bb81d52845268b04}\label{class_phase_encoder_ab567c3c16261c0a0bb81d52845268b04}} 
+\index{PhaseEncoder@{PhaseEncoder}!setPhaseErrorExpandMode@{setPhaseErrorExpandMode}}
+\index{setPhaseErrorExpandMode@{setPhaseErrorExpandMode}!PhaseEncoder@{PhaseEncoder}}
+\doxysubsubsection{\texorpdfstring{setPhaseErrorExpandMode()}{setPhaseErrorExpandMode()}}
+{\footnotesize\ttfamily void Phase\+Encoder\+::set\+Phase\+Error\+Expand\+Mode (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+设置二维抖动标志位 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & 输入，标志位 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_phase_encoder_a24658f2ccb030d84ecd5066f0a0ed59e}\label{class_phase_encoder_a24658f2ccb030d84ecd5066f0a0ed59e}} 
+\index{PhaseEncoder@{PhaseEncoder}!setWhiteMode@{setWhiteMode}}
+\index{setWhiteMode@{setWhiteMode}!PhaseEncoder@{PhaseEncoder}}
+\doxysubsubsection{\texorpdfstring{setWhiteMode()}{setWhiteMode()}}
+{\footnotesize\ttfamily void Phase\+Encoder\+::set\+White\+Mode (\begin{DoxyParamCaption}\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+设置纯白模式标志位 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & 输入，标志位 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/module/binoocular\+Camera/include/\mbox{\hyperlink{code_maker_8h}{code\+Maker.\+h}}\item 
+src/sl\+Camera/module/binoocular\+Camera/src/code\+Maker.\+cc\end{DoxyCompactItemize}

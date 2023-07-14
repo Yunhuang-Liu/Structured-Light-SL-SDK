@@ -1,0 +1,441 @@
+\hypertarget{classsl_1_1sl_camera_1_1_s_l_camera}{}\doxysection{sl\+::sl\+Camera\+::SLCamera Class Reference}
+\label{classsl_1_1sl_camera_1_1_s_l_camera}\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+
+
+结构光相机  
+
+
+
+
+{\ttfamily \#include $<$sl\+Camera.\+h$>$}
+
+Inheritance diagram for sl\+::sl\+Camera\+::SLCamera\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsl_1_1sl_camera_1_1_s_l_camera}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_ab5a0d8709288429c0055369f21c8c0d5}{SLCamera}} (IN const std\+::string json\+Path)
+\begin{DoxyCompactList}\small\item\em 任何相机都应当严格的遵守json数据交换，为此拒绝其它构造方法 \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_ac19455f2da8d8f7f7de3bcfb48ccc2c3}{$\sim$\+SLCamera}} ()
+\begin{DoxyCompactList}\small\item\em 彻底析构 \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structsl_1_1sl_camera_1_1_s_l_camera_info}{SLCamera\+Info}} \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a9b7e09ea99f5523438c1c6643c3ff13f}{get\+Camera\+Info}} ()=0
+\begin{DoxyCompactList}\small\item\em 获取相机信息 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a1ad691672af19d3b8fbb96a5bf1e1e99}{connect}} ()=0
+\begin{DoxyCompactList}\small\item\em 连接 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_ac74efb796e3cfbd7f18d1e82d4d6e18a}{dis\+Connect}} ()=0
+\begin{DoxyCompactList}\small\item\em 断开连接 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a149b41792f36d8e479a7f332d20a48f1}{is\+Connect}} ()=0
+\begin{DoxyCompactList}\small\item\em 查询连接状态 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a23708d2fbc61845e46c8147a9f19c1a1}{capture}} (OUT \mbox{\hyperlink{structsl_1_1sl_camera_1_1_frame_data}{Frame\+Data}} \&frame\+Data)=0
+\begin{DoxyCompactList}\small\item\em 获取一帧数据 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a327b79bf86231390dc7e924261900d87}{off\+Line\+Capture}} (IN const std\+::vector$<$ cv\+::\+Mat $>$ \&left\+Imgs, IN const std\+::vector$<$ cv\+::\+Mat $>$ \&right\+Imgs, OUT \mbox{\hyperlink{structsl_1_1sl_camera_1_1_frame_data}{Frame\+Data}} \&frame\+Data)=0
+\begin{DoxyCompactList}\small\item\em 获取一帧数据(离线) \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a1c87c90fab0a0d57bb0d088affd91ea8}{set\+Depth\+Camera\+Enabled}} (const bool is\+Enable)=0
+\begin{DoxyCompactList}\small\item\em 是否使能深度相机( \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a97b543f3828b36509143f6870a58b0b2}{get\+String\+Attribute}} (IN const std\+::string attribute\+Name, OUT std\+::string \&val)=0
+\begin{DoxyCompactList}\small\item\em 获取字符属性值 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_ab808217ca3b8893a4fe9bba0b7b999f2}{get\+Numberical\+Attribute}} (IN const std\+::string attribute\+Name, OUT double \&val)=0
+\begin{DoxyCompactList}\small\item\em 获取数字属性值 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a27a96ac07d678eeda0f4448e22cf41a1}{get\+Boolean\+Attribute}} (IN const std\+::string attribute\+Name, OUT bool \&val)=0
+\begin{DoxyCompactList}\small\item\em 获取布尔属性值 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_aa8eb9ccec071f9b7fb22c93d3fed898b}{set\+String\+Attribute}} (IN const std\+::string attribute\+Name, IN const std\+::string val)=0
+\begin{DoxyCompactList}\small\item\em 设置字符属性值 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a79e1a6b7468f24395235db40cb543d42}{set\+Number\+Attribute}} (IN const std\+::string attribute\+Name, IN const double val)=0
+\begin{DoxyCompactList}\small\item\em 设置数字属性值 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a62ba647730b8fbd8979994ae1f059dea}{set\+Boolean\+Attribute}} (IN const std\+::string attribute\+Name, IN const bool val)=0
+\begin{DoxyCompactList}\small\item\em 设置布尔属性值 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a62f34ee7df751ff9ce0a6f66c52e2746}{reset\+Camera\+Config}} ()=0
+\begin{DoxyCompactList}\small\item\em 重置相机配置 \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera_a24db652f0a14133f76455b6692a7afca}{update\+Camera}} ()=0
+\begin{DoxyCompactList}\small\item\em 更新相机 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_acd6bd0a4aa0e76731a13208a83b46bfd}\label{classsl_1_1sl_camera_1_1_s_l_camera_acd6bd0a4aa0e76731a13208a83b46bfd}} 
+bool {\bfseries read\+Json\+File} (const std\+::string json\+Path, \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}} \&json\+Val)
+\item 
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a44f450ac538ac0e9917d563181286f1b}\label{classsl_1_1sl_camera_1_1_s_l_camera_a44f450ac538ac0e9917d563181286f1b}} 
+bool {\bfseries write\+Json\+File} (const std\+::string json\+Path, \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}} \&json\+Val)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+结构光相机 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_ab5a0d8709288429c0055369f21c8c0d5}\label{classsl_1_1sl_camera_1_1_s_l_camera_ab5a0d8709288429c0055369f21c8c0d5}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!SLCamera@{SLCamera}}
+\index{SLCamera@{SLCamera}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{SLCamera()}{SLCamera()}}
+{\footnotesize\ttfamily sl\+::sl\+Camera\+::\+SLCamera\+::\+SLCamera (\begin{DoxyParamCaption}\item[{IN const std\+::string}]{json\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+任何相机都应当严格的遵守json数据交换，为此拒绝其它构造方法 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json\+Path} & json文件路径 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_ac19455f2da8d8f7f7de3bcfb48ccc2c3}\label{classsl_1_1sl_camera_1_1_s_l_camera_ac19455f2da8d8f7f7de3bcfb48ccc2c3}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!````~SLCamera@{$\sim$SLCamera}}
+\index{````~SLCamera@{$\sim$SLCamera}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{$\sim$SLCamera()}{~SLCamera()}}
+{\footnotesize\ttfamily virtual sl\+::sl\+Camera\+::\+SLCamera\+::$\sim$\+SLCamera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+彻底析构 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a23708d2fbc61845e46c8147a9f19c1a1}\label{classsl_1_1sl_camera_1_1_s_l_camera_a23708d2fbc61845e46c8147a9f19c1a1}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!capture@{capture}}
+\index{capture@{capture}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{capture()}{capture()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::capture (\begin{DoxyParamCaption}\item[{OUT \mbox{\hyperlink{structsl_1_1sl_camera_1_1_frame_data}{Frame\+Data}} \&}]{frame\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+获取一帧数据 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\+Data} & 获取到的数据 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a1ad691672af19d3b8fbb96a5bf1e1e99}\label{classsl_1_1sl_camera_1_1_s_l_camera_a1ad691672af19d3b8fbb96a5bf1e1e99}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!connect@{connect}}
+\index{connect@{connect}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+连接 
+
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a990c3f2c90d7a7e805e5e3922427d947}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_ac74efb796e3cfbd7f18d1e82d4d6e18a}\label{classsl_1_1sl_camera_1_1_s_l_camera_ac74efb796e3cfbd7f18d1e82d4d6e18a}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!disConnect@{disConnect}}
+\index{disConnect@{disConnect}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{disConnect()}{disConnect()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::dis\+Connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+断开连接 
+
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_aff44c25f423972feebb62b893573509a}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a27a96ac07d678eeda0f4448e22cf41a1}\label{classsl_1_1sl_camera_1_1_s_l_camera_a27a96ac07d678eeda0f4448e22cf41a1}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!getBooleanAttribute@{getBooleanAttribute}}
+\index{getBooleanAttribute@{getBooleanAttribute}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{getBooleanAttribute()}{getBooleanAttribute()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::get\+Boolean\+Attribute (\begin{DoxyParamCaption}\item[{IN const std\+::string}]{attribute\+Name,  }\item[{OUT bool \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+获取布尔属性值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attribute\+Name} & 布尔属性名称 \\
+\hline
+{\em val} & 当前布尔属性值 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a2daf3d577aeba66df550a1826c13212c}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a9b7e09ea99f5523438c1c6643c3ff13f}\label{classsl_1_1sl_camera_1_1_s_l_camera_a9b7e09ea99f5523438c1c6643c3ff13f}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!getCameraInfo@{getCameraInfo}}
+\index{getCameraInfo@{getCameraInfo}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{getCameraInfo()}{getCameraInfo()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structsl_1_1sl_camera_1_1_s_l_camera_info}{SLCamera\+Info}} sl\+::sl\+Camera\+::\+SLCamera\+::get\+Camera\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+获取相机信息 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structsl_1_1sl_camera_1_1_s_l_camera_info}{SLCamera\+Info}} 相机信息 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a5749aae95b6eea78c786957cde0e772c}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_ab808217ca3b8893a4fe9bba0b7b999f2}\label{classsl_1_1sl_camera_1_1_s_l_camera_ab808217ca3b8893a4fe9bba0b7b999f2}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!getNumbericalAttribute@{getNumbericalAttribute}}
+\index{getNumbericalAttribute@{getNumbericalAttribute}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{getNumbericalAttribute()}{getNumbericalAttribute()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::get\+Numberical\+Attribute (\begin{DoxyParamCaption}\item[{IN const std\+::string}]{attribute\+Name,  }\item[{OUT double \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+获取数字属性值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attribute\+Name} & 数字属性名称 \\
+\hline
+{\em val} & 当前数字属性值 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a931ac1f916d678778bb728abaf0ad812}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a97b543f3828b36509143f6870a58b0b2}\label{classsl_1_1sl_camera_1_1_s_l_camera_a97b543f3828b36509143f6870a58b0b2}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!getStringAttribute@{getStringAttribute}}
+\index{getStringAttribute@{getStringAttribute}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{getStringAttribute()}{getStringAttribute()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::get\+String\+Attribute (\begin{DoxyParamCaption}\item[{IN const std\+::string}]{attribute\+Name,  }\item[{OUT std\+::string \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+获取字符属性值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attribute\+Name} & 字符属性名称 \\
+\hline
+{\em val} & 当前字符属性值 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_ada043a52902e7b7438a7ca71be301091}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a149b41792f36d8e479a7f332d20a48f1}\label{classsl_1_1sl_camera_1_1_s_l_camera_a149b41792f36d8e479a7f332d20a48f1}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!isConnect@{isConnect}}
+\index{isConnect@{isConnect}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{isConnect()}{isConnect()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::is\+Connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+查询连接状态 
+
+\begin{DoxyReturn}{Returns}
+true 已连接 
+
+false 已断连 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a25a513d18ead3155ab9c87fa51781dc0}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a327b79bf86231390dc7e924261900d87}\label{classsl_1_1sl_camera_1_1_s_l_camera_a327b79bf86231390dc7e924261900d87}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!offLineCapture@{offLineCapture}}
+\index{offLineCapture@{offLineCapture}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{offLineCapture()}{offLineCapture()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::off\+Line\+Capture (\begin{DoxyParamCaption}\item[{IN const std\+::vector$<$ cv\+::\+Mat $>$ \&}]{left\+Imgs,  }\item[{IN const std\+::vector$<$ cv\+::\+Mat $>$ \&}]{right\+Imgs,  }\item[{OUT \mbox{\hyperlink{structsl_1_1sl_camera_1_1_frame_data}{Frame\+Data}} \&}]{frame\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+获取一帧数据(离线) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+Imgs} & 输入的左相机图片 \\
+\hline
+{\em right\+Imgs} & 输入的右相机图片 \\
+\hline
+{\em frame\+Data} & 获取到的数据 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a5eb5f5518602fe553e71efcda149ceb7}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a62f34ee7df751ff9ce0a6f66c52e2746}\label{classsl_1_1sl_camera_1_1_s_l_camera_a62f34ee7df751ff9ce0a6f66c52e2746}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!resetCameraConfig@{resetCameraConfig}}
+\index{resetCameraConfig@{resetCameraConfig}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{resetCameraConfig()}{resetCameraConfig()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::reset\+Camera\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+重置相机配置 
+
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a3c9ba01a51d68ceb1cf61a5241a66da9}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a62ba647730b8fbd8979994ae1f059dea}\label{classsl_1_1sl_camera_1_1_s_l_camera_a62ba647730b8fbd8979994ae1f059dea}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!setBooleanAttribute@{setBooleanAttribute}}
+\index{setBooleanAttribute@{setBooleanAttribute}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{setBooleanAttribute()}{setBooleanAttribute()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::set\+Boolean\+Attribute (\begin{DoxyParamCaption}\item[{IN const std\+::string}]{attribute\+Name,  }\item[{IN const bool}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+设置布尔属性值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attribute\+Name} & 布尔属性名称 \\
+\hline
+{\em val} & 需要设置的值 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a307d69b3bb356ab4958b339a0e48203d}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a1c87c90fab0a0d57bb0d088affd91ea8}\label{classsl_1_1sl_camera_1_1_s_l_camera_a1c87c90fab0a0d57bb0d088affd91ea8}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!setDepthCameraEnabled@{setDepthCameraEnabled}}
+\index{setDepthCameraEnabled@{setDepthCameraEnabled}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{setDepthCameraEnabled()}{setDepthCameraEnabled()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::set\+Depth\+Camera\+Enabled (\begin{DoxyParamCaption}\item[{const bool}]{is\+Enable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+是否使能深度相机( 
+
+\begin{DoxyNote}{Note}
+尽管我们可以使用set\+String\+Attribute，但在此处强制重写的原因是如果没有关闭深度相机接口，进行手眼标定等只需纹理场合较为麻烦)
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Enable} & 使能标志位 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a79e1a6b7468f24395235db40cb543d42}\label{classsl_1_1sl_camera_1_1_s_l_camera_a79e1a6b7468f24395235db40cb543d42}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!setNumberAttribute@{setNumberAttribute}}
+\index{setNumberAttribute@{setNumberAttribute}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{setNumberAttribute()}{setNumberAttribute()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::set\+Number\+Attribute (\begin{DoxyParamCaption}\item[{IN const std\+::string}]{attribute\+Name,  }\item[{IN const double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+设置数字属性值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attribute\+Name} & 数字属性名称 \\
+\hline
+{\em val} & 需要设置的值 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_af7aefe6adb3962296a20d4d60c8077ee}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_aa8eb9ccec071f9b7fb22c93d3fed898b}\label{classsl_1_1sl_camera_1_1_s_l_camera_aa8eb9ccec071f9b7fb22c93d3fed898b}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!setStringAttribute@{setStringAttribute}}
+\index{setStringAttribute@{setStringAttribute}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{setStringAttribute()}{setStringAttribute()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::set\+String\+Attribute (\begin{DoxyParamCaption}\item[{IN const std\+::string}]{attribute\+Name,  }\item[{IN const std\+::string}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+设置字符属性值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attribute\+Name} & 字符属性名称 \\
+\hline
+{\em val} & 需要设置的值 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_aa3d63503f6078b1b82699ed7ee739eea}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+\mbox{\Hypertarget{classsl_1_1sl_camera_1_1_s_l_camera_a24db652f0a14133f76455b6692a7afca}\label{classsl_1_1sl_camera_1_1_s_l_camera_a24db652f0a14133f76455b6692a7afca}} 
+\index{sl::slCamera::SLCamera@{sl::slCamera::SLCamera}!updateCamera@{updateCamera}}
+\index{updateCamera@{updateCamera}!sl::slCamera::SLCamera@{sl::slCamera::SLCamera}}
+\doxysubsubsection{\texorpdfstring{updateCamera()}{updateCamera()}}
+{\footnotesize\ttfamily virtual bool sl\+::sl\+Camera\+::\+SLCamera\+::update\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+更新相机 
+
+\begin{DoxyReturn}{Returns}
+true 成功 
+
+false 失败 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a7918a8601b50e3808ad1d0793a2df6ee}{sl\+::sl\+Camera\+::\+Binocular\+Camera}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/common/sl\+Camera.\+h\end{DoxyCompactItemize}

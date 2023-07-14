@@ -1,0 +1,61 @@
+\hypertarget{classsl_1_1wrap_creator_1_1_wrap_creator_gpu}{}\doxysection{sl\+::wrap\+Creator\+::Wrap\+Creator\+Gpu Class Reference}
+\label{classsl_1_1wrap_creator_1_1_wrap_creator_gpu}\index{sl::wrapCreator::WrapCreatorGpu@{sl::wrapCreator::WrapCreatorGpu}}
+
+
+GPU加速包裹相位求解器  
+
+
+
+
+{\ttfamily \#include $<$wrap\+Creator\+Gpu.\+h$>$}
+
+Inheritance diagram for sl\+::wrap\+Creator\+::Wrap\+Creator\+Gpu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsl_1_1wrap_creator_1_1_wrap_creator_gpu}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator_gpu_a36e2f5cb7fc710dd539ba4936b45c6d3}{get\+Wrap\+Img}} (IN const std\+::vector$<$ cv\+::\+Mat $>$ \&imgs, OUT cv\+::cuda\+::\+Gpu\+Mat \&wrap\+Img, OUT cv\+::cuda\+::\+Gpu\+Mat \&condition\+Img, IN cv\+::cuda\+::\+Stream \&cv\+Stream=cv\+::cuda\+::\+Stream\+::\+Null(), IN const dim3 block=dim3(32, 8)) override
+\begin{DoxyCompactList}\small\item\em 求取包裹相位 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator}{sl\+::wrap\+Creator\+::\+Wrap\+Creator}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator_a34f2a617eb6e8a82e5b646ccc3877c13}{get\+Wrap\+Img}} (IN const std\+::vector$<$ cv\+::\+Mat $>$ \&imgs, OUT cv\+::\+Mat \&wrap\+Img, OUT cv\+::\+Mat \&condition\+Img)=0
+\begin{DoxyCompactList}\small\item\em 获取包裹相位 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+GPU加速包裹相位求解器 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsl_1_1wrap_creator_1_1_wrap_creator_gpu_a36e2f5cb7fc710dd539ba4936b45c6d3}\label{classsl_1_1wrap_creator_1_1_wrap_creator_gpu_a36e2f5cb7fc710dd539ba4936b45c6d3}} 
+\index{sl::wrapCreator::WrapCreatorGpu@{sl::wrapCreator::WrapCreatorGpu}!getWrapImg@{getWrapImg}}
+\index{getWrapImg@{getWrapImg}!sl::wrapCreator::WrapCreatorGpu@{sl::wrapCreator::WrapCreatorGpu}}
+\doxysubsubsection{\texorpdfstring{getWrapImg()}{getWrapImg()}}
+{\footnotesize\ttfamily void sl\+::wrap\+Creator\+::\+Wrap\+Creator\+Gpu\+::get\+Wrap\+Img (\begin{DoxyParamCaption}\item[{IN const std\+::vector$<$ cv\+::\+Mat $>$ \&}]{imgs,  }\item[{OUT cv\+::cuda\+::\+Gpu\+Mat \&}]{wrap\+Img,  }\item[{OUT cv\+::cuda\+::\+Gpu\+Mat \&}]{condition\+Img,  }\item[{IN cv\+::cuda\+::\+Stream \&}]{cv\+Stream = {\ttfamily cv\+:\+:cuda\+:\+:Stream\+:\+:Null()},  }\item[{IN const dim3}]{block = {\ttfamily dim3(32,~8)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+求取包裹相位 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imgs} & 输入，相移图片(\+CV\+\_\+8\+UC1) \\
+\hline
+{\em wrap\+Img} & 输入，包裹图片(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em condition\+Img} & 输入，背景图片(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em cv\+Stream} & 输入，非阻塞流 \\
+\hline
+{\em block} & 输入，加速参数 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/include/wrap\+Creator/\mbox{\hyperlink{wrap_creator_gpu_8h}{wrap\+Creator\+Gpu.\+h}}\end{DoxyCompactItemize}

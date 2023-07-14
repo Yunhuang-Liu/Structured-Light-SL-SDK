@@ -1,0 +1,43 @@
+\hypertarget{wrap_creator_cpu_8h_source}{}\doxysection{wrap\+Creator\+Cpu.\+h}
+\label{wrap_creator_cpu_8h_source}\index{src/slCamera/include/wrapCreator/wrapCreatorCpu.h@{src/slCamera/include/wrapCreator/wrapCreatorCpu.h}}
+\mbox{\hyperlink{wrap_creator_cpu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_WRAPCREATOR\_WRAPCREATOR\_CPU\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_WRAPCREATOR\_WRAPCREATOR\_CPU\_H\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{wrap_creator_8h}{wrapCreator.h}}>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <immintrin.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }wrapCreator\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator_cpu}{WrapCreatorCpu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator}{WrapCreator}}\ \{}
+\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator_cpu_a3bfe74fbc843fbe385fafad0843f3ab9}{getWrapImg}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,\ OUT\ cv::Mat\ \&wrapImg,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::Mat\ \&conditionImg)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1wrap_creator_1_1_wrap_creator_cpu_a3bfe74fbc843fbe385fafad0843f3ab9}{getWrapImg}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::cuda::GpuMat\ \&wrapImg,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::cuda::GpuMat\ \&conditionImg,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&cvStream\ =\ cv::cuda::Stream::Null(),}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ dim3\ block\ =\ dim3(32,\ 8))\textcolor{keyword}{\ override}\{\};}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ solveTextureImgs(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::Mat\ \&conditionImg);}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ entrySolveTextureImgs(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ cv::Point2i\ region,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ cv::Mat\ \&conditionImg);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ entryWrap(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ cv::Point2i\ \&region,\ OUT\ cv::Mat\ \&wrapImg);}
+\DoxyCodeLine{00076\ \};}
+\DoxyCodeLine{00077\ \}\ \textcolor{comment}{//\ namespace\ wrapCreator}}
+\DoxyCodeLine{00078\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_WRAPCREATOR\_WRAPCREATOR\_CPU\_H\_}}
+
+\end{DoxyCode}

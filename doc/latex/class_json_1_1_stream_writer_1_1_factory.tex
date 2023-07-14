@@ -1,0 +1,53 @@
+\hypertarget{class_json_1_1_stream_writer_1_1_factory}{}\doxysection{Json\+::Stream\+Writer\+::Factory Class Reference}
+\label{class_json_1_1_stream_writer_1_1_factory}\index{Json::StreamWriter::Factory@{Json::StreamWriter::Factory}}
+
+
+A simple abstract factory.  
+
+
+
+
+{\ttfamily \#include $<$json.\+h$>$}
+
+Inheritance diagram for Json\+::Stream\+Writer\+::Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_json_1_1_stream_writer_1_1_factory}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_json_1_1_stream_writer}{Stream\+Writer}} $\ast$ \mbox{\hyperlink{class_json_1_1_stream_writer_1_1_factory_ad7e8432ba542dcb01fe9ee12dcd0e574}{new\+Stream\+Writer}} () const =0
+\begin{DoxyCompactList}\small\item\em Allocate a \mbox{\hyperlink{class_json_1_1_char_reader}{Char\+Reader}} via operator new(). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple abstract factory. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_json_1_1_stream_writer_1_1_factory_ad7e8432ba542dcb01fe9ee12dcd0e574}\label{class_json_1_1_stream_writer_1_1_factory_ad7e8432ba542dcb01fe9ee12dcd0e574}} 
+\index{Json::StreamWriter::Factory@{Json::StreamWriter::Factory}!newStreamWriter@{newStreamWriter}}
+\index{newStreamWriter@{newStreamWriter}!Json::StreamWriter::Factory@{Json::StreamWriter::Factory}}
+\doxysubsubsection{\texorpdfstring{newStreamWriter()}{newStreamWriter()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_json_1_1_stream_writer}{Stream\+Writer}} $\ast$ Json\+::\+Stream\+Writer\+::\+Factory\+::new\+Stream\+Writer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Allocate a \mbox{\hyperlink{class_json_1_1_char_reader}{Char\+Reader}} via operator new(). 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & if something goes wrong (e.\+g. invalid settings) \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{class_json_1_1_stream_writer_builder_a042d21b84d8c5bede52a764e2ada7d65}{Json\+::\+Stream\+Writer\+Builder}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/common/json.\+h\item 
+src/sl\+Camera/common/jsoncpp.\+cc\end{DoxyCompactItemize}

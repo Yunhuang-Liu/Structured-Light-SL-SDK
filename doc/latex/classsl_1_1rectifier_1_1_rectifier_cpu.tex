@@ -1,0 +1,104 @@
+\hypertarget{classsl_1_1rectifier_1_1_rectifier_cpu}{}\doxysection{sl\+::rectifier\+::Rectifier\+Cpu Class Reference}
+\label{classsl_1_1rectifier_1_1_rectifier_cpu}\index{sl::rectifier::RectifierCpu@{sl::rectifier::RectifierCpu}}
+
+
+CPU极线校正器  
+
+
+
+
+{\ttfamily \#include $<$rectifier\+Cpu.\+h$>$}
+
+Inheritance diagram for sl\+::rectifier\+::Rectifier\+Cpu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsl_1_1rectifier_1_1_rectifier_cpu}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_cpu_a0f2de0bf32e894fccbe71186e81ab778}{Rectifier\+Cpu}} (IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool\+::\+Info}} \&info)
+\begin{DoxyCompactList}\small\item\em 使用标定参数构造极线校正器 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_cpu_af426d44624fde842eccf631171b6651b}{initialize}} (IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool\+::\+Info}} \&info) override
+\begin{DoxyCompactList}\small\item\em 使用标定参数初始化极线校正器 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_cpu_abc4d98d5678dca15758b6ee00577f71b}{remap\+Img}} (IN const cv\+::\+Mat \&img\+Input, OUT cv\+::\+Mat \&img\+Output, IN const bool is\+Left=true) override
+\begin{DoxyCompactList}\small\item\em 对图片进行极线校正 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_a31218f29e4ef9d541ddd63a262db7128}{initialize}} (IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool\+::\+Info}} \&info)=0
+\begin{DoxyCompactList}\small\item\em 使用标定参数初始化极线校正器 \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_af548ae8deff746041196d5bd41170c6d}{remap\+Img}} (IN const cv\+::\+Mat \&img\+Input, OUT cv\+::\+Mat \&img\+Output, IN const bool is\+Left=true)=0
+\begin{DoxyCompactList}\small\item\em 对图片进行极线校正 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+CPU极线校正器 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsl_1_1rectifier_1_1_rectifier_cpu_a0f2de0bf32e894fccbe71186e81ab778}\label{classsl_1_1rectifier_1_1_rectifier_cpu_a0f2de0bf32e894fccbe71186e81ab778}} 
+\index{sl::rectifier::RectifierCpu@{sl::rectifier::RectifierCpu}!RectifierCpu@{RectifierCpu}}
+\index{RectifierCpu@{RectifierCpu}!sl::rectifier::RectifierCpu@{sl::rectifier::RectifierCpu}}
+\doxysubsubsection{\texorpdfstring{RectifierCpu()}{RectifierCpu()}}
+{\footnotesize\ttfamily sl\+::rectifier\+::\+Rectifier\+Cpu\+::\+Rectifier\+Cpu (\begin{DoxyParamCaption}\item[{IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool\+::\+Info}} \&}]{info }\end{DoxyParamCaption})}
+
+
+
+使用标定参数构造极线校正器 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & 相机标定参数 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsl_1_1rectifier_1_1_rectifier_cpu_af426d44624fde842eccf631171b6651b}\label{classsl_1_1rectifier_1_1_rectifier_cpu_af426d44624fde842eccf631171b6651b}} 
+\index{sl::rectifier::RectifierCpu@{sl::rectifier::RectifierCpu}!initialize@{initialize}}
+\index{initialize@{initialize}!sl::rectifier::RectifierCpu@{sl::rectifier::RectifierCpu}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void sl\+::rectifier\+::\+Rectifier\+Cpu\+::initialize (\begin{DoxyParamCaption}\item[{IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool\+::\+Info}} \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+使用标定参数初始化极线校正器 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & 相机标定参数 \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_a31218f29e4ef9d541ddd63a262db7128}{sl\+::rectifier\+::\+Rectifier}}.
+
+\mbox{\Hypertarget{classsl_1_1rectifier_1_1_rectifier_cpu_abc4d98d5678dca15758b6ee00577f71b}\label{classsl_1_1rectifier_1_1_rectifier_cpu_abc4d98d5678dca15758b6ee00577f71b}} 
+\index{sl::rectifier::RectifierCpu@{sl::rectifier::RectifierCpu}!remapImg@{remapImg}}
+\index{remapImg@{remapImg}!sl::rectifier::RectifierCpu@{sl::rectifier::RectifierCpu}}
+\doxysubsubsection{\texorpdfstring{remapImg()}{remapImg()}}
+{\footnotesize\ttfamily void sl\+::rectifier\+::\+Rectifier\+Cpu\+::remap\+Img (\begin{DoxyParamCaption}\item[{IN const cv\+::\+Mat \&}]{img\+Input,  }\item[{OUT cv\+::\+Mat \&}]{img\+Output,  }\item[{IN const bool}]{is\+Left = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+对图片进行极线校正 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img\+Input} & 输入图片(CV\+\_\+8\+UC1 $\vert$$\vert$ CV\+\_\+32\+FC1) \\
+\hline
+{\em img\+Output} & 输出图片(CV\+\_\+8\+UC1 $\vert$$\vert$ CV\+\_\+32\+FC1) \\
+\hline
+{\em is\+Left} & 是否进行左相机校正：true 左，false 右 \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_af548ae8deff746041196d5bd41170c6d}{sl\+::rectifier\+::\+Rectifier}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/include/rectifier/\mbox{\hyperlink{rectifier_cpu_8h}{rectifier\+Cpu.\+h}}\item 
+src/sl\+Camera/src/rectifier/rectifier\+Cpu.\+cc\end{DoxyCompactItemize}

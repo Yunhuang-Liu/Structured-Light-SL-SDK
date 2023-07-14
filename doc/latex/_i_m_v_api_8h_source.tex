@@ -1,0 +1,182 @@
+\hypertarget{_i_m_v_api_8h_source}{}\doxysection{IMVApi.\+h}
+\label{_i_m_v_api_8h_source}\index{src/camera/module/huaray\_camera/include/IMVApi.h@{src/camera/module/huaray\_camera/include/IMVApi.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ \_\_IMV\_API\_H\_\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ \_\_IMV\_API\_H\_\_}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}IMVDefines.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#if\ (defined\ (\_WIN32)\ ||\ defined(WIN64))}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ IMV\_API\_DLL\_BUILD}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ IMV\_API\ \_declspec(dllexport)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ IMV\_API\ \_declspec(dllimport)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \ \ \#define\ IMV\_CALL\ \_\_stdcall}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \ \ \#define\ IMV\_API}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ \#define\ IMV\_CALL}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00039\ IMV\_API\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ IMV\_CALL\ IMV\_GetVersion(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00065\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_EnumDevices(OUT\ \mbox{\hyperlink{struct___i_m_v___device_list}{IMV\_DeviceList}}\ *pDeviceList,\ IN\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ interfaceType);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00077\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_EnumDevicesByUnicast(OUT\ \mbox{\hyperlink{struct___i_m_v___device_list}{IMV\_DeviceList}}\ *pDeviceList,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pIpAddress);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00091\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_CreateHandle(OUT\ IMV\_HANDLE*\ handle,\ IN\ IMV\_ECreateHandleMode\ mode,\ IN\ \textcolor{keywordtype}{void}*\ pIdentifier);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00101\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_DestroyHandle(IN\ IMV\_HANDLE\ handle);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00113\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetDeviceInfo(IN\ IMV\_HANDLE\ handle,\ OUT\ \mbox{\hyperlink{struct___i_m_v___device_info}{IMV\_DeviceInfo}}\ *pDevInfo);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00123\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_Open(IN\ IMV\_HANDLE\ handle);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00135\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_OpenEx(IN\ IMV\_HANDLE\ handle,\ IN\ IMV\_ECameraAccessPermission\ accessPermission);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00145\ IMV\_API\ \textcolor{keywordtype}{bool}\ IMV\_CALL\ IMV\_IsOpen(IN\ IMV\_HANDLE\ handle);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00155\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_Close(IN\ IMV\_HANDLE\ handle);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00180\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GIGE\_ForceIpAddress(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pIpAddress,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pSubnetMask,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pGateway);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00192\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GIGE\_GetAccessPermission(IN\ IMV\_HANDLE\ handle,\ OUT\ IMV\_ECameraAccessPermission*\ pAccessPermission);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00204\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GIGE\_SetAnswerTimeout(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ timeout);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00216\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_DownLoadGenICamXML(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFullFileName);}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00228\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_SaveDeviceCfg(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFullFileName);}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00242\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_LoadDeviceCfg(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFullFileName,\ OUT\ \mbox{\hyperlink{struct___i_m_v___error_list}{IMV\_ErrorList}}*\ pErrorList);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00256\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_WriteUserPrivateData(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keywordtype}{void}*\ pBuffer,\ IN\_OUT\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ pLength);}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00270\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_ReadUserPrivateData(IN\ IMV\_HANDLE\ handle,\ OUT\ \textcolor{keywordtype}{void}*\ pBuffer,\ IN\_OUT\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ pLength);}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00284\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_WriteUARTData(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keywordtype}{void}*\ pBuffer,\ IN\_OUT\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ pLength);}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00298\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_ReadUARTData(IN\ IMV\_HANDLE\ handle,\ OUT\ \textcolor{keywordtype}{void}*\ pBuffer,\ IN\_OUT\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ pLength);}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00317\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_SubscribeConnectArg(IN\ IMV\_HANDLE\ handle,\ IN\ IMV\_ConnectCallBack\ proc,\ IN\ \textcolor{keywordtype}{void}*\ pUser);}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00336\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_SubscribeParamUpdateArg(IN\ IMV\_HANDLE\ handle,\ IN\ IMV\_ParamUpdateCallBack\ proc,\ IN\ \textcolor{keywordtype}{void}*\ pUser);}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00355\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_SubscribeStreamArg(IN\ IMV\_HANDLE\ handle,\ IN\ IMV\_StreamCallBack\ proc,\ IN\ \textcolor{keywordtype}{void}*\ pUser);}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00374\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_SubscribeMsgChannelArg(IN\ IMV\_HANDLE\ handle,\ IN\ IMV\_MsgChannelCallBack\ proc,\ IN\ \textcolor{keywordtype}{void}*\ pUser);}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00390\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_SetBufferCount(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nSize);}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00400\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_ClearFrameBuffer(IN\ IMV\_HANDLE\ handle);}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00416\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GIGE\_SetInterPacketTimeout(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nTimeout);}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00432\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GIGE\_SetSingleResendMaxPacketNum(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ maxPacketNum);}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00448\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GIGE\_SetMaxLostPacketNum(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ maxLostPacketNum);}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00469\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_USB\_SetUrbTransfer(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nNum,\ IN\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nSize);}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00479\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_StartGrabbing(IN\ IMV\_HANDLE\ handle);}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00494\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_StartGrabbingEx(IN\ IMV\_HANDLE\ handle,\ IN\ uint64\_t\ maxImagesGrabbed,\ IN\ IMV\_EGrabStrategy\ strategy);}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00504\ IMV\_API\ \textcolor{keywordtype}{bool}\ IMV\_CALL\ IMV\_IsGrabbing(IN\ IMV\_HANDLE\ handle);}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00514\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_StopGrabbing(IN\ IMV\_HANDLE\ handle);}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00537\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_AttachGrabbing(IN\ IMV\_HANDLE\ handle,\ IN\ IMV\_FrameCallBack\ proc,\ IN\ \textcolor{keywordtype}{void}*\ pUser);}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00560\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetFrame(IN\ IMV\_HANDLE\ handle,\ OUT\ \mbox{\hyperlink{struct___i_m_v___frame}{IMV\_Frame}}*\ pFrame,\ IN\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ timeoutMS);}
+\DoxyCodeLine{00561\ }
+\DoxyCodeLine{00572\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_ReleaseFrame(IN\ IMV\_HANDLE\ handle,\ IN\ \mbox{\hyperlink{struct___i_m_v___frame}{IMV\_Frame}}*\ pFrame);}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_CloneFrame(IN\ IMV\_HANDLE\ handle,\ IN\ \mbox{\hyperlink{struct___i_m_v___frame}{IMV\_Frame}}*\ pFrame,\ OUT\ \mbox{\hyperlink{struct___i_m_v___frame}{IMV\_Frame}}*\ pCloneFrame);}
+\DoxyCodeLine{00592\ }
+\DoxyCodeLine{00607\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetChunkDataByIndex(IN\ IMV\_HANDLE\ handle,\ IN\ \mbox{\hyperlink{struct___i_m_v___frame}{IMV\_Frame}}*\ pFrame,\ IN\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ index,\ OUT\ \mbox{\hyperlink{struct___i_m_v___chunk_data_info}{IMV\_ChunkDataInfo}}\ *pChunkDataInfo);}
+\DoxyCodeLine{00608\ }
+\DoxyCodeLine{00619\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetStatisticsInfo(IN\ IMV\_HANDLE\ handle,\ OUT\ \mbox{\hyperlink{struct___i_m_v___stream_statistics_info}{IMV\_StreamStatisticsInfo}}*\ pStreamStatsInfo);}
+\DoxyCodeLine{00620\ }
+\DoxyCodeLine{00629\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_ResetStatisticsInfo(IN\ IMV\_HANDLE\ handle);}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00641\ IMV\_API\ \textcolor{keywordtype}{bool}\ IMV\_CALL\ IMV\_FeatureIsAvailable(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName);}
+\DoxyCodeLine{00642\ }
+\DoxyCodeLine{00653\ IMV\_API\ \textcolor{keywordtype}{bool}\ IMV\_CALL\ IMV\_FeatureIsReadable(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName);}
+\DoxyCodeLine{00654\ }
+\DoxyCodeLine{00665\ IMV\_API\ \textcolor{keywordtype}{bool}\ IMV\_CALL\ IMV\_FeatureIsWriteable(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName);}
+\DoxyCodeLine{00666\ }
+\DoxyCodeLine{00677\ IMV\_API\ \textcolor{keywordtype}{bool}\ IMV\_CALL\ IMV\_FeatureIsStreamable(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName);}
+\DoxyCodeLine{00678\ }
+\DoxyCodeLine{00689\ IMV\_API\ \textcolor{keywordtype}{bool}\ IMV\_CALL\ IMV\_FeatureIsValid(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName);}
+\DoxyCodeLine{00690\ }
+\DoxyCodeLine{00702\ IMV\_API\ \textcolor{keywordtype}{bool}\ IMV\_CALL\ IMV\_GetFeatureType(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ IMV\_EFeatureType*\ pPropertyType);}
+\DoxyCodeLine{00703\ }
+\DoxyCodeLine{00716\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetIntFeatureValue(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ int64\_t*\ pIntValue);}
+\DoxyCodeLine{00717\ }
+\DoxyCodeLine{00730\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetIntFeatureMin(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ int64\_t*\ pIntValue);}
+\DoxyCodeLine{00731\ }
+\DoxyCodeLine{00744\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetIntFeatureMax(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ int64\_t*\ pIntValue);}
+\DoxyCodeLine{00745\ }
+\DoxyCodeLine{00758\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetIntFeatureInc(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ int64\_t*\ pIntValue);}
+\DoxyCodeLine{00759\ }
+\DoxyCodeLine{00772\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_SetIntFeatureValue(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ IN\ int64\_t\ intValue);}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00786\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetDoubleFeatureValue(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ \textcolor{keywordtype}{double}*\ pDoubleValue);}
+\DoxyCodeLine{00787\ }
+\DoxyCodeLine{00800\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetDoubleFeatureMin(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ \textcolor{keywordtype}{double}*\ pDoubleValue);}
+\DoxyCodeLine{00801\ }
+\DoxyCodeLine{00814\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetDoubleFeatureMax(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ \textcolor{keywordtype}{double}*\ pDoubleValue);}
+\DoxyCodeLine{00815\ }
+\DoxyCodeLine{00828\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_SetDoubleFeatureValue(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ IN\ \textcolor{keywordtype}{double}\ doubleValue);}
+\DoxyCodeLine{00829\ }
+\DoxyCodeLine{00842\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetBoolFeatureValue(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ \textcolor{keywordtype}{bool}*\ pBoolValue);}
+\DoxyCodeLine{00843\ }
+\DoxyCodeLine{00856\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_SetBoolFeatureValue(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ IN\ \textcolor{keywordtype}{bool}\ boolValue);}
+\DoxyCodeLine{00857\ }
+\DoxyCodeLine{00870\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetEnumFeatureValue(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ uint64\_t*\ pEnumValue);}
+\DoxyCodeLine{00871\ }
+\DoxyCodeLine{00884\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_SetEnumFeatureValue(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ IN\ uint64\_t\ enumValue);}
+\DoxyCodeLine{00885\ }
+\DoxyCodeLine{00898\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetEnumFeatureSymbol(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ \mbox{\hyperlink{struct___i_m_v___string}{IMV\_String}}*\ pEnumSymbol);}
+\DoxyCodeLine{00899\ }
+\DoxyCodeLine{00912\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_SetEnumFeatureSymbol(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pEnumSymbol);}
+\DoxyCodeLine{00913\ }
+\DoxyCodeLine{00926\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetEnumFeatureEntryNum(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ pEntryNum);}
+\DoxyCodeLine{00927\ }
+\DoxyCodeLine{00940\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetEnumFeatureEntrys(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ IN\_OUT\ \mbox{\hyperlink{struct___i_m_v___enum_entry_list}{IMV\_EnumEntryList}}*\ pEnumEntryList);}
+\DoxyCodeLine{00941\ }
+\DoxyCodeLine{00954\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_GetStringFeatureValue(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ OUT\ \mbox{\hyperlink{struct___i_m_v___string}{IMV\_String}}*\ pStringValue);}
+\DoxyCodeLine{00955\ }
+\DoxyCodeLine{00968\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_SetStringFeatureValue(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue);}
+\DoxyCodeLine{00969\ }
+\DoxyCodeLine{00980\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_ExecuteCommandFeature(IN\ IMV\_HANDLE\ handle,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFeatureName);}
+\DoxyCodeLine{00981\ }
+\DoxyCodeLine{01006\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_PixelConvert(IN\ IMV\_HANDLE\ handle,\ IN\_OUT\ \mbox{\hyperlink{struct___i_m_v___pixel_convert_param}{IMV\_PixelConvertParam}}*\ pstPixelConvertParam);}
+\DoxyCodeLine{01007\ }
+\DoxyCodeLine{01018\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_OpenRecord(IN\ IMV\_HANDLE\ handle,\ IN\ \mbox{\hyperlink{struct___i_m_v___record_param}{IMV\_RecordParam}}\ *pstRecordParam);}
+\DoxyCodeLine{01019\ }
+\DoxyCodeLine{01030\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_InputOneFrame(IN\ IMV\_HANDLE\ handle,\ IN\ \mbox{\hyperlink{struct___i_m_v___record_frame_info_param}{IMV\_RecordFrameInfoParam}}\ *pstRecordFrameInfoParam);}
+\DoxyCodeLine{01031\ }
+\DoxyCodeLine{01040\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_CloseRecord(IN\ IMV\_HANDLE\ handle);}
+\DoxyCodeLine{01041\ }
+\DoxyCodeLine{01058\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_FlipImage(IN\ IMV\_HANDLE\ handle,\ IN\_OUT\ \mbox{\hyperlink{struct___i_m_v___flip_image_param}{IMV\_FlipImageParam}}*\ pstFlipImageParam);}
+\DoxyCodeLine{01059\ }
+\DoxyCodeLine{01076\ IMV\_API\ \textcolor{keywordtype}{int}\ IMV\_CALL\ IMV\_RotateImage(IN\ IMV\_HANDLE\ handle,\ IN\_OUT\ \mbox{\hyperlink{struct___i_m_v___rotate_image_param}{IMV\_RotateImageParam}}*\ pstRotateImageParam);}
+\DoxyCodeLine{01077\ }
+\DoxyCodeLine{01078\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{01079\ \}}
+\DoxyCodeLine{01080\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{01081\ }
+\DoxyCodeLine{01082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_IMV\_API\_H\_\_}}
+
+\end{DoxyCode}

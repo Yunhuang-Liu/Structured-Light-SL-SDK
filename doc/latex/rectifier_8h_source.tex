@@ -1,0 +1,46 @@
+\hypertarget{rectifier_8h_source}{}\doxysection{rectifier.\+h}
+\label{rectifier_8h_source}\index{src/slCamera/include/rectifier/rectifier.h@{src/slCamera/include/rectifier/rectifier.h}}
+\mbox{\hyperlink{rectifier_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_RECTIFIER\_RECTIFIER\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_RECTIFIER\_RECTIFIER\_H\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{matrixs_info_8h}{matrixsInfo.h}}>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <typeDef.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <cuda/std/cmath>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <cuda/std/functional>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <cuda\_runtime.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <device\_functions.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <device\_launch\_parameters.h>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <opencv2/cudaarithm.hpp>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <opencv2/cudaimgproc.hpp>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <opencv2/cudalegacy.hpp>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <opencv2/cudastereo.hpp>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <opencv2/cudawarping.hpp>}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00035\ \textcolor{keyword}{namespace\ }rectifier\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier}{Rectifier}}\ \{}
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier}{\string~Rectifier}}()\ \{\}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_a31218f29e4ef9d541ddd63a262db7128}{initialize}}(IN\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool::Info}}\ \&info)\ =\ 0;}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_af548ae8deff746041196d5bd41170c6d}{remapImg}}(IN\ \textcolor{keyword}{const}\ cv::Mat\ \&imgInput,\ OUT\ cv::Mat\ \&imgOutput,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ isLeft\ =\ \textcolor{keyword}{true})\ =\ 0;}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_af548ae8deff746041196d5bd41170c6d}{remapImg}}(IN\ \textcolor{keyword}{const}\ cv::cuda::GpuMat\&\ imgInput,\ OUT\ cv::cuda::GpuMat\ \&imgOutput,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ isLeft\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&cvStream\ =\ cv::cuda::Stream::Null())\ =\ 0;}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ \}\ \textcolor{comment}{//\ namespace\ rectifier}}
+\DoxyCodeLine{00072\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_RECTIFIER\_RECTIFIER\_H\_}}
+
+\end{DoxyCode}

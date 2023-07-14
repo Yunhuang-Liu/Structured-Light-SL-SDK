@@ -1,0 +1,64 @@
+\hypertarget{class_json_1_1_fast_writer}{}\doxysection{Json\+::Fast\+Writer Class Reference}
+\label{class_json_1_1_fast_writer}\index{Json::FastWriter@{Json::FastWriter}}
+
+
+Outputs a \mbox{\hyperlink{class_json_1_1_value}{Value}} in \href{http://www.json.org}{\texttt{ JSON}} format without formatting (not human friendly).  
+
+
+
+
+{\ttfamily \#include $<$json.\+h$>$}
+
+Inheritance diagram for Json\+::Fast\+Writer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_json_1_1_fast_writer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_json_1_1_fast_writer_a78d98e9f76d33660ad6e6a1abe287d45}\label{class_json_1_1_fast_writer_a78d98e9f76d33660ad6e6a1abe287d45}} 
+void {\bfseries enable\+YAMLCompatibility} ()
+\item 
+\mbox{\Hypertarget{class_json_1_1_fast_writer_a6e93d8dce951e408517311026a065b40}\label{class_json_1_1_fast_writer_a6e93d8dce951e408517311026a065b40}} 
+void {\bfseries drop\+Null\+Placeholders} ()
+\begin{DoxyCompactList}\small\item\em Drop the \char`\"{}null\char`\"{} string from the writer\textquotesingle{}s output for null\+Values. Strictly speaking, this is not valid JSON. But when the output is being fed to a browser\textquotesingle{}s Java\+Script, it makes for smaller output and the browser can handle the output just fine. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_json_1_1_fast_writer_af4ee077d365d75941fb2688d97207a55}\label{class_json_1_1_fast_writer_af4ee077d365d75941fb2688d97207a55}} 
+void {\bfseries omit\+Ending\+Line\+Feed} ()
+\item 
+String \mbox{\hyperlink{class_json_1_1_fast_writer_a0a4b6018894eee37b5e09495d69fda94}{write}} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&root) override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual String \mbox{\hyperlink{class_json_1_1_writer_aa22c9a70fc533ebc87736567293728aa}{write}} (const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&root)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Outputs a \mbox{\hyperlink{class_json_1_1_value}{Value}} in \href{http://www.json.org}{\texttt{ JSON}} format without formatting (not human friendly). 
+
+The JSON document is written in a single line. It is not intended for \textquotesingle{}human\textquotesingle{} consumption, but may be useful to support feature such as RPC where bandwidth is limited. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_json_1_1_reader}{Reader}}, \mbox{\hyperlink{class_json_1_1_value}{Value}} 
+\end{DoxySeeAlso}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000008}{Deprecated}}]Use \mbox{\hyperlink{class_json_1_1_stream_writer_builder}{Stream\+Writer\+Builder}}. \end{DoxyRefDesc}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_json_1_1_fast_writer_a0a4b6018894eee37b5e09495d69fda94}\label{class_json_1_1_fast_writer_a0a4b6018894eee37b5e09495d69fda94}} 
+\index{Json::FastWriter@{Json::FastWriter}!write@{write}}
+\index{write@{write}!Json::FastWriter@{Json::FastWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily String Json\+::\+Fast\+Writer\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_json_1_1_value}{Value}} \&}]{root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_json_1_1_writer}{Json\+::\+Writer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/sl\+Camera/common/json.\+h\item 
+src/sl\+Camera/common/jsoncpp.\+cc\end{DoxyCompactItemize}

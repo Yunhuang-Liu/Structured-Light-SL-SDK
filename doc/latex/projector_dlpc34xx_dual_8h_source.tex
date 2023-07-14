@@ -1,0 +1,53 @@
+\hypertarget{projector_dlpc34xx_dual_8h_source}{}\doxysection{projector\+Dlpc34xx\+Dual.\+h}
+\label{projector_dlpc34xx_dual_8h_source}\index{src/projector/module/projector\_dlpc\_api/include/projectorDlpc34xxDual.h@{src/projector/module/projector\_dlpc\_api/include/projectorDlpc34xxDual.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_PROJECTOR\_DLPC\_34xx\_DUAL\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_PROJECTOR\_DLPC\_34xx\_DUAL\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}projector.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dlpc347x__internal__patterns_8h}{dlpc347x\_internal\_patterns.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dlpc__common_8h}{dlpc\_common.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }projector\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual}{ProjectorDlpc34xxDual}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector}{Projector}}\ \{}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual}{ProjectorDlpc34xxDual}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual}{\string~ProjectorDlpc34xxDual}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{structsl_1_1projector_1_1_projector_info}{ProjectorInfo}}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a45d351889a13fa849fd86767bb0b217f}{getInfo}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a42530c139ac54e7cfc31387010e22463}{connect}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a673b586edcfa4467696f8c63c5ad43c3}{disConnect}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a869e6d74c7f61359b732cdd876137e5e}{isConnect}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a3b8a1725ae5ce8f09cad777fa11808e1}{populatePatternTableData}}(IN\ std::vector<PatternOrderSet>\ table)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a58310dfd4ea7babc60bed4bcd8473474}{project}}(IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ isContinue)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a1ad45395bd78e28773337ec59e606c89}{stop}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_ad36f3092111681f54a1cadb6ae3abf8f}{resume}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a7919de7a131fa4c8cb2c4121f95841ea}{pause}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a3bd29c28ebf4a4c491eb3b9c7b74e616}{step}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_aeb11bb8ca9aa4bea853bd8045ebdb0a6}{getLEDCurrent}}(OUT\ \textcolor{keywordtype}{double}\ \&r,\ OUT\ \textcolor{keywordtype}{double}\ \&g,\ OUT\ \textcolor{keywordtype}{double}\ \&b)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_aae30067ab105e7f7ea82e5ee4eab18cc}{setLEDCurrent}}(IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ r,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ g,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ b)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_dlpc34xx_dual_a6d246f14e868d898550c7340f84a2e61}{getFlashImgsNum}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00118\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{bool}\ initConnectionAndCommandLayer();}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ loadPatternOrderTableEntryFromFlash();}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//投影仪幅面列数}}
+\DoxyCodeLine{00131\ \ \ \ \ uint16\_t\ \_\_cols;}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//投影仪幅面行数}}
+\DoxyCodeLine{00133\ \ \ \ \ uint16\_t\ \_\_rows;}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//图案数量}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{int}\ \_\_numOfPatterns;}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//图案集合数量}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{int}\ \_\_numOfPatternSets;}
+\DoxyCodeLine{00138\ \};}
+\DoxyCodeLine{00139\ \}\ \textcolor{comment}{//\ namespace\ projector}}
+\DoxyCodeLine{00140\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_PROJECTOR\_DLPC\_34xx\_DUAL\_H\_}}
+
+\end{DoxyCode}

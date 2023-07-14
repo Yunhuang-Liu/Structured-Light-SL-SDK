@@ -1,0 +1,87 @@
+\hypertarget{struct___i_m_v___gig_e_device_info}{}\doxysection{\+\_\+\+IMV\+\_\+\+Gig\+EDevice\+Info Struct Reference}
+\label{struct___i_m_v___gig_e_device_info}\index{\_IMV\_GigEDeviceInfo@{\_IMV\_GigEDeviceInfo}}
+
+
+GigE device information.  
+
+
+
+
+{\ttfamily \#include $<$IMVDefines.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_ad502674b4a1ca44cf0f009daab31efe6}{n\+Ip\+Config\+Options}}
+\item 
+unsigned int \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_a4375af43bb528f9be2a301afec06e1ad}{n\+Ip\+Config\+Current}}
+\item 
+\mbox{\Hypertarget{struct___i_m_v___gig_e_device_info_ae9aff2a25c511cc63b9d7644330152f0}\label{struct___i_m_v___gig_e_device_info_ae9aff2a25c511cc63b9d7644330152f0}} 
+unsigned int {\bfseries n\+Reserved} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em Reserved field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___gig_e_device_info_a437964c938d75a045f7a2fbbcf597154}\label{struct___i_m_v___gig_e_device_info_a437964c938d75a045f7a2fbbcf597154}} 
+char {\bfseries mac\+Address} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Device MAC Address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___gig_e_device_info_af16855057eb0b5379784047b0bcdbb71}\label{struct___i_m_v___gig_e_device_info_af16855057eb0b5379784047b0bcdbb71}} 
+char {\bfseries ip\+Address} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Device ip Address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___gig_e_device_info_aa8ebc7c90c1aa96d2410f2f3fa0fbcce}\label{struct___i_m_v___gig_e_device_info_aa8ebc7c90c1aa96d2410f2f3fa0fbcce}} 
+char {\bfseries subnet\+Mask} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Subnet\+Mask. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___gig_e_device_info_a2676acb912d9b563a2b04f9d7085a6d7}\label{struct___i_m_v___gig_e_device_info_a2676acb912d9b563a2b04f9d7085a6d7}} 
+char {\bfseries default\+Gate\+Way} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Default Gate\+Way. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_a49b82bd4a151f59e285e7bed3d0b831b}{protocol\+Version}} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\item 
+char \mbox{\hyperlink{struct___i_m_v___gig_e_device_info_a814fceb043767877be15394470dfcf35}{ip\+Configuration}} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\item 
+\mbox{\Hypertarget{struct___i_m_v___gig_e_device_info_a7e7c92ba1cf7438573fb686b32a4ce5b}\label{struct___i_m_v___gig_e_device_info_a7e7c92ba1cf7438573fb686b32a4ce5b}} 
+char {\bfseries ch\+Reserved} \mbox{[}6\mbox{]}\mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Reserved field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+GigE device information. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct___i_m_v___gig_e_device_info_a814fceb043767877be15394470dfcf35}\label{struct___i_m_v___gig_e_device_info_a814fceb043767877be15394470dfcf35}} 
+\index{\_IMV\_GigEDeviceInfo@{\_IMV\_GigEDeviceInfo}!ipConfiguration@{ipConfiguration}}
+\index{ipConfiguration@{ipConfiguration}!\_IMV\_GigEDeviceInfo@{\_IMV\_GigEDeviceInfo}}
+\doxysubsubsection{\texorpdfstring{ipConfiguration}{ipConfiguration}}
+{\footnotesize\ttfamily char \+\_\+\+IMV\+\_\+\+Gig\+EDevice\+Info\+::ip\+Configuration\mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}}
+
+IP configuration valid~\newline
+String value is \char`\"{}\+Valid\char`\"{} when ip configuration valid~\newline
+String value is \char`\"{}\+Invalid On This Interface\char`\"{} when ip configuration invalid \mbox{\Hypertarget{struct___i_m_v___gig_e_device_info_a4375af43bb528f9be2a301afec06e1ad}\label{struct___i_m_v___gig_e_device_info_a4375af43bb528f9be2a301afec06e1ad}} 
+\index{\_IMV\_GigEDeviceInfo@{\_IMV\_GigEDeviceInfo}!nIpConfigCurrent@{nIpConfigCurrent}}
+\index{nIpConfigCurrent@{nIpConfigCurrent}!\_IMV\_GigEDeviceInfo@{\_IMV\_GigEDeviceInfo}}
+\doxysubsubsection{\texorpdfstring{nIpConfigCurrent}{nIpConfigCurrent}}
+{\footnotesize\ttfamily unsigned int \+\_\+\+IMV\+\_\+\+Gig\+EDevice\+Info\+::n\+Ip\+Config\+Current}
+
+Current IP Configuration options of device~\newline
+value\+:4 LLA is active~\newline
+value\+:5 LLA and Persistent IP are active~\newline
+value\+:6 LLA and DHCP are active~\newline
+value\+:7 LLA, DHCP and Persistent IP are active~\newline
+value\+:0 Get fail \mbox{\Hypertarget{struct___i_m_v___gig_e_device_info_ad502674b4a1ca44cf0f009daab31efe6}\label{struct___i_m_v___gig_e_device_info_ad502674b4a1ca44cf0f009daab31efe6}} 
+\index{\_IMV\_GigEDeviceInfo@{\_IMV\_GigEDeviceInfo}!nIpConfigOptions@{nIpConfigOptions}}
+\index{nIpConfigOptions@{nIpConfigOptions}!\_IMV\_GigEDeviceInfo@{\_IMV\_GigEDeviceInfo}}
+\doxysubsubsection{\texorpdfstring{nIpConfigOptions}{nIpConfigOptions}}
+{\footnotesize\ttfamily unsigned int \+\_\+\+IMV\+\_\+\+Gig\+EDevice\+Info\+::n\+Ip\+Config\+Options}
+
+Supported IP configuration options of device~\newline
+value\+:4 Device supports LLA ~\newline
+value\+:5 Device supports LLA and Persistent IP~\newline
+value\+:6 Device supports LLA and DHCP~\newline
+value\+:7 Device supports LLA, DHCP and Persistent IP~\newline
+value\+:0 Get fail \mbox{\Hypertarget{struct___i_m_v___gig_e_device_info_a49b82bd4a151f59e285e7bed3d0b831b}\label{struct___i_m_v___gig_e_device_info_a49b82bd4a151f59e285e7bed3d0b831b}} 
+\index{\_IMV\_GigEDeviceInfo@{\_IMV\_GigEDeviceInfo}!protocolVersion@{protocolVersion}}
+\index{protocolVersion@{protocolVersion}!\_IMV\_GigEDeviceInfo@{\_IMV\_GigEDeviceInfo}}
+\doxysubsubsection{\texorpdfstring{protocolVersion}{protocolVersion}}
+{\footnotesize\ttfamily char \+\_\+\+IMV\+\_\+\+Gig\+EDevice\+Info\+::protocol\+Version\mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}}
+
+Net protocol version 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/camera/module/huaray\+\_\+camera/include/IMVDefines.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,43 @@
+\hypertarget{rectifier_cpu_8h_source}{}\doxysection{rectifier\+Cpu.\+h}
+\label{rectifier_cpu_8h_source}\index{src/slCamera/include/rectifier/rectifierCpu.h@{src/slCamera/include/rectifier/rectifierCpu.h}}
+\mbox{\hyperlink{rectifier_cpu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_RECTIFIER\_RECTIFIER\_CPU\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_RECTIFIER\_RECTIFIER\_CPU\_H\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{rectifier_8h}{rectifier.h}}>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }rectifier\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_cpu}{RectifierCpu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier}{Rectifier}}\ \{}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_cpu}{RectifierCpu}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_cpu_a0f2de0bf32e894fccbe71186e81ab778}{RectifierCpu}}(IN\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool::Info}}\ \&info);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_cpu_af426d44624fde842eccf631171b6651b}{initialize}}(IN\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsl_1_1tool_1_1_info}{tool::Info}}\ \&info)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_cpu_abc4d98d5678dca15758b6ee00577f71b}{remapImg}}(IN\ \textcolor{keyword}{const}\ cv::Mat\ \&imgInput,\ OUT\ cv::Mat\ \&imgOutput,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ isLeft\ =\ \textcolor{keyword}{true})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier_cpu_abc4d98d5678dca15758b6ee00577f71b}{remapImg}}(}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ cv::cuda::GpuMat\&\ imgInput,\ OUT\ cv::cuda::GpuMat\ \&imgOutput,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ isLeft\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&cvStream\ =\ cv::cuda::Stream::Null())\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \textcolor{comment}{//图像尺寸}}
+\DoxyCodeLine{00063\ \ \ \ \ cv::Size\ \_\_imgSize;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//左相机X方向映射表}}
+\DoxyCodeLine{00065\ \ \ \ \ cv::Mat\ \_\_mapLx;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//左相机Y方向映射表}}
+\DoxyCodeLine{00067\ \ \ \ \ cv::Mat\ \_\_mapLy;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//右相机X方向映射表}}
+\DoxyCodeLine{00069\ \ \ \ \ cv::Mat\ \_\_mapRx;}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//右相机Y方向映射表}}
+\DoxyCodeLine{00071\ \ \ \ \ cv::Mat\ \_\_mapRy;}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ \}\ \textcolor{comment}{//\ namespace\ rectifier}}
+\DoxyCodeLine{00074\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_RECTIFIER\_RECTIFIER\_CPU\_H\_}}
+
+\end{DoxyCode}

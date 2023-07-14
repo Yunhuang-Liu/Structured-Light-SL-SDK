@@ -1,0 +1,78 @@
+\hypertarget{phase_solver_8h_source}{}\doxysection{phase\+Solver.\+h}
+\label{phase_solver_8h_source}\index{src/slCamera/include/phaseSolver/phaseSolver.h@{src/slCamera/include/phaseSolver/phaseSolver.h}}
+\mbox{\hyperlink{phase_solver_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_PHASESOLVER\_PHASESOLVER\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_PHASESOLVER\_PHASESOLVER\_H\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <immintrin.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <Eigen/Core>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <opencv2/core/eigen.hpp>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <typeDef.h>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <cuda/std/cmath>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <cuda/std/functional>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <cuda\_runtime.h>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <device\_functions.h>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <device\_launch\_parameters.h>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <opencv2/cudaarithm.hpp>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <opencv2/cudaimgproc.hpp>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <opencv2/cudalegacy.hpp>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <opencv2/cudastereo.hpp>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <opencv2/cudawarping.hpp>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00043\ \textcolor{keyword}{namespace\ }phaseSolver\ \{}
+\DoxyCodeLine{00045\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsl_1_1phase_solver_1_1_phase_solver_group_data_host}{PhaseSolverGroupDataHost}}\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ cv::Mat\ \_\_textureMap;\ \textcolor{comment}{//纹理(CV\_32FC1)}}
+\DoxyCodeLine{00047\ \ \ \ \ cv::Mat\ \_\_wrapMap;\ \ \ \ \textcolor{comment}{//包裹相位(CV\_32FC1)}}
+\DoxyCodeLine{00048\ \ \ \ \ cv::Mat\ \_\_unwrapMap;\ \ \textcolor{comment}{//绝对相位(CV\_32FC1)}}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00051\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsl_1_1phase_solver_1_1_phase_solver_group_data_device}{PhaseSolverGroupDataDevice}}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ cv::cuda::GpuMat\ \_\_textureMap;\textcolor{comment}{//纹理(CV\_32FC1)}}
+\DoxyCodeLine{00053\ \ \ \ \ cv::cuda::GpuMat\ \_\_wrapMap;\ \ \ \textcolor{comment}{//包裹相位(CV\_32FC1)}}
+\DoxyCodeLine{00054\ \ \ \ \ cv::cuda::GpuMat\ \_\_unwrapMap;\ \textcolor{comment}{//绝对相位(CV\_32FC1)}}
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00058\ \textcolor{keyword}{namespace\ }cudaFunc\ \{}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ solvePhase(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ \mbox{\hyperlink{structsl_1_1phase_solver_1_1_phase_solver_group_data_device}{PhaseSolverGroupDataDevice}}\ \&groupData,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sncThreshold,\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftTime\ =\ 4,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\ \&stream\ =\ cv::cuda::Stream::Null(),}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ dim3\ block\ =\ dim3(32,\ 8));}
+\DoxyCodeLine{00065\ \}\ \textcolor{comment}{//\ namespace\ cudaFunc}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1phase_solver_1_1_phase_solver}{PhaseSolver}}\ \{}
+\DoxyCodeLine{00070\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classsl_1_1phase_solver_1_1_phase_solver_a0dce055f0edec623ae4509b7c4f7af3b}{\string~PhaseSolver}}()\ \{\}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1phase_solver_1_1_phase_solver_ab5235f483e050f8a60977fc8206f7698}{solve}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\ \&imgs,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ \mbox{\hyperlink{structsl_1_1phase_solver_1_1_phase_solver_group_data_host}{PhaseSolverGroupDataHost}}\ \&groupData,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sncThreshold,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftTime\ =\ 4)\ =\ 0;}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsl_1_1phase_solver_1_1_phase_solver_ab5235f483e050f8a60977fc8206f7698}{solve}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\&\ imgs,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ \mbox{\hyperlink{structsl_1_1phase_solver_1_1_phase_solver_group_data_device}{PhaseSolverGroupDataDevice}}\&\ groupData,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sncThreshold,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ shiftTime\ =\ 4,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ cv::cuda::Stream\&\ stream\ =\ cv::cuda::Stream::Null(),}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ dim3\ block\ =\ dim3(32,\ 8))\ =\ 0;}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ \}\ \textcolor{comment}{//\ namespace\ phaseSolver}}
+\DoxyCodeLine{00107\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_PHASESOLVER\_PHASESOLVER\_H\_}}
+\DoxyCodeLine{00109\ }
+
+\end{DoxyCode}

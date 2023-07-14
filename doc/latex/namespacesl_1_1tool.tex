@@ -1,0 +1,331 @@
+\hypertarget{namespacesl_1_1tool}{}\doxysection{sl\+::tool Namespace Reference}
+\label{namespacesl_1_1tool}\index{sl::tool@{sl::tool}}
+
+
+工具库  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsl_1_1tool_1_1_info}{Info}}
+\begin{DoxyCompactList}\small\item\em 信息结构体 ~\newline
+ \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classsl_1_1tool_1_1_matrixs_info}{Matrixs\+Info}}
+\begin{DoxyCompactList}\small\item\em 相机标定信息类 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_a77b23aeb41099d5ba98c9d72618a6d6e}{phase\+Height\+Map\+Eig\+Coe}} (IN const cv\+::\+Mat \&phase, IN const cv\+::\+Mat \&intrinsic, IN const cv\+::\+Mat \&coefficient, IN const float min\+Depth, IN const float max\+Depth, OUT cv\+::\+Mat \&depth)
+\begin{DoxyCompactList}\small\item\em {\bfseries{WITH\+\_\+\+CUDA}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_ace81483572479730ee31f1bf817e11fa}{phase\+Height\+Map\+Eig\+Coe\+Region}} (IN const cv\+::\+Mat \&phase, IN const cv\+::\+Mat \&intrinsic, IN const cv\+::\+Mat \&coefficient, IN const float min\+Depth, IN const float max\+Depth, IN const int row\+Begin, IN const int row\+End, OUT cv\+::\+Mat \&depth)
+\begin{DoxyCompactList}\small\item\em 区域图像相位高度映射 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_a097962c57f76ef51d0f8b0d5d70db617}{average\+Texture}} (IN const std\+::vector$<$ cv\+::\+Mat $>$ \&imgs, OUT cv\+::\+Mat \&texture, IN const int phase\+Shift\+Step=4)
+\begin{DoxyCompactList}\small\item\em 由相移图片计算纹理图片 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_a10bafa9534e6f21e24943c519faba6fa}{average\+Texture\+Region\+Grey}} (IN const std\+::vector$<$ cv\+::\+Mat $>$ \&imgs, OUT cv\+::\+Mat \&texture, IN const int phase\+Shift\+Step, IN const int row\+Begin, IN const int row\+End)
+\begin{DoxyCompactList}\small\item\em 由相移图片计算纹理图片 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_abbaa43c3b3cc40ac5b613388819b517c}{average\+Texture\+Region\+Color}} (IN const std\+::vector$<$ cv\+::\+Mat $>$ \&imgs, OUT cv\+::\+Mat \&texture, IN const int phase\+Shift\+Step, IN const int row\+Begin, IN const int row\+End)
+\begin{DoxyCompactList}\small\item\em 由相移图片计算纹理图片 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_ab96d1a67db4516da5b4ee38df02f5b92}{reverse\+Mapping\+Texture}} (IN const cv\+::\+Mat \&depth, IN const cv\+::\+Mat \&texture\+In, IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{Info}} \&info, OUT cv\+::\+Mat \&texture\+Align)
+\begin{DoxyCompactList}\small\item\em 反向映射计算深度图 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_a7c2874f60e901588a0ddcfb283a56818}{reverse\+Mapping\+Texture\+Region}} (IN const cv\+::\+Mat \&depth, IN const cv\+::\+Mat \&texture\+In, IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{Info}} \&info, OUT cv\+::\+Mat \&texture\+Align, IN const int row\+Begin, IN const int row\+End)
+\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_ac7f472d20297a071d9d9870a9f527d06}{filter\+Phase}} (IN const cv\+::\+Mat \&abs\+Phase, OUT cv\+::\+Mat \&out, IN const float max\+Tollerance=0.\+5, IN const int kernel=5)
+\begin{DoxyCompactList}\small\item\em 过滤相位 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_a16c12c962e4dad85d0e036b61fb2edd9}{entry\+Filter\+Phase}} (IN const cv\+::\+Mat \&abs\+Phase, OUT cv\+::\+Mat \&out, IN const int row\+Beign, IN const int row\+End, IN const float max\+Tollerance=0.\+5, IN int kernel=5)
+\begin{DoxyCompactList}\small\item\em 过滤绝对相位入口函数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_a7abae77e399e1487e329b0b369affde5}{remap\+To\+Depth\+Camera}} (IN const cv\+::\+Mat \&depth\+In, IN const cv\+::\+Mat \&texture\+In, IN const cv\+::\+Mat \&Q, IN const cv\+::\+Mat \&M, IN const cv\+::\+Mat \&R1, OUT cv\+::\+Mat \&depth\+Remaped, OUT pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZRGB $>$ \&cloud)
+\begin{DoxyCompactList}\small\item\em 将校正后的相机坐标系下深度图映射回校正前并获得点云 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacesl_1_1tool_a9158cbcac0743d7c1f85509bab459d1a}\label{namespacesl_1_1tool_a9158cbcac0743d7c1f85509bab459d1a}} 
+void {\bfseries phase\+Height\+Map\+Eig\+Coe} (const cv\+::\+Mat \&phase, const cv\+::\+Mat \&intrinsic, const cv\+::\+Mat \&coefficient, const float min\+Depth, const float max\+Depth, cv\+::\+Mat \&depth)
+\item 
+\mbox{\Hypertarget{namespacesl_1_1tool_acc3813dd570e090770d8e043891ea72a}\label{namespacesl_1_1tool_acc3813dd570e090770d8e043891ea72a}} 
+void {\bfseries phase\+Height\+Map\+Eig\+Coe\+Region} (const cv\+::\+Mat \&phase, const cv\+::\+Mat \&intrinsic, const cv\+::\+Mat \&coefficient, const float min\+Depth, const float max\+Depth, const int row\+Begin, const int row\+End, cv\+::\+Mat \&depth)
+\item 
+\mbox{\Hypertarget{namespacesl_1_1tool_a85fe5577fe6e6923b29fa807b671a3fb}\label{namespacesl_1_1tool_a85fe5577fe6e6923b29fa807b671a3fb}} 
+void {\bfseries average\+Texture} (const std\+::vector$<$ cv\+::\+Mat $>$ \&imgs, cv\+::\+Mat \&texture, const int phase\+Shift\+Step)
+\item 
+\mbox{\Hypertarget{namespacesl_1_1tool_ae7f7b0aebb00662183a76f98d438dfa2}\label{namespacesl_1_1tool_ae7f7b0aebb00662183a76f98d438dfa2}} 
+void {\bfseries average\+Texture\+Region\+Grey} (const std\+::vector$<$ cv\+::\+Mat $>$ \&imgs, cv\+::\+Mat \&texture, const int phase\+Shift\+Step, const int row\+Begin, const int row\+End)
+\item 
+\mbox{\Hypertarget{namespacesl_1_1tool_ab22372b3251430511b18dd2f089e8ca0}\label{namespacesl_1_1tool_ab22372b3251430511b18dd2f089e8ca0}} 
+void {\bfseries average\+Texture\+Region\+Color} (const std\+::vector$<$ cv\+::\+Mat $>$ \&imgs, cv\+::\+Mat \&texture, const int phase\+Shift\+Step, const int row\+Begin, const int row\+End)
+\item 
+\mbox{\Hypertarget{namespacesl_1_1tool_acd7ce3b0c0516fba54309ee832926a1d}\label{namespacesl_1_1tool_acd7ce3b0c0516fba54309ee832926a1d}} 
+void {\bfseries reverse\+Mapping\+Texture} (const cv\+::\+Mat \&depth, const cv\+::\+Mat \&texture\+In, const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{Info}} \&info, cv\+::\+Mat \&texture\+Align)
+\item 
+\mbox{\Hypertarget{namespacesl_1_1tool_a26c65ac168ee807efe99567813ed7347}\label{namespacesl_1_1tool_a26c65ac168ee807efe99567813ed7347}} 
+void {\bfseries reverse\+Mapping\+Texture\+Region} (const cv\+::\+Mat \&depth, const cv\+::\+Mat \&texture\+In, const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{Info}} \&info, cv\+::\+Mat \&texture\+Align, const int row\+Begin, const int row\+End)
+\item 
+\mbox{\Hypertarget{namespacesl_1_1tool_ae1eb3a9ad29189a0019cdeabceb0de28}\label{namespacesl_1_1tool_ae1eb3a9ad29189a0019cdeabceb0de28}} 
+void {\bfseries filter\+Phase} (const cv\+::\+Mat \&abs\+Phase, cv\+::\+Mat \&out, const float max\+Tollerance, const int kernel)
+\item 
+\mbox{\Hypertarget{namespacesl_1_1tool_a0d5d04af5f71fd7736e27d3db7c9d302}\label{namespacesl_1_1tool_a0d5d04af5f71fd7736e27d3db7c9d302}} 
+void {\bfseries entry\+Filter\+Phase} (const cv\+::\+Mat \&abs\+Phase, cv\+::\+Mat \&out, const int row\+Beign, const int row\+End, const float max\+Tollerance, int kernel)
+\item 
+\mbox{\Hypertarget{namespacesl_1_1tool_aac98f37037efb59094f93b8b9ceda991}\label{namespacesl_1_1tool_aac98f37037efb59094f93b8b9ceda991}} 
+void {\bfseries remap\+To\+Depth\+Camera} (const cv\+::\+Mat \&depth\+In, const cv\+::\+Mat \&texture\+In, const cv\+::\+Mat \&Q, const cv\+::\+Mat \&M, const cv\+::\+Mat \&R1, cv\+::\+Mat \&depth\+Remaped, pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZRGB $>$ \&cloud)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+工具库 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacesl_1_1tool_a097962c57f76ef51d0f8b0d5d70db617}\label{namespacesl_1_1tool_a097962c57f76ef51d0f8b0d5d70db617}} 
+\index{sl::tool@{sl::tool}!averageTexture@{averageTexture}}
+\index{averageTexture@{averageTexture}!sl::tool@{sl::tool}}
+\doxysubsubsection{\texorpdfstring{averageTexture()}{averageTexture()}}
+{\footnotesize\ttfamily void sl\+::tool\+::average\+Texture (\begin{DoxyParamCaption}\item[{IN const std\+::vector$<$ cv\+::\+Mat $>$ \&}]{imgs,  }\item[{OUT cv\+::\+Mat \&}]{texture,  }\item[{IN const int}]{phase\+Shift\+Step = {\ttfamily 4} }\end{DoxyParamCaption})}
+
+
+
+由相移图片计算纹理图片 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imgs} & 相移图片(CV\+\_\+8\+UC3 $\vert$$\vert$ CV\+\_\+8\+UC1) \\
+\hline
+{\em texture} & 纹理图片(CV\+\_\+8\+UC3 $\vert$$\vert$ CV\+\_\+8\+UC1) \\
+\hline
+{\em phase\+Shift\+Step} & 相移步数（\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+前\+N张图片为相移图片） 
+\end{DoxyNote}
+\mbox{\Hypertarget{namespacesl_1_1tool_abbaa43c3b3cc40ac5b613388819b517c}\label{namespacesl_1_1tool_abbaa43c3b3cc40ac5b613388819b517c}} 
+\index{sl::tool@{sl::tool}!averageTextureRegionColor@{averageTextureRegionColor}}
+\index{averageTextureRegionColor@{averageTextureRegionColor}!sl::tool@{sl::tool}}
+\doxysubsubsection{\texorpdfstring{averageTextureRegionColor()}{averageTextureRegionColor()}}
+{\footnotesize\ttfamily void sl\+::tool\+::average\+Texture\+Region\+Color (\begin{DoxyParamCaption}\item[{IN const std\+::vector$<$ cv\+::\+Mat $>$ \&}]{imgs,  }\item[{OUT cv\+::\+Mat \&}]{texture,  }\item[{IN const int}]{phase\+Shift\+Step,  }\item[{IN const int}]{row\+Begin,  }\item[{IN const int}]{row\+End }\end{DoxyParamCaption})}
+
+
+
+由相移图片计算纹理图片 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imgs} & 相移图片(\+CV\+\_\+8\+UC3) \\
+\hline
+{\em texture} & 纹理图片(\+CV\+\_\+8\+UC3) \\
+\hline
+{\em phase\+Shift\+Step} & 相移步数（\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+前\+N张图片为相移图片） 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Color} & 是否为彩色纹理 \\
+\hline
+{\em row\+Begin} & 起始行 \\
+\hline
+{\em row\+End} & 结束行 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacesl_1_1tool_a10bafa9534e6f21e24943c519faba6fa}\label{namespacesl_1_1tool_a10bafa9534e6f21e24943c519faba6fa}} 
+\index{sl::tool@{sl::tool}!averageTextureRegionGrey@{averageTextureRegionGrey}}
+\index{averageTextureRegionGrey@{averageTextureRegionGrey}!sl::tool@{sl::tool}}
+\doxysubsubsection{\texorpdfstring{averageTextureRegionGrey()}{averageTextureRegionGrey()}}
+{\footnotesize\ttfamily void sl\+::tool\+::average\+Texture\+Region\+Grey (\begin{DoxyParamCaption}\item[{IN const std\+::vector$<$ cv\+::\+Mat $>$ \&}]{imgs,  }\item[{OUT cv\+::\+Mat \&}]{texture,  }\item[{IN const int}]{phase\+Shift\+Step,  }\item[{IN const int}]{row\+Begin,  }\item[{IN const int}]{row\+End }\end{DoxyParamCaption})}
+
+
+
+由相移图片计算纹理图片 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imgs} & 相移图片(\+CV\+\_\+8\+UC1) \\
+\hline
+{\em texture} & 纹理图片(\+CV\+\_\+8\+UC1) \\
+\hline
+{\em phase\+Shift\+Step} & 相移步数（\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+前\+N张图片为相移图片） 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Color} & 是否为彩色纹理 \\
+\hline
+{\em row\+Begin} & 起始行 \\
+\hline
+{\em row\+End} & 结束行 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacesl_1_1tool_a16c12c962e4dad85d0e036b61fb2edd9}\label{namespacesl_1_1tool_a16c12c962e4dad85d0e036b61fb2edd9}} 
+\index{sl::tool@{sl::tool}!entryFilterPhase@{entryFilterPhase}}
+\index{entryFilterPhase@{entryFilterPhase}!sl::tool@{sl::tool}}
+\doxysubsubsection{\texorpdfstring{entryFilterPhase()}{entryFilterPhase()}}
+{\footnotesize\ttfamily void sl\+::tool\+::entry\+Filter\+Phase (\begin{DoxyParamCaption}\item[{IN const cv\+::\+Mat \&}]{abs\+Phase,  }\item[{OUT cv\+::\+Mat \&}]{out,  }\item[{IN const int}]{row\+Beign,  }\item[{IN const int}]{row\+End,  }\item[{IN const float}]{max\+Tollerance = {\ttfamily 0.5},  }\item[{IN int}]{kernel = {\ttfamily 5} }\end{DoxyParamCaption})}
+
+
+
+过滤绝对相位入口函数 
+
+
+\begin{DoxyParams}{Parameters}
+{\em abs\+Phase} & 需要过滤的绝对相位 \\
+\hline
+{\em out} & 过滤后的绝对相位 \\
+\hline
+{\em max\+Tollerance} & 允许最大不同量 \\
+\hline
+{\em row\+Beign} & 起始行 \\
+\hline
+{\em row\+End} & 结束行 \\
+\hline
+{\em kenel} & 卷积核大小 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacesl_1_1tool_ac7f472d20297a071d9d9870a9f527d06}\label{namespacesl_1_1tool_ac7f472d20297a071d9d9870a9f527d06}} 
+\index{sl::tool@{sl::tool}!filterPhase@{filterPhase}}
+\index{filterPhase@{filterPhase}!sl::tool@{sl::tool}}
+\doxysubsubsection{\texorpdfstring{filterPhase()}{filterPhase()}}
+{\footnotesize\ttfamily void sl\+::tool\+::filter\+Phase (\begin{DoxyParamCaption}\item[{IN const cv\+::\+Mat \&}]{abs\+Phase,  }\item[{OUT cv\+::\+Mat \&}]{out,  }\item[{IN const float}]{max\+Tollerance = {\ttfamily 0.5},  }\item[{IN const int}]{kernel = {\ttfamily 5} }\end{DoxyParamCaption})}
+
+
+
+过滤相位 
+
+
+\begin{DoxyParams}{Parameters}
+{\em abs\+Phase} & 需要过滤的绝对相位 \\
+\hline
+{\em out} & 过滤后的绝对相位 \\
+\hline
+{\em max\+Tollerance} & 允许最大不同量 \\
+\hline
+{\em kenel} & 卷积核大小 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacesl_1_1tool_a77b23aeb41099d5ba98c9d72618a6d6e}\label{namespacesl_1_1tool_a77b23aeb41099d5ba98c9d72618a6d6e}} 
+\index{sl::tool@{sl::tool}!phaseHeightMapEigCoe@{phaseHeightMapEigCoe}}
+\index{phaseHeightMapEigCoe@{phaseHeightMapEigCoe}!sl::tool@{sl::tool}}
+\doxysubsubsection{\texorpdfstring{phaseHeightMapEigCoe()}{phaseHeightMapEigCoe()}}
+{\footnotesize\ttfamily void sl\+::tool\+::phase\+Height\+Map\+Eig\+Coe (\begin{DoxyParamCaption}\item[{IN const cv\+::\+Mat \&}]{phase,  }\item[{IN const cv\+::\+Mat \&}]{intrinsic,  }\item[{IN const cv\+::\+Mat \&}]{coefficient,  }\item[{IN const float}]{min\+Depth,  }\item[{IN const float}]{max\+Depth,  }\item[{OUT cv\+::\+Mat \&}]{depth }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{WITH\+\_\+\+CUDA}} 
+
+全图像相位高度映射
+
+
+\begin{DoxyParams}{Parameters}
+{\em phase} & 相位图(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em intrinsic} & 内参(\+CV\+\_\+64\+FC1) \\
+\hline
+{\em coefficient} & 八参数(\+CV\+\_\+64\+FC1) \\
+\hline
+{\em min\+Depth} & 最小深度 \\
+\hline
+{\em max\+Depth} & 最大深度 \\
+\hline
+{\em depth} & 深度图(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em threads} & 使用的线程数 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacesl_1_1tool_ace81483572479730ee31f1bf817e11fa}\label{namespacesl_1_1tool_ace81483572479730ee31f1bf817e11fa}} 
+\index{sl::tool@{sl::tool}!phaseHeightMapEigCoeRegion@{phaseHeightMapEigCoeRegion}}
+\index{phaseHeightMapEigCoeRegion@{phaseHeightMapEigCoeRegion}!sl::tool@{sl::tool}}
+\doxysubsubsection{\texorpdfstring{phaseHeightMapEigCoeRegion()}{phaseHeightMapEigCoeRegion()}}
+{\footnotesize\ttfamily void sl\+::tool\+::phase\+Height\+Map\+Eig\+Coe\+Region (\begin{DoxyParamCaption}\item[{IN const cv\+::\+Mat \&}]{phase,  }\item[{IN const cv\+::\+Mat \&}]{intrinsic,  }\item[{IN const cv\+::\+Mat \&}]{coefficient,  }\item[{IN const float}]{min\+Depth,  }\item[{IN const float}]{max\+Depth,  }\item[{IN const int}]{row\+Begin,  }\item[{IN const int}]{row\+End,  }\item[{OUT cv\+::\+Mat \&}]{depth }\end{DoxyParamCaption})}
+
+
+
+区域图像相位高度映射 
+
+
+\begin{DoxyParams}{Parameters}
+{\em phase} & 相位图(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em intrinsic} & 内参(\+CV\+\_\+64\+FC1) \\
+\hline
+{\em coefficient} & 八参数(\+CV\+\_\+64\+FC1) \\
+\hline
+{\em min\+Depth} & 最小深度 \\
+\hline
+{\em max\+Depth} & 最大深度 \\
+\hline
+{\em row\+Begin} & 区域行起始位置 \\
+\hline
+{\em row\+End} & 区域行结束位置 \\
+\hline
+{\em depth} & 深度图(\+CV\+\_\+32\+FC1) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacesl_1_1tool_a7abae77e399e1487e329b0b369affde5}\label{namespacesl_1_1tool_a7abae77e399e1487e329b0b369affde5}} 
+\index{sl::tool@{sl::tool}!remapToDepthCamera@{remapToDepthCamera}}
+\index{remapToDepthCamera@{remapToDepthCamera}!sl::tool@{sl::tool}}
+\doxysubsubsection{\texorpdfstring{remapToDepthCamera()}{remapToDepthCamera()}}
+{\footnotesize\ttfamily void sl\+::tool\+::remap\+To\+Depth\+Camera (\begin{DoxyParamCaption}\item[{IN const cv\+::\+Mat \&}]{depth\+In,  }\item[{IN const cv\+::\+Mat \&}]{texture\+In,  }\item[{IN const cv\+::\+Mat \&}]{Q,  }\item[{IN const cv\+::\+Mat \&}]{M,  }\item[{IN const cv\+::\+Mat \&}]{R1,  }\item[{OUT cv\+::\+Mat \&}]{depth\+Remaped,  }\item[{OUT pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZRGB $>$ \&}]{cloud }\end{DoxyParamCaption})}
+
+
+
+将校正后的相机坐标系下深度图映射回校正前并获得点云 
+
+
+\begin{DoxyParams}{Parameters}
+{\em depth\+In} & 校正后相机坐标系下的深度图 \\
+\hline
+{\em texture\+In} & 校正后相机坐标系下的纹理图 \\
+\hline
+{\em Q} & 校正后的深度映射矩阵 \\
+\hline
+{\em M} & 深度相机的内参 \\
+\hline
+{\em R1} & 校正矩阵 \\
+\hline
+{\em depth\+Remaped} & 校正前相机坐标系下的深度图 \\
+\hline
+{\em cloud} & 点云 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacesl_1_1tool_ab96d1a67db4516da5b4ee38df02f5b92}\label{namespacesl_1_1tool_ab96d1a67db4516da5b4ee38df02f5b92}} 
+\index{sl::tool@{sl::tool}!reverseMappingTexture@{reverseMappingTexture}}
+\index{reverseMappingTexture@{reverseMappingTexture}!sl::tool@{sl::tool}}
+\doxysubsubsection{\texorpdfstring{reverseMappingTexture()}{reverseMappingTexture()}}
+{\footnotesize\ttfamily void sl\+::tool\+::reverse\+Mapping\+Texture (\begin{DoxyParamCaption}\item[{IN const cv\+::\+Mat \&}]{depth,  }\item[{IN const cv\+::\+Mat \&}]{texture\+In,  }\item[{IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{Info}} \&}]{info,  }\item[{OUT cv\+::\+Mat \&}]{texture\+Align }\end{DoxyParamCaption})}
+
+
+
+反向映射计算深度图 
+
+
+\begin{DoxyParams}{Parameters}
+{\em depth} & 深度图(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em texture\+In} & 纹理图(\+CV\+\_\+8\+UC3) \\
+\hline
+{\em info} & 标定信息 \\
+\hline
+{\em texture\+Align} & 对齐到深度图的纹理图(\+CV\+\_\+8\+UC3) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacesl_1_1tool_a7c2874f60e901588a0ddcfb283a56818}\label{namespacesl_1_1tool_a7c2874f60e901588a0ddcfb283a56818}} 
+\index{sl::tool@{sl::tool}!reverseMappingTextureRegion@{reverseMappingTextureRegion}}
+\index{reverseMappingTextureRegion@{reverseMappingTextureRegion}!sl::tool@{sl::tool}}
+\doxysubsubsection{\texorpdfstring{reverseMappingTextureRegion()}{reverseMappingTextureRegion()}}
+{\footnotesize\ttfamily void sl\+::tool\+::reverse\+Mapping\+Texture\+Region (\begin{DoxyParamCaption}\item[{IN const cv\+::\+Mat \&}]{depth,  }\item[{IN const cv\+::\+Mat \&}]{texture\+In,  }\item[{IN const \mbox{\hyperlink{structsl_1_1tool_1_1_info}{Info}} \&}]{info,  }\item[{OUT cv\+::\+Mat \&}]{texture\+Align,  }\item[{IN const int}]{row\+Begin,  }\item[{IN const int}]{row\+End }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em depth} & 输入，深度图(\+CV\+\_\+32\+FC1) \\
+\hline
+{\em texture\+In} & 输入，纹理图(\+CV\+\_\+8\+UC3) \\
+\hline
+{\em info} & 输入，标定信息 \\
+\hline
+{\em texture\+Align} & 输出，对齐到深度图的纹理图(\+CV\+\_\+8\+UC3) \\
+\hline
+{\em row\+Begin} & 输入，起始行 \\
+\hline
+{\em row\+End} & 输入，结束行 \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,97 @@
+\hypertarget{dlpc__common_8h_source}{}\doxysection{dlpc\+\_\+common.\+h}
+\label{dlpc__common_8h_source}\index{src/projector/module/projector\_dlpc\_api/include/dlpc\_common.h@{src/projector/module/projector\_dlpc\_api/include/dlpc\_common.h}}
+\mbox{\hyperlink{dlpc__common_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019\ Texas\ Instruments\ Incorporated\ -\/\ http://www.ti.com/}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ are\ met:}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ \ \ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ \ \ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ documentation\ and/or\ other\ materials\ provided\ with\ the}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ \ \ distribution.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ \ Neither\ the\ name\ of\ Texas\ Instruments\ Incorporated\ nor\ the\ names\ of}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ \ \ its\ contributors\ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ \ \ from\ this\ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ \ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ \ OWNER\ OR\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ \ SPECIAL,\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ LIMITED\ TO,\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ \ DATA,\ OR\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ \ THEORY\ OF\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ \ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ \ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifndef\ DLPC\_COMMON\_H}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ DLPC\_COMMON\_H}}
+\DoxyCodeLine{00042\ \ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ DLPC\_SUCCESS\ 0}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ SUCCESS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ FAIL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ DLP2010\_WIDTH\ \ 854}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ DLP2010\_HEIGHT\ 480}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ DLP230GP\_WIDTH\ 960}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ DLP230GP\_HEIGHT\ 540}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ DLP3010\_WIDTH\ \ 1280}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ DLP3010\_HEIGHT\ 720}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ DLP4710\_WIDTH\ \ 1920}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ DLP4710\_HEIGHT\ 1080}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00067\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_d_l_p_c___c_o_m_m_o_n___command_protocol_data__s_a2874c4c18819d4b43c4c9ad03cfd26f3}{CommandDestination}};}
+\DoxyCodeLine{00070\ \ \ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_d_l_p_c___c_o_m_m_o_n___command_protocol_data__s_a7ade2b98f724b1d3e0b929e53b23d722}{BytesRead}};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \}\ \mbox{\hyperlink{struct_d_l_p_c___c_o_m_m_o_n___command_protocol_data__s}{DLPC\_COMMON\_CommandProtocolData\_s}};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{typedef}\ uint32\_t(*\mbox{\hyperlink{dlpc__common_8h_aec19edb165c243648f1cdfe8418283f6}{DLPC\_COMMON\_WriteCommandCallback}})\ (}
+\DoxyCodeLine{00092\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WriteLength,\ }
+\DoxyCodeLine{00093\ \ \ \ \ uint8\_t*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WriteBuffer,\ }
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{struct_d_l_p_c___c_o_m_m_o_n___command_protocol_data__s}{DLPC\_COMMON\_CommandProtocolData\_s}}*\ ProtocolData}
+\DoxyCodeLine{00095\ );}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00112\ \textcolor{keyword}{typedef}\ uint32\_t(*\mbox{\hyperlink{dlpc__common_8h_a55d3cfd3bd8afd5b9a2e7c5ebc9c34b3}{DLPC\_COMMON\_ReadCommandCallback}})\ (}
+\DoxyCodeLine{00113\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WriteLength,\ }
+\DoxyCodeLine{00114\ \ \ \ \ uint8\_t*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WriteBuffer,\ }
+\DoxyCodeLine{00115\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReadLength,\ }
+\DoxyCodeLine{00116\ \ \ \ \ uint8\_t*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReadBuffer,}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{struct_d_l_p_c___c_o_m_m_o_n___command_protocol_data__s}{DLPC\_COMMON\_CommandProtocolData\_s}}*\ ProtocolData}
+\DoxyCodeLine{00118\ );}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{dlpc__common_8h_ad2a9c5491fe7a729048bb8407212ae29}{DLPC\_COMMON\_InitCommandLibrary}}(}
+\DoxyCodeLine{00147\ \ \ \ \ uint8\_t*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WriteBuffer,}
+\DoxyCodeLine{00148\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ WriteBufferSize,}
+\DoxyCodeLine{00149\ \ \ \ \ uint8\_t*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReadBuffer,}
+\DoxyCodeLine{00150\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReadBufferSize,}
+\DoxyCodeLine{00151\ \ \ \ \ \mbox{\hyperlink{dlpc__common_8h_aec19edb165c243648f1cdfe8418283f6}{DLPC\_COMMON\_WriteCommandCallback}}\ WriteCommandCallback,}
+\DoxyCodeLine{00152\ \ \ \ \ \mbox{\hyperlink{dlpc__common_8h_a55d3cfd3bd8afd5b9a2e7c5ebc9c34b3}{DLPC\_COMMON\_ReadCommandCallback}}\ \ ReadCommandCallback}
+\DoxyCodeLine{00153\ );}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ \ \ }\textcolor{comment}{/*\ matches\ \_\_cplusplus\ construct\ above\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00157\ \}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DLPC\_COMMON\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

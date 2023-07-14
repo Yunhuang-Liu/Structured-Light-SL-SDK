@@ -1,0 +1,61 @@
+\hypertarget{tool_8h}{}\doxysection{src/sl\+Camera/include/tool/tool.h File Reference}
+\label{tool_8h}\index{src/slCamera/include/tool/tool.h@{src/slCamera/include/tool/tool.h}}
+
+
+工具库  
+
+
+{\ttfamily \#include $<$Eigen/\+Eigen$>$}\newline
+{\ttfamily \#include $<$opencv2/core/eigen.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/opencv.\+hpp$>$}\newline
+{\ttfamily \#include $<$pcl/point\+\_\+cloud.\+h$>$}\newline
+{\ttfamily \#include $<$pcl/point\+\_\+types.\+h$>$}\newline
+{\ttfamily \#include $<$matrixs\+Info.\+h$>$}\newline
+{\ttfamily \#include $<$type\+Def.\+h$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesl}{sl}}
+\begin{DoxyCompactList}\small\item\em 结构光库 \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacesl_1_1tool}{sl\+::tool}}
+\begin{DoxyCompactList}\small\item\em 工具库 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_a77b23aeb41099d5ba98c9d72618a6d6e}{sl\+::tool\+::phase\+Height\+Map\+Eig\+Coe}} (IN const cv\+::\+Mat \&phase, IN const cv\+::\+Mat \&intrinsic, IN const cv\+::\+Mat \&coefficient, IN const float min\+Depth, IN const float max\+Depth, OUT cv\+::\+Mat \&depth)
+\begin{DoxyCompactList}\small\item\em {\bfseries{WITH\+\_\+\+CUDA}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_ace81483572479730ee31f1bf817e11fa}{sl\+::tool\+::phase\+Height\+Map\+Eig\+Coe\+Region}} (IN const cv\+::\+Mat \&phase, IN const cv\+::\+Mat \&intrinsic, IN const cv\+::\+Mat \&coefficient, IN const float min\+Depth, IN const float max\+Depth, IN const int row\+Begin, IN const int row\+End, OUT cv\+::\+Mat \&depth)
+\begin{DoxyCompactList}\small\item\em 区域图像相位高度映射 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_a097962c57f76ef51d0f8b0d5d70db617}{sl\+::tool\+::average\+Texture}} (IN const std\+::vector$<$ cv\+::\+Mat $>$ \&imgs, OUT cv\+::\+Mat \&texture, IN const int phase\+Shift\+Step=4)
+\begin{DoxyCompactList}\small\item\em 由相移图片计算纹理图片 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_a10bafa9534e6f21e24943c519faba6fa}{sl\+::tool\+::average\+Texture\+Region\+Grey}} (IN const std\+::vector$<$ cv\+::\+Mat $>$ \&imgs, OUT cv\+::\+Mat \&texture, IN const int phase\+Shift\+Step, IN const int row\+Begin, IN const int row\+End)
+\begin{DoxyCompactList}\small\item\em 由相移图片计算纹理图片 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_abbaa43c3b3cc40ac5b613388819b517c}{sl\+::tool\+::average\+Texture\+Region\+Color}} (IN const std\+::vector$<$ cv\+::\+Mat $>$ \&imgs, OUT cv\+::\+Mat \&texture, IN const int phase\+Shift\+Step, IN const int row\+Begin, IN const int row\+End)
+\begin{DoxyCompactList}\small\item\em 由相移图片计算纹理图片 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_ab96d1a67db4516da5b4ee38df02f5b92}{sl\+::tool\+::reverse\+Mapping\+Texture}} (IN const cv\+::\+Mat \&depth, IN const cv\+::\+Mat \&texture\+In, IN const Info \&info, OUT cv\+::\+Mat \&texture\+Align)
+\begin{DoxyCompactList}\small\item\em 反向映射计算深度图 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_a7c2874f60e901588a0ddcfb283a56818}{sl\+::tool\+::reverse\+Mapping\+Texture\+Region}} (IN const cv\+::\+Mat \&depth, IN const cv\+::\+Mat \&texture\+In, IN const Info \&info, OUT cv\+::\+Mat \&texture\+Align, IN const int row\+Begin, IN const int row\+End)
+\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_ac7f472d20297a071d9d9870a9f527d06}{sl\+::tool\+::filter\+Phase}} (IN const cv\+::\+Mat \&abs\+Phase, OUT cv\+::\+Mat \&out, IN const float max\+Tollerance=0.\+5, IN const int kernel=5)
+\begin{DoxyCompactList}\small\item\em 过滤相位 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_a16c12c962e4dad85d0e036b61fb2edd9}{sl\+::tool\+::entry\+Filter\+Phase}} (IN const cv\+::\+Mat \&abs\+Phase, OUT cv\+::\+Mat \&out, IN const int row\+Beign, IN const int row\+End, IN const float max\+Tollerance=0.\+5, IN int kernel=5)
+\begin{DoxyCompactList}\small\item\em 过滤绝对相位入口函数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacesl_1_1tool_a7abae77e399e1487e329b0b369affde5}{sl\+::tool\+::remap\+To\+Depth\+Camera}} (IN const cv\+::\+Mat \&depth\+In, IN const cv\+::\+Mat \&texture\+In, IN const cv\+::\+Mat \&Q, IN const cv\+::\+Mat \&M, IN const cv\+::\+Mat \&R1, OUT cv\+::\+Mat \&depth\+Remaped, OUT pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+XYZRGB $>$ \&cloud)
+\begin{DoxyCompactList}\small\item\em 将校正后的相机坐标系下深度图映射回校正前并获得点云 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+工具库 
+
+\begin{DoxyAuthor}{Author}
+Liu Yunhuang (\href{mailto:1369215984@qq.com}{\texttt{ 1369215984@qq.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/12-\/10
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2021 
+\end{DoxyCopyright}

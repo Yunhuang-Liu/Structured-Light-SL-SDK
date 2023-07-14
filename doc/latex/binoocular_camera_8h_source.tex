@@ -1,0 +1,80 @@
+\hypertarget{binoocular_camera_8h_source}{}\doxysection{binoocular\+Camera.\+h}
+\label{binoocular_camera_8h_source}\index{src/slCamera/module/binoocularCamera/include/binoocularCamera.h@{src/slCamera/module/binoocularCamera/include/binoocularCamera.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_BINOCULAR\_CAMERA\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_BINOCULAR\_CAMERA\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <slCamera.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cameraFactory.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{matrixs_info_8h}{matrixsInfo.h}}>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{n_step_n_gray_code_master_cpu_8h}{nStepNGrayCodeMasterCpu.h}}>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <projectorFactory.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{rectifier_cpu_8h}{rectifierCpu.h}}>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{restructor_cpu_8h}{restructorCpu.h}}>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{code_maker_8h}{codeMaker.h}}>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifdef\ \_\_WITH\_CUDA\_\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{n_step_n_gray_code_master_gpu_8h}{nStepNGrayCodeMasterGpu.h}}>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{rectifier_gpu_8h}{rectifierGpu.h}}>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <restructorGpu.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesl}{sl}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }slCamera\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera}{BinocularCamera}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_s_l_camera}{SLCamera}}\ \{}
+\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera}{BinocularCamera}}(IN\ \textcolor{keyword}{const}\ std::string\ jsonPath);}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{structsl_1_1sl_camera_1_1_s_l_camera_info}{SLCameraInfo}}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a5749aae95b6eea78c786957cde0e772c}{getCameraInfo}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a990c3f2c90d7a7e805e5e3922427d947}{connect}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_aff44c25f423972feebb62b893573509a}{disConnect}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a25a513d18ead3155ab9c87fa51781dc0}{isConnect}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a2c572c7a93168a2db9d3c27ae1ff1a47}{capture}}(IN\ \mbox{\hyperlink{structsl_1_1sl_camera_1_1_frame_data}{FrameData}}\ \&frameData)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a5eb5f5518602fe553e71efcda149ceb7}{offLineCapture}}(IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\&\ leftImgs,\ IN\ \textcolor{keyword}{const}\ std::vector<cv::Mat>\&\ rightImgs,\ OUT\ \mbox{\hyperlink{structsl_1_1sl_camera_1_1_frame_data}{FrameData}}\ \&frameData)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a7cff5ea8624568bfeaeae0f244cea4dc}{setDepthCameraEnabled}}(IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ isEnable)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_ada043a52902e7b7438a7ca71be301091}{getStringAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ std::string\ \&val)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a931ac1f916d678778bb728abaf0ad812}{getNumbericalAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ \textcolor{keywordtype}{double}\ \&val)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a2daf3d577aeba66df550a1826c13212c}{getBooleanAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OUT\ \textcolor{keywordtype}{bool}\ \&val)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_aa3d63503f6078b1b82699ed7ee739eea}{setStringAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ std::string\ val)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_af7aefe6adb3962296a20d4d60c8077ee}{setNumberAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ val)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a307d69b3bb356ab4958b339a0e48203d}{setBooleanAttribute}}(IN\ \textcolor{keyword}{const}\ std::string\ attributeName,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ val)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a3c9ba01a51d68ceb1cf61a5241a66da9}{resetCameraConfig}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classsl_1_1sl_camera_1_1_binocular_camera_a7918a8601b50e3808ad1d0793a2df6ee}{updateCamera}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00161\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{bool}\ loadParams(IN\ \textcolor{keyword}{const}\ std::string\ jsonPath,\ IN\ \mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ \&jsonVal);}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{bool}\ saveParams(IN\ \textcolor{keyword}{const}\ std::string\ jsonPath,\ IN\ \mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ \&jsonVal);}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{void}\ parseArray(IN\ \mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ \&jsonVal,\ IN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ isWrite);}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{void}\ updateAccelerateMethod();}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{void}\ updateExposureTime();}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{void}\ updateFlashPattern();}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{void}\ updateEnableDepthCamera();}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{void}\ updateLightStrength();}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{bool}\ \_\_isInitial;}
+\DoxyCodeLine{00213\ \ \ \ \ std::string\ \_\_jsonPath;}
+\DoxyCodeLine{00214\ \ \ \ \ \mbox{\hyperlink{class_json_1_1_value}{Json::Value}}\ \_\_jsonVal;}
+\DoxyCodeLine{00215\ \ \ \ \ \mbox{\hyperlink{structsl_1_1sl_camera_1_1_s_l_camera_info}{SLCameraInfo}}\ \_\_cameraInfo;}
+\DoxyCodeLine{00216\ \ \ \ \ std::unordered\_map<std::string,\ std::string>\ \_\_stringProperties;}
+\DoxyCodeLine{00217\ \ \ \ \ std::unordered\_map<std::string,\ float>\ \_\_numbericalProperties;}
+\DoxyCodeLine{00218\ \ \ \ \ std::unordered\_map<std::string,\ bool>\ \_\_booleanProperties;}
+\DoxyCodeLine{00219\ \ \ \ \ std::unordered\_map<std::string,\ bool>\ \_\_propertiesChangedSignals;}
+\DoxyCodeLine{00220\ \ \ \ \ \mbox{\hyperlink{classsl_1_1camera_1_1_camera_factory}{camera::CameraFactory}}\ \_\_cameraFactory;}
+\DoxyCodeLine{00221\ \ \ \ \ \mbox{\hyperlink{classsl_1_1projector_1_1_projector_factory}{projector::ProjectorFactory}}\ \_\_projectorFactory;}
+\DoxyCodeLine{00222\ \ \ \ \ \mbox{\hyperlink{classsl_1_1tool_1_1_matrixs_info}{tool::MatrixsInfo}}\ *\_\_matrixInfo;}
+\DoxyCodeLine{00223\ \ \ \ \ \mbox{\hyperlink{classsl_1_1phase_solver_1_1_phase_solver}{phaseSolver::PhaseSolver}}\ *\_\_phaseSolver;}
+\DoxyCodeLine{00224\ \ \ \ \ \mbox{\hyperlink{classsl_1_1rectifier_1_1_rectifier}{rectifier::Rectifier}}\ *\_\_rectifier;}
+\DoxyCodeLine{00225\ \ \ \ \ \mbox{\hyperlink{classsl_1_1restructor_1_1_restructor}{restructor::Restructor}}\ *\_\_restructor;}
+\DoxyCodeLine{00226\ \};}
+\DoxyCodeLine{00227\ \}\ \textcolor{comment}{//\ namespace\ slCamera}}
+\DoxyCodeLine{00228\ \}\ \textcolor{comment}{//\ namespace\ sl}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_BINOCULAR\_CAMERA\_H\_}}
+
+\end{DoxyCode}

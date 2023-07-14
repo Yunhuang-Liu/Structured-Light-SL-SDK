@@ -1,0 +1,1848 @@
+\hypertarget{_cy_u_s_b_serial_8h_source}{}\doxysection{Cy\+USBSerial.\+h}
+\label{_cy_u_s_b_serial_8h_source}\index{src/projector/module/projector\_dlpc\_api/third\_party/cyusbserial/CyUSBSerial.h@{src/projector/module/projector\_dlpc\_api/third\_party/cyusbserial/CyUSBSerial.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\#\#\ Cypress\ USB\ Serial\ Library\ header\ file\ (CyUSBSerial.h)}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\#\#\ ===========================}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\#\#}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\#\#\ \ Copyright\ Cypress\ Semiconductor\ Corporation,\ 2012-\/2013,}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\#\#\ \ All\ Rights\ Reserved}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\#\#\ \ UNPUBLISHED,\ LICENSED\ SOFTWARE.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\#\#}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\#\#\ \ CONFIDENTIAL\ AND\ PROPRIETARY\ INFORMATION}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\#\#\ \ WHICH\ IS\ THE\ PROPERTY\ OF\ CYPRESS.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\#\#}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\#\#\ \ Use\ of\ this\ file\ is\ governed}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\#\#\ \ by\ the\ license\ agreement\ included\ in\ the\ file}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\#\#}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\#\#\ \ \ \ \ <install>/license/license.txt}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\#\#}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\#\#\ \ where\ <install>\ is\ the\ Cypress\ software}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\#\#\ \ installation\ root\ directory\ path.}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\#\#}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\#\#\ ===========================}}
+\DoxyCodeLine{00021\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ \_INCLUDED\_CYUSBSERIAL\_H\_}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ \_INCLUDED\_CYUSBSERIAL\_H\_}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ \#define\ CppCALLCONVEN\ extern\ "{}C"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \#define\ CppCALLCONVEN\ }}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{/*This\ is\ to\ export\ Windows\ API*/}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifdef\ WIN32}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ CYUSBSERIAL\_EXPORTS}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CYWINEXPORT\ \ CppCALLCONVEN\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ WINCALLCONVEN\ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LINUXCALLCONVEN}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CYWINEXPORT\ CppCALLCONVEN\ \_\_declspec(dllimport)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ WINCALLCONVEN}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LINUXCALLCONVEN}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*Linux\ and\ MAC*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\ \ \ \ \#define\ CYWINEXPORT\ CppCALLCONVEN}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\ \ \ \ \#define\ WINCALLCONVEN}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\ \ \ \ \#define\ LINUXCALLCONVEN}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#ifndef\ BOOL}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{bool}\ BOOL;}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00050\ \textcolor{comment}{/*************************************************************************************/}}
+\DoxyCodeLine{00051\ \textcolor{comment}{/*******************************Constants*********************************************/}}
+\DoxyCodeLine{00052\ \textcolor{comment}{/*************************************************************************************/}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{/*@@Constants}}
+\DoxyCodeLine{00055\ \textcolor{comment}{This\ section\ contains\ details\ of\ the\ all\ the\ constants\ }}
+\DoxyCodeLine{00056\ \textcolor{comment}{that\ are\ part\ of\ Cypress\ USB\ Serial\ driver\ library.}}
+\DoxyCodeLine{00057\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ CY\_STRING\_DESCRIPTOR\_SIZE\ 256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*String\ descriptor\ size\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ CY\_MAX\_DEVICE\_INTERFACE\ 5\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*Maximum\ number\ of\ interfaces\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00062\ \textcolor{comment}{Summary}}
+\DoxyCodeLine{00063\ \textcolor{comment}{This\ section\ contains\ USB\ Serial\ library\ version\ information.}}
+\DoxyCodeLine{00064\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{/*\ Major\ version\ number\ for\ library.\ */}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ CY\_US\_VERSION\_MAJOR\ \ \ \ \ \ \ \ \ \ \ \ \ (2)}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{comment}{/*\ Minor\ version\ number\ for\ library.\ */}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ CY\_US\_VERSION\_MINOR\ \ \ \ \ \ \ \ \ \ \ \ \ (0)}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{/*\ Patch\ version\ number\ for\ library.\ */}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ CY\_US\_VERSION\_PATCH\ \ \ \ \ \ \ \ \ \ \ \ \ (3)}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{/*\ Version\ number\ for\ the\ device.\ */}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ CY\_US\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((CY\_US\_VERSION\_MAJOR)\ \ \ \ \ \ \ |\ \(\backslash\)}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CY\_US\_VERSION\_MINOR\ <<\ 8)\ \ |\ \(\backslash\)}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CY\_US\_VERSION\_PATCH\ <<\ 16))}}
+\DoxyCodeLine{00079\ \textcolor{comment}{/*\ Library\ build\ number.\ */}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ CY\_US\_VERSION\_BUILD\ \ \ \ \ \ \ \ \ \ \ \ \ (91)}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{/*************************************************************************************/}}
+\DoxyCodeLine{00084\ \textcolor{comment}{/****************************Data\ Type\ Definitions************************************/}}
+\DoxyCodeLine{00085\ \textcolor{comment}{/*************************************************************************************/}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{comment}{/*@@Data\ Types}}
+\DoxyCodeLine{00088\ \textcolor{comment}{This\ section\ defines\ the\ data\ types\ that\ are\ used\ by\ }}
+\DoxyCodeLine{00089\ \textcolor{comment}{Cypress\ USB\ Serial\ driver\ library.}}
+\DoxyCodeLine{00090\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#ifndef\ UINT32}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ UINT32;}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#ifndef\ UINT8}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ UINT8;}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#ifndef\ UINT16}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ UINT16;}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#ifndef\ CHAR}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{char}\ CHAR;}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#ifndef\ UCHAR}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ UCHAR;}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{comment}{/*\ Summary\ }}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ \ \ CyUSB\ Device\ Handle.}}
+\DoxyCodeLine{00109\ \textcolor{comment}{}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ \ \ The\ handle\ is\ used\ by\ application\ to\ communicate\ with\ USB\ serial\ device.}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ \ \ The\ handle\ is\ obtained\ by\ calling\ CyOpen.}}
+\DoxyCodeLine{00113\ \textcolor{comment}{}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ \ \ *\ CyOpen}}
+\DoxyCodeLine{00116\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00117\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}*\ CY\_HANDLE;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00120\ \textcolor{comment}{Summary\ }}
+\DoxyCodeLine{00121\ \textcolor{comment}{Function\ pointer\ for\ getting\ async\ error/success\ notification\ on\ UART/SPI}}
+\DoxyCodeLine{00122\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00123\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00124\ \textcolor{comment}{This\ function\ pointer\ that\ will\ be\ passed\ to\ CySetEventNotification\ and\ get\ }}
+\DoxyCodeLine{00125\ \textcolor{comment}{a\ callback\ with\ a\ 2\ byte\ value\ bit\ map\ that\ reports\ error/events\ triggered\ during\ UART/SPI\ transaction.\ }}
+\DoxyCodeLine{00126\ \textcolor{comment}{The\ bit\ map\ is\ defined\ in\ CY\_CALLBACK\_EVENTS.}}
+\DoxyCodeLine{00127\ \textcolor{comment}{}}
+\DoxyCodeLine{00128\ \textcolor{comment}{See\ also}}
+\DoxyCodeLine{00129\ \textcolor{comment}{*\ CY\_CALLBACK\_EVENTS}}
+\DoxyCodeLine{00130\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00131\ \textcolor{keyword}{typedef}\ void\ (*CY\_EVENT\_NOTIFICATION\_CB\_FN)(UINT16\ eventsNotified);}
+\DoxyCodeLine{00132\ \ }
+\DoxyCodeLine{00133\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00134\ \textcolor{comment}{Summary\ }}
+\DoxyCodeLine{00135\ \textcolor{comment}{This\ structure\ is\ used\ to\ hold\ VID\ and\ PID\ of\ USB\ device}}
+\DoxyCodeLine{00136\ \textcolor{comment}{}}
+\DoxyCodeLine{00137\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00138\ \textcolor{comment}{This\ Strucuture\ holds\ the\ VID\ and\ PID\ of\ a\ USB\ device.}}
+\DoxyCodeLine{00139\ \textcolor{comment}{}}
+\DoxyCodeLine{00140\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00141\ \textcolor{comment}{*\ CY\_DEVICE\_INFO}}
+\DoxyCodeLine{00142\ \textcolor{comment}{*\ CyGetDeviceInfoVidPid}}
+\DoxyCodeLine{00143\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00144\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___c_y___v_i_d___p_i_d}{\_CY\_VID\_PID}}\ \{}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ UINT16\ vid;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Holds\ the\ VID\ of\ the\ device*/}}
+\DoxyCodeLine{00147\ \ \ \ \ UINT16\ pid;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Holds\ the\ PID\ of\ the\ device*/}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \}\ \mbox{\hyperlink{struct___c_y___v_i_d___p_i_d}{CY\_VID\_PID}},\ *\mbox{\hyperlink{struct___c_y___v_i_d___p_i_d}{PCY\_VID\_PID}};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{comment}{/*\ Summary\ }}
+\DoxyCodeLine{00152\ \textcolor{comment}{This\ structure\ is\ used\ to\ hold\ version\ information\ of\ the\ library.}}
+\DoxyCodeLine{00153\ \textcolor{comment}{}}
+\DoxyCodeLine{00154\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00155\ \textcolor{comment}{This\ structure\ can\ be\ used\ to\ retrive\ the\ version\ information\ of\ the\ library.}}
+\DoxyCodeLine{00156\ \textcolor{comment}{}}
+\DoxyCodeLine{00157\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00158\ \textcolor{comment}{*\ CyGetLibraryVersion}}
+\DoxyCodeLine{00159\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00160\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___c_y___l_i_b_r_a_r_y___v_e_r_s_i_o_n}{\_CY\_LIBRARY\_VERSION}}\ \{}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ UINT8\ majorVersion;\ \ \ \ \ \textcolor{comment}{/*The\ major\ version\ of\ the\ library*/}}
+\DoxyCodeLine{00163\ \ \ \ \ UINT8\ minorVersion;\ \ \ \ \ \textcolor{comment}{/*The\ minor\ version\ of\ the\ library*/}}
+\DoxyCodeLine{00164\ \ \ \ \ UINT16\ patch;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*The\ patch\ number\ of\ the\ library*/}}
+\DoxyCodeLine{00165\ \ \ \ \ UINT8\ buildNumber;\ \ \ \ \ \ \textcolor{comment}{/*The\ build\ number\ of\ the\ library*/}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \}\ \mbox{\hyperlink{struct___c_y___l_i_b_r_a_r_y___v_e_r_s_i_o_n}{CY\_LIBRARY\_VERSION}},\ *\mbox{\hyperlink{struct___c_y___l_i_b_r_a_r_y___v_e_r_s_i_o_n}{PCY\_LIBRARY\_VERSION}};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00170\ \textcolor{comment}{Summary}}
+\DoxyCodeLine{00171\ \textcolor{comment}{This\ structure\ is\ used\ to\ hold\ firmware\ version\ of\ the\ USB\ Serial\ device.\ }}
+\DoxyCodeLine{00172\ \textcolor{comment}{}}
+\DoxyCodeLine{00173\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00174\ \textcolor{comment}{This\ structure\ holds\ the\ version\ information\ of\ the\ USB\ serial\ device.\ }}
+\DoxyCodeLine{00175\ \textcolor{comment}{It\ has\ major\ version,\ minor\ version,\ patch\ number\ and\ build\ number.}}
+\DoxyCodeLine{00176\ \textcolor{comment}{}}
+\DoxyCodeLine{00177\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00178\ \textcolor{comment}{*\ CyGetFirmwareVersion}}
+\DoxyCodeLine{00179\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00180\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___c_y___f_i_r_m_w_a_r_e___v_e_r_s_i_o_n}{\_CY\_FIRMWARE\_VERSION}}\ \{}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ UINT8\ majorVersion;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Major\ version\ of\ the\ Firmware*/}}
+\DoxyCodeLine{00183\ \ \ \ \ UINT8\ minorVersion;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Minor\ version\ of\ the\ Firmware*/}}
+\DoxyCodeLine{00184\ \ \ \ \ UINT16\ patchNumber;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Patch\ Number\ of\ the\ Firmware*/}\ \ }
+\DoxyCodeLine{00185\ \ \ \ \ UINT32\ buildNumber;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Build\ Number\ of\ the\ Firmware*/}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \}\ \mbox{\hyperlink{struct___c_y___f_i_r_m_w_a_r_e___v_e_r_s_i_o_n}{CY\_FIRMWARE\_VERSION}},\ *\mbox{\hyperlink{struct___c_y___f_i_r_m_w_a_r_e___v_e_r_s_i_o_n}{PCY\_FIRMWARE\_VERSION}};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \textcolor{comment}{/*\ Summary\ }}
+\DoxyCodeLine{00190\ \textcolor{comment}{Enumeration\ defining\ list\ of\ USB\ device\ classes\ supported\ by\ USB\ Serial\ device.}}
+\DoxyCodeLine{00191\ \textcolor{comment}{}}
+\DoxyCodeLine{00192\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00193\ \textcolor{comment}{This\ is\ the\ list\ of\ USB\ device\ classes\ supported\ by\ USB\ Serial\ device.}}
+\DoxyCodeLine{00194\ \textcolor{comment}{}}
+\DoxyCodeLine{00195\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00196\ \textcolor{comment}{*\ CY\_DEVICE\_INFO}}
+\DoxyCodeLine{00197\ \textcolor{comment}{*\ CyGetDeviceInfo}}
+\DoxyCodeLine{00198\ \textcolor{comment}{*\ CyGetDeviceInfoVidPid}}
+\DoxyCodeLine{00199\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00200\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_CY\_DEVICE\_CLASS\{}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ CY\_CLASS\_DISABLED\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*None\ or\ the\ interface\ is\ disabled\ */}}
+\DoxyCodeLine{00203\ \ \ \ \ CY\_CLASS\_CDC\ =\ 0x02,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*CDC\ ACM\ class*/}}
+\DoxyCodeLine{00204\ \ \ \ \ CY\_CLASS\_PHDC\ =\ 0x0F,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*PHDC\ class\ */}}
+\DoxyCodeLine{00205\ \ \ \ \ CY\_CLASS\_VENDOR\ =\ 0xFF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*VENDOR\ specific\ class*/}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \}\ CY\_DEVICE\_CLASS;}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{comment}{/*\ Summary\ }}
+\DoxyCodeLine{00210\ \textcolor{comment}{Enumeration\ defining\ list\ of\ device\ types\ supported\ by\ USB\ Serial\ device\ in\ each\ interface.}}
+\DoxyCodeLine{00211\ \textcolor{comment}{}}
+\DoxyCodeLine{00212\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00213\ \textcolor{comment}{This\ is\ the\ list\ of\ device\ types\ supported\ by\ USB\ Serial\ device\ when\ the\ interface\ type\ is\ }}
+\DoxyCodeLine{00214\ \textcolor{comment}{configured\ as\ CY\_CLASS\_VENDOR.\ The\ interface\ type\ can\ be\ queried\ from\ the\ device\ by\ using\ CyGetDeviceInfo\ }}
+\DoxyCodeLine{00215\ \textcolor{comment}{and\ CyGetDeviceInfoVidPid\ APIs.\ }}
+\DoxyCodeLine{00216\ \textcolor{comment}{}}
+\DoxyCodeLine{00217\ \textcolor{comment}{The\ member\ of\ CY\_DEVICE\_INFO\ structure\ contains\ the\ interface\ type.}}
+\DoxyCodeLine{00218\ \textcolor{comment}{}}
+\DoxyCodeLine{00219\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00220\ \textcolor{comment}{*\ CY\_DEVICE\_INFO}}
+\DoxyCodeLine{00221\ \textcolor{comment}{*\ CyGetDeviceInfo}}
+\DoxyCodeLine{00222\ \textcolor{comment}{*\ CyGetDeviceInfoVidPid}}
+\DoxyCodeLine{00223\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00224\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_CY\_DEVICE\_TYPE\ \{}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ CY\_TYPE\_DISABLED\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Invalid\ device\ type\ or\ interface\ is\ not\ CY\_CLASS\_VENDOR*/}}
+\DoxyCodeLine{00227\ \ \ \ \ CY\_TYPE\_UART,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Interface\ of\ device\ is\ of\ type\ UART*/}}
+\DoxyCodeLine{00228\ \ \ \ \ CY\_TYPE\_SPI,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Interface\ of\ device\ is\ of\ type\ SPI\ */}}
+\DoxyCodeLine{00229\ \ \ \ \ CY\_TYPE\_I2C,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Interface\ of\ device\ is\ of\ type\ I2C\ */}}
+\DoxyCodeLine{00230\ \ \ \ \ CY\_TYPE\_JTAG,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Interface\ of\ device\ is\ of\ type\ JTAG*/}}
+\DoxyCodeLine{00231\ \ \ \ \ CY\_TYPE\_MFG\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Interface\ of\ device\ is\ in\ Manufacturing\ mode*/}\ }
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \}\ CY\_DEVICE\_TYPE;\ }
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \textcolor{comment}{/*\ Summary\ }}
+\DoxyCodeLine{00236\ \textcolor{comment}{This\ enumeration\ type\ defines\ the\ available\ device\ serial\ blocks.}}
+\DoxyCodeLine{00237\ \textcolor{comment}{}}
+\DoxyCodeLine{00238\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00239\ \textcolor{comment}{USB\ Serial\ device\ has\ up\ to\ two\ configurable\ serial\ blocks.\ UART,\ SPI,\ I2C\ or\ JTAG\ functionality\ can\ be\ }}
+\DoxyCodeLine{00240\ \textcolor{comment}{configured\ and\ used\ in\ these\ serial\ block.\ Windows\ driver\ binds\ to\ a\ serial\ block\ rather\ than\ the\ entire\ device.\ }}
+\DoxyCodeLine{00241\ \textcolor{comment}{So,\ it\ is\ essential\ to\ find\ out\ which\ serial\ block\ to\ which\ current\ communications\ are\ directed.\ These\ enumeration\ }}
+\DoxyCodeLine{00242\ \textcolor{comment}{structure\ provides\ the\ possible\ SERIAL\ BLOCK\ Options.}}
+\DoxyCodeLine{00243\ \textcolor{comment}{}}
+\DoxyCodeLine{00244\ \textcolor{comment}{This\ enumration\ data\ type\ is\ a\ member\ of\ CY\_DEVICE\_INFO\ structure.}}
+\DoxyCodeLine{00245\ \textcolor{comment}{}}
+\DoxyCodeLine{00246\ \textcolor{comment}{This\ data\ type\ information\ doesn't\ apply\ for\ non-\/windows\ operating\ system.}}
+\DoxyCodeLine{00247\ \textcolor{comment}{}}
+\DoxyCodeLine{00248\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00249\ \textcolor{comment}{CY\_DEVICE\_INFO}}
+\DoxyCodeLine{00250\ \textcolor{comment}{CyGetDeviceInfo}}
+\DoxyCodeLine{00251\ \textcolor{comment}{CyGetDeviceInfoVidPid}}
+\DoxyCodeLine{00252\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_CY\_DEVICE\_SERIAL\_BLOCK}
+\DoxyCodeLine{00255\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ SerialBlock\_SCB0\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Serial\ Block\ Number\ 0*/}}
+\DoxyCodeLine{00257\ \ \ \ \ SerialBlock\_SCB1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Serial\ Block\ Number\ 1*/}}
+\DoxyCodeLine{00258\ \ \ \ \ SerialBlock\_MFG\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Serial\ Block\ Manufacturing\ Interface.*/}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \}\ CY\_DEVICE\_SERIAL\_BLOCK;}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{comment}{/*\ Summary\ }}
+\DoxyCodeLine{00263\ \textcolor{comment}{Structure\ to\ hold\ information\ of\ the\ device\ connected\ to\ host.}}
+\DoxyCodeLine{00264\ \textcolor{comment}{}}
+\DoxyCodeLine{00265\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00266\ \textcolor{comment}{The\ structure\ holds\ the\ information\ about\ device\ currently\ connected\ to\ host.\ The\ information}}
+\DoxyCodeLine{00267\ \textcolor{comment}{can\ be\ obtained\ by\ using\ CyGetDeviceInfo\ and\ CyGetDeviceInfoVidPid\ APIs.}}
+\DoxyCodeLine{00268\ \textcolor{comment}{}}
+\DoxyCodeLine{00269\ \textcolor{comment}{The\ information\ includes\ VID,\ PID,\ number\ of\ interfaces,\ string\ descriptors,\ device\ type\ }}
+\DoxyCodeLine{00270\ \textcolor{comment}{and\ device\ class\ supported\ by\ each\ interface.\ Device\ type\ is\ valid\ only\ if\ the\ interface\ is\ CY\_CLASS\_VENDOR.}}
+\DoxyCodeLine{00271\ \textcolor{comment}{}}
+\DoxyCodeLine{00272\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00273\ \textcolor{comment}{CY\_VID\_PID}}
+\DoxyCodeLine{00274\ \textcolor{comment}{CY\_DEVICE\_CLASS}}
+\DoxyCodeLine{00275\ \textcolor{comment}{CY\_DEVICE\_TYPE}}
+\DoxyCodeLine{00276\ \textcolor{comment}{CyGetDeviceInfo}}
+\DoxyCodeLine{00277\ \textcolor{comment}{CyGetDeviceInfoVidPid}}
+\DoxyCodeLine{00278\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00279\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___c_y___d_e_v_i_c_e___i_n_f_o}{\_CY\_DEVICE\_INFO}}\ \{}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \mbox{\hyperlink{struct___c_y___v_i_d___p_i_d}{CY\_VID\_PID}}\ vidPid;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*VID\ and\ PID*/}}
+\DoxyCodeLine{00282\ \ \ \ \ UCHAR\ numInterfaces;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Number\ of\ interfaces\ supported*/}}
+\DoxyCodeLine{00283\ \ \ \ \ UCHAR\ manufacturerName\ [CY\_STRING\_DESCRIPTOR\_SIZE];\ \ \ \ \ \textcolor{comment}{/*Manufacturer\ name*/}}
+\DoxyCodeLine{00284\ \ \ \ \ UCHAR\ productName\ [CY\_STRING\_DESCRIPTOR\_SIZE];\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Product\ name*/}}
+\DoxyCodeLine{00285\ \ \ \ \ UCHAR\ serialNum\ [CY\_STRING\_DESCRIPTOR\_SIZE];\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Serial\ number*/}}
+\DoxyCodeLine{00286\ \ \ \ \ UCHAR\ deviceFriendlyName\ [CY\_STRING\_DESCRIPTOR\_SIZE];\ \ \ \textcolor{comment}{/*Device\ friendly\ name\ :\ Windows\ only*/}}
+\DoxyCodeLine{00287\ \ \ \ \ CY\_DEVICE\_TYPE\ deviceType\ [CY\_MAX\_DEVICE\_INTERFACE];\ \ \ \ \textcolor{comment}{/*Type\ of\ the\ device\ each\ interface\ has(Valid\ only\ }}
+\DoxyCodeLine{00288\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ for\ USB\ Serial\ Device)\ and\ interface\ in\ vendor\ class*/}}
+\DoxyCodeLine{00289\ \ \ \ \ CY\_DEVICE\_CLASS\ deviceClass\ [CY\_MAX\_DEVICE\_INTERFACE];\ \ \textcolor{comment}{/*Interface\ class\ of\ each\ interface*/}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#ifdef\ WIN32}}
+\DoxyCodeLine{00292\ \ \ \ \ CY\_DEVICE\_SERIAL\_BLOCK\ \ deviceBlock;\ \textcolor{comment}{/*\ On\ Windows,\ each\ USB\ Serial\ device\ interface\ is\ associated\ with\ a}}
+\DoxyCodeLine{00293\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ separate\ driver\ instance.\ This\ variable\ represents\ the\ present\ driver}}
+\DoxyCodeLine{00294\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ interface\ instance\ that\ is\ associated\ with\ a\ serial\ block.\ */}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \}\ \mbox{\hyperlink{struct___c_y___d_e_v_i_c_e___i_n_f_o}{CY\_DEVICE\_INFO}},*\mbox{\hyperlink{struct___c_y___d_e_v_i_c_e___i_n_f_o}{PCY\_DEVICE\_INFO}};}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \textcolor{comment}{/*\ Summary\ }}
+\DoxyCodeLine{00300\ \textcolor{comment}{This\ structure\ is\ used\ to\ hold\ data\ buffer\ information.\ }}
+\DoxyCodeLine{00301\ \textcolor{comment}{}}
+\DoxyCodeLine{00302\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00303\ \textcolor{comment}{This\ strucuture\ is\ used\ by\ all\ the\ data\ transaction\ APIs\ in\ the\ library\ to\ perform\ read,\ write\ }}
+\DoxyCodeLine{00304\ \textcolor{comment}{operations.}}
+\DoxyCodeLine{00305\ \textcolor{comment}{Before\ using\ a\ variable\ of\ this\ strucutre\ users\ need\ to\ initialize\ various\ members\ appropriately.\ }}
+\DoxyCodeLine{00306\ \textcolor{comment}{}}
+\DoxyCodeLine{00307\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00308\ \textcolor{comment}{*\ CyUartRead}}
+\DoxyCodeLine{00309\ \textcolor{comment}{*\ CyUartWrite}}
+\DoxyCodeLine{00310\ \textcolor{comment}{*\ CyI2cRead}}
+\DoxyCodeLine{00311\ \textcolor{comment}{*\ CyI2cWrite}}
+\DoxyCodeLine{00312\ \textcolor{comment}{*\ CySpiReadWrite}}
+\DoxyCodeLine{00313\ \textcolor{comment}{*\ CyJtagWrite}}
+\DoxyCodeLine{00314\ \textcolor{comment}{*\ CyJtagRead}}
+\DoxyCodeLine{00315\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00316\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{\_CY\_DATA\_BUFFER}}\ \{}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ UCHAR\ *buffer;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Pointer\ to\ the\ buffer\ from\ where\ the\ data\ is\ read/written\ */}}
+\DoxyCodeLine{00319\ \ \ \ \ UINT32\ length;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Length\ of\ the\ buffer\ */}}
+\DoxyCodeLine{00320\ \ \ \ \ UINT32\ transferCount;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Number\ of\ bytes\ actually\ read/written*/}}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \}\ \mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{CY\_DATA\_BUFFER}},*\mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{PCY\_DATA\_BUFFER}};}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \textcolor{comment}{/*\ Summary\ }}
+\DoxyCodeLine{00325\ \textcolor{comment}{Enumeration\ defining\ return\ status\ of\ \ USB\ serial\ library\ APIs}}
+\DoxyCodeLine{00326\ \textcolor{comment}{}}
+\DoxyCodeLine{00327\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00328\ \textcolor{comment}{The\ enumeration\ CY\_RETURN\_STATUS\ holds\ the\ different\ return\ status\ of\ all\ the\ }}
+\DoxyCodeLine{00329\ \textcolor{comment}{APIs\ supported\ by\ USB\ Serial\ library.}}
+\DoxyCodeLine{00330\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00331\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_CY\_RETURN\_STATUS\{}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ CY\_SUCCESS\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*API\ returned\ successfully\ without\ any\ errors.*/}}
+\DoxyCodeLine{00334\ \ \ \ \ CY\_ERROR\_ACCESS\_DENIED,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Access\ of\ the\ API\ is\ denied\ for\ the\ application\ */}}
+\DoxyCodeLine{00335\ \ \ \ \ CY\_ERROR\_DRIVER\_INIT\_FAILED,\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Driver\ initialisation\ failed*/}}
+\DoxyCodeLine{00336\ \ \ \ \ CY\_ERROR\_DEVICE\_INFO\_FETCH\_FAILED,\ \ \ \ \ \ \textcolor{comment}{/*Device\ information\ fetch\ failed\ */}}
+\DoxyCodeLine{00337\ \ \ \ \ CY\_ERROR\_DRIVER\_OPEN\_FAILED,\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Failed\ to\ open\ a\ device\ in\ the\ library\ */}}
+\DoxyCodeLine{00338\ \ \ \ \ CY\_ERROR\_INVALID\_PARAMETER,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*One\ or\ more\ parameters\ sent\ to\ the\ API\ was\ invalid*/}}
+\DoxyCodeLine{00339\ \ \ \ \ CY\_ERROR\_REQUEST\_FAILED,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Request\ sent\ to\ USB\ Serial\ device\ failed\ */}}
+\DoxyCodeLine{00340\ \ \ \ \ CY\_ERROR\_DOWNLOAD\_FAILED,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Firmware\ download\ to\ the\ device\ failed\ */}}
+\DoxyCodeLine{00341\ \ \ \ \ CY\_ERROR\_FIRMWARE\_INVALID\_SIGNATURE,\ \ \ \ \textcolor{comment}{/*Invalid\ Firmware\ signature\ in\ firmware\ file*/}}
+\DoxyCodeLine{00342\ \ \ \ \ CY\_ERROR\_INVALID\_FIRMWARE,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Invalid\ firmware\ */}}
+\DoxyCodeLine{00343\ \ \ \ \ CY\_ERROR\_DEVICE\_NOT\_FOUND,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Device\ disconnected\ */}\ \ \ \ }
+\DoxyCodeLine{00344\ \ \ \ \ CY\_ERROR\_IO\_TIMEOUT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Timed\ out\ while\ processing\ a\ user\ request*/}}
+\DoxyCodeLine{00345\ \ \ \ \ CY\_ERROR\_PIPE\_HALTED,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Pipe\ halted\ while\ trying\ to\ transfer\ data*/}}
+\DoxyCodeLine{00346\ \ \ \ \ CY\_ERROR\_BUFFER\_OVERFLOW,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*OverFlow\ of\ buffer\ while\ trying\ to\ read/write\ data\ */}\ \ \ \ }
+\DoxyCodeLine{00347\ \ \ \ \ CY\_ERROR\_INVALID\_HANDLE,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Device\ handle\ is\ invalid\ */}}
+\DoxyCodeLine{00348\ \ \ \ \ CY\_ERROR\_ALLOCATION\_FAILED,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Error\ in\ Allocation\ of\ the\ resource\ inside\ the\ library*/}}
+\DoxyCodeLine{00349\ \ \ \ \ CY\_ERROR\_I2C\_DEVICE\_BUSY,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*I2C\ device\ busy*/}\ \ \ }
+\DoxyCodeLine{00350\ \ \ \ \ CY\_ERROR\_I2C\_NAK\_ERROR,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*I2C\ device\ NAK*/}}
+\DoxyCodeLine{00351\ \ \ \ \ CY\_ERROR\_I2C\_ARBITRATION\_ERROR,\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*I2C\ bus\ arbitration\ error*/}}
+\DoxyCodeLine{00352\ \ \ \ \ CY\_ERROR\_I2C\_BUS\_ERROR,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*I2C\ bus\ error*/}}
+\DoxyCodeLine{00353\ \ \ \ \ CY\_ERROR\_I2C\_BUS\_BUSY,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*I2C\ bus\ is\ busy*/}\ \ \ \ }
+\DoxyCodeLine{00354\ \ \ \ \ CY\_ERROR\_I2C\_STOP\_BIT\_SET,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*I2C\ master\ has\ sent\ a\ stop\ bit\ during\ a\ transaction*/}\ \ \ \ \ \ }
+\DoxyCodeLine{00355\ \ \ \ \ CY\_ERROR\_STATUS\_MONITOR\_EXIST\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*API\ Failed\ because\ the\ SPI/UART\ status\ monitor\ thread\ already\ exists*/}\ \ \ \ \ \ }
+\DoxyCodeLine{00356\ \}\ CY\_RETURN\_STATUS;}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \textcolor{comment}{/*\ Summary\ }}
+\DoxyCodeLine{00359\ \textcolor{comment}{This\ structure\ is\ used\ to\ store\ configuration\ of\ I2C\ module.}}
+\DoxyCodeLine{00360\ \textcolor{comment}{}}
+\DoxyCodeLine{00361\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00362\ \textcolor{comment}{The\ structure\ contains\ parameters\ that\ are\ used\ in\ configuring\ I2C\ module\ of\ }}
+\DoxyCodeLine{00363\ \textcolor{comment}{Cypress\ USB\ Serial\ device.\ CyGetI2cConfig\ and\ CySetI2cConfig\ APIs\ can\ be\ used\ to\ }}
+\DoxyCodeLine{00364\ \textcolor{comment}{retrieve\ and\ configure\ I2C\ module\ respectively.}}
+\DoxyCodeLine{00365\ \textcolor{comment}{}}
+\DoxyCodeLine{00366\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00367\ \textcolor{comment}{*\ CyGetI2cConfig}}
+\DoxyCodeLine{00368\ \textcolor{comment}{*\ CySetI2cConfig}}
+\DoxyCodeLine{00369\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00370\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___c_y___i2_c___c_o_n_f_i_g}{\_CY\_I2C\_CONFIG}}\{}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ UINT32\ frequency;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2C\ clock\ frequency\ 1KHz\ to\ 400KHz*/}}
+\DoxyCodeLine{00373\ \ \ \ \ UINT8\ slaveAddress;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Slave\ address\ of\ the\ I2C\ module,\ when\ it\ is\ configured\ as\ slave*/}}
+\DoxyCodeLine{00374\ \ \ \ \ BOOL\ isMaster;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ true-\/\ Master\ ,\ false-\/\ slave*/}}
+\DoxyCodeLine{00375\ \ \ \ \ BOOL\ isClockStretch;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ true-\/\ Stretch\ clock\ in\ case\ of\ no\ data\ availability\ }}
+\DoxyCodeLine{00376\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Valid\ only\ for\ slave\ mode)}}
+\DoxyCodeLine{00377\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ false-\/\ Do\ not\ Stretch\ clock*/}\ }
+\DoxyCodeLine{00378\ \}\ \mbox{\hyperlink{struct___c_y___i2_c___c_o_n_f_i_g}{CY\_I2C\_CONFIG}},*\mbox{\hyperlink{struct___c_y___i2_c___c_o_n_f_i_g}{PCY\_I2C\_CONFIG}};}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \textcolor{comment}{/*\ Summary\ }}
+\DoxyCodeLine{00381\ \textcolor{comment}{This\ structure\ is\ used\ to\ configure\ each\ I2C\ data\ transaction.}}
+\DoxyCodeLine{00382\ \textcolor{comment}{}}
+\DoxyCodeLine{00383\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00384\ \textcolor{comment}{This\ structure\ defines\ parameters\ that\ are\ used\ for\ configuring\ }}
+\DoxyCodeLine{00385\ \textcolor{comment}{I2C\ module\ during\ each\ data\ transaction.\ Which\ includes\ setting\ slave\ address\ }}
+\DoxyCodeLine{00386\ \textcolor{comment}{(when\ device\ is\ in\ I2C\ slave\ mode),\ stopbit\ (to\ enable\ or\ disable)\ and\ }}
+\DoxyCodeLine{00387\ \textcolor{comment}{Nak\ bit\ (to\ enable\ or\ disable).}}
+\DoxyCodeLine{00388\ \textcolor{comment}{}}
+\DoxyCodeLine{00389\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00390\ \textcolor{comment}{*\ CyI2cWrite}}
+\DoxyCodeLine{00391\ \textcolor{comment}{*\ CyI2cRead}}
+\DoxyCodeLine{00392\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00393\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___c_y___i2_c___d_a_t_a___c_o_n_f_i_g}{\_CY\_I2C\_DATA\_CONFIG}}\ }
+\DoxyCodeLine{00394\ \{}
+\DoxyCodeLine{00395\ \ \ \ \ UCHAR\ slaveAddress;\ \ \ \ \ \textcolor{comment}{/*Slave\ address\ the\ master\ will\ communicate\ with*/}}
+\DoxyCodeLine{00396\ \ \ \ \ BOOL\ isStopBit;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Set\ when\ stop\ bit\ is\ used*/}}
+\DoxyCodeLine{00397\ \ \ \ \ BOOL\ isNakBit;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Set\ when\ I2C\ master\ wants\ to\ NAK\ the\ slave\ after\ read}}
+\DoxyCodeLine{00398\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Applicable\ only\ when\ doing\ I2C\ read*/}}
+\DoxyCodeLine{00399\ \}\ \mbox{\hyperlink{struct___c_y___i2_c___d_a_t_a___c_o_n_f_i_g}{CY\_I2C\_DATA\_CONFIG}},\ *\mbox{\hyperlink{struct___c_y___i2_c___d_a_t_a___c_o_n_f_i_g}{PCY\_I2C\_DATA\_CONFIG}};}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \textcolor{comment}{/*\ Summary\ }}
+\DoxyCodeLine{00402\ \textcolor{comment}{Enumeration\ defining\ SPI\ protocol\ types\ supported\ by\ USB\ Serial\ SPI\ module.}}
+\DoxyCodeLine{00403\ \textcolor{comment}{}}
+\DoxyCodeLine{00404\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00405\ \textcolor{comment}{These\ are\ the\ different\ protocols\ supported\ by\ USB-\/Serial\ SPI\ module.\ }}
+\DoxyCodeLine{00406\ \textcolor{comment}{}}
+\DoxyCodeLine{00407\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00408\ \textcolor{comment}{*\ CY\_SPI\_CONFIG}}
+\DoxyCodeLine{00409\ \textcolor{comment}{*\ CyGetSpiConfig}}
+\DoxyCodeLine{00410\ \textcolor{comment}{*\ CySetSpiConfig}}
+\DoxyCodeLine{00411\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00412\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_CY\_SPI\_PROTOCOL\ \{}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \ \ \ \ CY\_SPI\_MOTOROLA\ =\ 0,\ \ \textcolor{comment}{/*In\ master\ mode,\ when\ not\ transmitting\ data\ (SELECT\ is\ inactive),\ SCLK\ is\ stable\ at\ CPOL.}}
+\DoxyCodeLine{00415\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ In\ slave\ mode,\ when\ not\ selected,\ SCLK\ is\ ignored;\ i.e.\ it\ can\ be\ either\ stable\ or\ clocking.\ }}
+\DoxyCodeLine{00416\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ In\ master\ mode,\ when\ there\ is\ no\ data\ to\ transmit\ (TX\ FIFO\ is\ empty),\ SELECT\ is\ inactive.}}
+\DoxyCodeLine{00417\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00418\ \ \ \ \ CY\_SPI\_TI,\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*In\ master\ mode,\ when\ not\ transmitting\ data,\ SCLK\ is\ stable\ at\ '0'.\ }}
+\DoxyCodeLine{00419\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ In\ slave\ mode,\ when\ not\ selected,\ SCLK\ is\ ignored\ -\/\ i.e.\ it\ can\ be\ either\ stable\ or\ clocking.\ }}
+\DoxyCodeLine{00420\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ In\ master\ mode,\ when\ there\ is\ no\ data\ to\ transmit\ (TX\ FIFO\ is\ empty),\ SELECT\ is\ inactive\ -\/\ }}
+\DoxyCodeLine{00421\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i.e.\ no\ pulse\ is\ generated.}}
+\DoxyCodeLine{00422\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ***\ It\ supports\ only\ mode\ 1\ whose\ polarity\ values\ are}}
+\DoxyCodeLine{00423\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CPOL\ =\ 0}}
+\DoxyCodeLine{00424\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CPHA\ =\ 1}}
+\DoxyCodeLine{00425\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00426\ \ \ \ \ CY\_SPI\_NS\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*In\ master\ mode,\ when\ not\ transmitting\ data,\ SCLK\ is\ stable\ at\ '0'.\ In\ slave\ mode,}}
+\DoxyCodeLine{00427\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ when\ not\ selected,\ SCLK\ is\ ignored;\ i.e.\ it\ can\ be\ either\ stable\ or\ clocking.\ }}
+\DoxyCodeLine{00428\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ In\ master\ mode,\ when\ there\ is\ no\ data\ to\ transmit\ (TX\ FIFO\ is\ empty),\ SELECT\ is\ inactive.\ }}
+\DoxyCodeLine{00429\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ***\ It\ supports\ only\ mode\ 0\ whose\ polarity\ values\ are}}
+\DoxyCodeLine{00430\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CPOL\ =\ 0}}
+\DoxyCodeLine{00431\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CPHA\ =\ 0}}
+\DoxyCodeLine{00432\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00433\ \}\ CY\_SPI\_PROTOCOL;}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \textcolor{comment}{/*\ Summary\ }}
+\DoxyCodeLine{00436\ \textcolor{comment}{This\ structure\ is\ used\ to\ configure\ the\ SPI\ module\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{00437\ \textcolor{comment}{}}
+\DoxyCodeLine{00438\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00439\ \textcolor{comment}{This\ structure\ defines\ configuration\ parameters\ that\ are\ used\ for\ configuring\ the\ SPI\ module\ .}}
+\DoxyCodeLine{00440\ \textcolor{comment}{}}
+\DoxyCodeLine{00441\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00442\ \textcolor{comment}{*\ CY\_SPI\_PROTOCOL}}
+\DoxyCodeLine{00443\ \textcolor{comment}{*\ CY\_SPI\_DATA\_TRANSFER\_MODE}}
+\DoxyCodeLine{00444\ \textcolor{comment}{*\ CyGetSpiConfig}}
+\DoxyCodeLine{00445\ \textcolor{comment}{*\ CySetSpiConfig}}
+\DoxyCodeLine{00446\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00447\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___c_y___s_p_i___c_o_n_f_i_g}{\_CY\_SPI\_CONFIG}}}
+\DoxyCodeLine{00448\ \{}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \ \ \ \ UINT32\ frequency;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SPI\ clock\ frequency.}}
+\DoxyCodeLine{00451\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ **\ IMPORTANT:\ The\ frequency\ range\ supported\ by\ SPI\ module\ is\ }}
+\DoxyCodeLine{00452\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000(1KHz)\ to\ 3000000(3MHz)}}
+\DoxyCodeLine{00453\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \ \ UCHAR\ dataWidth;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Data\ width\ in\ bits.\ The\ valid\ values\ are\ from\ 4\ to\ 16.*/}}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \ \ \ \ CY\_SPI\_PROTOCOL\ protocol\ ;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SPI\ Protocols\ to\ be\ used\ as\ defined\ in\ CY\_SPI\_PROTOCOL*/}}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \ \ \ \ BOOL\ isMsbFirst;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*false\ -\/>\ least\ significant\ bit\ is\ sent\ out\ first}}
+\DoxyCodeLine{00460\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ true\ -\/>\ most\ significant\ bit\ is\ sent\ out\ first\ */}}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ \ \ \ \ BOOL\ isMaster;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*false\ -\/-\/>\ Slave\ mode\ selected:\ }}
+\DoxyCodeLine{00463\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ true\ -\/-\/>\ Master\ mode\ selected*/}}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \ \ \ \ BOOL\ isContinuousMode;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*true\ -\/\ Slave\ select\ line\ is\ not\ asserted\ i.e\ }}
+\DoxyCodeLine{00466\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ de-\/asserted\ for\ every\ word.}}
+\DoxyCodeLine{00467\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ false-\/\ Slave\ select\ line\ is\ always\ asserted*/}}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \ \ \ \ BOOL\ isSelectPrecede;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ only\ in\ TI\ mode.}}
+\DoxyCodeLine{00470\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ true\ -\/\ The\ start\ pulse\ precedes\ the\ first\ data}}
+\DoxyCodeLine{00471\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ false\ -\/\ The\ start\ pulse\ is\ in\ sync\ with\ first\ data.\ */}}
+\DoxyCodeLine{00472\ \ \ \ \ }
+\DoxyCodeLine{00473\ \ \ \ \ BOOL\ isCpha;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*false\ -\/\ Clock\ phase\ is\ 0;\ true\ -\/\ Clock\ phase\ is\ 1.\ */}}
+\DoxyCodeLine{00474\ \ \ \ \ }
+\DoxyCodeLine{00475\ \ \ \ \ BOOL\ isCpol;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*false\ -\/\ Clock\ polarity\ is\ 0;true\ -\/\ Clock\ polarity\ is\ 1.*/}\ \ \ \ \ }
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00477\ \}\mbox{\hyperlink{struct___c_y___s_p_i___c_o_n_f_i_g}{CY\_SPI\_CONFIG}},*\mbox{\hyperlink{struct___c_y___s_p_i___c_o_n_f_i_g}{PCY\_SPI\_CONFIG}};}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \textcolor{comment}{/*\ Summary}}
+\DoxyCodeLine{00480\ \textcolor{comment}{Enumeration\ defines\ UART\ baud\ rates\ supported\ by\ UART\ module\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{00481\ \textcolor{comment}{}}
+\DoxyCodeLine{00482\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00483\ \textcolor{comment}{The\ enumeration\ lists\ the\ various\ baud\ rates\ supported\ by\ the\ UART\ when\ it\ is\ in\ UART}}
+\DoxyCodeLine{00484\ \textcolor{comment}{vendor\ mode.}}
+\DoxyCodeLine{00485\ \textcolor{comment}{}}
+\DoxyCodeLine{00486\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00487\ \textcolor{comment}{*\ CY\_UART\_CONFIG}}
+\DoxyCodeLine{00488\ \textcolor{comment}{*\ CySetUartConfig}}
+\DoxyCodeLine{00489\ \textcolor{comment}{*\ CyGetUartConfig}}
+\DoxyCodeLine{00490\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00491\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_CY\_UART\_BAUD\_RATE}
+\DoxyCodeLine{00492\ \{}
+\DoxyCodeLine{00493\ \ \ \ \ CY\_UART\_BAUD\_300\ =\ 300,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 300.\ */}}
+\DoxyCodeLine{00494\ \ \ \ \ CY\_UART\_BAUD\_600\ =\ 600,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 600.\ */}}
+\DoxyCodeLine{00495\ \ \ \ \ CY\_UART\_BAUD\_1200\ =\ 1200,\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 1200.\ */}}
+\DoxyCodeLine{00496\ \ \ \ \ CY\_UART\_BAUD\_2400\ =\ 2400,\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 2400.\ */}}
+\DoxyCodeLine{00497\ \ \ \ \ CY\_UART\_BAUD\_4800\ =\ 4800,\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 4800.\ */}}
+\DoxyCodeLine{00498\ \ \ \ \ CY\_UART\_BAUD\_9600\ =\ 9600,\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 9600.\ */}}
+\DoxyCodeLine{00499\ \ \ \ \ CY\_UART\_BAUD\_14400\ =\ 14400,\ \ \ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 14400.\ */}}
+\DoxyCodeLine{00500\ \ \ \ \ CY\_UART\_BAUD\_19200\ =\ 19200,\ \ \ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 19200.\ */}}
+\DoxyCodeLine{00501\ \ \ \ \ CY\_UART\_BAUD\_38400\ =\ 38400,\ \ \ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 38400.\ */}}
+\DoxyCodeLine{00502\ \ \ \ \ CY\_UART\_BAUD\_56000\ =\ 56000,\ \ \ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 56000.\ */}}
+\DoxyCodeLine{00503\ \ \ \ \ CY\_UART\_BAUD\_57600\ =\ 57600,\ \ \ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 57600.\ */}}
+\DoxyCodeLine{00504\ \ \ \ \ CY\_UART\_BAUD\_115200\ =\ 115200,\ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 115200.\ */}}
+\DoxyCodeLine{00505\ \ \ \ \ CY\_UART\_BAUD\_230400\ =\ 230400,\ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 230400.\ */}}
+\DoxyCodeLine{00506\ \ \ \ \ CY\_UART\_BAUD\_460800\ =\ 460800,\ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 460800.\ */}}
+\DoxyCodeLine{00507\ \ \ \ \ CY\_UART\_BAUD\_921600\ =\ 921600,\ \ \ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 921600.\ */}}
+\DoxyCodeLine{00508\ \ \ \ \ CY\_UART\_BAUD\_1000000\ =\ 1000000,\ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 1000000.\ */}}
+\DoxyCodeLine{00509\ \ \ \ \ CY\_UART\_BAUD\_3000000\ =\ 3000000,\ \ \textcolor{comment}{/*\ Baud\ rate\ of\ 3000000.\ */}}
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00511\ \}CY\_UART\_BAUD\_RATE;}
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00513\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00514\ \textcolor{comment}{Summary}}
+\DoxyCodeLine{00515\ \textcolor{comment}{Enumeration\ defines\ the\ different\ parity\ modes\ supported\ by\ UART\ module\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{00516\ \textcolor{comment}{}}
+\DoxyCodeLine{00517\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00518\ \textcolor{comment}{This\ enumeration\ defines\ the\ different\ parity\ modes\ of\ USB\ Serial\ UART\ module.}}
+\DoxyCodeLine{00519\ \textcolor{comment}{It\ supports\ odd,\ even,\ mark\ and\ space\ parity\ modes.}}
+\DoxyCodeLine{00520\ \textcolor{comment}{}}
+\DoxyCodeLine{00521\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00522\ \textcolor{comment}{*\ CY\_UART\_CONFIG}}
+\DoxyCodeLine{00523\ \textcolor{comment}{*\ CySetUartConfig}}
+\DoxyCodeLine{00524\ \textcolor{comment}{*\ CyGetUartConfig}}
+\DoxyCodeLine{00525\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00526\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_CY\_UART\_PARITY\_MODE\ \{}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00528\ \ \ \ \ CY\_DATA\_PARITY\_DISABLE\ =\ 0,\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Data\ parity\ disabled*/}}
+\DoxyCodeLine{00529\ \ \ \ \ CY\_DATA\_PARITY\_ODD,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Odd\ Parity*/}}
+\DoxyCodeLine{00530\ \ \ \ \ CY\_DATA\_PARITY\_EVEN,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Even\ Parity*/}}
+\DoxyCodeLine{00531\ \ \ \ \ CY\_DATA\_PARITY\_MARK,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Mark\ parity*/}}
+\DoxyCodeLine{00532\ \ \ \ \ CY\_DATA\_PARITY\_SPACE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Space\ parity*/}}
+\DoxyCodeLine{00533\ }
+\DoxyCodeLine{00534\ \}\ CY\_UART\_PARITY\_MODE;}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00536\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00537\ \textcolor{comment}{Summary}}
+\DoxyCodeLine{00538\ \textcolor{comment}{Enumeration\ defines\ the\ different\ stop\ bit\ values\ supported\ by\ UART\ module\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{00539\ \textcolor{comment}{}}
+\DoxyCodeLine{00540\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00541\ \textcolor{comment}{*\ CY\_UART\_CONFIG}}
+\DoxyCodeLine{00542\ \textcolor{comment}{*\ CySetUartConfig}}
+\DoxyCodeLine{00543\ \textcolor{comment}{*\ CyGetUartConfig}}
+\DoxyCodeLine{00544\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00545\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_CY\_UART\_STOP\_BIT\ \{}
+\DoxyCodeLine{00546\ }
+\DoxyCodeLine{00547\ \ \ \ \ CY\_UART\_ONE\_STOP\_BIT\ =\ 1,\ \ \ \ \ \ \ \textcolor{comment}{/*One\ stop\ bit*/}}
+\DoxyCodeLine{00548\ \ \ \ \ CY\_UART\_TWO\_STOP\_BIT\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Two\ stop\ bits*/}}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ \}\ CY\_UART\_STOP\_BIT;}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00553\ \textcolor{comment}{Summary}}
+\DoxyCodeLine{00554\ \textcolor{comment}{Enumeration\ defines\ flow\ control\ modes\ supported\ by\ UART\ module\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{00555\ \textcolor{comment}{}}
+\DoxyCodeLine{00556\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00557\ \textcolor{comment}{The\ list\ provides\ the\ various\ flow\ control\ modes\ supported\ by\ USB\ Serial\ device.}}
+\DoxyCodeLine{00558\ \textcolor{comment}{}}
+\DoxyCodeLine{00559\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00560\ \textcolor{comment}{*\ CyUartSetHwFlowControl}}
+\DoxyCodeLine{00561\ \textcolor{comment}{*\ CyUartGetHwFlowControl}}
+\DoxyCodeLine{00562\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00563\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_CY\_FLOW\_CONTROL\_MODES\ \{}
+\DoxyCodeLine{00564\ }
+\DoxyCodeLine{00565\ \ \ \ \ CY\_UART\_FLOW\_CONTROL\_DISABLE\ =\ 0,\ \ \ \ \ \ \ \textcolor{comment}{/*Disable\ Flow\ control*/}}
+\DoxyCodeLine{00566\ \ \ \ \ CY\_UART\_FLOW\_CONTROL\_DSR,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Enable\ DSR\ mode\ of\ flow\ control*/}}
+\DoxyCodeLine{00567\ \ \ \ \ CY\_UART\_FLOW\_CONTROL\_RTS\_CTS,\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Enable\ RTS\ CTS\ mode\ of\ flow\ control*/}}
+\DoxyCodeLine{00568\ \ \ \ \ CY\_UART\_FLOW\_CONTROL\_ALL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Enable\ RTS\ CTS\ and\ DSR\ flow\ control\ */}}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00570\ \}\ CY\_FLOW\_CONTROL\_MODES;}
+\DoxyCodeLine{00571\ }
+\DoxyCodeLine{00572\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00573\ \textcolor{comment}{Summary}}
+\DoxyCodeLine{00574\ \textcolor{comment}{Structure\ holds\ configuration\ of\ UART\ module\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{00575\ \textcolor{comment}{}}
+\DoxyCodeLine{00576\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00577\ \textcolor{comment}{This\ structure\ defines\ parameters\ used\ for\ configuring\ the\ UART\ module.\ }}
+\DoxyCodeLine{00578\ \textcolor{comment}{CySetUartConfig\ and\ CyGetUartConfig\ APIs\ are\ used\ to\ configure\ and\ retrieve\ }}
+\DoxyCodeLine{00579\ \textcolor{comment}{the\ UART\ configuration\ information.}}
+\DoxyCodeLine{00580\ \textcolor{comment}{}}
+\DoxyCodeLine{00581\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00582\ \textcolor{comment}{*\ CySetUartConfig}}
+\DoxyCodeLine{00583\ \textcolor{comment}{*\ CyGetUartConfig}}
+\DoxyCodeLine{00584\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00585\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct___c_y___u_a_r_t___c_o_n_f_i_g}{\_CY\_UART\_CONFIG}}\ \{}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00587\ \ \ \ \ CY\_UART\_BAUD\_RATE\ baudRate;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Baud\ rate\ as\ defined\ in\ CY\_UART\_BAUD\_RATE*/}}
+\DoxyCodeLine{00588\ \ \ \ \ UINT8\ dataWidth;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Data\ width:\ valid\ values\ 7\ or\ 8*/}\ \ \ \ }
+\DoxyCodeLine{00589\ \ \ \ \ CY\_UART\_STOP\_BIT\ stopBits;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Number\ of\ stop\ bits\ to\ be\ used\ 1\ or\ 2*/}}
+\DoxyCodeLine{00590\ \ \ \ \ CY\_UART\_PARITY\_MODE\ parityMode;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*UART\ parity\ mode\ as\ defined\ in\ CY\_UART\_PARITY\_MODE*/}}
+\DoxyCodeLine{00591\ \ \ \ \ BOOL\ isDropOnRxErrors;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Whether\ to\ ignore\ framing\ as\ well\ as\ parity\ errors\ and\ receive\ data\ */}}
+\DoxyCodeLine{00592\ }
+\DoxyCodeLine{00593\ \}\ \mbox{\hyperlink{struct___c_y___u_a_r_t___c_o_n_f_i_g}{CY\_UART\_CONFIG}},*\mbox{\hyperlink{struct___c_y___u_a_r_t___c_o_n_f_i_g}{PCY\_UART\_CONFIG}};}
+\DoxyCodeLine{00594\ }
+\DoxyCodeLine{00595\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00596\ \textcolor{comment}{Summary}}
+\DoxyCodeLine{00597\ \textcolor{comment}{Enumeration\ defining\ UART/SPI\ transfer\ error\ or\ status\ bit\ maps.}}
+\DoxyCodeLine{00598\ \textcolor{comment}{}}
+\DoxyCodeLine{00599\ \textcolor{comment}{Description}}
+\DoxyCodeLine{00600\ \textcolor{comment}{Enumeration\ lists\ the\ bit\ maps\ that\ are\ used\ to\ report\ error\ or\ status\ during}}
+\DoxyCodeLine{00601\ \textcolor{comment}{UART/SPI\ transfer.}}
+\DoxyCodeLine{00602\ \textcolor{comment}{}}
+\DoxyCodeLine{00603\ \textcolor{comment}{See\ Also}}
+\DoxyCodeLine{00604\ \textcolor{comment}{*\ CySetEventNotification}}
+\DoxyCodeLine{00605\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00606\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \_CY\_CALLBACK\_EVENTS\ \{}
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00608\ \ \ \ \ CY\_UART\_CTS\_BIT\ =\ 0x01,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*CTS\ pin\ notification\ bit*/}}
+\DoxyCodeLine{00609\ \ \ \ \ CY\_UART\_DSR\_BIT\ =\ 0x02,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*State\ of\ transmission\ carrier.\ This\ signal}}
+\DoxyCodeLine{00610\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ corresponds\ to\ V.24\ signal\ 106\ and\ RS-\/232\ signal\ DSR.*/}}
+\DoxyCodeLine{00611\ \ \ \ \ CY\_UART\_BREAK\_BIT\ =\ 0x04,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*State\ of\ break\ detection\ mechanism\ of\ the\ device\ */}}
+\DoxyCodeLine{00612\ \ \ \ \ CY\_UART\_RING\_SIGNAL\_BIT\ \ =\ 0x08,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*State\ of\ ring\ signal\ detection\ of\ the\ device*/}}
+\DoxyCodeLine{00613\ \ \ \ \ CY\_UART\_FRAME\_ERROR\_BIT\ =\ 0x10,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*A\ framing\ error\ has\ occurred*/}}
+\DoxyCodeLine{00614\ \ \ \ \ CY\_UART\_PARITY\_ERROR\_BIT\ =\ 0x20,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*A\ parity\ error\ has\ occured*/}}
+\DoxyCodeLine{00615\ \ \ \ \ CY\_UART\_DATA\_OVERRUN\_BIT\ =\ 0x40,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Received\ data\ has\ been\ discarded\ due\ to\ overrun\ in}}
+\DoxyCodeLine{00616\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ device*/}}
+\DoxyCodeLine{00617\ \ \ \ \ CY\_UART\_DCD\_BIT\ =\ 0x100,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*State\ of\ receiver\ carrier\ detection\ mechanism\ of}}
+\DoxyCodeLine{00618\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ device.\ This\ signal\ corresponds\ to\ V.24\ signal\ 109}}
+\DoxyCodeLine{00619\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ RS-\/232\ signal\ DCD*/}}
+\DoxyCodeLine{00620\ \ \ \ \ CY\_SPI\_TX\_UNDERFLOW\_BIT\ =\ 0x200,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Notification\ sent\ when\ SPI\ fifo\ is\ empty*/}\ }
+\DoxyCodeLine{00621\ \ \ \ \ CY\_SPI\_BUS\_ERROR\_BIT\ \ =\ 0x400,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Spi\ bus\ error\ has\ been\ detected*/}}
+\DoxyCodeLine{00622\ \ \ \ \ CY\_ERROR\_EVENT\_FAILED\_BIT\ =\ 0x800\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Event\ thread\ failed*/}}
+\DoxyCodeLine{00623\ }
+\DoxyCodeLine{00624\ \}\ CY\_CALLBACK\_EVENTS;}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \textcolor{comment}{/*************************************************************************************/}}
+\DoxyCodeLine{00627\ \textcolor{comment}{/*********************USB\ Initialization\ APIs************************************/}}
+\DoxyCodeLine{00628\ \textcolor{comment}{/*************************************************************************************/}}
+\DoxyCodeLine{00629\ }
+\DoxyCodeLine{00630\ \textcolor{comment}{/*@@USB\ Initialization\ API}}
+\DoxyCodeLine{00631\ \textcolor{comment}{This\ section\ has\ all\ the\ APIs\ that\ handle\ device\ initialization\ and\ }}
+\DoxyCodeLine{00632\ \textcolor{comment}{fetching\ information\ about\ the\ device\ connected.}}
+\DoxyCodeLine{00633\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00634\ }
+\DoxyCodeLine{00635\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00636\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00637\ \textcolor{comment}{\ \ \ This\ API\ is\ used\ to\ initialize\ the\ library.}}
+\DoxyCodeLine{00638\ \textcolor{comment}{}}
+\DoxyCodeLine{00639\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00640\ \textcolor{comment}{\ \ \ The\ API\ is\ used\ to\ initialize\ the\ underlying\ libusb\ library\ and}}
+\DoxyCodeLine{00641\ \textcolor{comment}{\ \ \ is\ expected\ to\ be\ called\ when\ the\ application\ is\ being\ started.}}
+\DoxyCodeLine{00642\ \textcolor{comment}{}}
+\DoxyCodeLine{00643\ \textcolor{comment}{\ \ \ Note:\ The\ API\ is\ used\ only\ in\ Linux\ and\ Mac\ OS.}}
+\DoxyCodeLine{00644\ \textcolor{comment}{}}
+\DoxyCodeLine{00645\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00646\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{00647\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DRIVER\_INIT\_FAILED\ on\ failure}}
+\DoxyCodeLine{00648\ \textcolor{comment}{\ \ \ \ \ (Failure\ could\ be\ because\ of\ not\ calling\ CyLibraryExit\ previously)}}
+\DoxyCodeLine{00649\ \textcolor{comment}{}}
+\DoxyCodeLine{00650\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00651\ \textcolor{comment}{\ \ \ *\ CyOpen}}
+\DoxyCodeLine{00652\ \textcolor{comment}{\ \ \ *\ CyLibraryExit}}
+\DoxyCodeLine{00653\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00654\ CYWINEXPORT\ CY\_RETURN\_STATUS\ LINUXCALLCONVEN\ CyLibraryInit\ ();}
+\DoxyCodeLine{00655\ }
+\DoxyCodeLine{00656\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00657\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00658\ \textcolor{comment}{\ \ \ This\ API\ is\ used\ to\ free\ the\ library.}}
+\DoxyCodeLine{00659\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00660\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00661\ \textcolor{comment}{\ \ \ The\ API\ is\ used\ to\ free\ the\ library\ and\ should\ be\ called\ }}
+\DoxyCodeLine{00662\ \textcolor{comment}{\ \ \ when\ exiting\ the\ application.}}
+\DoxyCodeLine{00663\ \textcolor{comment}{}}
+\DoxyCodeLine{00664\ \textcolor{comment}{\ \ \ Note:\ This\ API\ is\ used\ only\ in\ Linux\ and\ Mac\ library.}}
+\DoxyCodeLine{00665\ \textcolor{comment}{\ \ \ \ }}
+\DoxyCodeLine{00666\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00667\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{00668\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ on\ failure}}
+\DoxyCodeLine{00669\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00670\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00671\ \textcolor{comment}{\ \ \ *\ CyOpen}}
+\DoxyCodeLine{00672\ \textcolor{comment}{\ \ \ *\ CyClose}}
+\DoxyCodeLine{00673\ \textcolor{comment}{\ \ \ *\ CyLibraryInit}}
+\DoxyCodeLine{00674\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00675\ CYWINEXPORT\ CY\_RETURN\_STATUS\ LINUXCALLCONVEN\ CyLibraryExit\ ();}
+\DoxyCodeLine{00676\ }
+\DoxyCodeLine{00677\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00678\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00679\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ number\ of\ USB\ devices\ connected\ to\ the\ host.}}
+\DoxyCodeLine{00680\ \textcolor{comment}{}}
+\DoxyCodeLine{00681\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00682\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ number\ of\ devices\ connected\ to\ the\ host.}}
+\DoxyCodeLine{00683\ \textcolor{comment}{\ \ \ In\ Windows\ family\ of\ operating\ systems\ the\ API\ retrieves\ only\ the\ number\ of\ devices\ that\ are\ attached}}
+\DoxyCodeLine{00684\ \textcolor{comment}{\ \ \ to\ CyUSB3.SYS\ driver.\ For\ other\ operating\ systems,\ it\ retrieves\ the\ total\ number\ of\ USB\ devices\ present}}
+\DoxyCodeLine{00685\ \textcolor{comment}{\ \ \ on\ the\ bus.\ It\ includes\ both\ USB\ Serial\ device\ as\ well\ as\ other\ devices.}}
+\DoxyCodeLine{00686\ \textcolor{comment}{}}
+\DoxyCodeLine{00687\ \textcolor{comment}{\ \ \ Note:\ In\ case\ of\ Linux\ and\ Mac\ apart\ from\ providing\ number\ of\ devices\ connected,\ it\ builds\ the}}
+\DoxyCodeLine{00688\ \textcolor{comment}{\ \ \ device\ list\ which\ is\ used\ for\ opening\ the\ device\ and\ obtaining\ device\ handle.\ Thus\ the\ API\ should\ be}}
+\DoxyCodeLine{00689\ \textcolor{comment}{\ \ \ called\ during\ device\ discovery\ in\ the\ application.}}
+\DoxyCodeLine{00690\ \textcolor{comment}{}}
+\DoxyCodeLine{00691\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00692\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{00693\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_NOT\_FOUND\ if\ there\ are\ no\ devices\ attached.}}
+\DoxyCodeLine{00694\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ library\ was\ not\ initialized.}}
+\DoxyCodeLine{00695\ \textcolor{comment}{}}
+\DoxyCodeLine{00696\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00697\ \textcolor{comment}{\ \ \ *\ CyGetDeviceInfo}}
+\DoxyCodeLine{00698\ \textcolor{comment}{\ \ \ *\ CyGetDeviceInfoVidPid}}
+\DoxyCodeLine{00699\ \textcolor{comment}{\ \ \ *\ CyOpen}}
+\DoxyCodeLine{00700\ \textcolor{comment}{\ \ \ *\ CyClose}}
+\DoxyCodeLine{00701\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00702\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyGetListofDevices\ (}
+\DoxyCodeLine{00703\ \ \ \ \ UINT8*\ numDevices\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Number\ of\ Devices\ connected*/}}
+\DoxyCodeLine{00704\ \ \ \ \ );}
+\DoxyCodeLine{00705\ }
+\DoxyCodeLine{00706\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00707\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00708\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ device\ information\ of\ a\ USB\ device.}}
+\DoxyCodeLine{00709\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00710\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00711\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ information\ about\ a\ device\ connected\ to\ host.\ In\ order\ to\ }}
+\DoxyCodeLine{00712\ \textcolor{comment}{\ \ \ get\ the\ device\ information\ on\ particular\ device\ user\ needs\ to\ provide\ the\ device\ number.\ }}
+\DoxyCodeLine{00713\ \textcolor{comment}{\ \ \ To\ identify\ the\ device\ of\ interest,\ the\ application\ needs\ to\ loop\ through\ all\ devices\ connected}}
+\DoxyCodeLine{00714\ \textcolor{comment}{\ \ \ and\ obtain\ the\ information.}}
+\DoxyCodeLine{00715\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00716\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00717\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{00718\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ library\ is\ not\ initialized\ (Only\ for\ Linux\ and\ Mac).}}
+\DoxyCodeLine{00719\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ the\ input\ parameters\ are\ invalid.}}
+\DoxyCodeLine{00720\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_INFO\_FETCH\_FAILED\ if\ failed\ to\ fetch\ device\ information.}}
+\DoxyCodeLine{00721\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_ACCESS\_DENIED\ if\ access\ is\ denied\ by\ operating\ system.}}
+\DoxyCodeLine{00722\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_NOT\_FOUND\ if\ specified\ device\ number\ is\ invalid.}}
+\DoxyCodeLine{00723\ \textcolor{comment}{\ \ \ \ }}
+\DoxyCodeLine{00724\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00725\ \textcolor{comment}{\ \ \ *\ CY\_DEVICE\_INFO}}
+\DoxyCodeLine{00726\ \textcolor{comment}{\ \ \ *\ CY\_DEVICE\_TYPE}}
+\DoxyCodeLine{00727\ \textcolor{comment}{\ \ \ *\ CY\_DEVICE\_CLASS}}
+\DoxyCodeLine{00728\ \textcolor{comment}{\ \ \ *\ CyGetListofDevices}}
+\DoxyCodeLine{00729\ \textcolor{comment}{\ \ \ *\ CyGetDeviceInfoVidPid}}
+\DoxyCodeLine{00730\ \textcolor{comment}{\ \ \ *\ CyOpen}}
+\DoxyCodeLine{00731\ \textcolor{comment}{\ \ \ *\ CyClose}}
+\DoxyCodeLine{00732\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00733\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyGetDeviceInfo(}
+\DoxyCodeLine{00734\ \ \ \ \ UINT8\ deviceNumber,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Device\ number\ of\ the\ device\ of\ interest*/}}
+\DoxyCodeLine{00735\ \ \ \ \ \mbox{\hyperlink{struct___c_y___d_e_v_i_c_e___i_n_f_o}{CY\_DEVICE\_INFO}}\ *deviceInfo\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Info\ of\ device\ returned*/}}
+\DoxyCodeLine{00736\ \ \ \ \ );}
+\DoxyCodeLine{00737\ }
+\DoxyCodeLine{00738\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00739\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00740\ \textcolor{comment}{\ \ \ This\ API\ is\ used\ to\ retrieve\ the\ information\ of\ all\ devices\ with\ specified\ Vendor\ ID\ and\ Product\ ID.\ }}
+\DoxyCodeLine{00741\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00742\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00743\ \textcolor{comment}{\ \ \ For\ a\ given\ VID\ and\ PID,\ the\ API\ returns\ deviceIdList\ and\ deviceInfoList.}}
+\DoxyCodeLine{00744\ \textcolor{comment}{\ \ \ The\ deviceIdList\ contains\ the\ device\ numbers\ of\ all\ the\ devices\ with\ specified\ VID\ and\ PID.}}
+\DoxyCodeLine{00745\ \textcolor{comment}{\ \ \ Using\ deviceInfoList\ application\ can\ identify\ the\ device\ of\ interest.}}
+\DoxyCodeLine{00746\ \textcolor{comment}{\ \ \ Information\ that\ is\ provided\ includes\ interface\ number,\ string\ descriptor,\ deviceType\ and\ deviceClass.}}
+\DoxyCodeLine{00747\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00748\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00749\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00750\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ else\ error\ codes\ as\ defined\ in\ the\ enumeration\ CY\_RETURN\_STATUS.}}
+\DoxyCodeLine{00751\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ on\ if\ library\ is\ not\ initialized\ (Only\ for\ Linux\ and\ Mac)}}
+\DoxyCodeLine{00752\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ the\ input\ parameters\ are\ invalid.}}
+\DoxyCodeLine{00753\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_INFO\_FETCH\_FAILED\ if\ failed\ to\ fetch\ device\ information.}}
+\DoxyCodeLine{00754\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_ACCESS\_DENIED\ if\ access\ is\ denied\ by\ operating\ system.}}
+\DoxyCodeLine{00755\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_NOT\_FOUND\ if\ specified\ device\ number\ is\ invalid.}}
+\DoxyCodeLine{00756\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00757\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00758\ \textcolor{comment}{\ \ \ *\ CY\_DEVICE\_INFO}}
+\DoxyCodeLine{00759\ \textcolor{comment}{\ \ \ *\ CY\_DEVICE\_CLASS}}
+\DoxyCodeLine{00760\ \textcolor{comment}{\ \ \ *\ CY\_DEVICE\_TYPE}}
+\DoxyCodeLine{00761\ \textcolor{comment}{\ \ \ *\ CyGetListofDevices}}
+\DoxyCodeLine{00762\ \textcolor{comment}{\ \ \ *\ CyGetDeviceInfo}}
+\DoxyCodeLine{00763\ \textcolor{comment}{\ \ \ *\ CyOpen}}
+\DoxyCodeLine{00764\ \textcolor{comment}{\ \ \ *\ CyClose}}
+\DoxyCodeLine{00765\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00766\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyGetDeviceInfoVidPid\ (\ \ }
+\DoxyCodeLine{00767\ \ \ \ \ \mbox{\hyperlink{struct___c_y___v_i_d___p_i_d}{CY\_VID\_PID}}\ vidPid,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*VID\ and\ PID\ of\ device\ of\ interest*/}}
+\DoxyCodeLine{00768\ \ \ \ \ UINT8\ *deviceIdList,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Array\ of\ device\ ID's\ returned*/}\ \ \ \ }
+\DoxyCodeLine{00769\ \ \ \ \ \mbox{\hyperlink{struct___c_y___d_e_v_i_c_e___i_n_f_o}{CY\_DEVICE\_INFO}}\ *deviceInfoList,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Array\ of\ pointers\ to\ device\ info\ list*/}}
+\DoxyCodeLine{00770\ \ \ \ \ UINT8\ *deviceCount,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Count\ of\ devices\ with\ specified\ VID\ PID*/}\ }
+\DoxyCodeLine{00771\ \ \ \ \ UINT8\ infoListLength\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Total\ length\ of\ the\ deviceInfoList\ allocated}}
+\DoxyCodeLine{00772\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Size\ of\ deviceInfoList\ array)*/}\ \ \ }
+\DoxyCodeLine{00773\ \ \ \ \ );}
+\DoxyCodeLine{00774\ }
+\DoxyCodeLine{00775\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00776\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00777\ \textcolor{comment}{\ \ \ This\ API\ is\ used\ to\ open\ the\ USB\ Serial\ device.}}
+\DoxyCodeLine{00778\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00779\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00780\ \textcolor{comment}{\ \ \ This\ API\ is\ used\ to\ open\ USB\ Serial\ device\ based\ on\ the\ device\ number.}}
+\DoxyCodeLine{00781\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00782\ \textcolor{comment}{\ \ \ Note:\ The\ argument\ interfaceNum\ is\ used\ on\ Linux\ and\ Mac\ OS\ while\ obtaining\ handle\ for\ specific\ }}
+\DoxyCodeLine{00783\ \textcolor{comment}{\ \ \ interface.\ In\ Windows\ family\ of\ operating\ systems,\ this\ argument\ should\ be\ set\ to\ zero.}}
+\DoxyCodeLine{00784\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00785\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00786\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{00787\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ on\ if\ library\ is\ not\ initialized\ (Only\ for\ Linux\ and\ Mac)}}
+\DoxyCodeLine{00788\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ the\ input\ parameters\ are\ invalid.}}
+\DoxyCodeLine{00789\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DRIVER\_OPEN\_FAILED\ if\ open\ was\ unsuccessful.}}
+\DoxyCodeLine{00790\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_ACCESS\_DENIED\ if\ access\ is\ denied\ by\ operating\ system.}}
+\DoxyCodeLine{00791\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_ALLOCATION\_FAILED\ if\ memory\ allocation\ was\ failed.}}
+\DoxyCodeLine{00792\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_NOT\_FOUND\ if\ specified\ device\ number\ is\ invalid.}}
+\DoxyCodeLine{00793\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00794\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00795\ \textcolor{comment}{\ \ \ *\ CyGetListofDevices}}
+\DoxyCodeLine{00796\ \textcolor{comment}{\ \ \ *\ CyGetDeviceInfoVidPid}}
+\DoxyCodeLine{00797\ \textcolor{comment}{\ \ \ *\ CyGetDeviceInfo}}
+\DoxyCodeLine{00798\ \textcolor{comment}{\ \ \ *\ CyClose}}
+\DoxyCodeLine{00799\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00800\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyOpen\ (}
+\DoxyCodeLine{00801\ \ \ \ \ UINT8\ deviceNumber,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Device\ number\ of\ device\ that\ needs\ to\ be\ opened*/}}
+\DoxyCodeLine{00802\ \ \ \ \ UINT8\ interfaceNum,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Interface\ Number*/}}
+\DoxyCodeLine{00803\ \ \ \ \ CY\_HANDLE\ *handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Handle\ returned\ by\ the\ API*/}}
+\DoxyCodeLine{00804\ \ \ \ \ );}
+\DoxyCodeLine{00805\ }
+\DoxyCodeLine{00806\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00807\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00808\ \textcolor{comment}{\ \ \ This\ API\ closes\ the\ specified\ device\ handle\ and\ releases\ all\ resources\ associated\ with\ it.}}
+\DoxyCodeLine{00809\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00810\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00811\ \textcolor{comment}{\ \ \ This\ API\ closes\ the\ device\ handle\ and\ releases\ all\ the\ resources\ allocated\ internally\ in\ the\ }}
+\DoxyCodeLine{00812\ \textcolor{comment}{\ \ \ library.\ This\ API\ should\ be\ invoked\ using\ a\ valid\ device\ handle\ and\ upon\ successful\ return}}
+\DoxyCodeLine{00813\ \textcolor{comment}{\ \ \ of\ CyOpen.}}
+\DoxyCodeLine{00814\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00815\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00816\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success.}}
+\DoxyCodeLine{00817\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid\ in\ case\ of\ Linux/Mac.}}
+\DoxyCodeLine{00818\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ handle\ is\ invalid\ in\ case\ of\ Windows.}}
+\DoxyCodeLine{00819\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ on\ error\ in\ case\ of\ library\ being\ not\ initialized\ (Only\ for\ Linux\ and\ Mac).}}
+\DoxyCodeLine{00820\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00821\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00822\ \textcolor{comment}{\ \ \ *\ CyOpen}}
+\DoxyCodeLine{00823\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00824\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyClose\ (\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00825\ \ \ \ \ CY\_HANDLE\ handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Handle\ of\ the\ device\ that\ needs\ to\ be\ closed*/}}
+\DoxyCodeLine{00826\ \ \ \ \ );}
+\DoxyCodeLine{00827\ \ \ \ \ }
+\DoxyCodeLine{00828\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00829\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00830\ \textcolor{comment}{\ \ \ This\ API\ is\ used\ to\ power\ cycle\ the\ host\ port.}}
+\DoxyCodeLine{00831\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00832\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00833\ \textcolor{comment}{\ \ \ This\ API\ will\ power\ cycle\ the\ upstream\ port.\ It\ will\ reenumerate\ the\ device\ after\ the\ power\ cycle.}}
+\DoxyCodeLine{00834\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00835\ \textcolor{comment}{\ \ \ Note:\ This\ API\ is\ not\ supported\ on\ Linux\ and\ Mac}}
+\DoxyCodeLine{00836\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00837\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00838\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{00839\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid\ in\ case\ of\ Linux/Mac.}}
+\DoxyCodeLine{00840\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ handle\ is\ invalid\ in\ case\ of\ Windows.}}
+\DoxyCodeLine{00841\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ on\ error\ if\ request\ was\ failed\ by\ driver.}}
+\DoxyCodeLine{00842\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00843\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00844\ \textcolor{comment}{\ \ \ *\ CyResetDevice}}
+\DoxyCodeLine{00845\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00846\ CYWINEXPORT\ CY\_RETURN\_STATUS\ WINCALLCONVEN\ CyCyclePort\ (}
+\DoxyCodeLine{00847\ \ \ \ \ CY\_HANDLE\ handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle\ */}}
+\DoxyCodeLine{00848\ \ \ \ \ );}
+\DoxyCodeLine{00849\ }
+\DoxyCodeLine{00850\ \textcolor{comment}{/*************************************************************************************/}}
+\DoxyCodeLine{00851\ \textcolor{comment}{/********************************Common\ APIs*********************************************/}}
+\DoxyCodeLine{00852\ \textcolor{comment}{/*************************************************************************************/}}
+\DoxyCodeLine{00853\ }
+\DoxyCodeLine{00854\ \textcolor{comment}{/*@@Common\ APIs}}
+\DoxyCodeLine{00855\ \textcolor{comment}{}}
+\DoxyCodeLine{00856\ \textcolor{comment}{\ \ These\ APIs\ provide\ an\ interface\ for\ accessing\ GPIO\ pins,\ error\ status\ notification\ on\ UART/SPI,}}
+\DoxyCodeLine{00857\ \textcolor{comment}{\ \ getting\ library\ and\ firmware\ version\ and\ signature.}}
+\DoxyCodeLine{00858\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00859\ }
+\DoxyCodeLine{00860\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00861\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00862\ \textcolor{comment}{\ \ \ This\ API\ sets\ the\ value\ of\ a\ GPIO.\ }}
+\DoxyCodeLine{00863\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00864\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00865\ \textcolor{comment}{\ \ \ This\ API\ is\ used\ to\ set\ the\ value\ of\ a\ GPIO.\ It\ can\ only\ set\ the\ value\ of\ a}}
+\DoxyCodeLine{00866\ \textcolor{comment}{\ \ \ GPIO\ that\ is\ configured\ as\ an\ output.}}
+\DoxyCodeLine{00867\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00868\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00869\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{00870\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{00871\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{00872\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{00873\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ on\ error\ when\ request\ is\ failed\ by\ USB\ Serial\ device.}}
+\DoxyCodeLine{00874\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00875\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00876\ \textcolor{comment}{\ \ \ *\ CyGetGpioValue}}
+\DoxyCodeLine{00877\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00878\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CySetGpioValue\ (\ \ }
+\DoxyCodeLine{00879\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{00880\ \ \ \ \ UINT8\ gpioNumber,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*GPIO\ number*/}}
+\DoxyCodeLine{00881\ \ \ \ \ UINT8\ value\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Value\ that\ needs\ to\ be\ set*/}}
+\DoxyCodeLine{00882\ \ \ \ \ );}
+\DoxyCodeLine{00883\ }
+\DoxyCodeLine{00884\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00885\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00886\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ value\ of\ a\ GPIO.}}
+\DoxyCodeLine{00887\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00888\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00889\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ value\ of\ a\ GPIO.}}
+\DoxyCodeLine{00890\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00891\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00892\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{00893\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{00894\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range\ and\ }}
+\DoxyCodeLine{00895\ \textcolor{comment}{\ \ \ \ \ also\ when\ handle\ is\ invalid\ in\ case\ of\ Windows.}}
+\DoxyCodeLine{00896\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{00897\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device.}}
+\DoxyCodeLine{00898\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00899\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00900\ \textcolor{comment}{\ \ \ *\ CySetGpioValue}}
+\DoxyCodeLine{00901\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00902\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyGetGpioValue\ (\ \ }
+\DoxyCodeLine{00903\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{00904\ \ \ \ \ UINT8\ gpioNumber,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*GPIO\ number*/}}
+\DoxyCodeLine{00905\ \ \ \ \ UINT8\ *value\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Current\ state\ of\ the\ GPIO*/}\ \ }
+\DoxyCodeLine{00906\ \ \ \ \ );}
+\DoxyCodeLine{00907\ }
+\DoxyCodeLine{00908\ }
+\DoxyCodeLine{00909\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00910\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00911\ \textcolor{comment}{\ \ \ This\ API\ is\ used\ to\ register\ a\ callback\ for\ error/event\ notifications\ }}
+\DoxyCodeLine{00912\ \textcolor{comment}{\ \ \ during\ UART/SPI\ data\ transfers.}}
+\DoxyCodeLine{00913\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00914\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00915\ \textcolor{comment}{\ \ \ The\ API\ is\ used\ to\ register\ a\ callback\ for\ error/event\ notifications\ while\ }}
+\DoxyCodeLine{00916\ \textcolor{comment}{\ \ \ doing\ data\ transfer\ on\ UART\ or\ SPI.\ A\ callback\ will\ be\ issued\ based\ on\ the\ }}
+\DoxyCodeLine{00917\ \textcolor{comment}{\ \ \ error/events\ sent\ by\ the\ device.}}
+\DoxyCodeLine{00918\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00919\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00920\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{00921\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{00922\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{00923\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{00924\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_STATUS\_MONITOR\_EXIST\ if\ notification\ callback\ is\ already\ registered.}}
+\DoxyCodeLine{00925\ \textcolor{comment}{\ \ \ \ }}
+\DoxyCodeLine{00926\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00927\ \textcolor{comment}{\ \ \ *\ CY\_CALLBACK\_EVENTS}}
+\DoxyCodeLine{00928\ \textcolor{comment}{\ \ \ *\ CY\_EVENT\_NOTIFICATION\_CB\_FN}}
+\DoxyCodeLine{00929\ \textcolor{comment}{\ \ \ *\ CyAbortEventNotification}}
+\DoxyCodeLine{00930\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00931\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CySetEventNotification(}
+\DoxyCodeLine{00932\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{00933\ \ \ \ \ CY\_EVENT\_NOTIFICATION\_CB\_FN\ notificationCbFn\ \ \ \ \ \ \ \ \textcolor{comment}{/*Callback\ function\ pointer*/}}
+\DoxyCodeLine{00934\ \ \ \ \ );}
+\DoxyCodeLine{00935\ }
+\DoxyCodeLine{00936\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00937\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00938\ \textcolor{comment}{\ \ \ The\ API\ is\ used\ to\ unregister\ the\ event\ callback.}}
+\DoxyCodeLine{00939\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00940\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00941\ \textcolor{comment}{\ \ \ The\ API\ is\ used\ to\ unregister\ the\ event\ callback.}}
+\DoxyCodeLine{00942\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00943\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00944\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{00945\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{00946\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{00947\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ API\ is\ called\ before\ registering\ callback.}}
+\DoxyCodeLine{00948\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00949\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00950\ \textcolor{comment}{\ \ \ *\ CySetEventNotification}}
+\DoxyCodeLine{00951\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00952\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyAbortEventNotification(}
+\DoxyCodeLine{00953\ \ \ \ \ CY\_HANDLE\ handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{00954\ \ \ \ \ );}
+\DoxyCodeLine{00955\ }
+\DoxyCodeLine{00956\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00957\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00958\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ version\ of\ USB\ Serial\ library.}}
+\DoxyCodeLine{00959\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00960\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00961\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ version\ of\ USB\ Serial\ library.}}
+\DoxyCodeLine{00962\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00963\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00964\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS}}
+\DoxyCodeLine{00965\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00966\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00967\ \textcolor{comment}{\ \ \ *\ CyGetFirmwareVersion\ }}
+\DoxyCodeLine{00968\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00969\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyGetLibraryVersion\ (}
+\DoxyCodeLine{00970\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{00971\ \ \ \ \ \mbox{\hyperlink{struct___c_y___l_i_b_r_a_r_y___v_e_r_s_i_o_n}{PCY\_LIBRARY\_VERSION}}\ version\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Library\ version\ of\ the\ current\ library*/}}
+\DoxyCodeLine{00972\ \ \ \ \ );}
+\DoxyCodeLine{00973\ }
+\DoxyCodeLine{00974\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00975\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00976\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ firmware\ version\ of\ the\ USB\ Serial\ device.}}
+\DoxyCodeLine{00977\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00978\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{00979\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ firmware\ version\ of\ the\ USB\ Serial\ device.}}
+\DoxyCodeLine{00980\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00981\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{00982\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{00983\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{00984\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{00985\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{00986\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device.}}
+\DoxyCodeLine{00987\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{00988\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{00989\ \textcolor{comment}{\ \ \ *\ CyGetLibraryVersion}}
+\DoxyCodeLine{00990\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00991\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyGetFirmwareVersion\ (}
+\DoxyCodeLine{00992\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{00993\ \ \ \ \ \mbox{\hyperlink{struct___c_y___f_i_r_m_w_a_r_e___v_e_r_s_i_o_n}{PCY\_FIRMWARE\_VERSION}}\ firmwareVersion\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Firmware\ version.*/}}
+\DoxyCodeLine{00994\ \ \ \ \ );}
+\DoxyCodeLine{00995\ }
+\DoxyCodeLine{00996\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00997\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{00998\ \textcolor{comment}{\ \ \ This\ API\ resets\ the\ device\ by\ sending\ a\ vendor\ request.}}
+\DoxyCodeLine{00999\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01000\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01001\ \textcolor{comment}{\ \ \ The\ API\ will\ reset\ the\ device\ by\ sending\ a\ vendor\ request\ to\ the\ firmware.\ The\ device}}
+\DoxyCodeLine{01002\ \textcolor{comment}{\ \ \ will\ be\ re-\/enumerated.}}
+\DoxyCodeLine{01003\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01004\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01005\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01006\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01007\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01008\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01009\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device.}}
+\DoxyCodeLine{01010\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01011\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01012\ \textcolor{comment}{\ \ \ *\ CyCyclePort}}
+\DoxyCodeLine{01013\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01014\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyResetDevice\ (}
+\DoxyCodeLine{01015\ \ \ \ \ CY\_HANDLE\ handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01016\ \ \ \ \ );}
+\DoxyCodeLine{01017\ }
+\DoxyCodeLine{01018\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01019\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01020\ \textcolor{comment}{\ \ \ The\ API\ writes\ to\ the\ user\ flash\ area\ on\ the\ USB\ Serial\ device.}}
+\DoxyCodeLine{01021\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01022\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01023\ \textcolor{comment}{\ \ \ The\ API\ programs\ user\ flash\ area.\ The\ total\ space\ available\ is\ 512\ bytes.}}
+\DoxyCodeLine{01024\ \textcolor{comment}{\ \ \ The\ flash\ area\ address\ offset\ is\ from\ 0x0000\ to\ 0x00200\ and\ should\ be\ written}}
+\DoxyCodeLine{01025\ \textcolor{comment}{\ \ \ page\ wise\ (page\ size\ is\ 128\ bytes).}}
+\DoxyCodeLine{01026\ \textcolor{comment}{\ \ \ On\ return,\ transferCount\ parameter\ in\ CY\_DATA\_BUFFER\ will\ specify\ the\ number\ of\ bytes\ actually\ }}
+\DoxyCodeLine{01027\ \textcolor{comment}{\ \ \ programmed.}}
+\DoxyCodeLine{01028\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01029\ \textcolor{comment}{\ \ \ Note:\ Length\ and\ page\ address\ needs\ to\ be\ 128\ bytes\ aligned.}}
+\DoxyCodeLine{01030\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01031\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01032\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01033\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01034\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01035\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01036\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device.}}
+\DoxyCodeLine{01037\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01038\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01039\ \textcolor{comment}{\ \ \ *\ CyReadUserFlash}}
+\DoxyCodeLine{01040\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01041\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyProgUserFlash\ (}
+\DoxyCodeLine{01042\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01043\ \ \ \ \ \mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{CY\_DATA\_BUFFER}}\ *progBuffer,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Data\ buffer\ containing\ buffer\ address,\ length\ to\ write*/}\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01044\ \ \ \ \ UINT32\ flashAddress,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Address\ to\ the\ data\ is\ written*/}}
+\DoxyCodeLine{01045\ \ \ \ \ UINT32\ timeout\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Timeout\ value\ of\ the\ API*/}}
+\DoxyCodeLine{01046\ \ \ \ \ );}
+\DoxyCodeLine{01047\ }
+\DoxyCodeLine{01048\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01049\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01050\ \textcolor{comment}{\ \ \ The\ API\ reads\ from\ the\ flash\ address\ specified.}}
+\DoxyCodeLine{01051\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01052\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01053\ \textcolor{comment}{\ \ \ Read\ from\ user\ flash\ area.The\ total\ space\ available\ is\ 512\ bytes.}}
+\DoxyCodeLine{01054\ \textcolor{comment}{\ \ \ The\ flash\ area\ address\ offset\ is\ from\ 0x0000\ to\ 0x00200\ and\ should\ be\ read}}
+\DoxyCodeLine{01055\ \textcolor{comment}{\ \ \ page\ wise\ (page\ size\ is\ 128\ bytes).}}
+\DoxyCodeLine{01056\ \textcolor{comment}{\ \ \ On\ return\ transferCount\ parameter\ in\ CY\_DATA\_BUFFER\ will\ specify\ the\ number\ of\ bytes\ actually\ }}
+\DoxyCodeLine{01057\ \textcolor{comment}{\ \ \ read.}}
+\DoxyCodeLine{01058\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01059\ \textcolor{comment}{\ \ \ Note:\ Length\ and\ page\ address\ needs\ to\ be\ 128\ bytes\ aligned.}}
+\DoxyCodeLine{01060\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01061\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01062\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01063\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01064\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01065\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01066\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device.}}
+\DoxyCodeLine{01067\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01068\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01069\ \textcolor{comment}{\ \ \ *\ CyProgUserFlash}}
+\DoxyCodeLine{01070\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01071\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyReadUserFlash\ (}
+\DoxyCodeLine{01072\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01073\ \ \ \ \ \mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{CY\_DATA\_BUFFER}}\ *readBuffer,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*data\ buffer\ containing\ buffer\ address,\ length\ to\ read*/}\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01074\ \ \ \ \ UINT32\ flashAddress,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Address\ from\ which\ the\ data\ is\ read*/}}
+\DoxyCodeLine{01075\ \ \ \ \ UINT32\ timeout\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Timeout\ value\ of\ the\ API*/}}
+\DoxyCodeLine{01076\ \ \ \ \ );}
+\DoxyCodeLine{01077\ }
+\DoxyCodeLine{01078\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01079\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01080\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ signature\ of\ the\ device\ firmware.}}
+\DoxyCodeLine{01081\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01082\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01083\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ signature\ of\ the\ device\ firmware.}}
+\DoxyCodeLine{01084\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01085\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01086\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01087\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01088\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01089\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01090\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device.}}
+\DoxyCodeLine{01091\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{01092\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyGetSignature\ (}
+\DoxyCodeLine{01093\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01094\ \ \ \ \ UCHAR\ *pSignature\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Signature\ returned*/}}
+\DoxyCodeLine{01095\ \ \ \ \ );}
+\DoxyCodeLine{01096\ }
+\DoxyCodeLine{01097\ \textcolor{comment}{/****************************************************************************************/}}
+\DoxyCodeLine{01098\ \textcolor{comment}{/********************************UART\ API's**********************************************/}}
+\DoxyCodeLine{01099\ \textcolor{comment}{/****************************************************************************************/}}
+\DoxyCodeLine{01100\ }
+\DoxyCodeLine{01101\ \textcolor{comment}{/*@@UART\ API}}
+\DoxyCodeLine{01102\ \textcolor{comment}{\ \ APIs\ used\ to\ communicate\ with\ UART\ module\ of\ the\ USB\ Serial\ device.}}
+\DoxyCodeLine{01103\ \textcolor{comment}{\ \ These\ APIs\ provide\ support\ for\ configuration,\ data\ transfer\ and\ flow\ control.}}
+\DoxyCodeLine{01104\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01105\ }
+\DoxyCodeLine{01106\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01107\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01108\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ UART\ configuration\ from\ the\ USB\ Serial\ device.}}
+\DoxyCodeLine{01109\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01110\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01111\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ UART\ configuration\ from\ the\ USB\ Serial\ device.}}
+\DoxyCodeLine{01112\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01113\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01114\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01115\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01116\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01117\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01118\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01119\ \textcolor{comment}{\ \ \ \ \ not\ UART.}}
+\DoxyCodeLine{01120\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01121\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01122\ \textcolor{comment}{\ \ \ *\ CY\_UART\_CONFIG}}
+\DoxyCodeLine{01123\ \textcolor{comment}{\ \ \ *\ CySetUartConfig\ }}
+\DoxyCodeLine{01124\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01125\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyGetUartConfig\ (}
+\DoxyCodeLine{01126\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}\ }
+\DoxyCodeLine{01127\ \ \ \ \ \mbox{\hyperlink{struct___c_y___u_a_r_t___c_o_n_f_i_g}{CY\_UART\_CONFIG}}\ *uartConfig\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*UART\ configuration\ value\ read\ back*/}}
+\DoxyCodeLine{01128\ \ \ \ \ );}
+\DoxyCodeLine{01129\ }
+\DoxyCodeLine{01130\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01131\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01132\ \textcolor{comment}{\ \ \ This\ API\ sets\ the\ UART\ configuration\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{01133\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01134\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01135\ \textcolor{comment}{\ \ \ This\ API\ sets\ the\ UART\ configuration\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{01136\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01137\ \textcolor{comment}{\ \ \ Note:\ Using\ this\ API\ during\ an\ active\ transaction\ of\ UART\ may\ result\ in\ data\ loss.}}
+\DoxyCodeLine{01138\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01139\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01140\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01141\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01142\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01143\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01144\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01145\ \textcolor{comment}{\ \ \ not\ UART.}}
+\DoxyCodeLine{01146\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01147\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01148\ \textcolor{comment}{\ \ \ *\ CY\_UART\_CONFIG}}
+\DoxyCodeLine{01149\ \textcolor{comment}{\ \ \ *\ CyGetUartConfig\ }}
+\DoxyCodeLine{01150\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01151\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CySetUartConfig\ (}
+\DoxyCodeLine{01152\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01153\ \ \ \ \ \mbox{\hyperlink{struct___c_y___u_a_r_t___c_o_n_f_i_g}{CY\_UART\_CONFIG}}\ *uartConfig\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*UART\ configuration\ value\ */}}
+\DoxyCodeLine{01154\ \ \ \ \ );}
+\DoxyCodeLine{01155\ }
+\DoxyCodeLine{01156\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01157\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01158\ \textcolor{comment}{\ \ \ This\ API\ reads\ data\ from\ UART\ device.}}
+\DoxyCodeLine{01159\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01160\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01161\ \textcolor{comment}{\ \ \ This\ API\ is\ used\ to\ read\ data\ from\ UART\ device.\ User\ needs\ to\ initialize\ the\ readBuffer\ with\ buffer\ pointer,\ }}
+\DoxyCodeLine{01162\ \textcolor{comment}{\ \ \ number\ of\ bytes\ to\ read\ before\ invoking\ this\ API.\ }}
+\DoxyCodeLine{01163\ \textcolor{comment}{\ \ \ On\ return\ the\ transferCount\ parameter\ in\ CY\_DATA\_BUFFER\ will\ contain\ the\ number\ of\ bytes\ read.}}
+\DoxyCodeLine{01164\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01165\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01166\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success.}}
+\DoxyCodeLine{01167\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01168\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ input\ parameters\ were\ invalid.}}
+\DoxyCodeLine{01169\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ the\ device\ type\ is\ not\ UART.}}
+\DoxyCodeLine{01170\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ transfer\ was\ timed\ out.}}
+\DoxyCodeLine{01171\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_PIPE\_HALTED\ if\ pipe\ was\ stalled\ during\ data\ transfer.}}
+\DoxyCodeLine{01172\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_NOT\_FOUND\ if\ device\ was\ disconnected.}}
+\DoxyCodeLine{01173\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_BUFFER\_OVERFLOW\ if\ data\ received\ from\ USB\ Serial\ device\ is\ more\ than\ requested.}}
+\DoxyCodeLine{01174\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_ALLOCATION\_FAILED\ if\ transaction\ transmit\ buffer\ allocation\ was\ failed\ (Only\ in\ Windows).}}
+\DoxyCodeLine{01175\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01176\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01177\ \textcolor{comment}{\ \ \ *\ CY\_DATA\_BUFFER}}
+\DoxyCodeLine{01178\ \textcolor{comment}{\ \ \ *\ CyUartWrite}}
+\DoxyCodeLine{01179\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01180\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyUartRead\ (}
+\DoxyCodeLine{01181\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01182\ \ \ \ \ \mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{CY\_DATA\_BUFFER}}*\ readBuffer,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Read\ buffer\ details*/}}
+\DoxyCodeLine{01183\ \ \ \ \ UINT32\ timeout\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*API\ timeout\ value*/}}
+\DoxyCodeLine{01184\ \ \ \ \ );}
+\DoxyCodeLine{01185\ }
+\DoxyCodeLine{01186\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01187\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01188\ \textcolor{comment}{\ \ \ This\ API\ writes\ the\ data\ to\ UART\ device.}}
+\DoxyCodeLine{01189\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01190\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01191\ \textcolor{comment}{\ \ \ This\ API\ writes\ the\ data\ to\ UART\ device.\ User\ need\ to\ initialize\ the\ }}
+\DoxyCodeLine{01192\ \textcolor{comment}{\ \ \ writeBuffer\ with\ buffer\ pointer,\ number\ of\ bytes\ to\ write\ before\ invoking\ the\ API.}}
+\DoxyCodeLine{01193\ \textcolor{comment}{\ \ \ On\ return\ the\ transferCount\ parameter\ in\ CY\_DATA\_BUFFER\ will\ contain\ the\ number\ }}
+\DoxyCodeLine{01194\ \textcolor{comment}{\ \ \ of\ bytes\ written.}}
+\DoxyCodeLine{01195\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01196\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01197\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success.}}
+\DoxyCodeLine{01198\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01199\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ input\ parameters\ were\ invalid.}}
+\DoxyCodeLine{01200\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ the\ device\ type\ is\ not\ UART.}}
+\DoxyCodeLine{01201\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ transfer\ was\ timed\ out.}}
+\DoxyCodeLine{01202\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_PIPE\_HALTED\ if\ pipe\ was\ stalled\ during\ data\ transfer.}}
+\DoxyCodeLine{01203\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_NOT\_FOUND\ if\ device\ was\ disconnected.}}
+\DoxyCodeLine{01204\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_BUFFER\_OVERFLOW\ if\ data\ received\ from\ USB\ Serial\ device\ is\ more\ than\ requested.}}
+\DoxyCodeLine{01205\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_ALLOCATION\_FAILED\ if\ transaction\ transmit\ buffer\ allocation\ was\ failed\ (Only\ in\ Windows).}}
+\DoxyCodeLine{01206\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01207\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01208\ \textcolor{comment}{\ \ \ *\ CY\_DATA\_BUFFER}}
+\DoxyCodeLine{01209\ \textcolor{comment}{\ \ \ *\ CyUartRead}}
+\DoxyCodeLine{01210\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01211\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyUartWrite\ (}
+\DoxyCodeLine{01212\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}\ }
+\DoxyCodeLine{01213\ \ \ \ \ \mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{CY\_DATA\_BUFFER}}*\ writeBuffer,\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Write\ buffer\ details*/}}
+\DoxyCodeLine{01214\ \ \ \ \ UINT32\ timeout\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*API\ timeout\ value*/}}
+\DoxyCodeLine{01215\ \ \ \ \ );}
+\DoxyCodeLine{01216\ }
+\DoxyCodeLine{01217\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01218\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01219\ \textcolor{comment}{\ \ \ This\ API\ enables\ hardware\ flow\ control.}}
+\DoxyCodeLine{01220\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01221\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01222\ \textcolor{comment}{\ \ \ This\ API\ enables\ hardware\ flow\ control.}}
+\DoxyCodeLine{01223\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01224\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01225\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{01226\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ on\ error\ if\ handle\ is\ invalid\ in\ case\ of\ Linux/Mac.}}
+\DoxyCodeLine{01227\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ on\ error\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01228\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ on\ error\ if\ request\ was\ timed\ out.\ \ \ }}
+\DoxyCodeLine{01229\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ on\ error\ if\ request\ was\ failed\ by\ device\ or\ if\ device\ type\ }}
+\DoxyCodeLine{01230\ \textcolor{comment}{\ \ \ \ \ is\ not\ UART.}}
+\DoxyCodeLine{01231\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01232\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01233\ \textcolor{comment}{\ \ \ *\ CyUartGetHwFlowControl}}
+\DoxyCodeLine{01234\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01235\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyUartSetHwFlowControl(}
+\DoxyCodeLine{01236\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01237\ \ \ \ \ CY\_FLOW\_CONTROL\_MODES\ mode\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Flow\ control\ mode*/}}
+\DoxyCodeLine{01238\ \ \ \ \ );}
+\DoxyCodeLine{01239\ }
+\DoxyCodeLine{01240\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01241\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01242\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ current\ hardware\ flow\ control\ status.}}
+\DoxyCodeLine{01243\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01244\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01245\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ current\ hardware\ flow\ control\ status.}}
+\DoxyCodeLine{01246\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01247\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01248\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01249\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01250\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01251\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01252\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01253\ \textcolor{comment}{\ \ \ \ \ not\ UART.}}
+\DoxyCodeLine{01254\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01255\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01256\ \textcolor{comment}{\ \ \ *\ CyUartSetHwFlowControl}}
+\DoxyCodeLine{01257\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01258\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyUartGetHwFlowControl(}
+\DoxyCodeLine{01259\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01260\ \ \ \ \ CY\_FLOW\_CONTROL\_MODES\ *mode\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Flow\ control\ mode*/}}
+\DoxyCodeLine{01261\ \ \ \ \ );}
+\DoxyCodeLine{01262\ }
+\DoxyCodeLine{01263\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01264\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01265\ \textcolor{comment}{\ \ \ This\ API\ sets\ RTS\ signal\ in\ UART\ module.}}
+\DoxyCodeLine{01266\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01267\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01268\ \textcolor{comment}{\ \ \ This\ API\ is\ used\ to\ set\ the\ RTS\ pin\ to\ logical\ low..}}
+\DoxyCodeLine{01269\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01270\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01271\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01272\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01273\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01274\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01275\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01276\ \textcolor{comment}{\ \ \ \ \ not\ UART.}}
+\DoxyCodeLine{01277\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01278\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01279\ \textcolor{comment}{\ \ \ *\ CyUartClearRts}}
+\DoxyCodeLine{01280\ \textcolor{comment}{\ \ \ *\ CyUartSetDtr}}
+\DoxyCodeLine{01281\ \textcolor{comment}{\ \ \ *\ CyUartClearDtr}}
+\DoxyCodeLine{01282\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01283\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyUartSetRts(}
+\DoxyCodeLine{01284\ \ \ \ \ CY\_HANDLE\ handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01285\ \ \ \ \ );}
+\DoxyCodeLine{01286\ }
+\DoxyCodeLine{01287\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01288\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01289\ \textcolor{comment}{\ \ \ This\ API\ can\ be\ used\ to\ clear\ RTS\ signal\ in\ UART\ module.}}
+\DoxyCodeLine{01290\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01291\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01292\ \textcolor{comment}{\ \ \ This\ API\ used\ clear\ the\ RTS.\ It\ sets\ the\ RTS\ pin\ to\ logical\ high.}}
+\DoxyCodeLine{01293\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01294\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01295\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01296\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01297\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01298\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01299\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01300\ \textcolor{comment}{\ \ \ \ \ not\ UART.}}
+\DoxyCodeLine{01301\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01302\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01303\ \textcolor{comment}{\ \ \ *\ CyUartSetRts}}
+\DoxyCodeLine{01304\ \textcolor{comment}{\ \ \ *\ CyUartSetDtr}}
+\DoxyCodeLine{01305\ \textcolor{comment}{\ \ \ *\ CyUartClearDtr}}
+\DoxyCodeLine{01306\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01307\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyUartClearRts(}
+\DoxyCodeLine{01308\ \ \ \ \ CY\_HANDLE\ handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01309\ \ \ \ \ );}
+\DoxyCodeLine{01310\ }
+\DoxyCodeLine{01311\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01312\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01313\ \textcolor{comment}{\ \ \ This\ API\ sets\ DTR\ signal\ in\ UART.}}
+\DoxyCodeLine{01314\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01315\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01316\ \textcolor{comment}{\ \ \ This\ API\ used\ set\ the\ DTR.\ It\ sets\ the\ DTR\ pin\ to\ logical\ low.}}
+\DoxyCodeLine{01317\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01318\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01319\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01320\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01321\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01322\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01323\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01324\ \textcolor{comment}{\ \ \ \ \ not\ UART.}}
+\DoxyCodeLine{01325\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01326\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01327\ \textcolor{comment}{\ \ \ *\ CyUartClearRts}}
+\DoxyCodeLine{01328\ \textcolor{comment}{\ \ \ *\ CyUartSetRts}}
+\DoxyCodeLine{01329\ \textcolor{comment}{\ \ \ *\ CyUartClearDtr}}
+\DoxyCodeLine{01330\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01331\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyUartSetDtr(}
+\DoxyCodeLine{01332\ \ \ \ \ CY\_HANDLE\ handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01333\ \ \ \ \ );}
+\DoxyCodeLine{01334\ }
+\DoxyCodeLine{01335\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01336\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01337\ \textcolor{comment}{\ \ \ This\ API\ can\ be\ used\ to\ clear\ DTR\ signal\ in\ UART.}}
+\DoxyCodeLine{01338\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01339\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01340\ \textcolor{comment}{\ \ \ This\ API\ can\ be\ used\ clear\ the\ DTR.\ It\ sets\ the\ DTR\ pin\ to\ logical\ high.}}
+\DoxyCodeLine{01341\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01342\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01343\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01344\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01345\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01346\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01347\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01348\ \textcolor{comment}{\ \ \ \ \ not\ UART.}}
+\DoxyCodeLine{01349\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01350\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01351\ \textcolor{comment}{\ \ \ *\ CyUartSetRts}}
+\DoxyCodeLine{01352\ \textcolor{comment}{\ \ \ *\ CyUartSetDtr}}
+\DoxyCodeLine{01353\ \textcolor{comment}{\ \ \ *\ CyUartClearRts}}
+\DoxyCodeLine{01354\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01355\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyUartClearDtr(}
+\DoxyCodeLine{01356\ \ \ \ \ CY\_HANDLE\ handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01357\ \ \ \ \ );}
+\DoxyCodeLine{01358\ }
+\DoxyCodeLine{01359\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01360\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01361\ \textcolor{comment}{\ \ \ This\ API\ can\ be\ used\ to\ set\ break\ timeout\ value\ .}}
+\DoxyCodeLine{01362\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01363\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01364\ \textcolor{comment}{\ \ \ This\ API\ can\ be\ used\ to\ set\ break\ timeout\ value\ .}}
+\DoxyCodeLine{01365\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01366\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01367\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01368\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01369\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01370\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01371\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01372\ \textcolor{comment}{\ \ \ \ \ not\ UART.}}
+\DoxyCodeLine{01373\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01374\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01375\ \textcolor{comment}{\ \ \ *\ CyUartSetFlowControl}}
+\DoxyCodeLine{01376\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01377\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyUartSetBreak(}
+\DoxyCodeLine{01378\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01379\ \ \ \ \ UINT16\ timeout\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Break\ timeout\ value\ in\ milliseconds\ */}}
+\DoxyCodeLine{01380\ \ \ \ \ );}
+\DoxyCodeLine{01381\ }
+\DoxyCodeLine{01382\ \textcolor{comment}{/***********************************************************************************************/}}
+\DoxyCodeLine{01383\ \textcolor{comment}{/**********************************I2C\ API's****************************************************/}}
+\DoxyCodeLine{01384\ \textcolor{comment}{/***********************************************************************************************/}}
+\DoxyCodeLine{01385\ }
+\DoxyCodeLine{01386\ \textcolor{comment}{/*@@I2C\ API}}
+\DoxyCodeLine{01387\ \textcolor{comment}{}}
+\DoxyCodeLine{01388\ \textcolor{comment}{\ \ These\ set\ of\ APIs\ provide\ an\ interface\ to\ configure\ I2C\ module\ and\ do\ }}
+\DoxyCodeLine{01389\ \textcolor{comment}{\ \ read/write\ on\ the\ I2C\ device\ connected\ to\ USB\ Serial\ device.}}
+\DoxyCodeLine{01390\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01391\ }
+\DoxyCodeLine{01392\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01393\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01394\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ configuration\ of\ I2C\ module\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{01395\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01396\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01397\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ configuration\ of\ I2C\ module\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{01398\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01399\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01400\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01401\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01402\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01403\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01404\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01405\ \textcolor{comment}{\ \ \ \ \ not\ I2C.}}
+\DoxyCodeLine{01406\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01407\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01408\ \textcolor{comment}{\ \ \ *\ CY\_I2C\_CONFIG}}
+\DoxyCodeLine{01409\ \textcolor{comment}{\ \ \ *\ CySetI2cConfig\ }}
+\DoxyCodeLine{01410\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01411\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyGetI2cConfig\ (}
+\DoxyCodeLine{01412\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01413\ \ \ \ \ \mbox{\hyperlink{struct___c_y___i2_c___c_o_n_f_i_g}{CY\_I2C\_CONFIG}}\ *i2cConfig\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*I2C\ configuration\ value\ read\ back*/}}
+\DoxyCodeLine{01414\ \ \ \ \ );}
+\DoxyCodeLine{01415\ }
+\DoxyCodeLine{01416\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01417\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01418\ \textcolor{comment}{\ \ \ This\ API\ configures\ the\ I2C\ module\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{01419\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01420\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01421\ \textcolor{comment}{\ \ \ This\ API\ configures\ the\ I2C\ module\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{01422\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01423\ \textcolor{comment}{\ \ \ Note:\ Using\ this\ API\ during\ an\ active\ transaction\ of\ I2C\ may\ result\ in\ data\ loss.}}
+\DoxyCodeLine{01424\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01425\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01426\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01427\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01428\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01429\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01430\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01431\ \textcolor{comment}{\ \ \ \ \ not\ I2C.}}
+\DoxyCodeLine{01432\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01433\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01434\ \textcolor{comment}{\ \ \ *\ CY\_I2C\_CONFIG}}
+\DoxyCodeLine{01435\ \textcolor{comment}{\ \ \ *\ CySetI2cConfig\ }}
+\DoxyCodeLine{01436\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01437\ CYWINEXPORT\ CY\_RETURN\_STATUS\ \ CySetI2cConfig\ (}
+\DoxyCodeLine{01438\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01439\ \ \ \ \ \mbox{\hyperlink{struct___c_y___i2_c___c_o_n_f_i_g}{CY\_I2C\_CONFIG}}\ *i2cConfig\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*I2C\ configuration\ value*/}}
+\DoxyCodeLine{01440\ \ \ \ \ );}
+\DoxyCodeLine{01441\ }
+\DoxyCodeLine{01442\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01443\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01444\ \textcolor{comment}{\ \ \ This\ API\ reads\ data\ from\ the\ USB\ Serial\ I2C\ module.}}
+\DoxyCodeLine{01445\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01446\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01447\ \textcolor{comment}{\ \ \ This\ API\ provides\ an\ interface\ to\ read\ data\ from\ the\ I2C\ device}}
+\DoxyCodeLine{01448\ \textcolor{comment}{\ \ \ connected\ to\ USB\ Serial.\ }}
+\DoxyCodeLine{01449\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01450\ \textcolor{comment}{\ \ \ The\ readBuffer\ parameter\ needs\ to\ be\ initialized\ with\ buffer\ pointer,\ number\ of\ bytes\ to\ be\ read}}
+\DoxyCodeLine{01451\ \textcolor{comment}{\ \ \ before\ invoking\ the\ API.\ On\ return,\ the\ transferCount\ field\ will\ contain\ the\ number\ of\ bytes\ }}
+\DoxyCodeLine{01452\ \textcolor{comment}{\ \ \ read\ back\ from\ device.}}
+\DoxyCodeLine{01453\ \textcolor{comment}{\ \ \ CY\_I2C\_DATA\_CONFIG\ structure\ specifies\ parameters\ such\ as\ setting\ stop\ bit,\ NAK\ and\ }}
+\DoxyCodeLine{01454\ \textcolor{comment}{\ \ \ slave\ address\ of\ the\ I2C\ device.}}
+\DoxyCodeLine{01455\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01456\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01457\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success.}}
+\DoxyCodeLine{01458\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01459\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ input\ parameters\ were\ invalid.}}
+\DoxyCodeLine{01460\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ the\ device\ type\ is\ not\ I2C}}
+\DoxyCodeLine{01461\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ transfer\ was\ timed\ out.}}
+\DoxyCodeLine{01462\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_NOT\_FOUND\ if\ device\ was\ disconnected.}}
+\DoxyCodeLine{01463\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_BUFFER\_OVERFLOW\ if\ data\ received\ from\ USB\ Serial\ device\ is\ more\ than\ requested.}}
+\DoxyCodeLine{01464\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_ALLOCATION\_FAILED\ if\ transaction\ transmit\ buffer\ allocation\ was\ failed\ (Only\ in\ Windows).}}
+\DoxyCodeLine{01465\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_I2C\_DEVICE\_BUSY\ if\ I2C\ device\ was\ busy\ processing\ previous\ request.}}
+\DoxyCodeLine{01466\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_I2C\_NAK\_ERROR\ if\ request\ was\ nacked\ by\ I2C\ device.}}
+\DoxyCodeLine{01467\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_I2C\_ARBITRATION\_ERROR\ if\ a\ I2C\ bus\ arbitration\ error\ occured.}}
+\DoxyCodeLine{01468\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_I2C\_BUS\_ERROR\ if\ there\ was\ any\ I2C\ bus\ error\ while\ an\ on\ going\ transaction.}}
+\DoxyCodeLine{01469\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_I2C\_STOP\_BIT\_SET\ if\ stop\ bit\ was\ set\ by\ I2C\ master.}}
+\DoxyCodeLine{01470\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01471\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01472\ \textcolor{comment}{\ \ \ *\ CY\_DATA\_BUFFER}}
+\DoxyCodeLine{01473\ \textcolor{comment}{\ \ \ *\ CY\_DATA\_CONFIG}}
+\DoxyCodeLine{01474\ \textcolor{comment}{\ \ \ *\ CyI2cCWrite}}
+\DoxyCodeLine{01475\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01476\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyI2cRead\ (}
+\DoxyCodeLine{01477\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01478\ \ \ \ \ \mbox{\hyperlink{struct___c_y___i2_c___d_a_t_a___c_o_n_f_i_g}{CY\_I2C\_DATA\_CONFIG}}\ *dataConfig,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*I2C\ data\ config*/}}
+\DoxyCodeLine{01479\ \ \ \ \ \mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{CY\_DATA\_BUFFER}}\ *readBuffer,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Read\ buffer\ details*/}}
+\DoxyCodeLine{01480\ \ \ \ \ UINT32\ timeout\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*API\ timeout\ value*/}}
+\DoxyCodeLine{01481\ \ \ \ \ );}
+\DoxyCodeLine{01482\ }
+\DoxyCodeLine{01483\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01484\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01485\ \textcolor{comment}{\ \ \ This\ API\ writes\ data\ to\ USB\ Serial\ I2C\ module\ .}}
+\DoxyCodeLine{01486\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01487\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01488\ \textcolor{comment}{\ \ \ This\ API\ provides\ an\ interface\ to\ write\ data\ to\ the\ I2C\ device}}
+\DoxyCodeLine{01489\ \textcolor{comment}{\ \ \ connected\ to\ USB\ Serial.}}
+\DoxyCodeLine{01490\ \textcolor{comment}{\ \ \ The\ writeBuffer\ parameter\ needs\ to\ be\ initialized\ with\ buffer\ pointer,\ number\ of\ bytes\ to\ be\ written}}
+\DoxyCodeLine{01491\ \textcolor{comment}{\ \ \ before\ invoking\ the\ API.\ On\ return,\ transferCount\ field\ contains\ number\ of\ bytes\ actually\ written\ to\ the\ device.\ }}
+\DoxyCodeLine{01492\ \textcolor{comment}{\ \ \ CY\_I2C\_DATA\_CONFIG\ structure\ specifies\ parameter\ such\ as\ setting\ stop\ bit,\ Nak\ and\ slave\ address}}
+\DoxyCodeLine{01493\ \textcolor{comment}{\ \ \ of\ the\ I2C\ device\ being\ communicated\ when\ USB\ Serial\ is\ master.}}
+\DoxyCodeLine{01494\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01495\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01496\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success.}}
+\DoxyCodeLine{01497\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01498\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ input\ parameters\ were\ invalid.}}
+\DoxyCodeLine{01499\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ the\ device\ type\ is\ not\ I2C}}
+\DoxyCodeLine{01500\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ transfer\ was\ timed\ out.}}
+\DoxyCodeLine{01501\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_PIPE\_HALTED\ if\ pipe\ was\ stalled\ during\ data\ transfer.}}
+\DoxyCodeLine{01502\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_NOT\_FOUND\ if\ device\ was\ disconnected.}}
+\DoxyCodeLine{01503\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_BUFFER\_OVERFLOW\ if\ data\ received\ from\ USB\ Serial\ device\ is\ more\ than\ requested.}}
+\DoxyCodeLine{01504\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_ALLOCATION\_FAILED\ if\ transaction\ transmit\ buffer\ allocation\ was\ failed\ (Only\ in\ Windows).}}
+\DoxyCodeLine{01505\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_I2C\_DEVICE\_BUSY\ if\ I2C\ device\ was\ busy\ processing\ previous\ request.}}
+\DoxyCodeLine{01506\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_I2C\_NAK\_ERROR\ if\ request\ was\ nacked\ by\ I2C\ device.}}
+\DoxyCodeLine{01507\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_I2C\_ARBITRATION\_ERROR\ if\ a\ I2C\ bus\ arbitration\ error\ occured.}}
+\DoxyCodeLine{01508\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_I2C\_BUS\_ERROR\ if\ there\ was\ any\ I2C\ bus\ error\ while\ an\ on\ going\ transaction.}}
+\DoxyCodeLine{01509\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_I2C\_STOP\_BIT\_SET\ if\ stop\ bit\ was\ set\ by\ I2C\ master.}}
+\DoxyCodeLine{01510\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01511\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01512\ \textcolor{comment}{\ \ \ *\ CY\_DATA\_BUFFER}}
+\DoxyCodeLine{01513\ \textcolor{comment}{\ \ \ *\ CY\_DATA\_CONFIG}}
+\DoxyCodeLine{01514\ \textcolor{comment}{\ \ \ *\ CyI2cRead}}
+\DoxyCodeLine{01515\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01516\ CYWINEXPORT\ CY\_RETURN\_STATUS\ \ WINCALLCONVEN\ CyI2cWrite\ (}
+\DoxyCodeLine{01517\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01518\ \ \ \ \ \mbox{\hyperlink{struct___c_y___i2_c___d_a_t_a___c_o_n_f_i_g}{CY\_I2C\_DATA\_CONFIG}}\ *dataConfig,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*I2C\ Slave\ address\ */}}
+\DoxyCodeLine{01519\ \ \ \ \ \mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{CY\_DATA\_BUFFER}}\ *writeBuffer,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Write\ buffer\ details*/}}
+\DoxyCodeLine{01520\ \ \ \ \ UINT32\ timeout\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*API\ timeout\ value*/}}
+\DoxyCodeLine{01521\ \ \ \ \ );}
+\DoxyCodeLine{01522\ }
+\DoxyCodeLine{01523\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01524\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01525\ \textcolor{comment}{\ \ \ This\ API\ resets\ the\ I2C\ module\ in\ USB\ Serial\ device.}}
+\DoxyCodeLine{01526\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01527\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01528\ \textcolor{comment}{\ \ \ This\ API\ resets\ the\ I2C\ module\ whenever\ there\ is\ an\ error\ in\ data\ transaction.}}
+\DoxyCodeLine{01529\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01530\ \textcolor{comment}{\ \ \ If\ resetMode\ =\ 0\ the\ I2C\ read\ module\ will\ be\ reset.}}
+\DoxyCodeLine{01531\ \textcolor{comment}{\ \ \ If\ resetMode\ =\ 1\ the\ I2C\ write\ module\ will\ be\ reset.}}
+\DoxyCodeLine{01532\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01533\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01534\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01535\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01536\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01537\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01538\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01539\ \textcolor{comment}{\ \ \ \ \ not\ I2C.}}
+\DoxyCodeLine{01540\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01541\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01542\ \textcolor{comment}{\ \ \ *\ CyI2CRead}}
+\DoxyCodeLine{01543\ \textcolor{comment}{\ \ \ *\ CyI2CWrite}}
+\DoxyCodeLine{01544\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01545\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyI2cReset(}
+\DoxyCodeLine{01546\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CY\_HANDLE\ handle,\ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01547\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BOOL\ resetMode\ \ \ \ \textcolor{comment}{/*Reset\ mode*/}}
+\DoxyCodeLine{01548\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{01549\ }
+\DoxyCodeLine{01550\ \textcolor{comment}{/***********************************************************************************************/}}
+\DoxyCodeLine{01551\ \textcolor{comment}{/**********************************SPI\ APIs****************************************************/}}
+\DoxyCodeLine{01552\ \textcolor{comment}{/***********************************************************************************************/}}
+\DoxyCodeLine{01553\ }
+\DoxyCodeLine{01554\ \textcolor{comment}{/*@@SPI\ API}}
+\DoxyCodeLine{01555\ \textcolor{comment}{\ \ These\ set\ of\ APIs\ provide\ an\ interface\ to\ configure\ SPI\ module\ and\ perform}}
+\DoxyCodeLine{01556\ \textcolor{comment}{\ \ read/write\ operations\ with\ the\ SPI\ device\ connected\ to\ USB\ Serial\ device.}}
+\DoxyCodeLine{01557\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01558\ }
+\DoxyCodeLine{01559\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01560\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01561\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ configuration\ of\ SPI\ module\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{01562\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01563\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01564\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ configuration\ of\ SPI\ module\ of\ USB\ Serial\ device.}}
+\DoxyCodeLine{01565\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01566\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01567\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01568\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01569\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01570\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01571\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01572\ \textcolor{comment}{\ \ \ \ \ not\ SPI.}}
+\DoxyCodeLine{01573\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01574\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01575\ \textcolor{comment}{\ \ \ *\ CY\_SPI\_CONFIG}}
+\DoxyCodeLine{01576\ \textcolor{comment}{\ \ \ *\ CySetSpiConfig\ }}
+\DoxyCodeLine{01577\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01578\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyGetSpiConfig\ (}
+\DoxyCodeLine{01579\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01580\ \ \ \ \ \mbox{\hyperlink{struct___c_y___s_p_i___c_o_n_f_i_g}{CY\_SPI\_CONFIG}}\ *spiConfig\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SPI\ configuration\ structure\ value\ read\ back*/}}
+\DoxyCodeLine{01581\ \ \ \ \ );}
+\DoxyCodeLine{01582\ }
+\DoxyCodeLine{01583\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01584\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01585\ \textcolor{comment}{\ \ \ This\ API\ sets\ the\ configuration\ of\ the\ SPI\ module\ on\ USB\ Serial\ device.}}
+\DoxyCodeLine{01586\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01587\ \textcolor{comment}{\ \ \ Description;}}
+\DoxyCodeLine{01588\ \textcolor{comment}{\ \ \ This\ API\ sets\ the\ configuration\ of\ the\ SPI\ module\ in\ USB\ Serial\ device.}}
+\DoxyCodeLine{01589\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01590\ \textcolor{comment}{\ \ \ NOTE:\ Using\ this\ API\ during\ an\ active\ transaction\ of\ SPI\ may\ result\ in\ data\ loss.}}
+\DoxyCodeLine{01591\ \textcolor{comment}{}}
+\DoxyCodeLine{01592\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01593\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success\ }}
+\DoxyCodeLine{01594\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid.}}
+\DoxyCodeLine{01595\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01596\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ the\ request\ is\ timed\ out.}}
+\DoxyCodeLine{01597\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ when\ request\ is\ failed\ by\ USB\ Serial\ device\ or\ when\ device\ type\ is\ }}
+\DoxyCodeLine{01598\ \textcolor{comment}{\ \ \ \ \ not\ SPI.}}
+\DoxyCodeLine{01599\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01600\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01601\ \textcolor{comment}{\ \ \ *\ CY\_SPI\_CONFIG}}
+\DoxyCodeLine{01602\ \textcolor{comment}{\ \ \ *\ CyGetSpiConfig}}
+\DoxyCodeLine{01603\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01604\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CySetSpiConfig\ (}
+\DoxyCodeLine{01605\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01606\ \ \ \ \ \mbox{\hyperlink{struct___c_y___s_p_i___c_o_n_f_i_g}{CY\_SPI\_CONFIG}}\ *spiConfig\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SPI\ configuration\ structure\ value*/}}
+\DoxyCodeLine{01607\ \ \ \ \ );}
+\DoxyCodeLine{01608\ }
+\DoxyCodeLine{01609\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01610\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01611\ \textcolor{comment}{\ \ \ This\ API\ reads\ and\ writes\ data\ to\ SPI\ device\ connected\ to\ USB\ Serial\ device.}}
+\DoxyCodeLine{01612\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01613\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01614\ \textcolor{comment}{\ \ \ This\ API\ provides\ an\ interface\ to\ do\ data\ transfer\ with\ the\ SPI\ slave/master}}
+\DoxyCodeLine{01615\ \textcolor{comment}{\ \ \ connected\ to\ USB\ Serial\ device.\ }}
+\DoxyCodeLine{01616\ \textcolor{comment}{\ \ \ To\ perform\ read\ only\ operation,\ pass\ NULL\ as\ argument\ for\ writeBuffer\ and\ to\ perform}}
+\DoxyCodeLine{01617\ \textcolor{comment}{\ \ \ write\ only\ operation\ pass\ NULL\ as\ an\ argument\ for\ readBuffer.}}
+\DoxyCodeLine{01618\ \textcolor{comment}{\ \ \ On\ return,\ the\ transferCount\ field\ will\ contain\ the\ number\ of\ bytes\ read\ and/or\ written.}}
+\DoxyCodeLine{01619\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01620\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01621\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{01622\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid\ in\ case\ of\ Linux/Mac.}}
+\DoxyCodeLine{01623\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01624\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ the\ device\ type\ is\ not\ SPI\ or\ when\ libusb\ reported}}
+\DoxyCodeLine{01625\ \textcolor{comment}{\ \ \ \ \ unknown\ error\ in\ case\ of\ Linux/Mac.}}
+\DoxyCodeLine{01626\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ transfer\ was\ timed\ out.}}
+\DoxyCodeLine{01627\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_PIPE\_HALTED\ if\ pipe\ was\ stalled\ during\ data\ transfer.}}
+\DoxyCodeLine{01628\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_NOT\_FOUND\ if\ device\ was\ disconnected.}}
+\DoxyCodeLine{01629\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_BUFFER\_OVERFLOW\ if\ data\ received\ from\ USB\ Serial\ device\ is\ more\ than\ requested.}}
+\DoxyCodeLine{01630\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01631\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01632\ \textcolor{comment}{\ \ \ *\ CY\_DATA\_BUFFER}}
+\DoxyCodeLine{01633\ \textcolor{comment}{\ \ \ *\ CyGetSpiConfig}}
+\DoxyCodeLine{01634\ \textcolor{comment}{\ \ \ *\ CySetSpiConfig}}
+\DoxyCodeLine{01635\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01636\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CySpiReadWrite\ (}
+\DoxyCodeLine{01637\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01638\ \ \ \ \ \mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{CY\_DATA\_BUFFER}}*\ readBuffer,\ \ \ \ \ \textcolor{comment}{/*Read\ data\ buffer*/}}
+\DoxyCodeLine{01639\ \ \ \ \ \mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{CY\_DATA\_BUFFER}}*\ writeBuffer,\ \ \ \ \textcolor{comment}{/*Write\ data\ buffer*/}}
+\DoxyCodeLine{01640\ \ \ \ \ UINT32\ timeout\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Time\ out\ value\ of\ the\ API*/}}
+\DoxyCodeLine{01641\ \ \ \ \ );}
+\DoxyCodeLine{01642\ }
+\DoxyCodeLine{01643\ \textcolor{comment}{/**************************************************************************************/}}
+\DoxyCodeLine{01644\ \textcolor{comment}{/*****************************************JTAG\ APIs***********************************/}}
+\DoxyCodeLine{01645\ \textcolor{comment}{/**************************************************************************************/}}
+\DoxyCodeLine{01646\ }
+\DoxyCodeLine{01647\ \textcolor{comment}{/*@@JTAG\ API}}
+\DoxyCodeLine{01648\ \textcolor{comment}{\ \ These\ set\ of\ APIs\ can\ be\ used\ to\ enable\ or\ disable\ JTAG\ module\ on\ the\ USB\ Serial\ device.}}
+\DoxyCodeLine{01649\ \textcolor{comment}{\ \ Once\ the\ JTAG\ is\ enabled,\ read\ and\ write\ operations\ can\ be\ performed.}}
+\DoxyCodeLine{01650\ \textcolor{comment}{\ \ When\ JTAG\ is\ enabled\ other\ modules\ in\ the\ USB\ Serial\ device\ cannot\ be\ used.}}
+\DoxyCodeLine{01651\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01652\ }
+\DoxyCodeLine{01653\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01654\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01655\ \textcolor{comment}{\ \ \ This\ API\ enables\ JTAG\ module.}}
+\DoxyCodeLine{01656\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01657\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01658\ \textcolor{comment}{\ \ \ This\ API\ enables\ JTAG\ module\ in\ USB\ Serial\ device\ and\ the\ function\ disables\ all\ other\ functionality}}
+\DoxyCodeLine{01659\ \textcolor{comment}{\ \ \ till\ CyJtagDisable\ is\ invoked.}}
+\DoxyCodeLine{01660\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01661\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01662\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{01663\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid\ in\ case\ of\ Linux/Mac.}}
+\DoxyCodeLine{01664\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01665\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ request\ was\ timed\ out.\ \ \ }}
+\DoxyCodeLine{01666\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ request\ was\ failed\ by\ device\ or\ if\ device\ type\ }}
+\DoxyCodeLine{01667\ \textcolor{comment}{\ \ \ \ \ is\ not\ JTAG.}}
+\DoxyCodeLine{01668\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01669\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01670\ \textcolor{comment}{\ \ \ *\ CyJtagDisable}}
+\DoxyCodeLine{01671\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01672\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyJtagEnable\ (}
+\DoxyCodeLine{01673\ \ \ \ \ CY\_HANDLE\ handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01674\ \ \ \ \ );}
+\DoxyCodeLine{01675\ }
+\DoxyCodeLine{01676\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01677\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01678\ \textcolor{comment}{\ \ \ This\ API\ disables\ JTAG\ module.}}
+\DoxyCodeLine{01679\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01680\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01681\ \textcolor{comment}{\ \ \ This\ API\ disables\ Jtag\ interface\ in\ USB\ Serial\ device.\ This\ API\ must\ be\ invoked\ before\ exiting\ the\ }}
+\DoxyCodeLine{01682\ \textcolor{comment}{\ \ \ application\ if\ CyJtagEnable\ was\ previously\ invoked.}}
+\DoxyCodeLine{01683\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01684\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01685\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{01686\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid\ in\ case\ of\ Linux/Mac.}}
+\DoxyCodeLine{01687\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01688\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ request\ was\ timed\ out.\ \ \ }}
+\DoxyCodeLine{01689\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ request\ was\ failed\ by\ device\ or\ if\ device\ type\ }}
+\DoxyCodeLine{01690\ \textcolor{comment}{\ \ \ \ \ is\ not\ JTAG.}}
+\DoxyCodeLine{01691\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01692\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01693\ \textcolor{comment}{\ \ \ *\ CyJtagEnable}}
+\DoxyCodeLine{01694\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01695\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyJtagDisable\ (}
+\DoxyCodeLine{01696\ \ \ \ \ CY\_HANDLE\ handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01697\ \ \ \ \ );}
+\DoxyCodeLine{01698\ }
+\DoxyCodeLine{01699\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01700\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01701\ \textcolor{comment}{\ \ \ This\ API\ can\ be\ used\ to\ write\ data\ to\ JTAG\ module.}}
+\DoxyCodeLine{01702\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01703\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01704\ \textcolor{comment}{\ \ \ This\ API\ provides\ an\ interface\ to\ write\ data\ to\ JTAG\ device\ connected\ to\ USB\ Serial\ device.}}
+\DoxyCodeLine{01705\ \textcolor{comment}{\ \ \ The\ writeBuffer\ need\ to\ be\ initialized\ with\ buffer\ and\ length\ of\ data\ to\ be\ written\ before\ invoking\ }}
+\DoxyCodeLine{01706\ \textcolor{comment}{\ \ \ the\ API.\ Upon\ return,\ transferCount\ field\ in\ CY\_DATA\_BUFFER\ is\ updated\ with\ actual\ number\ of\ bytes\ written.\ \ }}
+\DoxyCodeLine{01707\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01708\ \textcolor{comment}{\ \ \ Note:\ CyJtagEnable\ must\ be\ called\ before\ invoking\ this\ API.}}
+\DoxyCodeLine{01709\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01710\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01711\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{01712\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid\ in\ case\ of\ Linux/Mac.}}
+\DoxyCodeLine{01713\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01714\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ device\ type\ is\ not\ JTAG\ or\ when\ encountered}}
+\DoxyCodeLine{01715\ \textcolor{comment}{\ \ \ \ \ unknown\ libusb\ errors\ in\ Linux/Mac.}}
+\DoxyCodeLine{01716\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_PIPE\_HALTED\ if\ there\ was\ any\ pipe\ error\ during\ transaction.}}
+\DoxyCodeLine{01717\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ transfer\ was\ timed\ out.}}
+\DoxyCodeLine{01718\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_NOT\_FOUND\ if\ device\ was\ disconnected.}}
+\DoxyCodeLine{01719\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01720\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01721\ \textcolor{comment}{\ \ \ *\ CY\_DATA\_BUFFER}}
+\DoxyCodeLine{01722\ \textcolor{comment}{\ \ \ *\ CyJtagRead}}
+\DoxyCodeLine{01723\ \textcolor{comment}{\ \ \ *\ CyJtagEnable}}
+\DoxyCodeLine{01724\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01725\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyJtagWrite\ (}
+\DoxyCodeLine{01726\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01727\ \ \ \ \ \mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{CY\_DATA\_BUFFER}}\ *writeBuffer,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Write\ buffer\ details*/}}
+\DoxyCodeLine{01728\ \ \ \ \ UINT32\ timeout\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*API\ timeout\ value*/}}
+\DoxyCodeLine{01729\ \ \ \ \ );}
+\DoxyCodeLine{01730\ }
+\DoxyCodeLine{01731\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01732\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01733\ \textcolor{comment}{\ \ \ This\ API\ reads\ data\ from\ JTAG\ device.}}
+\DoxyCodeLine{01734\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01735\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01736\ \textcolor{comment}{\ \ \ This\ API\ provides\ an\ interface\ to\ read\ data\ from\ JTAG\ device.}}
+\DoxyCodeLine{01737\ \textcolor{comment}{\ \ \ The\ readBuffer\ need\ to\ be\ initialized\ with\ buffer\ and\ length\ of\ data\ to\ be\ written\ before\ invoking\ }}
+\DoxyCodeLine{01738\ \textcolor{comment}{\ \ \ the\ API.\ Upon\ return,\ transferCount\ field\ in\ CY\_DATA\_BUFFER\ structure}}
+\DoxyCodeLine{01739\ \textcolor{comment}{\ \ \ is\ updated\ with\ actual\ number\ of\ bytes\ read.\ }}
+\DoxyCodeLine{01740\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01741\ \textcolor{comment}{\ \ \ Note:\ CyJtagEnable\ must\ be\ called\ before\ invoking\ this\ API.}}
+\DoxyCodeLine{01742\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01743\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01744\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{01745\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ is\ invalid\ in\ case\ of\ Linux/Mac.}}
+\DoxyCodeLine{01746\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_PARAMETER\ if\ specified\ parameters\ are\ invalid\ or\ out\ of\ range.}}
+\DoxyCodeLine{01747\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ device\ type\ is\ not\ JTAG\ or\ when\ encountered}}
+\DoxyCodeLine{01748\ \textcolor{comment}{\ \ \ \ \ unknown\ libusb\ errors\ in\ Linux/Mac.}}
+\DoxyCodeLine{01749\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ transfer\ was\ timed\ out.}}
+\DoxyCodeLine{01750\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_DEVICE\_NOT\_FOUND\ if\ device\ was\ disconnected.}}
+\DoxyCodeLine{01751\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_BUFFER\_OVERFLOW\ if\ data\ received\ from\ USB\ Serial\ device\ is\ more\ than\ requested.}}
+\DoxyCodeLine{01752\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01753\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01754\ \textcolor{comment}{\ \ \ *\ CY\_DATA\_BUFFER}}
+\DoxyCodeLine{01755\ \textcolor{comment}{\ \ \ *\ CyJtagWrite}}
+\DoxyCodeLine{01756\ \textcolor{comment}{\ \ \ *\ CyJtagEnable}}
+\DoxyCodeLine{01757\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01758\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyJtagRead\ (}
+\DoxyCodeLine{01759\ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01760\ \ \ \ \ \mbox{\hyperlink{struct___c_y___d_a_t_a___b_u_f_f_e_r}{CY\_DATA\_BUFFER}}\ *readBuffer,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Read\ buffer\ parameters*/}}
+\DoxyCodeLine{01761\ \ \ \ \ UINT32\ timeout\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*API\ timeout\ value*/}}
+\DoxyCodeLine{01762\ \ \ \ \ );\ \ \ \ }
+\DoxyCodeLine{01763\ }
+\DoxyCodeLine{01764\ \textcolor{comment}{/**************************************************************************************/}}
+\DoxyCodeLine{01765\ \textcolor{comment}{/*****************************************PHDC\ APIs***********************************/}}
+\DoxyCodeLine{01766\ \textcolor{comment}{/**************************************************************************************/}}
+\DoxyCodeLine{01767\ }
+\DoxyCodeLine{01768\ \textcolor{comment}{/*@@PHDC\ API}}
+\DoxyCodeLine{01769\ \textcolor{comment}{\ \ Set\ of\ PHDC\ class\ request\ APIs.\ The\ PHDC\ class\ requests\ include\ set,\ clear\ feature\ and}}
+\DoxyCodeLine{01770\ \textcolor{comment}{\ \ PHDC\ get\ status.\ }}
+\DoxyCodeLine{01771\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01772\ }
+\DoxyCodeLine{01773\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01774\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01775\ \textcolor{comment}{\ \ \ This\ API\ sends\ a\ PHDC\ clear\ feature\ command.}}
+\DoxyCodeLine{01776\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01777\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01778\ \textcolor{comment}{\ \ \ This\ API\ sends\ a\ PHDC\ clear\ feature\ command.}}
+\DoxyCodeLine{01779\ \textcolor{comment}{}}
+\DoxyCodeLine{01780\ \textcolor{comment}{\ \ \ Note:\ Meta\ data\ feature\ is\ not\ supported\ by\ USB\ Serial\ device.}}
+\DoxyCodeLine{01781\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01782\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01783\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{01784\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ was\ invalid.}}
+\DoxyCodeLine{01785\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ request\ timed\ out.}}
+\DoxyCodeLine{01786\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ request\ was\ failed\ by\ device.}}
+\DoxyCodeLine{01787\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01788\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01789\ \textcolor{comment}{\ \ \ *\ CyPhdcSetFeature}}
+\DoxyCodeLine{01790\ \textcolor{comment}{\ \ \ *\ CyPhdcGetStatus}}
+\DoxyCodeLine{01791\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01792\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyPhdcClrFeature\ (}
+\DoxyCodeLine{01793\ \ \ \ \ \ \ \ \ CY\_HANDLE\ handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01794\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{01795\ }
+\DoxyCodeLine{01796\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01797\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01798\ \textcolor{comment}{\ \ \ This\ API\ sends\ a\ PHDC\ set\ feature\ command.}}
+\DoxyCodeLine{01799\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01800\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01801\ \textcolor{comment}{\ \ \ This\ API\ sends\ a\ PHDC\ set\ feature\ command.}}
+\DoxyCodeLine{01802\ \textcolor{comment}{}}
+\DoxyCodeLine{01803\ \textcolor{comment}{\ \ \ Note:\ Meta\ data\ feature\ is\ not\ supported\ by\ USB\ Serial\ device.}}
+\DoxyCodeLine{01804\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01805\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01806\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{01807\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ was\ invalid.}}
+\DoxyCodeLine{01808\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ request\ timed\ out.}}
+\DoxyCodeLine{01809\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ request\ was\ failed\ by\ device.}}
+\DoxyCodeLine{01810\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01811\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01812\ \textcolor{comment}{\ \ \ *\ CyPhdcClrFeature}}
+\DoxyCodeLine{01813\ \textcolor{comment}{\ \ \ *\ CyPhdcGetStatus}}
+\DoxyCodeLine{01814\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01815\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyPhdcSetFeature\ (}
+\DoxyCodeLine{01816\ \ \ \ \ \ \ \ \ CY\_HANDLE\ handle\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01817\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{01818\ }
+\DoxyCodeLine{01819\ \textcolor{comment}{/*}}
+\DoxyCodeLine{01820\ \textcolor{comment}{\ \ \ Summary}}
+\DoxyCodeLine{01821\ \textcolor{comment}{\ \ \ This\ API\ retrieves\ the\ endpoint\ status\ of\ PHDC\ transaction.}}
+\DoxyCodeLine{01822\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01823\ \textcolor{comment}{\ \ \ Description}}
+\DoxyCodeLine{01824\ \textcolor{comment}{\ \ \ The\ API\ retrieves\ the\ status\ of\ PHDC\ transaction.\ It\ returns\ 2\ bytes\ of\ data\ pending\ bit\ map}}
+\DoxyCodeLine{01825\ \textcolor{comment}{\ \ \ which\ is\ defined\ as\ per\ PHDC\ spec.}}
+\DoxyCodeLine{01826\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01827\ \textcolor{comment}{\ \ \ Return\ Value}}
+\DoxyCodeLine{01828\ \textcolor{comment}{\ \ \ *\ CY\_SUCCESS\ on\ success}}
+\DoxyCodeLine{01829\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_INVALID\_HANDLE\ if\ handle\ was\ invalid.}}
+\DoxyCodeLine{01830\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_IO\_TIMEOUT\ if\ request\ timed\ out.}}
+\DoxyCodeLine{01831\ \textcolor{comment}{\ \ \ *\ CY\_ERROR\_REQUEST\_FAILED\ if\ request\ was\ failed\ by\ device.}}
+\DoxyCodeLine{01832\ \textcolor{comment}{\ \ \ }}
+\DoxyCodeLine{01833\ \textcolor{comment}{\ \ \ See\ Also}}
+\DoxyCodeLine{01834\ \textcolor{comment}{\ \ \ *\ CyPhdcClrFeature}}
+\DoxyCodeLine{01835\ \textcolor{comment}{\ \ \ *\ CyPhdcSetFeature}}
+\DoxyCodeLine{01836\ \textcolor{comment}{*/}}
+\DoxyCodeLine{01837\ CYWINEXPORT\ CY\_RETURN\_STATUS\ CyPhdcGetStatus\ (}
+\DoxyCodeLine{01838\ \ \ \ \ \ \ \ \ CY\_HANDLE\ handle,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Valid\ device\ handle*/}}
+\DoxyCodeLine{01839\ \ \ \ \ \ \ \ \ UINT16\ *dataStatus\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Data\ pending\ status\ bit\ map*/}}
+\DoxyCodeLine{01840\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{01841\ }
+\DoxyCodeLine{01842\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\_INCLUDED\_Cypress\ USB\ Serial\_H\_*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

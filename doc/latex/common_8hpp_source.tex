@@ -1,0 +1,100 @@
+\hypertarget{common_8hpp_source}{}\doxysection{common.\+hpp}
+\label{common_8hpp_source}\index{src/projector/module/projector\_dlpc\_api/include/common.hpp@{src/projector/module/projector\_dlpc\_api/include/common.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_PROJECTOR\_COMMON\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_PROJECTOR\_COMMON\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}typeDef.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cypress__i2c_8h}{cypress\_i2c.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dlpc34xx_8h}{dlpc34xx.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dlpc34xx__dual_8h}{dlpc34xx\_dual.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}math.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}stdio.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}time.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ FLASH\_WRITE\_BLOCK\_SIZE\ 1024}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ FLASH\_READ\_BLOCK\_SIZE\ 256}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ MAX\_WRITE\_CMD\_PAYLOAD\ (FLASH\_WRITE\_BLOCK\_SIZE\ +\ 8)}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ MAX\_READ\_CMD\_PAYLOAD\ (FLASH\_READ\_BLOCK\_SIZE\ +\ 8)}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{static}\ uint8\_t\ s\_WriteBuffer[MAX\_WRITE\_CMD\_PAYLOAD];}
+\DoxyCodeLine{00020\ \textcolor{keyword}{static}\ uint8\_t\ s\_ReadBuffer[MAX\_READ\_CMD\_PAYLOAD];}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ s\_StartProgramming;}
+\DoxyCodeLine{00023\ \textcolor{keyword}{static}\ uint8\_t\ s\_FlashProgramBuffer[FLASH\_WRITE\_BLOCK\_SIZE];}
+\DoxyCodeLine{00024\ \textcolor{keyword}{static}\ uint16\_t\ s\_FlashProgramBufferPtr;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{static}\ uint32\_t\ writeI2C(IN\ uint16\_t\ writeDataLength,\ IN\ uint8\_t\ *writeData,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \mbox{\hyperlink{struct_d_l_p_c___c_o_m_m_o_n___command_protocol_data__s}{DLPC\_COMMON\_CommandProtocolData\_s}}\ *protocolData)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ Status\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00037\ \ \ \ \ Status\ =\ CYPRESS\_I2C\_WriteI2C(writeDataLength,\ writeData);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (Status\ !=\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Write\ I2C\ Error!!!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FAIL;}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ SUCCESS;}
+\DoxyCodeLine{00044\ \}}
+\DoxyCodeLine{00055\ \textcolor{keyword}{static}\ uint32\_t\ readI2C(IN\ uint16\_t\ writeDataLength,\ IN\ uint8\_t\ *writeData,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ uint16\_t\ readDataLength,\ IN\ uint8\_t\ *readData,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ \mbox{\hyperlink{struct_d_l_p_c___c_o_m_m_o_n___command_protocol_data__s}{DLPC\_COMMON\_CommandProtocolData\_s}}\ *protocolData)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ Status\ =\ 0;}
+\DoxyCodeLine{00059\ \ \ \ \ Status\ =\ CYPRESS\_I2C\_WriteI2C(writeDataLength,\ writeData);}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (Status\ !=\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Write\ I2C\ Error!!!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FAIL;}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ Status\ =\ CYPRESS\_I2C\_ReadI2C(readDataLength,\ readData);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (Status\ !=\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Read\ I2C\ Error!!!\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FAIL;}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ SUCCESS;}
+\DoxyCodeLine{00072\ \}}
+\DoxyCodeLine{00078\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ waitForSeconds(IN\ uint32\_t\ seconds)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ uint32\_t\ retTime\ =\ (uint32\_t)(time(0))\ +\ seconds;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{while}\ (time(0)\ <\ retTime)}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ copyDataToFlashProgramBuffer(IN\ uint8\_t\ *length,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ uint8\_t\ **pData)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{while}\ ((*length\ >=\ 1)\ \&\&}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ (s\_FlashProgramBufferPtr\ <\ \textcolor{keyword}{sizeof}(s\_FlashProgramBuffer)))\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ s\_FlashProgramBuffer[s\_FlashProgramBufferPtr]\ =\ **pData;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ s\_FlashProgramBufferPtr++;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ (*pData)++;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ (*length)-\/-\/;}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ programFlashWithDataInBuffer(IN\ uint16\_t\ length)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ s\_FlashProgramBufferPtr\ =\ 0;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{if}\ (s\_StartProgramming)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ s\_StartProgramming\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a49e0b037a3ade63eeb7f63bf784e1f10}{DLPC34XX\_WriteFlashStart}}(length,\ s\_FlashProgramBuffer);}
+\DoxyCodeLine{00112\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aef95dccb6433a08d567f49bde4c875d5}{DLPC34XX\_WriteFlashContinue}}(length,\ s\_FlashProgramBuffer);}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ bufferPatternDataAndProgramToFlash(IN\ uint8\_t\ length,}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IN\ uint8\_t\ *pData)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ copyDataToFlashProgramBuffer(\&length,\ \&pData);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (s\_FlashProgramBufferPtr\ >=\ \textcolor{keyword}{sizeof}(s\_FlashProgramBuffer))\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ programFlashWithDataInBuffer((uint16\_t)\textcolor{keyword}{sizeof}(s\_FlashProgramBuffer));}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ copyDataToFlashProgramBuffer(\&length,\ \&pData);}
+\DoxyCodeLine{00132\ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !\_\_PROJECTOR\_COMMON\_H\_}}
+
+\end{DoxyCode}

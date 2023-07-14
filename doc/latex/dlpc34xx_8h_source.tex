@@ -1,0 +1,821 @@
+\hypertarget{dlpc34xx_8h_source}{}\doxysection{dlpc34xx.\+h}
+\label{dlpc34xx_8h_source}\index{src/projector/module/projector\_dlpc\_api/include/dlpc34xx.h@{src/projector/module/projector\_dlpc\_api/include/dlpc34xx.h}}
+\mbox{\hyperlink{dlpc34xx_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020\ Texas\ Instruments\ Incorporated\ -\/\ http://www.ti.com/}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ NOTE:\ This\ file\ is\ auto\ generated\ from\ a\ command\ definition\ file.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ \ \ \ \ \ Please\ do\ not\ modify\ the\ file\ directly.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Command\ Spec\ Version\ :\ 1.0}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ are\ met:}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ \ documentation\ and/or\ other\ materials\ provided\ with\ the}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ \ \ distribution.}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ \ Neither\ the\ name\ of\ Texas\ Instruments\ Incorporated\ nor\ the\ names\ of}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ \ its\ contributors\ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ \ \ from\ this\ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ OWNER\ OR\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ SPECIAL,\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ LIMITED\ TO,\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#ifndef\ DLPC34XX\_H}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ DLPC34XX\_H}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dlpc__common_8h}{dlpc\_common.h}}"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}stdbool.h"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00056\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a4db6610bc1b85978271bdd097e271ec7a440bbed07bb4edb69fdb9b306596abdd}{DLPC34XX\_OM\_EXTERNAL\_VIDEO\_PORT}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a4db6610bc1b85978271bdd097e271ec7a40b6506acc260f50dd7d216dfe923cf9}{DLPC34XX\_OM\_TEST\_PATTERN\_GENERATOR}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a4db6610bc1b85978271bdd097e271ec7aa0b7a72ee9f115c32998a5e0667947e9}{DLPC34XX\_OM\_SPLASH\_SCREEN}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a4db6610bc1b85978271bdd097e271ec7a171507d8f5994d31a3b4c7a738ac51d3}{DLPC34XX\_OM\_SENS\_EXTERNAL\_PATTERN}}\ =\ 0x3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a4db6610bc1b85978271bdd097e271ec7a1e99008a19d6f19b04887adffba94b59}{DLPC34XX\_OM\_SENS\_INTERNAL\_PATTERN}}\ =\ 0x4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a4db6610bc1b85978271bdd097e271ec7a6f5b4119df62f6dbdc456861a9f9baa1}{DLPC34XX\_OM\_SENS\_SPLASH\_PATTERN}}\ =\ 0x5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a4db6610bc1b85978271bdd097e271ec7a2904a063aedd29e782e7e1eed0943b1e}{DLPC34XX\_OM\_STANDBY}}\ =\ 0xFF,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a4db6610bc1b85978271bdd097e271ec7}{DLPC34XX\_OperatingMode\_e}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00067\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ae2b443d7c8ceffe4587b482ebcfae755ade3158e7b14b651414207a625b3af813}{DLPC34XX\_CIM\_CHROMA\_INTERPOLATION}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ae2b443d7c8ceffe4587b482ebcfae755a1402e6ea9955a69f7c9d015b862bb486}{DLPC34XX\_CIM\_CHROMA\_COPY}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00070\ \}\ \mbox{\hyperlink{dlpc34xx_8h_ae2b443d7c8ceffe4587b482ebcfae755}{DLPC34XX\_ChromaInterpolationMethod\_e}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00073\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_adecd56c6c4f8910f50e0079409cbddb1a1bee38e0f7ba45ea34e06a4ae9908a0b}{DLPC34XX\_CCS\_CBCR}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_adecd56c6c4f8910f50e0079409cbddb1a433107827294a0199a29db6d5fe2379c}{DLPC34XX\_CCS\_CRCB}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \}\ \mbox{\hyperlink{dlpc34xx_8h_adecd56c6c4f8910f50e0079409cbddb1}{DLPC34XX\_ChromaChannelSwap\_e}};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00079\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2e3b01ccd877ddb969307ceb4436b4bfa1c13450d065bd16a480d84223ac22797}{DLPC34XX\_ICE\_DISABLE}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2e3b01ccd877ddb969307ceb4436b4bfaec68374b6e339f12875f25ba29702efd}{DLPC34XX\_ICE\_ENABLE}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00082\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a2e3b01ccd877ddb969307ceb4436b4bf}{DLPC34XX\_ImageCurtainEnable\_e}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00085\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aa4f96d0d034d35703a61d50d3c745ceef}{DLPC34XX\_CDI\_DLPC3430}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aaf7bf35d59d7a1c0b1ac2f7c9a394739f}{DLPC34XX\_CDI\_DLPC3433}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aaf1debd6e7a8d7a9c6fe96d87ef2c691c}{DLPC34XX\_CDI\_DLPC3432}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aa88da81ce556f9f4eb7c536a14fd9e132}{DLPC34XX\_CDI\_DLPC3434}}\ =\ 0x3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aa06084de5005cb36a3546881f988fa25d}{DLPC34XX\_CDI\_DLPC3435}}\ =\ 0x4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aac04082192e29f00413cebc0ee2d1cf61}{DLPC34XX\_CDI\_DLPC3438}}\ =\ 0x5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aaee3781aebde8c462e2a8d501b383887c}{DLPC34XX\_CDI\_DLPC3436}}\ =\ 0x6,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aaa40d969834b68545ce06e7fcbd089c5a}{DLPC34XX\_CDI\_DLPC3437}}\ =\ 0x7,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aa6d29c26b38fde3239fdf765cc20583d2}{DLPC34XX\_CDI\_DLPC3472}}\ =\ 0x8,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aa9e90a2b675c0fb8880c99385a411fe72}{DLPC34XX\_CDI\_DLPC3439}}\ =\ 0x9,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aa1edf293311fcd1061a3e166a785f86d5}{DLPC34XX\_CDI\_DLPC3440}}\ =\ 0xA,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aa9dd1a5eea72abe6fee5cbd88825100ab}{DLPC34XX\_CDI\_DLPC3478}}\ =\ 0xB,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aa4bad35f01994fd1e4aa107896d32adca}{DLPC34XX\_CDI\_DLPC3479}}\ =\ 0xC,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4aa414b51a9a03defdd3f4dfa880d7d43f3}{DLPC34XX\_CDI\_DLPC3470}}\ =\ 0xF,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00100\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4a}{DLPC34XX\_ControllerDeviceId\_e}};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00103\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96da609f6ab05d5c9b4649ae2e9bccebb502}{DLPC34XX\_EVF\_DSI}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96da4a06b45a20fdff19b0643fe99002ed7d}{DLPC34XX\_EVF\_PARALLEL\_RGB565\_BW16}}\ =\ 0x40,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96daf87b745161605f80b182a3183e1565e1}{DLPC34XX\_EVF\_PARALLEL\_RGB666\_BW18}}\ =\ 0x41,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96da3e7bbd6b6ba578e8661f109711d15ca1}{DLPC34XX\_EVF\_PARALLEL\_RGB888\_BW8}}\ =\ 0x42,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96da60bd8f9995462197e47a005d603dcacc}{DLPC34XX\_EVF\_PARALLEL\_RGB888\_BW24}}\ =\ 0x43,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96da18c311d7c0fde51d165ae6a4668210c7}{DLPC34XX\_EVF\_PARALLEL\_YCBCR666\_BW18}}\ =\ 0x50,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96dac84d775c7dbf726961a2ae1cc8359022}{DLPC34XX\_EVF\_PARALLEL\_YCBCR888\_BW24}}\ =\ 0x51,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96dae69c1ca710e2c39571bca392310e5898}{DLPC34XX\_EVF\_PARALLEL\_YCBCR422\_BW8}}\ =\ 0x60,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96da8f60cdefa46729a490a482fda10a2928}{DLPC34XX\_EVF\_PARALLEL\_YCBCR422\_BW16}}\ =\ 0x61,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96da8f89616d045afa66af61c2d0607925c6}{DLPC34XX\_EVF\_BT656}}\ =\ 0xA0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00114\ \}\ \mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96d}{DLPC34XX\_ExternalVideoFormat\_e}};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00117\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978a0cccd09e495c377520921a10f5a42efc}{DLPC34XX\_C\_BLACK}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978a1efdd4c3aa4446c72cd2188b060f08f5}{DLPC34XX\_C\_RED}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978aed29adc284733ef3e5450726a923a77d}{DLPC34XX\_C\_GREEN}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978a9c92eb14251aacb12dcc35f839c7e0cf}{DLPC34XX\_C\_BLUE}}\ =\ 0x3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978a3dc68c04d73fef51b1a5320afee751c5}{DLPC34XX\_C\_CYAN}}\ =\ 0x4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978a8fd8a786124b14661321f26d8ddb8090}{DLPC34XX\_C\_MAGENTA}}\ =\ 0x5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978a3615ae1aefd3a85ef9e0188c86571e08}{DLPC34XX\_C\_YELLOW}}\ =\ 0x6,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978aa41975f0593432e55942d802bd32cdda}{DLPC34XX\_C\_WHITE}}\ =\ 0x7,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00126\ \}\ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00129\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a75160ada22e32e4d6cc25aeeb258870ca917fee4b56bff410b830217a9e5d50ad}{DLPC34XX\_DLS\_DLS3}}\ =\ 0x3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a75160ada22e32e4d6cc25aeeb258870cacc25a2bcb03b74baf3be7a14c58ef29c}{DLPC34XX\_DLS\_DLS7}}\ =\ 0x7,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a75160ada22e32e4d6cc25aeeb258870ca37ebd1aae2ed4246a87ca2857b6d93cd}{DLPC34XX\_DLS\_DLS15}}\ =\ 0xF,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a75160ada22e32e4d6cc25aeeb258870ca2575df25cfe174103ade3cee33ac30ec}{DLPC34XX\_DLS\_DLS31}}\ =\ 0x1F,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a75160ada22e32e4d6cc25aeeb258870caabeb208b890565fdea854fc41f0e6b5c}{DLPC34XX\_DLS\_DLS63}}\ =\ 0x3F,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a75160ada22e32e4d6cc25aeeb258870cae45ab5964bef9b93d45422cca883cf21}{DLPC34XX\_DLS\_DLS127}}\ =\ 0x7F,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a75160ada22e32e4d6cc25aeeb258870cadb262775f7601b4c5851fd0dfc3bd4a3}{DLPC34XX\_DLS\_DLS255}}\ =\ 0xFF,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00137\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a75160ada22e32e4d6cc25aeeb258870c}{DLPC34XX\_DiagonalLineSpacing\_e}};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00140\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a23a4512ef6eb62cfc38328f7fca7d6e9ae6cc52a25ec78ceb3c90b51a459b7eb7}{DLPC34XX\_TP\_SOLID\_FIELD}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a23a4512ef6eb62cfc38328f7fca7d6e9a0ee3009d6b299d4790b40ca7b8b3055b}{DLPC34XX\_TP\_HORIZONTAL\_RAMP}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a23a4512ef6eb62cfc38328f7fca7d6e9aa2bf6909e874b649f001214e8004b267}{DLPC34XX\_TP\_VERTICAL\_RAMP}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a23a4512ef6eb62cfc38328f7fca7d6e9a53d3ec3e4323bcde97007a2bca512c41}{DLPC34XX\_TP\_HORIZONTAL\_LINES}}\ =\ 0x3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a23a4512ef6eb62cfc38328f7fca7d6e9a73fe54964adb9107551f9b51f0291e8c}{DLPC34XX\_TP\_DIAGONAL\_LINES}}\ =\ 0x4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a23a4512ef6eb62cfc38328f7fca7d6e9a88fe5bac06ae6138aca05a0fdaee294e}{DLPC34XX\_TP\_VERTICAL\_LINES}}\ =\ 0x5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a23a4512ef6eb62cfc38328f7fca7d6e9a10d38b8d48e3154a7aece8595950c60f}{DLPC34XX\_TP\_GRID}}\ =\ 0x6,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a23a4512ef6eb62cfc38328f7fca7d6e9a19831bb44dbac2ebc129164cb3487e03}{DLPC34XX\_TP\_CHECKERBOARD}}\ =\ 0x7,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00149\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a23a4512ef6eb62cfc38328f7fca7d6e9a5faad70a6a7233483fc00bf6c17daaa9}{DLPC34XX\_TP\_COLORBARS}}\ =\ 0x8,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00150\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a23a4512ef6eb62cfc38328f7fca7d6e9}{DLPC34XX\_TestPattern\_e}};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00153\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a752a5bb25955954e1841077f7ff75727ae9176fff81f948dfa93839e4441228ab}{DLPC34XX\_PF\_RGB565}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00155\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a752a5bb25955954e1841077f7ff75727a56fd0cbbb611dfd0bf2116713bad7340}{DLPC34XX\_PF\_YCBCR422}}\ =\ 0x3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00156\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a752a5bb25955954e1841077f7ff75727}{DLPC34XX\_PixelFormats\_e}};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00159\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a96306e27535039433c9cccdcaecfa201ac09bfc75ac3512bf56d8057c7b429653}{DLPC34XX\_CT\_UNCOMPRESSED}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a96306e27535039433c9cccdcaecfa201af7d7fcbcd699291e3ed417631dcfc9d3}{DLPC34XX\_CT\_RGB\_RLE\_COMPRESSED}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a96306e27535039433c9cccdcaecfa201a0f767b7b10533d7f417197777b110ee8}{DLPC34XX\_CT\_UNUSED}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a96306e27535039433c9cccdcaecfa201abfd4514038badf8da0f10025c0112ba8}{DLPC34XX\_CT\_YUV\_RLE\_COMPRESSED}}\ =\ 0x3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00164\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a96306e27535039433c9cccdcaecfa201}{DLPC34XX\_CompressionTypes\_e}};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00167\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a0208b154296d35dec33f0d85d516d8f5a5f08abfcc8ee1f19def15f9ce4c29c82}{DLPC34XX\_CO\_RGB}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00169\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a0208b154296d35dec33f0d85d516d8f5aa25820736321e663a7604b7136de6568}{DLPC34XX\_CO\_GRB}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00170\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a0208b154296d35dec33f0d85d516d8f5}{DLPC34XX\_ColorOrders\_e}};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00173\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a4728eda0267b5797834c94cb29b15445a80c981329bfa90e5254e88d090aeb44f}{DLPC34XX\_CO\_CR\_FIRST}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00175\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a4728eda0267b5797834c94cb29b15445ac9c23079a330ff20eade56ee07e2436a}{DLPC34XX\_CO\_CB\_FIRST}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00176\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a4728eda0267b5797834c94cb29b15445}{DLPC34XX\_ChromaOrders\_e}};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00179\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aa402e859630dddedade9a03369c94298a0ed250c4fbbce9eb0054ada01079d8a0}{DLPC34XX\_BO\_LITTLE\_ENDIAN}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aa402e859630dddedade9a03369c94298a38308d043c0bf377b4aa2c535b357778}{DLPC34XX\_BO\_BIG\_ENDIAN}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00182\ \}\ \mbox{\hyperlink{dlpc34xx_8h_aa402e859630dddedade9a03369c94298}{DLPC34XX\_ByteOrders\_e}};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00185\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a3039444381e1addfaf0a08a928442881aa893c7c9b92674c46484f01d58228d2e}{DLPC34XX\_IR\_NO\_ROTATION}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a3039444381e1addfaf0a08a928442881a8910d38f6cb8dc25d5c36309378cf7fa}{DLPC34XX\_IR\_MINUS90\_DEGREE\_ROTATION}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00188\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a3039444381e1addfaf0a08a928442881}{DLPC34XX\_ImageRotation\_e}};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00191\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a4a61a9a564fbd0635cbed12d480e7f3fa5b51a6aed9c77989f0cd0c1850e81b30}{DLPC34XX\_IF\_IMAGE\_NOT\_FLIPPED}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00193\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a4a61a9a564fbd0635cbed12d480e7f3fa7a778cd5eb4d67bc590fd078f6420911}{DLPC34XX\_IF\_IMAGE\_FLIPPED}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00194\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a4a61a9a564fbd0635cbed12d480e7f3f}{DLPC34XX\_ImageFlip\_e}};}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00197\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150ea87363498e4955d1ee9c4ef542bbc8943}{DLPC34XX\_BE\_DISABLE}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00199\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150eadfe11c287d168aef01f33f2999299352}{DLPC34XX\_BE\_ENABLE}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00200\ \}\ \mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150e}{DLPC34XX\_BorderEnable\_e}};}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00203\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2d522e0d0dba6cac23f8bf1feee047cea83ab62065c96940e35c0a3f687b76271}{DLPC34XX\_LCM\_MANUAL}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00205\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2d522e0d0dba6cac23f8bf1feee047cea9b6643dde75518e39882d77a87debf0a}{DLPC34XX\_LCM\_AUTOMATIC}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00206\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a2d522e0d0dba6cac23f8bf1feee047ce}{DLPC34XX\_LedControlMethod\_e}};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00209\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a51783b631c47d7ba7b48b233c0a5ff6ea4b93930dcb1917a7fed76f8c71bdf9f8}{DLPC34XX\_LC\_DISABLED}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00211\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a51783b631c47d7ba7b48b233c0a5ff6ea1c8f3e548698d1bb4e696ff4642c3251}{DLPC34XX\_LC\_MANUAL}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00212\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a51783b631c47d7ba7b48b233c0a5ff6eac46bcf28f0a0eb8fe05130b49814c04d}{DLPC34XX\_LC\_AUTOMATIC}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00213\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a51783b631c47d7ba7b48b233c0a5ff6e}{DLPC34XX\_LabbControl\_e}};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00216\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab56e91ec3ee74e68b25a4b6e33218340a2b7c57384e3e277d0a97897afb5c8c8d}{DLPC34XX\_CGDS\_P1024}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00218\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab56e91ec3ee74e68b25a4b6e33218340adb53a3ba2716782ccfcded5dbb838008}{DLPC34XX\_CGDS\_P512}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00219\ \}\ \mbox{\hyperlink{dlpc34xx_8h_ab56e91ec3ee74e68b25a4b6e33218340}{DLPC34XX\_CaicGainDisplayScale\_e}};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00222\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a3259c766c24906d760512cade521c0a9a925e43fc4c8b9862382fe9feb0dd7ef0}{DLPC34XX\_BCS\_COMMAND}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00224\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a3259c766c24906d760512cade521c0a9a293074854cfd07356abfb01d7d4af7a8}{DLPC34XX\_BCS\_FLASH}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00225\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a3259c766c24906d760512cade521c0a9}{DLPC34XX\_BorderColorSource\_e}};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00228\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a0e618b8fff482288a3e03578ffd24ec3a645bf6f0317f570814d846f44590da80}{DLPC34XX\_SI\_NOT\_COMPLETE}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00230\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a0e618b8fff482288a3e03578ffd24ec3aa52b63c9b1d62deeb4fd71c2cd1802e8}{DLPC34XX\_SI\_COMPLETE}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00231\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a0e618b8fff482288a3e03578ffd24ec3}{DLPC34XX\_SystemInit\_e}};}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00234\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621a4742a2233ac1ba212195482eaca382a8}{DLPC34XX\_E\_NO\_ERROR}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00236\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621aff8bf99c599d62d98488ca28461619dd}{DLPC34XX\_E\_ERROR}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00237\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}};}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00240\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a20b22568017d4efeb6cd3cb7e0b387aaa533f503dcb9c3bf7a555d52c630d9906}{DLPC34XX\_SE\_NO\_ERROR}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00242\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a20b22568017d4efeb6cd3cb7e0b387aaadd8e7d2e9dc88f7e5aef4adf5296e1b9}{DLPC34XX\_SE\_ILLUMINATION\_TIME\_NOT\_SUPPORTED}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00243\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a20b22568017d4efeb6cd3cb7e0b387aaa690f5eaf3629efdce44cb72d5fa4fb3b}{DLPC34XX\_SE\_PRE\_ILLUMINATION\_TIME\_NOT\_SUPPORTED}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00244\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a20b22568017d4efeb6cd3cb7e0b387aaa531babe35f9ab035c116a392ffde8059}{DLPC34XX\_SE\_POST\_ILLUMINATION\_TIME\_NOT\_SUPPORTED}}\ =\ 0x3,\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00245\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a20b22568017d4efeb6cd3cb7e0b387aaa006076cdb65a8903f4e49def9146daaa}{DLPC34XX\_SE\_TRIGGER\_OUT1\_DELAY\_NOT\_SUPPORTED}}\ =\ 0x4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00246\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a20b22568017d4efeb6cd3cb7e0b387aaaddeeedb5dc555b84fde253a6441b0cf1}{DLPC34XX\_SE\_TRIGGER\_OUT2\_DELAY\_NOT\_SUPPORTED}}\ =\ 0x5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00247\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a20b22568017d4efeb6cd3cb7e0b387aaa46da4b71800cb3d13ae46964adaa4dd7}{DLPC34XX\_SE\_MAX\_PATTERN\_ORDER\_TABLE\_ENTRIES\_EXCEEDED}}\ =\ 0x6,\ \ \ \ \ \ \ }
+\DoxyCodeLine{00248\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a20b22568017d4efeb6cd3cb7e0b387aaa4ba19d63ec6ce8973eea190d5475aa33}{DLPC34XX\_SE\_INTERNAL\_PATTERN\_DISPLAY\_AND\_TIMING\_CONFIGURATION\_NOT\_SUPPORTED}}\ =\ 0x7,\ }
+\DoxyCodeLine{00249\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a20b22568017d4efeb6cd3cb7e0b387aaa8f97d33ead28a31f9f2f31568249d7ae}{DLPC34XX\_SE\_INTERNAL\_PATTERN\_DISPLAY\_CONFIGURATION\_NOT\_SUPPORTED}}\ =\ 0x8,\ }
+\DoxyCodeLine{00250\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a20b22568017d4efeb6cd3cb7e0b387aa}{DLPC34XX\_SensingError\_e}};}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00253\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a846552bbb5a2b7bd7b75f22b323ec8dfa31942ed1bf8a9cfd2f3e1918939d08ef}{DLPC34XX\_FE\_COMPLETE}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00255\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a846552bbb5a2b7bd7b75f22b323ec8dfa5e6eee04edf12b1a5157133c5eefb886}{DLPC34XX\_FE\_NOT\_COMPLETE}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00256\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a846552bbb5a2b7bd7b75f22b323ec8df}{DLPC34XX\_FlashErase\_e}};}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00259\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aacae52a021dbd8dba3dd7510fc49f827a976a1ab2ee71b34639e9470eb6d01981}{DLPC34XX\_A\_BOOT\_APP}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00261\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aacae52a021dbd8dba3dd7510fc49f827ab92f7b586133c3062b6a0c6afa41ea33}{DLPC34XX\_A\_MAIN\_APP}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00262\ \}\ \mbox{\hyperlink{dlpc34xx_8h_aacae52a021dbd8dba3dd7510fc49f827}{DLPC34XX\_Application\_e}};}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00265\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a8a86326b01aac0f486919a788ad28275a6ae0b296ab063a0ebda2c92d4eb93a0d}{DLPC34XX\_LS\_LED\_OFF}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00267\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a8a86326b01aac0f486919a788ad28275ac51242ba890b597bb8acf59eda454a07}{DLPC34XX\_LS\_LED\_ON}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00268\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a8a86326b01aac0f486919a788ad28275}{DLPC34XX\_LedState\_e}};}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00271\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a8564e01a83feceab8c1712e59e79a5b7a33966f6c6c297c797a25b7f4ab7572ed}{DLPC34XX\_PS\_SUPPLY\_VOLTAGE\_NORMAL}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00273\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a8564e01a83feceab8c1712e59e79a5b7a3cf9a2dc1c69c9e218e6797dec3afb66}{DLPC34XX\_PS\_SUPPLY\_VOLTAGE\_LOW}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00274\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a8564e01a83feceab8c1712e59e79a5b7}{DLPC34XX\_PowerSupply\_e}};}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00277\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a5f167c2fedc0386cec13932f75bba342aed67dca8df3f2082ace7c1a29e583a7b}{DLPC34XX\_CC\_SINGLE}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00279\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a5f167c2fedc0386cec13932f75bba342a8a6253c4ab787960214337b5798eadf1}{DLPC34XX\_CC\_DUAL}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00280\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a5f167c2fedc0386cec13932f75bba342}{DLPC34XX\_ControllerConfiguration\_e}};}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00283\ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a04b5db269a90895ef38244984d88ff86af135c56a348a02b6c665263ccbdd8eea}{DLPC34XX\_MOSO\_MASTER}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00285\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a04b5db269a90895ef38244984d88ff86a71cfc4241ba991e4a01d9c71d35e3ab7}{DLPC34XX\_MOSO\_SLAVE}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00286\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a04b5db269a90895ef38244984d88ff86}{DLPC34XX\_MasterOrSlaveOperation\_e}};}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00289\ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7ab61f40ea09f9b62655b41005f924d7a5dcb0ba5bc3bb2b99c483a4abf4df705}{DLPC34XX\_WT\_NO\_TIMEOUT}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00291\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7ab61f40ea09f9b62655b41005f924d7a0f291196917a2594a10e1d098711d5f8}{DLPC34XX\_WT\_TIMEOUT}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00292\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a7ab61f40ea09f9b62655b41005f924d7}{DLPC34XX\_WatchdogTimeout\_e}};}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00295\ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab29bb37f38dcea9f14d58b2e78296dcdabaf6fcc20bccf337d83cec3f0d3fa7aa}{DLPC34XX\_DDS\_DMD\_DEVICE\_ID}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00297\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab29bb37f38dcea9f14d58b2e78296dcda0639c256d979d7ef8ccf927b9844d567}{DLPC34XX\_DDS\_DMD\_FUSE\_GROUP0}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00298\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab29bb37f38dcea9f14d58b2e78296dcdac500129e217e984a01014b0495135d97}{DLPC34XX\_DDS\_DMD\_FUSE\_GROUP1}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00299\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab29bb37f38dcea9f14d58b2e78296dcda80e0bcfcde23fc9882960058b5ba30bc}{DLPC34XX\_DDS\_DMD\_FUSE\_GROUP2}}\ =\ 0x3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00300\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab29bb37f38dcea9f14d58b2e78296dcda09ad1acc8ab4391e5edf0cc11c76efc8}{DLPC34XX\_DDS\_DMD\_FUSE\_GROUP3}}\ =\ 0x4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00301\ \}\ \mbox{\hyperlink{dlpc34xx_8h_ab29bb37f38dcea9f14d58b2e78296dcd}{DLPC34XX\_DmdDataSelection\_e}};}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00304\ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a3896733a3d17e4f0a6a0802d54496cb1add59ee9dd3554c9eed001d657a311195}{DLPC34XX\_TT\_TRIGGER1}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00306\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a3896733a3d17e4f0a6a0802d54496cb1adeb9167b2f884ac8a0f619412f6f19f8}{DLPC34XX\_TT\_TRIGGER2}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00307\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a3896733a3d17e4f0a6a0802d54496cb1}{DLPC34XX\_TriggerType\_e}};}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00310\ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2bd0cd6f034718ac4ac8331ef6d0ea24acb0a08f53f724b86002c910308f3e4e5}{DLPC34XX\_TE\_DISABLE}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00312\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2bd0cd6f034718ac4ac8331ef6d0ea24a233904d5b71b3b083512926dce15c82f}{DLPC34XX\_TE\_ENABLE}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00313\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a2bd0cd6f034718ac4ac8331ef6d0ea24}{DLPC34XX\_TriggerEnable\_e}};}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00316\ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a6b66aa5de78998d11c0c492c9fcaf2b4acaa905d39b2667c65aa31dc087e10068}{DLPC34XX\_TI\_NOT\_INVERTED}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00318\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a6b66aa5de78998d11c0c492c9fcaf2b4aeae18c033e597d70923b2f642efd728a}{DLPC34XX\_TI\_INVERTED}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00319\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a6b66aa5de78998d11c0c492c9fcaf2b4}{DLPC34XX\_TriggerInversion\_e}};}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00322\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a15d1a17134d8a2ff06daedc83d56a059afce2be54094099a6cec2b76b7a939e6f}{DLPC34XX\_TP\_ACTIVE\_LOW}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00324\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a15d1a17134d8a2ff06daedc83d56a059adb844500b19b1fb52f66b6f9315479cb}{DLPC34XX\_TP\_ACTIVE\_HI}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00325\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a15d1a17134d8a2ff06daedc83d56a059}{DLPC34XX\_TriggerPolarity\_e}};}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00328\ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aeefb834fe5cba463bdb7ac7c062bddaea3e8342a8e4dc14435a54d373fe328999}{DLPC34XX\_ST\_ONE\_BIT\_MONO}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00330\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aeefb834fe5cba463bdb7ac7c062bddaea3252048948b1ed518a2ed5c8ea6973e7}{DLPC34XX\_ST\_ONE\_BIT\_RGB}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00331\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aeefb834fe5cba463bdb7ac7c062bddaeaca6a80312c2e8172cb270bde04708540}{DLPC34XX\_ST\_EIGHT\_BIT\_MONO}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00332\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aeefb834fe5cba463bdb7ac7c062bddaea9fc83823e0ada381ce7ad8281ffcb15e}{DLPC34XX\_ST\_EIGHT\_BIT\_RGB}}\ =\ 0x3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00333\ \}\ \mbox{\hyperlink{dlpc34xx_8h_aeefb834fe5cba463bdb7ac7c062bddae}{DLPC34XX\_SequenceType\_e}};}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00336\ \{}
+\DoxyCodeLine{00337\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a142285b68c0baaac3b36f6e96e35c281a9d80cbd863fd42f9abed57818ad05362}{DLPC34XX\_IE\_DISABLE}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00338\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a142285b68c0baaac3b36f6e96e35c281a3beab206fb1b60a1a6a24c2828173789}{DLPC34XX\_IE\_ENABLE}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00339\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a142285b68c0baaac3b36f6e96e35c281}{DLPC34XX\_IlluminatorEnable\_e}};}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00342\ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2deeb514f9bb9bed8aa5d8f14b08a780a41f25d8419a73c34ce64f87c1ea78ae9}{DLPC34XX\_PC\_START}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00344\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2deeb514f9bb9bed8aa5d8f14b08a780ab360078c5838dc4bf2cdba5e6d09cef1}{DLPC34XX\_PC\_STOP}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00345\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2deeb514f9bb9bed8aa5d8f14b08a780a1394a3e09964a225968a220546535d7b}{DLPC34XX\_PC\_PAUSE}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00346\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2deeb514f9bb9bed8aa5d8f14b08a780a3a86b62a6054f3f38409f2eb55d99c4b}{DLPC34XX\_PC\_STEP}}\ =\ 0x3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00347\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2deeb514f9bb9bed8aa5d8f14b08a780a722238eba4bb977148ee385f5e93c110}{DLPC34XX\_PC\_RESUME}}\ =\ 0x4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00348\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2deeb514f9bb9bed8aa5d8f14b08a780a7ed0f12ee44fd40b76dbfdd0d3aec32b}{DLPC34XX\_PC\_RESET}}\ =\ 0x5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00349\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a2deeb514f9bb9bed8aa5d8f14b08a780}{DLPC34XX\_PatternControl\_e}};}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00352\ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aeab4ef87b83cfcc95902e1ee1b3309b3a2147ca999b02fb1e520462bcd69bc280}{DLPC34XX\_WC\_CONTINUE}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00354\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aeab4ef87b83cfcc95902e1ee1b3309b3ae04b99abb14095a09bdb645d19739771}{DLPC34XX\_WC\_START}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00355\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aeab4ef87b83cfcc95902e1ee1b3309b3a87c6eb902eb152d25166de2671644713}{DLPC34XX\_WC\_RELOAD\_FROM\_FLASH}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00356\ \}\ \mbox{\hyperlink{dlpc34xx_8h_aeab4ef87b83cfcc95902e1ee1b3309b3}{DLPC34XX\_WriteControl\_e}};}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00359\ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2dc603656c744a94f59ad34f34d2e8c0ae2a802e6e96326ca6789ea2fa76f2383}{DLPC34XX\_PRS\_NOT\_READY}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00361\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2dc603656c744a94f59ad34f34d2e8c0a7633ae1063af492de1ef8ec393cc770d}{DLPC34XX\_PRS\_READY}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00362\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a2dc603656c744a94f59ad34f34d2e8c0}{DLPC34XX\_PatternReadyStatus\_e}};}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00365\ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ada5ef32e67b9aaff761a2e8f259299b4a4bbfb121ecc0294519b871ef89231790}{DLPC34XX\_PM\_EXTERNAL}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00367\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ada5ef32e67b9aaff761a2e8f259299b4ac858bb1352c04574f316066702487ae4}{DLPC34XX\_PM\_INTERNAL}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00368\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ada5ef32e67b9aaff761a2e8f259299b4af3086a3bb8759ef19f36abf407c9a8b9}{DLPC34XX\_PM\_SPLASH}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00369\ \}\ \mbox{\hyperlink{dlpc34xx_8h_ada5ef32e67b9aaff761a2e8f259299b4}{DLPC34XX\_PatternMode\_e}};}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00372\ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a33dcc35ccf9e39f12f0736fbf14c0c10a11f6cc672b46163784d6a01c037b4aa2}{DLPC34XX\_ETS\_NO}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00374\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a33dcc35ccf9e39f12f0736fbf14c0c10af1acfdee1da18090f344c5f477465e2c}{DLPC34XX\_ETS\_YES}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00375\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a33dcc35ccf9e39f12f0736fbf14c0c10}{DLPC34XX\_ExposureTimeSupported\_e}};}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00378\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_acb8310c7fd8d3524a6d70bbd69914665a247846c4310fe446c10c243aee77df07}{DLPC34XX\_ZDTS\_NO}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00380\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_acb8310c7fd8d3524a6d70bbd69914665affab8ad7096cca59acd9e25f07c66c3f}{DLPC34XX\_ZDTS\_YES}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00381\ \}\ \mbox{\hyperlink{dlpc34xx_8h_acb8310c7fd8d3524a6d70bbd69914665}{DLPC34XX\_ZeroDarkTimeSupported\_e}};}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00384\ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8af4b735ce05cfa30e4477d0692117faea}{DLPC34XX\_FDTS\_ENTIRE\_FLASH}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00386\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a46e75d50bf7d887c3722caee2487b06f}{DLPC34XX\_FDTS\_ENTIRE\_FLASH\_NO\_OEM}}\ =\ 0x2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00387\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a9cadbdf877b2a7a29aa72eb8faffc31b}{DLPC34XX\_FDTS\_MAIN\_APP}}\ =\ 0x10,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00388\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8ab7be4523f0e128dcf9f7d344fb963191}{DLPC34XX\_FDTS\_TI\_APP}}\ =\ 0x20,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00389\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a537e13f87cecebdeaa00f2981f4bc984}{DLPC34XX\_FDTS\_BATCH\_FILES}}\ =\ 0x30,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00390\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a42bed0ea9b43addc51c8a70c80aa7bad}{DLPC34XX\_FDTS\_LOOKS}}\ =\ 0x40,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00391\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a303f670428b45cc10cb75386328182fc}{DLPC34XX\_FDTS\_SEQUENCES}}\ =\ 0x50,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00392\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a484c87e56121452808e7d372f52153b8}{DLPC34XX\_FDTS\_CMT}}\ =\ 0x60,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00393\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a4bbae22ee1598118d2628281dab201aa}{DLPC34XX\_FDTS\_CCA}}\ =\ 0x70,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00394\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a1b342bd4033b339db199aae658c9ec64}{DLPC34XX\_FDTS\_GLUTS}}\ =\ 0x80,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00395\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a66a6f15c2e7be9e58fc1f81f9557e990}{DLPC34XX\_FDTS\_SPLASH}}\ =\ 0x90,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00396\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a84e258b7af6c1ef8969e0246d7bce644}{DLPC34XX\_FDTS\_OEM\_CAL}}\ =\ 0xA0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00397\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8ae6bdc2e91f83c8e3931b80a9659274b4}{DLPC34XX\_FDTS\_OEM\_SCRATCHPAD\_FULL0}}\ =\ 0xB0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00398\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a98b9d451141efe41b6a7b53f280b361d}{DLPC34XX\_FDTS\_OEM\_SCRATCHPAD\_PARTIAL0}}\ =\ 0xB1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00399\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a8512ab6ec1c5359a3eb56e466542490d}{DLPC34XX\_FDTS\_OEM\_SCRATCHPAD\_FULL1}}\ =\ 0xB2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00400\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8adb3e09114a06a039f21c785ea5bc78d9}{DLPC34XX\_FDTS\_OEM\_SCRATCHPAD\_PARTIAL1}}\ =\ 0xB3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00401\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a41e1b494341f06145ce56accc42d6473}{DLPC34XX\_FDTS\_OEM\_SCRATCHPAD\_FULL2}}\ =\ 0xB4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00402\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8ab973ed33151847166de03abb3713a0be}{DLPC34XX\_FDTS\_OEM\_SCRATCHPAD\_PARTIAL2}}\ =\ 0xB5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00403\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8ab1c33b2ed0ea807c016c676dd4c6a06b}{DLPC34XX\_FDTS\_OEM\_SCRATCHPAD\_FULL3}}\ =\ 0xB5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00404\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8aa9d596403c241eeef25287fe62768c5d}{DLPC34XX\_FDTS\_OEM\_SCRATCHPAD\_PARTIAL3}}\ =\ 0xB7,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00405\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a97a2f649a26b2e2adb113ebff282b82d}{DLPC34XX\_FDTS\_ENTIRE\_SENS\_PATTERN\_DATA}}\ =\ 0xD0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00406\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8a393061db55195365ab68ff0a5c0f9da0}{DLPC34XX\_FDTS\_ENTIRE\_SENS\_SEQ\_DATA}}\ =\ 0xE0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00407\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8}{DLPC34XX\_FlashDataTypeSelect\_e}};}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00410\ \{}
+\DoxyCodeLine{00411\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_addbfe5c2a010f16f4626d02ca02603b8a443c488da2e0220f1dbfa0190b929f73}{DLPC34XX\_TDM\_TWO\_D\_OPERATION}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00412\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_addbfe5c2a010f16f4626d02ca02603b8aaf2c72b2acb23b206acddd437efc4ddc}{DLPC34XX\_TDM\_THREE\_D\_OPERATION}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00413\ \}\ \mbox{\hyperlink{dlpc34xx_8h_addbfe5c2a010f16f4626d02ca02603b8}{DLPC34XX\_ThreeDModes\_e}};}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00416\ \{}
+\DoxyCodeLine{00417\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a83751892c192f96813e4d581917635e2a1ac80582ab5e430352a68fc89d17eb37}{DLPC34XX\_TDD\_LEFT\_DOMINANT\_LEFT\_EYE\_FIRST}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00418\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a83751892c192f96813e4d581917635e2a285c501d0b1e358a2b5e830c60e9fadb}{DLPC34XX\_TDD\_RIGHT\_DOMINANT\_RIGHT\_EYE\_FIRST}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00419\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a83751892c192f96813e4d581917635e2}{DLPC34XX\_ThreeDDominance\_e}};}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00422\ \{}
+\DoxyCodeLine{00423\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab4cd2496417cab84c2992257abd437b5ace6e65e942de9e3388c2d33dcf9ba94d}{DLPC34XX\_TDRP\_CORRECT\_NO\_INVERSION\_REQUIRED}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00424\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab4cd2496417cab84c2992257abd437b5a3e1a8681e80b7260a9e693792324217b}{DLPC34XX\_TDRP\_INCORRECT\_INVERSION\_REQUIRED}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00425\ \}\ \mbox{\hyperlink{dlpc34xx_8h_ab4cd2496417cab84c2992257abd437b5}{DLPC34XX\_ThreeDReferencePolarity\_e}};}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00428\ \{}
+\DoxyCodeLine{00429\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a111ac50543beda5d7dc9b6b3c4c56d51a83827e5be658cd72d28da9740bdec1d0}{DLPC34XX\_DE\_ENABLE}}\ =\ 0x0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00430\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a111ac50543beda5d7dc9b6b3c4c56d51a508e48650e7b4084ccf5f38f68fc82db}{DLPC34XX\_DE\_DISABLE}}\ =\ 0x1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00431\ \}\ \mbox{\hyperlink{dlpc34xx_8h_a111ac50543beda5d7dc9b6b3c4c56d51}{DLPC34XX\_DsiEnable\_e}};}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00434\ \{}
+\DoxyCodeLine{00435\ \ \ \ \ uint16\_t\ WidthInPixels;}
+\DoxyCodeLine{00436\ \ \ \ \ uint16\_t\ HeightInPixels;}
+\DoxyCodeLine{00437\ \ \ \ \ uint32\_t\ SizeInBytes;}
+\DoxyCodeLine{00438\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a752a5bb25955954e1841077f7ff75727}{DLPC34XX\_PixelFormats\_e}}\ PixelFormat;}
+\DoxyCodeLine{00439\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a96306e27535039433c9cccdcaecfa201}{DLPC34XX\_CompressionTypes\_e}}\ CompressionType;}
+\DoxyCodeLine{00440\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a0208b154296d35dec33f0d85d516d8f5}{DLPC34XX\_ColorOrders\_e}}\ ColorOrder;}
+\DoxyCodeLine{00441\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a4728eda0267b5797834c94cb29b15445}{DLPC34XX\_ChromaOrders\_e}}\ ChromaOrder;}
+\DoxyCodeLine{00442\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aa402e859630dddedade9a03369c94298}{DLPC34XX\_ByteOrders\_e}}\ ByteOrder;}
+\DoxyCodeLine{00443\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___splash_screen_header__s}{DLPC34XX\_SplashScreenHeader\_s}};}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00446\ \{}
+\DoxyCodeLine{00447\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150e}{DLPC34XX\_BorderEnable\_e}}\ Border;}
+\DoxyCodeLine{00448\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ BackgroundColor;}
+\DoxyCodeLine{00449\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ ForegroundColor;}
+\DoxyCodeLine{00450\ \ \ \ \ uint8\_t\ ForegroundLineWidth;}
+\DoxyCodeLine{00451\ \ \ \ \ uint8\_t\ BackgroundLineWidth;}
+\DoxyCodeLine{00452\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___horizontal_lines__s}{DLPC34XX\_HorizontalLines\_s}};}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00455\ \{}
+\DoxyCodeLine{00456\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150e}{DLPC34XX\_BorderEnable\_e}}\ Border;}
+\DoxyCodeLine{00457\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ BackgroundColor;}
+\DoxyCodeLine{00458\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ ForegroundColor;}
+\DoxyCodeLine{00459\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a75160ada22e32e4d6cc25aeeb258870c}{DLPC34XX\_DiagonalLineSpacing\_e}}\ HorizontalSpacing;}
+\DoxyCodeLine{00460\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a75160ada22e32e4d6cc25aeeb258870c}{DLPC34XX\_DiagonalLineSpacing\_e}}\ VerticalSpacing;}
+\DoxyCodeLine{00461\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___diagonal_lines__s}{DLPC34XX\_DiagonalLines\_s}};}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00464\ \{}
+\DoxyCodeLine{00465\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150e}{DLPC34XX\_BorderEnable\_e}}\ Border;}
+\DoxyCodeLine{00466\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ BackgroundColor;}
+\DoxyCodeLine{00467\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ ForegroundColor;}
+\DoxyCodeLine{00468\ \ \ \ \ uint8\_t\ ForegroundLineWidth;}
+\DoxyCodeLine{00469\ \ \ \ \ uint8\_t\ BackgroundLineWidth;}
+\DoxyCodeLine{00470\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___vertical_lines__s}{DLPC34XX\_VerticalLines\_s}};}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00473\ \{}
+\DoxyCodeLine{00474\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150e}{DLPC34XX\_BorderEnable\_e}}\ Border;}
+\DoxyCodeLine{00475\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ BackgroundColor;}
+\DoxyCodeLine{00476\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ ForegroundColor;}
+\DoxyCodeLine{00477\ \ \ \ \ uint8\_t\ HorizontalForegroundLineWidth;}
+\DoxyCodeLine{00478\ \ \ \ \ uint8\_t\ HorizontalBackgroundLineWidth;}
+\DoxyCodeLine{00479\ \ \ \ \ uint8\_t\ VerticalForegroundLineWidth;}
+\DoxyCodeLine{00480\ \ \ \ \ uint8\_t\ VerticalBackgroundLineWidth;}
+\DoxyCodeLine{00481\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___grid_lines__s}{DLPC34XX\_GridLines\_s}};}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00484\ \{}
+\DoxyCodeLine{00485\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150e}{DLPC34XX\_BorderEnable\_e}}\ Border;}
+\DoxyCodeLine{00486\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ BackgroundColor;}
+\DoxyCodeLine{00487\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ ForegroundColor;}
+\DoxyCodeLine{00488\ \ \ \ \ uint16\_t\ HorizontalCheckerCount;}
+\DoxyCodeLine{00489\ \ \ \ \ uint16\_t\ VerticalCheckerCount;}
+\DoxyCodeLine{00490\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___checkerboard__s}{DLPC34XX\_Checkerboard\_s}};}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00492\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00493\ \{}
+\DoxyCodeLine{00494\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a23a4512ef6eb62cfc38328f7fca7d6e9}{DLPC34XX\_TestPattern\_e}}\ PatternSelect;}
+\DoxyCodeLine{00495\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150e}{DLPC34XX\_BorderEnable\_e}}\ Border;}
+\DoxyCodeLine{00496\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ BackgroundColor;}
+\DoxyCodeLine{00497\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ ForegroundColor;}
+\DoxyCodeLine{00498\ \ \ \ \ uint8\_t\ StartValue;}
+\DoxyCodeLine{00499\ \ \ \ \ uint8\_t\ EndValue;}
+\DoxyCodeLine{00500\ \ \ \ \ uint8\_t\ ForegroundLineWidth;}
+\DoxyCodeLine{00501\ \ \ \ \ uint8\_t\ BackgroundLineWidth;}
+\DoxyCodeLine{00502\ \ \ \ \ uint8\_t\ HorizontalSpacing;}
+\DoxyCodeLine{00503\ \ \ \ \ uint8\_t\ VerticalSpacing;}
+\DoxyCodeLine{00504\ \ \ \ \ uint8\_t\ HorizontalForegroundLineWidth;}
+\DoxyCodeLine{00505\ \ \ \ \ uint8\_t\ HorizontalBackgroundLineWidth;}
+\DoxyCodeLine{00506\ \ \ \ \ uint16\_t\ HorizontalCheckerCount;}
+\DoxyCodeLine{00507\ \ \ \ \ uint8\_t\ VerticalForegroundLineWidth;}
+\DoxyCodeLine{00508\ \ \ \ \ uint8\_t\ VerticalBackgroundLineWidth;}
+\DoxyCodeLine{00509\ \ \ \ \ uint16\_t\ VerticalCheckerCount;}
+\DoxyCodeLine{00510\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___test_pattern_select__s}{DLPC34XX\_TestPatternSelect\_s}};}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00513\ \{}
+\DoxyCodeLine{00514\ \ \ \ \ \textcolor{keywordtype}{double}\ LookRedDutyCycle;}
+\DoxyCodeLine{00515\ \ \ \ \ \textcolor{keywordtype}{double}\ LookGreenDutyCycle;}
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{keywordtype}{double}\ LookBlueDutyCycle;}
+\DoxyCodeLine{00517\ \ \ \ \ \textcolor{keywordtype}{double}\ LookMaxFrameTime;}
+\DoxyCodeLine{00518\ \ \ \ \ \textcolor{keywordtype}{double}\ LookMinFrameTime;}
+\DoxyCodeLine{00519\ \ \ \ \ uint8\_t\ LookMaxSequenceVectors;}
+\DoxyCodeLine{00520\ \ \ \ \ \textcolor{keywordtype}{double}\ SeqRedDutyCycle;}
+\DoxyCodeLine{00521\ \ \ \ \ \textcolor{keywordtype}{double}\ SeqGreenDutyCycle;}
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keywordtype}{double}\ SeqBlueDutyCycle;}
+\DoxyCodeLine{00523\ \ \ \ \ \textcolor{keywordtype}{double}\ SeqMaxFrameTime;}
+\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keywordtype}{double}\ SeqMinFrameTime;}
+\DoxyCodeLine{00525\ \ \ \ \ uint8\_t\ SeqMaxSequenceVectors;}
+\DoxyCodeLine{00526\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___sequence_header_attributes__s}{DLPC34XX\_SequenceHeaderAttributes\_s}};}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00528\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00529\ \{}
+\DoxyCodeLine{00530\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a0e618b8fff482288a3e03578ffd24ec3}{DLPC34XX\_SystemInit\_e}}\ SystemInitialized;}
+\DoxyCodeLine{00531\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ CommunicationError;}
+\DoxyCodeLine{00532\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ SystemError;}
+\DoxyCodeLine{00533\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a846552bbb5a2b7bd7b75f22b323ec8df}{DLPC34XX\_FlashErase\_e}}\ FlashEraseComplete;}
+\DoxyCodeLine{00534\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ FlashError;}
+\DoxyCodeLine{00535\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ SensingSequenceError;}
+\DoxyCodeLine{00536\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aacae52a021dbd8dba3dd7510fc49f827}{DLPC34XX\_Application\_e}}\ Application;}
+\DoxyCodeLine{00537\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___short_status__s}{DLPC34XX\_ShortStatus\_s}};}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00539\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00540\ \{}
+\DoxyCodeLine{00541\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ DmdDeviceError;}
+\DoxyCodeLine{00542\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ DmdInterfaceError;}
+\DoxyCodeLine{00543\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ DmdTrainingError;}
+\DoxyCodeLine{00544\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a8a86326b01aac0f486919a788ad28275}{DLPC34XX\_LedState\_e}}\ RedLedEnableState;}
+\DoxyCodeLine{00545\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a8a86326b01aac0f486919a788ad28275}{DLPC34XX\_LedState\_e}}\ GreenLedEnableState;}
+\DoxyCodeLine{00546\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a8a86326b01aac0f486919a788ad28275}{DLPC34XX\_LedState\_e}}\ BlueLedEnableState;}
+\DoxyCodeLine{00547\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ RedLedError;}
+\DoxyCodeLine{00548\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ GreenLedError;}
+\DoxyCodeLine{00549\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ BlueLedError;}
+\DoxyCodeLine{00550\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ SequenceAbortError;}
+\DoxyCodeLine{00551\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ SequenceError;}
+\DoxyCodeLine{00552\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a8564e01a83feceab8c1712e59e79a5b7}{DLPC34XX\_PowerSupply\_e}}\ DcPowerSupply;}
+\DoxyCodeLine{00553\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a20b22568017d4efeb6cd3cb7e0b387aa}{DLPC34XX\_SensingError\_e}}\ SensingError;}
+\DoxyCodeLine{00554\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a5f167c2fedc0386cec13932f75bba342}{DLPC34XX\_ControllerConfiguration\_e}}\ ControllerConfiguration;}
+\DoxyCodeLine{00555\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a04b5db269a90895ef38244984d88ff86}{DLPC34XX\_MasterOrSlaveOperation\_e}}\ MasterOrSlaveOperation;}
+\DoxyCodeLine{00556\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ ProductConfigurationError;}
+\DoxyCodeLine{00557\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a7ab61f40ea09f9b62655b41005f924d7}{DLPC34XX\_WatchdogTimeout\_e}}\ WatchdogTimerTimeout;}
+\DoxyCodeLine{00558\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___system_status__s}{DLPC34XX\_SystemStatus\_s}};}
+\DoxyCodeLine{00559\ }
+\DoxyCodeLine{00560\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00561\ \{}
+\DoxyCodeLine{00562\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ InvalidCommandError;}
+\DoxyCodeLine{00563\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ InvalidCommandParameterValue;}
+\DoxyCodeLine{00564\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ CommandProcessingError;}
+\DoxyCodeLine{00565\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ FlashBatchFileError;}
+\DoxyCodeLine{00566\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ ReadCommandError;}
+\DoxyCodeLine{00567\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ InvalidNumberOfCommandParameters;}
+\DoxyCodeLine{00568\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ BusTimeoutByDisplayError;}
+\DoxyCodeLine{00569\ \ \ \ \ uint8\_t\ AbortedOpCode;}
+\DoxyCodeLine{00570\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___communication_status__s}{DLPC34XX\_CommunicationStatus\_s}};}
+\DoxyCodeLine{00571\ }
+\DoxyCodeLine{00572\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00573\ \{}
+\DoxyCodeLine{00574\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a33dcc35ccf9e39f12f0736fbf14c0c10}{DLPC34XX\_ExposureTimeSupported\_e}}\ ExposureTimeSupported;}
+\DoxyCodeLine{00575\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_acb8310c7fd8d3524a6d70bbd69914665}{DLPC34XX\_ZeroDarkTimeSupported\_e}}\ ZeroDarkTimeSupported;}
+\DoxyCodeLine{00576\ \ \ \ \ uint32\_t\ MinimumExposureTime;}
+\DoxyCodeLine{00577\ \ \ \ \ uint32\_t\ PreExposureDarkTime;}
+\DoxyCodeLine{00578\ \ \ \ \ uint32\_t\ PostExposureDarkTime;}
+\DoxyCodeLine{00579\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___validate_exposure_time__s}{DLPC34XX\_ValidateExposureTime\_s}};}
+\DoxyCodeLine{00580\ }
+\DoxyCodeLine{00581\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00582\ \{}
+\DoxyCodeLine{00583\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_aeefb834fe5cba463bdb7ac7c062bddae}{DLPC34XX\_SequenceType\_e}}\ SequenceType;}
+\DoxyCodeLine{00584\ \ \ \ \ uint8\_t\ NumberOfPatterns;}
+\DoxyCodeLine{00585\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a142285b68c0baaac3b36f6e96e35c281}{DLPC34XX\_IlluminatorEnable\_e}}\ RedIlluminator;}
+\DoxyCodeLine{00586\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a142285b68c0baaac3b36f6e96e35c281}{DLPC34XX\_IlluminatorEnable\_e}}\ GreenIlluminator;}
+\DoxyCodeLine{00587\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a142285b68c0baaac3b36f6e96e35c281}{DLPC34XX\_IlluminatorEnable\_e}}\ BlueIlluminator;}
+\DoxyCodeLine{00588\ \ \ \ \ uint32\_t\ IlluminationTime;}
+\DoxyCodeLine{00589\ \ \ \ \ uint32\_t\ PreIlluminationDarkTime;}
+\DoxyCodeLine{00590\ \ \ \ \ uint32\_t\ PostIlluminationDarkTime;}
+\DoxyCodeLine{00591\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___pattern_configuration__s}{DLPC34XX\_PatternConfiguration\_s}};}
+\DoxyCodeLine{00592\ }
+\DoxyCodeLine{00593\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00594\ \{}
+\DoxyCodeLine{00595\ \ \ \ \ uint8\_t\ PatSetIndex;}
+\DoxyCodeLine{00596\ \ \ \ \ uint8\_t\ NumberOfPatternsToDisplay;}
+\DoxyCodeLine{00597\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a142285b68c0baaac3b36f6e96e35c281}{DLPC34XX\_IlluminatorEnable\_e}}\ RedIlluminator;}
+\DoxyCodeLine{00598\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a142285b68c0baaac3b36f6e96e35c281}{DLPC34XX\_IlluminatorEnable\_e}}\ GreenIlluminator;}
+\DoxyCodeLine{00599\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a142285b68c0baaac3b36f6e96e35c281}{DLPC34XX\_IlluminatorEnable\_e}}\ BlueIlluminator;}
+\DoxyCodeLine{00600\ \ \ \ \ uint32\_t\ PatternInvertLsword;}
+\DoxyCodeLine{00601\ \ \ \ \ uint32\_t\ PatternInvertMsword;}
+\DoxyCodeLine{00602\ \ \ \ \ uint32\_t\ IlluminationTime;}
+\DoxyCodeLine{00603\ \ \ \ \ uint32\_t\ PreIlluminationDarkTime;}
+\DoxyCodeLine{00604\ \ \ \ \ uint32\_t\ PostIlluminationDarkTime;}
+\DoxyCodeLine{00605\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___pattern_order_table_entry__s}{DLPC34XX\_PatternOrderTableEntry\_s}};}
+\DoxyCodeLine{00606\ }
+\DoxyCodeLine{00607\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00608\ \{}
+\DoxyCodeLine{00609\ \ \ \ \ \mbox{\hyperlink{dlpc34xx_8h_a2dc603656c744a94f59ad34f34d2e8c0}{DLPC34XX\_PatternReadyStatus\_e}}\ PatternReadyStatus;}
+\DoxyCodeLine{00610\ \ \ \ \ uint8\_t\ NumPatOrderTableEntries;}
+\DoxyCodeLine{00611\ \ \ \ \ uint8\_t\ CurrentPatOrderEntryIndex;}
+\DoxyCodeLine{00612\ \ \ \ \ uint8\_t\ CurrentPatSetIndex;}
+\DoxyCodeLine{00613\ \ \ \ \ uint8\_t\ NumPatInCurrentPatSet;}
+\DoxyCodeLine{00614\ \ \ \ \ uint8\_t\ NumPatDisplayedFromPatSet;}
+\DoxyCodeLine{00615\ \ \ \ \ uint8\_t\ NextPatSetIndex;}
+\DoxyCodeLine{00616\ \}\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___internal_pattern_status__s}{DLPC34XX\_InternalPatternStatus\_s}};}
+\DoxyCodeLine{00617\ }
+\DoxyCodeLine{00618\ }
+\DoxyCodeLine{00626\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ac43b4d17bb3681764c10c9df4d00399b}{DLPC34XX\_WriteOperatingModeSelect}}(\mbox{\hyperlink{dlpc34xx_8h_a4db6610bc1b85978271bdd097e271ec7}{DLPC34XX\_OperatingMode\_e}}\ OperatingMode);}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00635\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a89e9931199dacd86da705fa2d26b43b0}{DLPC34XX\_ReadOperatingModeSelect}}(\mbox{\hyperlink{dlpc34xx_8h_a4db6610bc1b85978271bdd097e271ec7}{DLPC34XX\_OperatingMode\_e}}\ *OperatingMode);}
+\DoxyCodeLine{00636\ }
+\DoxyCodeLine{00644\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a0add04116804cb2c989508013be61304}{DLPC34XX\_WriteSplashScreenSelect}}(uint8\_t\ SplashScreenIndex);}
+\DoxyCodeLine{00645\ }
+\DoxyCodeLine{00653\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a9adc87ead4997f0f22676a388a023292}{DLPC34XX\_ReadSplashScreenSelect}}(uint8\_t\ *SplashScreenIndex);}
+\DoxyCodeLine{00654\ }
+\DoxyCodeLine{00660\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a0281bd12b303de602b52f7972d2a37f6}{DLPC34XX\_WriteSplashScreenExecute}}();}
+\DoxyCodeLine{00661\ }
+\DoxyCodeLine{00670\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aa577ce8526cfadc4f3ecb9bdc734dd2e}{DLPC34XX\_ReadSplashScreenHeader}}(uint8\_t\ SplashScreenIndex,\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___splash_screen_header__s}{DLPC34XX\_SplashScreenHeader\_s}}\ *SplashScreenHeader);}
+\DoxyCodeLine{00671\ }
+\DoxyCodeLine{00679\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a6f6813a700ff1161b29f79149cde7440}{DLPC34XX\_WriteExternalVideoSourceFormatSelect}}(\mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96d}{DLPC34XX\_ExternalVideoFormat\_e}}\ VideoFormat);}
+\DoxyCodeLine{00680\ }
+\DoxyCodeLine{00688\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ab3bee6b6990f6eb900956e6ff3364cdb}{DLPC34XX\_ReadExternalVideoSourceFormatSelect}}(\mbox{\hyperlink{dlpc34xx_8h_ad1987caed56e98dd8badc4557c7aa96d}{DLPC34XX\_ExternalVideoFormat\_e}}\ *VideoFormat);}
+\DoxyCodeLine{00689\ }
+\DoxyCodeLine{00699\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a6483f88729c17039027d5a7b63005c91}{DLPC34XX\_WriteVideoChromaProcessingSelect}}(\mbox{\hyperlink{dlpc34xx_8h_ae2b443d7c8ceffe4587b482ebcfae755}{DLPC34XX\_ChromaInterpolationMethod\_e}}\ ChromaInterpolationMethod,\ \mbox{\hyperlink{dlpc34xx_8h_adecd56c6c4f8910f50e0079409cbddb1}{DLPC34XX\_ChromaChannelSwap\_e}}\ ChromaChannelSwap,\ uint8\_t\ CscCoefficientSet);}
+\DoxyCodeLine{00700\ }
+\DoxyCodeLine{00710\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a29c78eebe96a7287e334aea64352e54b}{DLPC34XX\_ReadVideoChromaProcessingSelect}}(\mbox{\hyperlink{dlpc34xx_8h_ae2b443d7c8ceffe4587b482ebcfae755}{DLPC34XX\_ChromaInterpolationMethod\_e}}\ *ChromaInterpolationMethod,\ \mbox{\hyperlink{dlpc34xx_8h_adecd56c6c4f8910f50e0079409cbddb1}{DLPC34XX\_ChromaChannelSwap\_e}}\ *ChromaChannelSwap,\ uint8\_t\ *CscCoefficientSet);}
+\DoxyCodeLine{00711\ }
+\DoxyCodeLine{00720\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a03a957bdc41db557402ef2c57b16b646}{DLPC34XX\_Write3DControl}}(\mbox{\hyperlink{dlpc34xx_8h_a83751892c192f96813e4d581917635e2}{DLPC34XX\_ThreeDDominance\_e}}\ ThreeDFrameDominance,\ \mbox{\hyperlink{dlpc34xx_8h_ab4cd2496417cab84c2992257abd437b5}{DLPC34XX\_ThreeDReferencePolarity\_e}}\ ThreeDReferencePolarity);}
+\DoxyCodeLine{00721\ }
+\DoxyCodeLine{00731\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_abbcd5aaba1d6eb36b3d58c998ecd8640}{DLPC34XX\_Read3DControl}}(\mbox{\hyperlink{dlpc34xx_8h_addbfe5c2a010f16f4626d02ca02603b8}{DLPC34XX\_ThreeDModes\_e}}\ *ThreeDMode,\ \mbox{\hyperlink{dlpc34xx_8h_a83751892c192f96813e4d581917635e2}{DLPC34XX\_ThreeDDominance\_e}}\ *ThreeDFrameDominance,\ \mbox{\hyperlink{dlpc34xx_8h_ab4cd2496417cab84c2992257abd437b5}{DLPC34XX\_ThreeDReferencePolarity\_e}}\ *ThreeDReferencePolarity);}
+\DoxyCodeLine{00732\ }
+\DoxyCodeLine{00741\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_afba5b62ed3036ff239c15e6fbd3f182d}{DLPC34XX\_WriteInputImageSize}}(uint16\_t\ PixelsPerLine,\ uint16\_t\ LinesPerFrame);}
+\DoxyCodeLine{00742\ }
+\DoxyCodeLine{00751\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a1eb12500cbbfaf6e50aea4343000394a}{DLPC34XX\_ReadInputImageSize}}(uint16\_t\ *PixelsPerLine,\ uint16\_t\ *LinesPerFrame);}
+\DoxyCodeLine{00752\ }
+\DoxyCodeLine{00763\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a762bca41ccef15f8a3c197c8da3767f9}{DLPC34XX\_WriteImageCrop}}(uint16\_t\ CaptureStartPixel,\ uint16\_t\ CaptureStartLine,\ uint16\_t\ PixelsPerLine,\ uint16\_t\ LinesPerFrame);}
+\DoxyCodeLine{00764\ }
+\DoxyCodeLine{00775\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aa80b5af70243787c78bd9c8cf1130098}{DLPC34XX\_ReadImageCrop}}(uint16\_t\ *CaptureStartPixel,\ uint16\_t\ *CaptureStartLine,\ uint16\_t\ *PixelsPerLine,\ uint16\_t\ *LinesPerFrame);}
+\DoxyCodeLine{00776\ }
+\DoxyCodeLine{00785\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_acf4048a24a32d30a6a5be3c2733c0a05}{DLPC34XX\_WriteDisplaySizeLegacy}}(uint16\_t\ PixelsPerLine,\ uint16\_t\ LinesPerFrame);}
+\DoxyCodeLine{00786\ }
+\DoxyCodeLine{00795\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aa233e7bca909c6b78384349768f57016}{DLPC34XX\_ReadDisplaySizeLegacy}}(uint16\_t\ *PixelsPerLine,\ uint16\_t\ *LinesPerFrame);}
+\DoxyCodeLine{00796\ }
+\DoxyCodeLine{00807\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a984fc66007bae585f0af7bd025df51f7}{DLPC34XX\_WriteDisplaySize}}(uint16\_t\ StartPixel,\ uint16\_t\ StartLine,\ uint16\_t\ PixelsPerLine,\ uint16\_t\ LinesPerFrame);}
+\DoxyCodeLine{00808\ }
+\DoxyCodeLine{00819\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a0a55b318417dddab0bf4aca32d3ff408}{DLPC34XX\_ReadDisplaySize}}(uint16\_t\ *StartPixel,\ uint16\_t\ *StartLine,\ uint16\_t\ *PixelsPerLine,\ uint16\_t\ *LinesPerFrame);}
+\DoxyCodeLine{00820\ }
+\DoxyCodeLine{00830\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ab1aa20fe427d84c95bf8724425ae1b63}{DLPC34XX\_WriteDisplayImageOrientation}}(\mbox{\hyperlink{dlpc34xx_8h_a3039444381e1addfaf0a08a928442881}{DLPC34XX\_ImageRotation\_e}}\ ImageRotation,\ \mbox{\hyperlink{dlpc34xx_8h_a4a61a9a564fbd0635cbed12d480e7f3f}{DLPC34XX\_ImageFlip\_e}}\ LongAxisImageFlip,\ \mbox{\hyperlink{dlpc34xx_8h_a4a61a9a564fbd0635cbed12d480e7f3f}{DLPC34XX\_ImageFlip\_e}}\ ShortAxisImageFlip);}
+\DoxyCodeLine{00831\ }
+\DoxyCodeLine{00841\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aa62e619f0d3e8e3797435193c621804d}{DLPC34XX\_ReadDisplayImageOrientation}}(\mbox{\hyperlink{dlpc34xx_8h_a3039444381e1addfaf0a08a928442881}{DLPC34XX\_ImageRotation\_e}}\ *ImageRotation,\ \mbox{\hyperlink{dlpc34xx_8h_a4a61a9a564fbd0635cbed12d480e7f3f}{DLPC34XX\_ImageFlip\_e}}\ *LongAxisImageFlip,\ \mbox{\hyperlink{dlpc34xx_8h_a4a61a9a564fbd0635cbed12d480e7f3f}{DLPC34XX\_ImageFlip\_e}}\ *ShortAxisImageFlip);}
+\DoxyCodeLine{00842\ }
+\DoxyCodeLine{00851\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a45d322750790dcea7d3c4d35d4861e32}{DLPC34XX\_WriteDisplayImageCurtain}}(\mbox{\hyperlink{dlpc34xx_8h_a2e3b01ccd877ddb969307ceb4436b4bf}{DLPC34XX\_ImageCurtainEnable\_e}}\ Enable,\ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ Color);}
+\DoxyCodeLine{00852\ }
+\DoxyCodeLine{00861\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ae7acf2908911c2fcc1ad8bc24e0f1689}{DLPC34XX\_ReadDisplayImageCurtain}}(\mbox{\hyperlink{dlpc34xx_8h_a2e3b01ccd877ddb969307ceb4436b4bf}{DLPC34XX\_ImageCurtainEnable\_e}}\ *Enable,\ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ *Color);}
+\DoxyCodeLine{00862\ }
+\DoxyCodeLine{00870\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a35d28b801224f8ef8a46e7fee1467bca}{DLPC34XX\_WriteImageFreeze}}(\textcolor{keywordtype}{bool}\ Enable);}
+\DoxyCodeLine{00871\ }
+\DoxyCodeLine{00879\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ae192065c098f727bf585f363a2317593}{DLPC34XX\_ReadImageFreeze}}(\textcolor{keywordtype}{bool}\ *Enable);}
+\DoxyCodeLine{00880\ }
+\DoxyCodeLine{00888\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a3334c24514229d40a8cf244865bd2496}{DLPC34XX\_WriteBorderColor}}(\mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ DisplayBorderColor);}
+\DoxyCodeLine{00889\ }
+\DoxyCodeLine{00898\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ac42a03e68c561247b118751b3e6fa28b}{DLPC34XX\_ReadBorderColor}}(\mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ *DisplayBorderColor,\ \mbox{\hyperlink{dlpc34xx_8h_a3259c766c24906d760512cade521c0a9}{DLPC34XX\_BorderColorSource\_e}}\ *PillarBoxBorderColorSource);}
+\DoxyCodeLine{00899\ }
+\DoxyCodeLine{00908\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ac270e3a097caac98f76e814d26be6b4e}{DLPC34XX\_WriteSolidField}}(\mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150e}{DLPC34XX\_BorderEnable\_e}}\ Border,\ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ ForegroundColor);}
+\DoxyCodeLine{00909\ }
+\DoxyCodeLine{00920\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a67c7bc0d7660191748085ab092357a5c}{DLPC34XX\_WriteHorizontalRamp}}(\mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150e}{DLPC34XX\_BorderEnable\_e}}\ Border,\ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ ForegroundColor,\ uint8\_t\ StartValue,\ uint8\_t\ EndValue);}
+\DoxyCodeLine{00921\ }
+\DoxyCodeLine{00932\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a5b8fcf6e6608f7ed99b94820add09ee3}{DLPC34XX\_WriteVerticalRamp}}(\mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150e}{DLPC34XX\_BorderEnable\_e}}\ Border,\ \mbox{\hyperlink{dlpc34xx_8h_ad7dc41452b5f2da8e5444a636959a978}{DLPC34XX\_Color\_e}}\ ForegroundColor,\ uint8\_t\ StartValue,\ uint8\_t\ EndValue);}
+\DoxyCodeLine{00933\ }
+\DoxyCodeLine{00941\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aff54fc3d79c16af735f5932c4b9e5c96}{DLPC34XX\_WriteHorizontalLines}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___horizontal_lines__s}{DLPC34XX\_HorizontalLines\_s}}\ *HorizontalLines);}
+\DoxyCodeLine{00942\ }
+\DoxyCodeLine{00950\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_abb1e9d2e0c6de6dd227698d2a1b0d91d}{DLPC34XX\_WriteDiagonalLines}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___diagonal_lines__s}{DLPC34XX\_DiagonalLines\_s}}\ *DiagonalLines);}
+\DoxyCodeLine{00951\ }
+\DoxyCodeLine{00959\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a057f361df57d828fc15a8836d301ec9f}{DLPC34XX\_WriteVerticalLines}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___vertical_lines__s}{DLPC34XX\_VerticalLines\_s}}\ *VerticalLines);}
+\DoxyCodeLine{00960\ }
+\DoxyCodeLine{00968\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a171e4700c9925f9b816706aa77b01cd1}{DLPC34XX\_WriteGridLines}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___grid_lines__s}{DLPC34XX\_GridLines\_s}}\ *GridLines);}
+\DoxyCodeLine{00969\ }
+\DoxyCodeLine{00977\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a0d20b89656108e82cff7b2d3b0efd7e8}{DLPC34XX\_WriteCheckerboard}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___checkerboard__s}{DLPC34XX\_Checkerboard\_s}}\ *Checkerboard);}
+\DoxyCodeLine{00978\ }
+\DoxyCodeLine{00986\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a2013ba4607cfcb9982610e44ecb29a2b}{DLPC34XX\_WriteColorbars}}(\mbox{\hyperlink{dlpc34xx_8h_ab03e4df8417d472990c9be189e2d150e}{DLPC34XX\_BorderEnable\_e}}\ Border);}
+\DoxyCodeLine{00987\ }
+\DoxyCodeLine{00995\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a9487f1f06e5cc0eeceacc1170c48ef09}{DLPC34XX\_ReadTestPatternSelect}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___test_pattern_select__s}{DLPC34XX\_TestPatternSelect\_s}}\ *TestPatternSelect);}
+\DoxyCodeLine{00996\ }
+\DoxyCodeLine{01004\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a2d6ba39f23e836e4cc106774f26bf804}{DLPC34XX\_WriteKeystoneProjectionPitchAngle}}(\textcolor{keywordtype}{double}\ PitchAngle);}
+\DoxyCodeLine{01005\ }
+\DoxyCodeLine{01013\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a12bda5b74c30b5359b11a712f1d44f9e}{DLPC34XX\_ReadKeystoneProjectionPitchAngle}}(\textcolor{keywordtype}{double}\ *PitchAngle);}
+\DoxyCodeLine{01014\ }
+\DoxyCodeLine{01024\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ab2055544ad747f2d6d7fa20b5e9c04d9}{DLPC34XX\_WriteKeystoneCorrectionControl}}(\textcolor{keywordtype}{bool}\ KeystoneCorrectionEnable,\ \textcolor{keywordtype}{double}\ OpticalThrowRatio,\ \textcolor{keywordtype}{double}\ OpticalDmdOffset);}
+\DoxyCodeLine{01025\ }
+\DoxyCodeLine{01035\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a5fa476f8cc07fcb292648ed27316bcac}{DLPC34XX\_ReadKeystoneCorrectionControl}}(\textcolor{keywordtype}{bool}\ *KeystoneCorrectionEnable,\ \textcolor{keywordtype}{double}\ *OpticalThrowRatio,\ \textcolor{keywordtype}{double}\ *OpticalDmdOffset);}
+\DoxyCodeLine{01036\ }
+\DoxyCodeLine{01044\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ae42332b6174a7c67c44f8ffa449ee066}{DLPC34XX\_WriteExecuteFlashBatchFile}}(uint8\_t\ BatchFileNumber);}
+\DoxyCodeLine{01045\ }
+\DoxyCodeLine{01053\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a21f79d4e094aa65336eed8e44bb90eb8}{DLPC34XX\_WriteBatchFileDelay}}(uint16\_t\ DelayInMicroseconds);}
+\DoxyCodeLine{01054\ }
+\DoxyCodeLine{01062\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a690eb9c52aea35d78fa5aa2ea7897a33}{DLPC34XX\_WriteLedOutputControlMethod}}(\mbox{\hyperlink{dlpc34xx_8h_a2d522e0d0dba6cac23f8bf1feee047ce}{DLPC34XX\_LedControlMethod\_e}}\ LedControlMethod);}
+\DoxyCodeLine{01063\ }
+\DoxyCodeLine{01071\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aab088fd039bf87fd62d7082523683ce3}{DLPC34XX\_ReadLedOutputControlMethod}}(\mbox{\hyperlink{dlpc34xx_8h_a2d522e0d0dba6cac23f8bf1feee047ce}{DLPC34XX\_LedControlMethod\_e}}\ *LedControlMethod);}
+\DoxyCodeLine{01072\ }
+\DoxyCodeLine{01082\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a21fcd18ac0a15539f9598caeb8c765a7}{DLPC34XX\_WriteRgbLedEnable}}(\textcolor{keywordtype}{bool}\ RedLedEnable,\ \textcolor{keywordtype}{bool}\ GreenLedEnable,\ \textcolor{keywordtype}{bool}\ BlueLedEnable);}
+\DoxyCodeLine{01083\ }
+\DoxyCodeLine{01093\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a9d5aeb7162e20be77b5dc66308e04512}{DLPC34XX\_ReadRgbLedEnable}}(\textcolor{keywordtype}{bool}\ *RedLedEnable,\ \textcolor{keywordtype}{bool}\ *GreenLedEnable,\ \textcolor{keywordtype}{bool}\ *BlueLedEnable);}
+\DoxyCodeLine{01094\ }
+\DoxyCodeLine{01104\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aff70a26cb3b9628d11928c6b7cb24943}{DLPC34XX\_WriteRgbLedCurrent}}(uint16\_t\ RedLedCurrent,\ uint16\_t\ GreenLedCurrent,\ uint16\_t\ BlueLedCurrent);}
+\DoxyCodeLine{01105\ }
+\DoxyCodeLine{01115\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a09bc7a5af1c13d4653d3100145705837}{DLPC34XX\_ReadRgbLedCurrent}}(uint16\_t\ *RedLedCurrent,\ uint16\_t\ *GreenLedCurrent,\ uint16\_t\ *BlueLedCurrent);}
+\DoxyCodeLine{01116\ }
+\DoxyCodeLine{01124\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a27d771376964ce25a097b09bf967c29b}{DLPC34XX\_ReadCaicLedMaxAvailablePower}}(\textcolor{keywordtype}{double}\ *MaxLedPower);}
+\DoxyCodeLine{01125\ }
+\DoxyCodeLine{01135\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ad63548ba2d9d465fc55298a6f76410f7}{DLPC34XX\_WriteRgbLedMaxCurrent}}(uint16\_t\ MaxRedLedCurrent,\ uint16\_t\ MaxGreenLedCurrent,\ uint16\_t\ MaxBlueLedCurrent);}
+\DoxyCodeLine{01136\ }
+\DoxyCodeLine{01146\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a4c2e98b995c5cc3be733056b5fcbb4cc}{DLPC34XX\_ReadRgbLedMaxCurrent}}(uint16\_t\ *MaxRedLedCurrent,\ uint16\_t\ *MaxGreenLedCurrent,\ uint16\_t\ *MaxBlueLedCurrent);}
+\DoxyCodeLine{01147\ }
+\DoxyCodeLine{01157\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a799fcb13e384c23f1ee8b5a733461478}{DLPC34XX\_ReadCaicRgbLedCurrent}}(uint16\_t\ *RedLedCurrent,\ uint16\_t\ *GreenLedCurrent,\ uint16\_t\ *BlueLedCurrent);}
+\DoxyCodeLine{01158\ }
+\DoxyCodeLine{01166\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ad326c4b52c35c341593d6608287a7112}{DLPC34XX\_WriteLookSelect}}(uint8\_t\ LookNumber);}
+\DoxyCodeLine{01167\ }
+\DoxyCodeLine{01177\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ac2eb946bd77d6c68ea53ded8c9759c5d}{DLPC34XX\_ReadLookSelect}}(uint8\_t\ *LookNumber,\ uint8\_t\ *SequenceIndex,\ \textcolor{keywordtype}{double}\ *SequenceFrameTime);}
+\DoxyCodeLine{01178\ }
+\DoxyCodeLine{01186\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aec52a0ac9a708df0e3afb2b28670e39d}{DLPC34XX\_ReadSequenceHeaderAttributes}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___sequence_header_attributes__s}{DLPC34XX\_SequenceHeaderAttributes\_s}}\ *SequenceHeaderAttributes);}
+\DoxyCodeLine{01187\ }
+\DoxyCodeLine{01197\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a2e2f72617f7eac3bec2e1270336d01c6}{DLPC34XX\_WriteLocalAreaBrightnessBoostControl}}(\mbox{\hyperlink{dlpc34xx_8h_a51783b631c47d7ba7b48b233c0a5ff6e}{DLPC34XX\_LabbControl\_e}}\ LabbControl,\ uint8\_t\ SharpnessStrength,\ uint8\_t\ LabbStrengthSetting);}
+\DoxyCodeLine{01198\ }
+\DoxyCodeLine{01209\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ab80180d904a1ff37f3b96c175830fd4f}{DLPC34XX\_ReadLocalAreaBrightnessBoostControl}}(\mbox{\hyperlink{dlpc34xx_8h_a51783b631c47d7ba7b48b233c0a5ff6e}{DLPC34XX\_LabbControl\_e}}\ *LabbControl,\ uint8\_t\ *SharpnessStrength,\ uint8\_t\ *LabbStrengthSetting,\ uint8\_t\ *LabbGainValue);}
+\DoxyCodeLine{01210\ }
+\DoxyCodeLine{01221\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ab65a805cef4ae22ea800f219dc3dc420}{DLPC34XX\_WriteCaicImageProcessingControl}}(\mbox{\hyperlink{dlpc34xx_8h_ab56e91ec3ee74e68b25a4b6e33218340}{DLPC34XX\_CaicGainDisplayScale\_e}}\ CaicGainDisplayScale,\ \textcolor{keywordtype}{bool}\ CaicGainDisplayEnable,\ \textcolor{keywordtype}{double}\ CaicMaxLumensGain,\ \textcolor{keywordtype}{double}\ CaicClippingThreshold);}
+\DoxyCodeLine{01222\ }
+\DoxyCodeLine{01233\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a8f6f9c015dce29bd42b7bc56db6cb442}{DLPC34XX\_ReadCaicImageProcessingControl}}(\mbox{\hyperlink{dlpc34xx_8h_ab56e91ec3ee74e68b25a4b6e33218340}{DLPC34XX\_CaicGainDisplayScale\_e}}\ *CaicGainDisplayScale,\ \textcolor{keywordtype}{bool}\ *CaicGainDisplayEnable,\ \textcolor{keywordtype}{double}\ *CaicMaxLumensGain,\ \textcolor{keywordtype}{double}\ *CaicClippingThreshold);}
+\DoxyCodeLine{01234\ }
+\DoxyCodeLine{01242\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a8731619ec41ffa090d3e00b3780cb9d9}{DLPC34XX\_WriteColorCoordinateAdjustmentControl}}(\textcolor{keywordtype}{bool}\ CcaEnable);}
+\DoxyCodeLine{01243\ }
+\DoxyCodeLine{01251\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a6f4913e5be287bd3bf7c8686a5fcf978}{DLPC34XX\_ReadColorCoordinateAdjustmentControl}}(\textcolor{keywordtype}{bool}\ *CcaEnable);}
+\DoxyCodeLine{01252\ }
+\DoxyCodeLine{01260\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a0464e53fa6fbdc8e6ed59075724b6e5f}{DLPC34XX\_ReadShortStatus}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___short_status__s}{DLPC34XX\_ShortStatus\_s}}\ *ShortStatus);}
+\DoxyCodeLine{01261\ }
+\DoxyCodeLine{01269\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aaf8b16352a7164e1b16142a4b0670947}{DLPC34XX\_ReadSystemStatus}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___system_status__s}{DLPC34XX\_SystemStatus\_s}}\ *SystemStatus);}
+\DoxyCodeLine{01270\ }
+\DoxyCodeLine{01278\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a2ef9ad3e0d0940474a6e3a8e421a8be0}{DLPC34XX\_ReadCommunicationStatus}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___communication_status__s}{DLPC34XX\_CommunicationStatus\_s}}\ *CommunicationStatus);}
+\DoxyCodeLine{01279\ }
+\DoxyCodeLine{01289\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aa8b4e3e8d60c048859b75e7cb1e5f139}{DLPC34XX\_ReadSystemSoftwareVersion}}(uint16\_t\ *PatchVersion,\ uint8\_t\ *MinorVersion,\ uint8\_t\ *MajorVersion);}
+\DoxyCodeLine{01290\ }
+\DoxyCodeLine{01298\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_abe0e56dbff7741c08ea4463ac5a51676}{DLPC34XX\_ReadControllerDeviceId}}(\mbox{\hyperlink{dlpc34xx_8h_a1b612825b46c2010df41d0dc6579fd4a}{DLPC34XX\_ControllerDeviceId\_e}}\ *DeviceId);}
+\DoxyCodeLine{01299\ }
+\DoxyCodeLine{01308\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a987251c12c0fb7dcffe1d73446f5da58}{DLPC34XX\_ReadDmdDeviceId}}(\mbox{\hyperlink{dlpc34xx_8h_ab29bb37f38dcea9f14d58b2e78296dcd}{DLPC34XX\_DmdDataSelection\_e}}\ DmdDataSelection,\ uint32\_t\ *DeviceId);}
+\DoxyCodeLine{01309\ }
+\DoxyCodeLine{01319\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aef2dcb3e02ab01d946bcfc670bb8f29b}{DLPC34XX\_ReadFirmwareBuildVersion}}(uint16\_t\ *PatchVersion,\ uint8\_t\ *MinorVersion,\ uint8\_t\ *MajorVersion);}
+\DoxyCodeLine{01320\ }
+\DoxyCodeLine{01328\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a971992b3ce46267ba3824ee5847f6b84}{DLPC34XX\_ReadSystemTemperature}}(\textcolor{keywordtype}{double}\ *Temperature);}
+\DoxyCodeLine{01329\ }
+\DoxyCodeLine{01340\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ad296e2c3266429d090b2b8efd9ead1a0}{DLPC34XX\_ReadFlashUpdatePrecheck}}(uint32\_t\ FlashUpdatePackageSize,\ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ *PackageSizeStatus,\ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ *PacakgeConfigurationCollapsed,\ \mbox{\hyperlink{dlpc34xx_8h_a71f8678c40542b2efe29c73e7a9b3621}{DLPC34XX\_Error\_e}}\ *PacakgeConfigurationIdentifier);}
+\DoxyCodeLine{01341\ }
+\DoxyCodeLine{01349\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a56b061619cf7126c0898f80254e26895}{DLPC34XX\_WriteFlashDataTypeSelect}}(\mbox{\hyperlink{dlpc34xx_8h_a7dad9a783cae0b824cd19291a9d5f6d8}{DLPC34XX\_FlashDataTypeSelect\_e}}\ FlashSelect);}
+\DoxyCodeLine{01350\ }
+\DoxyCodeLine{01358\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a92bddd254510d9a8b12739d7b8a83791}{DLPC34XX\_WriteFlashDataLength}}(uint16\_t\ FlashDataLength);}
+\DoxyCodeLine{01359\ }
+\DoxyCodeLine{01365\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a8e55b5a74f890942e9af24c2c0955002}{DLPC34XX\_WriteFlashErase}}();}
+\DoxyCodeLine{01366\ }
+\DoxyCodeLine{01375\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a49e0b037a3ade63eeb7f63bf784e1f10}{DLPC34XX\_WriteFlashStart}}(uint16\_t\ DataLength,\ uint8\_t*\ Data);}
+\DoxyCodeLine{01376\ }
+\DoxyCodeLine{01385\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a8f6f3b0af8a7afae9ffe7f1282800dc5}{DLPC34XX\_ReadFlashStart}}(uint16\_t\ Length,\ uint8\_t\ *Data);}
+\DoxyCodeLine{01386\ }
+\DoxyCodeLine{01395\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aef95dccb6433a08d567f49bde4c875d5}{DLPC34XX\_WriteFlashContinue}}(uint16\_t\ DataLength,\ uint8\_t*\ Data);}
+\DoxyCodeLine{01396\ }
+\DoxyCodeLine{01405\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ac9d48e4f837060d1cc7f31b776784917}{DLPC34XX\_ReadFlashContinue}}(uint16\_t\ Length,\ uint8\_t\ *Data);}
+\DoxyCodeLine{01406\ }
+\DoxyCodeLine{01416\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_af9d6a9b9d31f31ff0d38b385ec4e7102}{DLPC34XX\_ReadSequenceBinaryVersion}}(uint8\_t\ *PatchVersion,\ uint8\_t\ *MinorVersion,\ uint8\_t\ *MajorVersion);}
+\DoxyCodeLine{01417\ }
+\DoxyCodeLine{01426\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a60c760ee2ed89b21256e8802e3be4b46}{DLPC34XX\_WriteInternalPatternControl}}(\mbox{\hyperlink{dlpc34xx_8h_a2deeb514f9bb9bed8aa5d8f14b08a780}{DLPC34XX\_PatternControl\_e}}\ PatternControl,\ uint8\_t\ RepeatCount);}
+\DoxyCodeLine{01427\ }
+\DoxyCodeLine{01438\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ab5b6f8265fbf38f2d7f3e32793d43843}{DLPC34XX\_ReadValidateExposureTime}}(\mbox{\hyperlink{dlpc34xx_8h_ada5ef32e67b9aaff761a2e8f259299b4}{DLPC34XX\_PatternMode\_e}}\ PatternMode,\ \mbox{\hyperlink{dlpc34xx_8h_aeefb834fe5cba463bdb7ac7c062bddae}{DLPC34XX\_SequenceType\_e}}\ BitDepth,\ uint32\_t\ ExposureTime,\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___validate_exposure_time__s}{DLPC34XX\_ValidateExposureTime\_s}}\ *ValidateExposureTime);}
+\DoxyCodeLine{01439\ }
+\DoxyCodeLine{01448\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a114d4bef2523eef7485891b890436218}{DLPC34XX\_WriteTriggerInConfiguration}}(\mbox{\hyperlink{dlpc34xx_8h_a2bd0cd6f034718ac4ac8331ef6d0ea24}{DLPC34XX\_TriggerEnable\_e}}\ TriggerEnable,\ \mbox{\hyperlink{dlpc34xx_8h_a15d1a17134d8a2ff06daedc83d56a059}{DLPC34XX\_TriggerPolarity\_e}}\ TriggerPolarity);}
+\DoxyCodeLine{01449\ }
+\DoxyCodeLine{01458\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_adf12419e70f5410016c0bd8b35feeab7}{DLPC34XX\_ReadTriggerInConfiguration}}(\mbox{\hyperlink{dlpc34xx_8h_a2bd0cd6f034718ac4ac8331ef6d0ea24}{DLPC34XX\_TriggerEnable\_e}}\ *TriggerEnable,\ \mbox{\hyperlink{dlpc34xx_8h_a15d1a17134d8a2ff06daedc83d56a059}{DLPC34XX\_TriggerPolarity\_e}}\ *TriggerPolarity);}
+\DoxyCodeLine{01459\ }
+\DoxyCodeLine{01470\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a1fc6c3c5889faa4516441b94c476c066}{DLPC34XX\_WriteTriggerOutConfiguration}}(\mbox{\hyperlink{dlpc34xx_8h_a3896733a3d17e4f0a6a0802d54496cb1}{DLPC34XX\_TriggerType\_e}}\ TriggerType,\ \mbox{\hyperlink{dlpc34xx_8h_a2bd0cd6f034718ac4ac8331ef6d0ea24}{DLPC34XX\_TriggerEnable\_e}}\ TriggerEnable,\ \mbox{\hyperlink{dlpc34xx_8h_a6b66aa5de78998d11c0c492c9fcaf2b4}{DLPC34XX\_TriggerInversion\_e}}\ TriggerInversion,\ int32\_t\ Delay);}
+\DoxyCodeLine{01471\ }
+\DoxyCodeLine{01482\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a3f98f1439276babdc97020611697418b}{DLPC34XX\_ReadTriggerOutConfiguration}}(\mbox{\hyperlink{dlpc34xx_8h_a3896733a3d17e4f0a6a0802d54496cb1}{DLPC34XX\_TriggerType\_e}}\ Trigger,\ \mbox{\hyperlink{dlpc34xx_8h_a2bd0cd6f034718ac4ac8331ef6d0ea24}{DLPC34XX\_TriggerEnable\_e}}\ *TriggerEnable,\ \mbox{\hyperlink{dlpc34xx_8h_a6b66aa5de78998d11c0c492c9fcaf2b4}{DLPC34XX\_TriggerInversion\_e}}\ *TriggerInversion,\ int32\_t\ *Delay);}
+\DoxyCodeLine{01483\ }
+\DoxyCodeLine{01492\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ad84c6fcb9174995ca4a13ab90f3d01a1}{DLPC34XX\_WritePatternReadyConfiguration}}(\mbox{\hyperlink{dlpc34xx_8h_a2bd0cd6f034718ac4ac8331ef6d0ea24}{DLPC34XX\_TriggerEnable\_e}}\ TriggerEnable,\ \mbox{\hyperlink{dlpc34xx_8h_a15d1a17134d8a2ff06daedc83d56a059}{DLPC34XX\_TriggerPolarity\_e}}\ TriggerPolarity);}
+\DoxyCodeLine{01493\ }
+\DoxyCodeLine{01502\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a27cf7a16d4ebdb1ce91d8b03805d6526}{DLPC34XX\_ReadPatternReadyConfiguration}}(\mbox{\hyperlink{dlpc34xx_8h_a2bd0cd6f034718ac4ac8331ef6d0ea24}{DLPC34XX\_TriggerEnable\_e}}\ *TriggerEnable,\ \mbox{\hyperlink{dlpc34xx_8h_a15d1a17134d8a2ff06daedc83d56a059}{DLPC34XX\_TriggerPolarity\_e}}\ *TriggerPolarity);}
+\DoxyCodeLine{01503\ }
+\DoxyCodeLine{01511\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ac978f1cce5ba63517c3a4f630366f6fa}{DLPC34XX\_WritePatternConfiguration}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___pattern_configuration__s}{DLPC34XX\_PatternConfiguration\_s}}\ *PatternConfiguration);}
+\DoxyCodeLine{01512\ }
+\DoxyCodeLine{01520\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a0aed529085d6f623a0fc312756bdfc17}{DLPC34XX\_ReadPatternConfiguration}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___pattern_configuration__s}{DLPC34XX\_PatternConfiguration\_s}}\ *PatternConfiguration);}
+\DoxyCodeLine{01521\ }
+\DoxyCodeLine{01530\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a4897b7c85f10cba45b7a4e5a1f30b789}{DLPC34XX\_WriteInternalPatternDisplayConfiguration}}(uint8\_t\ DmdBlockStart,\ uint8\_t\ DmdBlockCount);}
+\DoxyCodeLine{01531\ }
+\DoxyCodeLine{01540\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_afc5241cd8cc611d863ab1664791f7c8a}{DLPC34XX\_ReadInternalPatternDisplayConfiguration}}(uint8\_t\ *DmdBlockStart,\ uint8\_t\ *DmdBlockCount);}
+\DoxyCodeLine{01541\ }
+\DoxyCodeLine{01550\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_addff52f38f2019a624ff0920eb7b9755}{DLPC34XX\_WritePatternOrderTableEntry}}(\mbox{\hyperlink{dlpc34xx_8h_aeab4ef87b83cfcc95902e1ee1b3309b3}{DLPC34XX\_WriteControl\_e}}\ WriteControl,\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___pattern_order_table_entry__s}{DLPC34XX\_PatternOrderTableEntry\_s}}\ *PatternOrderTableEntry);}
+\DoxyCodeLine{01551\ }
+\DoxyCodeLine{01560\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a26fa1c4221a0192f9c52c8dfcdf880c3}{DLPC34XX\_ReadPatternOrderTableEntry}}(uint8\_t\ PatternOrderTableEntryIndex,\ \mbox{\hyperlink{struct_d_l_p_c34_x_x___pattern_order_table_entry__s}{DLPC34XX\_PatternOrderTableEntry\_s}}\ *PatternOrderTableEntry);}
+\DoxyCodeLine{01561\ }
+\DoxyCodeLine{01569\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_aa8f173c72082c0f7df4a47fd5cce2e94}{DLPC34XX\_ReadInternalPatternStatus}}(\mbox{\hyperlink{struct_d_l_p_c34_x_x___internal_pattern_status__s}{DLPC34XX\_InternalPatternStatus\_s}}\ *InternalPatternStatus);}
+\DoxyCodeLine{01570\ }
+\DoxyCodeLine{01578\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a2f02ee781896054904d270a2fec6d38a}{DLPC34XX\_WriteDsiPortEnable}}(\mbox{\hyperlink{dlpc34xx_8h_a111ac50543beda5d7dc9b6b3c4c56d51}{DLPC34XX\_DsiEnable\_e}}\ Enable);}
+\DoxyCodeLine{01579\ }
+\DoxyCodeLine{01587\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_ad733aecbaa9d744899f131a4af3e1912}{DLPC34XX\_ReadDsiPortEnable}}(\mbox{\hyperlink{dlpc34xx_8h_a111ac50543beda5d7dc9b6b3c4c56d51}{DLPC34XX\_DsiEnable\_e}}\ *Enable);}
+\DoxyCodeLine{01588\ }
+\DoxyCodeLine{01596\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a3349aeef93c68f580164b9d8947c504e}{DLPC34XX\_WriteDsiHsClockInput}}(uint8\_t\ ClockSpeed);}
+\DoxyCodeLine{01597\ }
+\DoxyCodeLine{01605\ uint32\_t\ \mbox{\hyperlink{dlpc34xx_8h_a0eff3d1e6a381c15dc5eb2da05da3ad9}{DLPC34XX\_ReadDsiHsClockInput}}(uint8\_t\ *ClockSpeed);}
+\DoxyCodeLine{01606\ }
+\DoxyCodeLine{01607\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ \ \ }\textcolor{comment}{/*\ matches\ \_\_cplusplus\ construct\ above\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01608\ \}}
+\DoxyCodeLine{01609\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01610\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DLPC34XX\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

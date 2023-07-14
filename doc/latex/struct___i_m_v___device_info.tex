@@ -1,0 +1,86 @@
+\hypertarget{struct___i_m_v___device_info}{}\doxysection{\+\_\+\+IMV\+\_\+\+Device\+Info Struct Reference}
+\label{struct___i_m_v___device_info}\index{\_IMV\_DeviceInfo@{\_IMV\_DeviceInfo}}
+
+
+Device general information.  
+
+
+
+
+{\ttfamily \#include $<$IMVDefines.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_a6775571480ed789647d4463cb04d3581}\label{struct___i_m_v___device_info_a6775571480ed789647d4463cb04d3581}} 
+IMV\+\_\+\+ECamera\+Type {\bfseries n\+Camera\+Type}
+\begin{DoxyCompactList}\small\item\em Camera type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_ae3c3de9a921329765211a2d4561f7083}\label{struct___i_m_v___device_info_ae3c3de9a921329765211a2d4561f7083}} 
+int {\bfseries n\+Camera\+Reserved} \mbox{[}5\mbox{]}
+\begin{DoxyCompactList}\small\item\em Reserved field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_ae5e4dc41d62c46734d81c0b6734830f4}\label{struct___i_m_v___device_info_ae5e4dc41d62c46734d81c0b6734830f4}} 
+char {\bfseries camera\+Key} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Camera key. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_a420b03c06e9648964b4ba6b65d11ac97}\label{struct___i_m_v___device_info_a420b03c06e9648964b4ba6b65d11ac97}} 
+char {\bfseries camera\+Name} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em User\+Defined\+Name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_a82c182bc3fa19938cb0fc07584dbd673}\label{struct___i_m_v___device_info_a82c182bc3fa19938cb0fc07584dbd673}} 
+char {\bfseries serial\+Number} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Device Serial\+Number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_ae2594291a802ab6937058cbd7d793a28}\label{struct___i_m_v___device_info_ae2594291a802ab6937058cbd7d793a28}} 
+char {\bfseries vendor\+Name} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Camera Vendor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_a773d31bc0898a46eb1a78e9864410f9d}\label{struct___i_m_v___device_info_a773d31bc0898a46eb1a78e9864410f9d}} 
+char {\bfseries model\+Name} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Device model. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_a912f14d37efeb3131cb88a4d84683991}\label{struct___i_m_v___device_info_a912f14d37efeb3131cb88a4d84683991}} 
+char {\bfseries manufacture\+Info} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Device Manufacture\+Info. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_a22ca2ba4985c5038040cb7ecc4ddd8b0}\label{struct___i_m_v___device_info_a22ca2ba4985c5038040cb7ecc4ddd8b0}} 
+char {\bfseries device\+Version} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Device Version. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_a4526995ec9e48f3b0b9530b7226e0c77}\label{struct___i_m_v___device_info_a4526995ec9e48f3b0b9530b7226e0c77}} 
+char {\bfseries camera\+Reserved} \mbox{[}5\mbox{]}\mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Reserved field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_a3be323c1ecaa169a030ed617c482bd5a}\label{struct___i_m_v___device_info_a3be323c1ecaa169a030ed617c482bd5a}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{struct___i_m_v___gig_e_device_info}{IMV\+\_\+\+Gig\+EDevice\+Info}} {\bfseries gigeDeviceInfo}\\
+\>\>{\em Gige Device Information. }\\
+\>\mbox{\hyperlink{struct___i_m_v___usb_device_info}{IMV\+\_\+\+Usb\+Device\+Info}} {\bfseries usbDeviceInfo}\\
+\>\>{\em Usb Device Information. }\\
+\} {\bfseries DeviceSpecificInfo}\\
+
+\end{tabbing}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_ad035f5ee64fe2c7811df27ae06cac206}\label{struct___i_m_v___device_info_ad035f5ee64fe2c7811df27ae06cac206}} 
+IMV\+\_\+\+EInterface\+Type {\bfseries n\+Interface\+Type}
+\begin{DoxyCompactList}\small\item\em Interface type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_a44a30b97ff61e90acdf603a11da38fb6}\label{struct___i_m_v___device_info_a44a30b97ff61e90acdf603a11da38fb6}} 
+int {\bfseries n\+Interface\+Reserved} \mbox{[}5\mbox{]}
+\begin{DoxyCompactList}\small\item\em Reserved field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_af7cfbd3fa019166bbf2e798965f11c98}\label{struct___i_m_v___device_info_af7cfbd3fa019166bbf2e798965f11c98}} 
+char {\bfseries interface\+Name} \mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Interface Name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_aabe75f20de6a64dd950a2eb3a91c58dc}\label{struct___i_m_v___device_info_aabe75f20de6a64dd950a2eb3a91c58dc}} 
+char {\bfseries interface\+Reserved} \mbox{[}5\mbox{]}\mbox{[}IMV\+\_\+\+MAX\+\_\+\+STRING\+\_\+\+LENTH\mbox{]}
+\begin{DoxyCompactList}\small\item\em Reserved field. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct___i_m_v___device_info_a0bb582ca1f79310865b23472f0d3afc1}\label{struct___i_m_v___device_info_a0bb582ca1f79310865b23472f0d3afc1}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{struct___i_m_v___gig_e_interface_info}{IMV\+\_\+\+Gig\+EInterface\+Info}} {\bfseries gigeInterfaceInfo}\\
+\>\>{\em Gige interface Information. }\\
+\>\mbox{\hyperlink{struct___i_m_v___usb_interface_info}{IMV\+\_\+\+Usb\+Interface\+Info}} {\bfseries usbInterfaceInfo}\\
+\>\>{\em Usb interface Information. }\\
+\} {\bfseries InterfaceInfo}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Device general information. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/camera/module/huaray\+\_\+camera/include/IMVDefines.\+h\end{DoxyCompactItemize}

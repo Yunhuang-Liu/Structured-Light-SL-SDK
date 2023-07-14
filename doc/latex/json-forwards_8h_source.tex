@@ -1,0 +1,431 @@
+\hypertarget{json-forwards_8h_source}{}\doxysection{json-\/forwards.h}
+\label{json-forwards_8h_source}\index{src/slCamera/common/json-\/forwards.h@{src/slCamera/common/json-\/forwards.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ LICENSE}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00010\ \textcolor{comment}{The\ JsonCpp\ library's\ source\ code,\ including\ accompanying\ documentation,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{tests\ and\ demonstration\ applications,\ are\ licensed\ under\ the\ following}}
+\DoxyCodeLine{00012\ \textcolor{comment}{conditions...}}
+\DoxyCodeLine{00013\ \textcolor{comment}{}}
+\DoxyCodeLine{00014\ \textcolor{comment}{Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors\ explicitly\ disclaim\ copyright\ in\ all}}
+\DoxyCodeLine{00015\ \textcolor{comment}{jurisdictions\ which\ recognize\ such\ a\ disclaimer.\ In\ such\ jurisdictions,}}
+\DoxyCodeLine{00016\ \textcolor{comment}{this\ software\ is\ released\ into\ the\ Public\ Domain.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{}}
+\DoxyCodeLine{00018\ \textcolor{comment}{In\ jurisdictions\ which\ do\ not\ recognize\ Public\ Domain\ property\ (e.g.\ Germany\ as\ of}}
+\DoxyCodeLine{00019\ \textcolor{comment}{2010),\ this\ software\ is\ Copyright\ (c)\ 2007-\/2010\ by\ Baptiste\ Lepilleur\ and}}
+\DoxyCodeLine{00020\ \textcolor{comment}{The\ JsonCpp\ Authors,\ and\ is\ released\ under\ the\ terms\ of\ the\ MIT\ License\ (see\ below).}}
+\DoxyCodeLine{00021\ \textcolor{comment}{}}
+\DoxyCodeLine{00022\ \textcolor{comment}{In\ jurisdictions\ which\ recognize\ Public\ Domain\ property,\ the\ user\ of\ this}}
+\DoxyCodeLine{00023\ \textcolor{comment}{software\ may\ choose\ to\ accept\ it\ either\ as\ 1)\ Public\ Domain,\ 2)\ under\ the}}
+\DoxyCodeLine{00024\ \textcolor{comment}{conditions\ of\ the\ MIT\ License\ (see\ below),\ or\ 3)\ under\ the\ terms\ of\ dual}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Public\ Domain/MIT\ License\ conditions\ described\ here,\ as\ they\ choose.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{}}
+\DoxyCodeLine{00027\ \textcolor{comment}{The\ MIT\ License\ is\ about\ as\ close\ to\ Public\ Domain\ as\ a\ license\ can\ get,\ and\ is}}
+\DoxyCodeLine{00028\ \textcolor{comment}{described\ in\ clear,\ concise\ terms\ at:}}
+\DoxyCodeLine{00029\ \textcolor{comment}{}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ http://en.wikipedia.org/wiki/MIT\_License}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{The\ full\ text\ of\ the\ MIT\ License\ follows:}}
+\DoxyCodeLine{00033\ \textcolor{comment}{}}
+\DoxyCodeLine{00034\ \textcolor{comment}{========================================================================}}
+\DoxyCodeLine{00035\ \textcolor{comment}{Copyright\ (c)\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{00036\ \textcolor{comment}{}}
+\DoxyCodeLine{00037\ \textcolor{comment}{Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person}}
+\DoxyCodeLine{00038\ \textcolor{comment}{obtaining\ a\ copy\ of\ this\ software\ and\ associated\ documentation}}
+\DoxyCodeLine{00039\ \textcolor{comment}{files\ (the\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without}}
+\DoxyCodeLine{00040\ \textcolor{comment}{restriction,\ including\ without\ limitation\ the\ rights\ to\ use,\ copy,}}
+\DoxyCodeLine{00041\ \textcolor{comment}{modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell\ copies}}
+\DoxyCodeLine{00042\ \textcolor{comment}{of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00043\ \textcolor{comment}{furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00044\ \textcolor{comment}{}}
+\DoxyCodeLine{00045\ \textcolor{comment}{The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00046\ \textcolor{comment}{included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00047\ \textcolor{comment}{}}
+\DoxyCodeLine{00048\ \textcolor{comment}{THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00049\ \textcolor{comment}{EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00050\ \textcolor{comment}{MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00051\ \textcolor{comment}{NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS}}
+\DoxyCodeLine{00052\ \textcolor{comment}{BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN}}
+\DoxyCodeLine{00053\ \textcolor{comment}{ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN}}
+\DoxyCodeLine{00054\ \textcolor{comment}{CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{00055\ \textcolor{comment}{SOFTWARE.}}
+\DoxyCodeLine{00056\ \textcolor{comment}{========================================================================}}
+\DoxyCodeLine{00057\ \textcolor{comment}{(END\ LICENSE\ TEXT)}}
+\DoxyCodeLine{00058\ \textcolor{comment}{}}
+\DoxyCodeLine{00059\ \textcolor{comment}{The\ MIT\ license\ is\ compatible\ with\ both\ the\ GPL\ and\ commercial}}
+\DoxyCodeLine{00060\ \textcolor{comment}{software,\ affording\ one\ all\ of\ the\ rights\ of\ Public\ Domain\ with\ the}}
+\DoxyCodeLine{00061\ \textcolor{comment}{minor\ nuisance\ of\ being\ required\ to\ keep\ the\ above\ copyright\ notice}}
+\DoxyCodeLine{00062\ \textcolor{comment}{and\ license\ text\ in\ the\ source\ code.\ Note\ also\ that\ by\ accepting\ the}}
+\DoxyCodeLine{00063\ \textcolor{comment}{Public\ Domain\ "{}license"{}\ you\ can\ re-\/license\ your\ copy\ using\ whatever}}
+\DoxyCodeLine{00064\ \textcolor{comment}{license\ you\ like.}}
+\DoxyCodeLine{00065\ \textcolor{comment}{}}
+\DoxyCodeLine{00066\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00069\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ LICENSE}}
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#ifndef\ JSON\_FORWARD\_AMALGAMATED\_H\_INCLUDED}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#\ define\ JSON\_FORWARD\_AMALGAMATED\_H\_INCLUDED}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ JSON\_IS\_AMALGAMATION}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00083\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/version.h}}
+\DoxyCodeLine{00084\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#ifndef\ JSON\_VERSION\_H\_INCLUDED}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ JSON\_VERSION\_H\_INCLUDED}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ Note:\ version\ must\ be\ updated\ in\ three\ places\ when\ doing\ a\ release.\ This}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//\ annoying\ process\ ensures\ that\ amalgamate,\ CMake,\ and\ meson\ all\ report\ the}}
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ correct\ version.}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ 1.\ /meson.build}}
+\DoxyCodeLine{00093\ \textcolor{comment}{//\ 2.\ /include/json/version.h}}
+\DoxyCodeLine{00094\ \textcolor{comment}{//\ 3.\ /CMakeLists.txt}}
+\DoxyCodeLine{00095\ \textcolor{comment}{//\ IMPORTANT:\ also\ update\ the\ SOVERSION!!}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ JSONCPP\_VERSION\_STRING\ "{}1.9.5"{}}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ JSONCPP\_VERSION\_MAJOR\ 1}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ JSONCPP\_VERSION\_MINOR\ 9}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ JSONCPP\_VERSION\_PATCH\ 5}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ JSONCPP\_VERSION\_QUALIFIER}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ JSONCPP\_VERSION\_HEXA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ ((JSONCPP\_VERSION\_MAJOR\ <<\ 24)\ |\ (JSONCPP\_VERSION\_MINOR\ <<\ 16)\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\ \ \ (JSONCPP\_VERSION\_PATCH\ <<\ 8))}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#ifdef\ JSONCPP\_USING\_SECURE\_MEMORY}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#undef\ JSONCPP\_USING\_SECURE\_MEMORY}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ JSONCPP\_USING\_SECURE\_MEMORY\ 0}}
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ If\ non-\/zero,\ the\ library\ zeroes\ any\ memory\ that\ it\ has\ allocated\ before}}
+\DoxyCodeLine{00111\ \textcolor{comment}{//\ it\ frees\ its\ memory.}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_VERSION\_H\_INCLUDED}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00116\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/version.h}}
+\DoxyCodeLine{00117\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00125\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/allocator.h}}
+\DoxyCodeLine{00126\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{comment}{//\ Copyright\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{00129\ \textcolor{comment}{//\ Distributed\ under\ MIT\ license,\ or\ public\ domain\ if\ desired\ and}}
+\DoxyCodeLine{00130\ \textcolor{comment}{//\ recognized\ in\ your\ jurisdiction.}}
+\DoxyCodeLine{00131\ \textcolor{comment}{//\ See\ file\ LICENSE\ for\ detail\ or\ copy\ at\ http://jsoncpp.sourceforge.net/LICENSE}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#ifndef\ JSON\_ALLOCATOR\_H\_INCLUDED}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ JSON\_ALLOCATOR\_H\_INCLUDED}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#pragma\ pack(push,\ 8)}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_json}{Json}}\ \{}
+\DoxyCodeLine{00142\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_json_1_1_secure_allocator}{SecureAllocator}}\ \{}
+\DoxyCodeLine{00143\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00144\ \ \ \textcolor{comment}{//\ Type\ definitions}}
+\DoxyCodeLine{00145\ \ \ \textcolor{keyword}{using\ }value\_type\ =\ T;}
+\DoxyCodeLine{00146\ \ \ \textcolor{keyword}{using\ }pointer\ =\ T*;}
+\DoxyCodeLine{00147\ \ \ \textcolor{keyword}{using\ }const\_pointer\ =\ \textcolor{keyword}{const}\ T*;}
+\DoxyCodeLine{00148\ \ \ \textcolor{keyword}{using\ }reference\ =\ T\&;}
+\DoxyCodeLine{00149\ \ \ \textcolor{keyword}{using\ }const\_reference\ =\ \textcolor{keyword}{const}\ T\&;}
+\DoxyCodeLine{00150\ \ \ \textcolor{keyword}{using\ }size\_type\ =\ std::size\_t;}
+\DoxyCodeLine{00151\ \ \ \textcolor{keyword}{using\ }difference\_type\ =\ std::ptrdiff\_t;}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00156\ \ \ pointer\ \mbox{\hyperlink{class_json_1_1_secure_allocator_a9b7d7180b360ebd673bdcfab25c1d5a4}{allocate}}(size\_type\ n)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ allocate\ using\ "{}global\ operator\ new"{}}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}pointer\textcolor{keyword}{>}(::operator\ \textcolor{keyword}{new}(n\ *\ \textcolor{keyword}{sizeof}(T)));}
+\DoxyCodeLine{00159\ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00166\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_json_1_1_secure_allocator_a886d46522b21826939ef055f69deeb78}{deallocate}}(pointer\ p,\ size\_type\ n)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\ memset\_s\ is\ used\ because\ memset\ may\ be\ optimized\ away\ by\ the\ compiler}}
+\DoxyCodeLine{00168\ \ \ \ \ memset\_s(p,\ n\ *\ \textcolor{keyword}{sizeof}(T),\ 0,\ n\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{comment}{//\ free\ using\ "{}global\ operator\ delete"{}}}
+\DoxyCodeLine{00170\ \ \ \ \ ::operator\ \textcolor{keyword}{delete}(p);}
+\DoxyCodeLine{00171\ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00176\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_json_1_1_secure_allocator_acd466192ba41ea5468bd2f45ae9de9fb}{construct}}(pointer\ p,\ Args\&\&...\ args)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{comment}{//\ construct\ using\ "{}placement\ new"{}\ and\ "{}perfect\ forwarding"{}}}
+\DoxyCodeLine{00178\ \ \ \ \ ::new\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(p))\ T(std::forward<Args>(args)...);}
+\DoxyCodeLine{00179\ \ \ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ size\_type\ max\_size()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ size\_t(-\/1)\ /\ \textcolor{keyword}{sizeof}(T);\ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ pointer\ address(reference\ x)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ std::addressof(x);\ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ const\_pointer\ address(const\_reference\ x)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ std::addressof(x);\ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00190\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_json_1_1_secure_allocator_a7316f4efeb3b992c69c94e345ac9f5cd}{destroy}}(pointer\ p)\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//\ destroy\ using\ "{}explicit\ destructor"{}}}
+\DoxyCodeLine{00192\ \ \ \ \ p-\/>\string~T();}
+\DoxyCodeLine{00193\ \ \ \}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \textcolor{comment}{//\ Boilerplate}}
+\DoxyCodeLine{00196\ \ \ \mbox{\hyperlink{class_json_1_1_secure_allocator}{SecureAllocator}}()\ \{\}}
+\DoxyCodeLine{00197\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>\ SecureAllocator(\textcolor{keyword}{const}\ SecureAllocator<U>\&)\ \{\}}
+\DoxyCodeLine{00198\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_json_1_1_secure_allocator_1_1rebind}{rebind}}\ \{\ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_json_1_1_secure_allocator}{other}}\ =\ \mbox{\hyperlink{class_json_1_1_secure_allocator}{SecureAllocator<U>}};\ \};}
+\DoxyCodeLine{00199\ \};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{00202\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_secure_allocator}{SecureAllocator<T>}}\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_json_1_1_secure_allocator}{SecureAllocator<U>}}\&)\ \{}
+\DoxyCodeLine{00203\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00204\ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{00207\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ SecureAllocator<T>\&,\ \textcolor{keyword}{const}\ SecureAllocator<U>\&)\ \{}
+\DoxyCodeLine{00208\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00209\ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \}\ \textcolor{comment}{//\ namespace\ Json}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#pragma\ pack(pop)}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_ALLOCATOR\_H\_INCLUDED}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00218\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/allocator.h}}
+\DoxyCodeLine{00219\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00227\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/config.h}}
+\DoxyCodeLine{00228\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \textcolor{comment}{//\ Copyright\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{00231\ \textcolor{comment}{//\ Distributed\ under\ MIT\ license,\ or\ public\ domain\ if\ desired\ and}}
+\DoxyCodeLine{00232\ \textcolor{comment}{//\ recognized\ in\ your\ jurisdiction.}}
+\DoxyCodeLine{00233\ \textcolor{comment}{//\ See\ file\ LICENSE\ for\ detail\ or\ copy\ at\ http://jsoncpp.sourceforge.net/LICENSE}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#ifndef\ JSON\_CONFIG\_H\_INCLUDED}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#define\ JSON\_CONFIG\_H\_INCLUDED}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#include\ <istream>}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \textcolor{comment}{//\ If\ non-\/zero,\ the\ library\ uses\ exceptions\ to\ report\ bad\ input\ instead\ of\ C}}
+\DoxyCodeLine{00247\ \textcolor{comment}{//\ assertion\ macros.\ The\ default\ is\ to\ use\ exceptions.}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#ifndef\ JSON\_USE\_EXCEPTION}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#define\ JSON\_USE\_EXCEPTION\ 1}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{comment}{//\ Temporary,\ tracked\ for\ removal\ with\ issue\ \#982.}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#ifndef\ JSON\_USE\_NULLREF}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#define\ JSON\_USE\_NULLREF\ 1}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00260\ \textcolor{comment}{//\ \#define\ JSON\_IS\_AMALGAMATION}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{comment}{//\ Export\ macros\ for\ DLL\ visibility}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#if\ defined(JSON\_DLL\_BUILD)}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ ||\ defined(\_\_MINGW32\_\_)}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#define\ JSON\_API\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#define\ JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)\ ||\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#define\ JSON\_API\ \_\_attribute\_\_((visibility("{}default"{}})))}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#elif\ defined(JSON\_DLL)}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ ||\ defined(\_\_MINGW32\_\_)}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#define\ JSON\_API\ \_\_declspec(dllimport)}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\#define\ JSONCPP\_DISABLE\_DLL\_INTERFACE\_WARNING}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ifdef\ JSON\_DLL\_BUILD}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#if\ !defined(JSON\_API)}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#define\ JSON\_API}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ \&\&\ \_MSC\_VER\ <\ 1800}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#error\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\ \ \ \ "{}ERROR:\ \ Visual\ Studio\ 12\ (2013)\ with\ \_MSC\_VER=1800\ is\ the\ oldest\ supported\ compiler\ with\ sufficient\ C++11\ capabilities"{}}}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ \&\&\ \_MSC\_VER\ <\ 1900}}
+\DoxyCodeLine{00288\ \textcolor{comment}{//\ As\ recommended\ at}}
+\DoxyCodeLine{00289\ \textcolor{comment}{//\ https://stackoverflow.com/questions/2915672/snprintf-\/and-\/visual-\/studio-\/2010}}
+\DoxyCodeLine{00290\ \textcolor{keyword}{extern}\ JSON\_API\ \textcolor{keywordtype}{int}\ msvc\_pre1900\_c99\_snprintf(\textcolor{keywordtype}{char}*\ outBuf,\ \textcolor{keywordtype}{size\_t}\ size,}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ format,\ ...);}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\#define\ jsoncpp\_snprintf\ msvc\_pre1900\_c99\_snprintf}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#define\ jsoncpp\_snprintf\ std::snprintf}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \textcolor{comment}{//\ If\ JSON\_NO\_INT64\ is\ defined,\ then\ Json\ only\ support\ C++\ "{}int"{}\ type\ for}}
+\DoxyCodeLine{00298\ \textcolor{comment}{//\ integer}}
+\DoxyCodeLine{00299\ \textcolor{comment}{//\ Storages,\ and\ 64\ bits\ integer\ support\ is\ disabled.}}
+\DoxyCodeLine{00300\ \textcolor{comment}{//\ \#define\ JSON\_NO\_INT64\ 1}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \textcolor{comment}{//\ JSONCPP\_OVERRIDE\ is\ maintained\ for\ backwards\ compatibility\ of\ external\ tools.}}
+\DoxyCodeLine{00303\ \textcolor{comment}{//\ C++11\ should\ be\ used\ directly\ in\ JSONCPP.}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\#define\ JSONCPP\_OVERRIDE\ override}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\#ifdef\ \_\_clang\_\_}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\#if\ \_\_has\_extension(attribute\_deprecated\_with\_message)}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#define\ JSONCPP\_DEPRECATED(message)\ \_\_attribute\_\_((deprecated(message)))}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)\ }\textcolor{comment}{//\ not\ clang\ (gcc\ comes\ later\ since\ clang\ emulates\ gcc)}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#if\ (\_\_GNUC\_\_\ >\ 4\ ||\ (\_\_GNUC\_\_\ ==\ 4\ \&\&\ \_\_GNUC\_MINOR\_\_\ >=\ 5))}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\#define\ JSONCPP\_DEPRECATED(message)\ \_\_attribute\_\_((deprecated(message)))}}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\#elif\ (\_\_GNUC\_\_\ >\ 3\ ||\ (\_\_GNUC\_\_\ ==\ 3\ \&\&\ \_\_GNUC\_MINOR\_\_\ >=\ 1))}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#define\ JSONCPP\_DEPRECATED(message)\ \_\_attribute\_\_((\_\_deprecated\_\_))}}
+\DoxyCodeLine{00315\ \textcolor{preprocessor}{\#endif\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ GNUC\ version}}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\#elif\ defined(\_MSC\_VER)\ }\textcolor{comment}{//\ MSVC\ (after\ clang\ because\ clang\ on\ Windows\ emulates}}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ MSVC)}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#define\ JSONCPP\_DEPRECATED(message)\ \_\_declspec(deprecated(message))}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_clang\_\_\ ||\ \_\_GNUC\_\_\ ||\ \_MSC\_VER}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#if\ !defined(JSONCPP\_DEPRECATED)}}
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\#define\ JSONCPP\_DEPRECATED(message)}}
+\DoxyCodeLine{00323\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ !defined(JSONCPP\_DEPRECATED)}}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\#if\ defined(\_\_clang\_\_)\ ||\ (defined(\_\_GNUC\_\_)\ \&\&\ (\_\_GNUC\_\_\ >=\ 6))}}
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\#define\ JSON\_USE\_INT64\_DOUBLE\_CONVERSION\ 1}}
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\#include\ "{}allocator.h"{}}}
+\DoxyCodeLine{00332\ \textcolor{preprocessor}{\#include\ "{}version.h"{}}}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_json}{Json}}\ \{}
+\DoxyCodeLine{00337\ \textcolor{keyword}{using\ }Int\ =\ int;}
+\DoxyCodeLine{00338\ \textcolor{keyword}{using\ }UInt\ =\ \textcolor{keywordtype}{unsigned}\ int;}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\#if\ defined(JSON\_NO\_INT64)}}
+\DoxyCodeLine{00340\ \textcolor{keyword}{using\ }LargestInt\ =\ int;}
+\DoxyCodeLine{00341\ \textcolor{keyword}{using\ }LargestUInt\ =\ \textcolor{keywordtype}{unsigned}\ int;}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\#undef\ JSON\_HAS\_INT64}}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\#else\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ if\ defined(JSON\_NO\_INT64)}}
+\DoxyCodeLine{00344\ \textcolor{comment}{//\ For\ Microsoft\ Visual\ use\ specific\ types\ as\ long\ long\ is\ not\ supported}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ }\textcolor{comment}{//\ Microsoft\ Visual\ Studio}}
+\DoxyCodeLine{00346\ \textcolor{keyword}{using\ }Int64\ =\ \_\_int64;}
+\DoxyCodeLine{00347\ \textcolor{keyword}{using\ }UInt64\ =\ \textcolor{keywordtype}{unsigned}\ \_\_int64;}
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#else\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ if\ defined(\_MSC\_VER)\ //\ Other\ platforms,\ use\ long\ long}}
+\DoxyCodeLine{00349\ \textcolor{keyword}{using\ }Int64\ =\ int64\_t;}
+\DoxyCodeLine{00350\ \textcolor{keyword}{using\ }UInt64\ =\ uint64\_t;}
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\#endif\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{00352\ \textcolor{keyword}{using\ }LargestInt\ =\ Int64;}
+\DoxyCodeLine{00353\ \textcolor{keyword}{using\ }LargestUInt\ =\ UInt64;}
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\#define\ JSON\_HAS\_INT64}}
+\DoxyCodeLine{00355\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ defined(JSON\_NO\_INT64)}}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00358\ \textcolor{keyword}{using\ }Allocator\ =}
+\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keyword}{typename}\ std::conditional<JSONCPP\_USING\_SECURE\_MEMORY,\ SecureAllocator<T>,}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::allocator<T>>::type;}
+\DoxyCodeLine{00361\ \textcolor{keyword}{using\ }String\ =\ std::basic\_string<char,\ std::char\_traits<char>,\ Allocator<char>>;}
+\DoxyCodeLine{00362\ \textcolor{keyword}{using\ }IStringStream\ =}
+\DoxyCodeLine{00363\ \ \ \ \ std::basic\_istringstream<String::value\_type,\ String::traits\_type,}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String::allocator\_type>;}
+\DoxyCodeLine{00365\ \textcolor{keyword}{using\ }OStringStream\ =}
+\DoxyCodeLine{00366\ \ \ \ \ std::basic\_ostringstream<String::value\_type,\ String::traits\_type,}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ String::allocator\_type>;}
+\DoxyCodeLine{00368\ \textcolor{keyword}{using\ }IStream\ =\ std::istream;}
+\DoxyCodeLine{00369\ \textcolor{keyword}{using\ }OStream\ =\ std::ostream;}
+\DoxyCodeLine{00370\ \}\ \textcolor{comment}{//\ namespace\ Json}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \textcolor{comment}{//\ Legacy\ names\ (formerly\ macros).}}
+\DoxyCodeLine{00373\ \textcolor{keyword}{using\ }JSONCPP\_STRING\ =\ Json::String;}
+\DoxyCodeLine{00374\ \textcolor{keyword}{using\ }JSONCPP\_ISTRINGSTREAM\ =\ Json::IStringStream;}
+\DoxyCodeLine{00375\ \textcolor{keyword}{using\ }JSONCPP\_OSTRINGSTREAM\ =\ Json::OStringStream;}
+\DoxyCodeLine{00376\ \textcolor{keyword}{using\ }JSONCPP\_ISTREAM\ =\ Json::IStream;}
+\DoxyCodeLine{00377\ \textcolor{keyword}{using\ }JSONCPP\_OSTREAM\ =\ Json::OStream;}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_CONFIG\_H\_INCLUDED}}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00382\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/config.h}}
+\DoxyCodeLine{00383\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00391\ \textcolor{comment}{//\ Beginning\ of\ content\ of\ file:\ include/json/forwards.h}}
+\DoxyCodeLine{00392\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \textcolor{comment}{//\ Copyright\ 2007-\/2010\ Baptiste\ Lepilleur\ and\ The\ JsonCpp\ Authors}}
+\DoxyCodeLine{00395\ \textcolor{comment}{//\ Distributed\ under\ MIT\ license,\ or\ public\ domain\ if\ desired\ and}}
+\DoxyCodeLine{00396\ \textcolor{comment}{//\ recognized\ in\ your\ jurisdiction.}}
+\DoxyCodeLine{00397\ \textcolor{comment}{//\ See\ file\ LICENSE\ for\ detail\ or\ copy\ at\ http://jsoncpp.sourceforge.net/LICENSE}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\#ifndef\ JSON\_FORWARDS\_H\_INCLUDED}}
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\#define\ JSON\_FORWARDS\_H\_INCLUDED}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\#if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{\#include\ "{}config.h"{}}}
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ if\ !defined(JSON\_IS\_AMALGAMATION)}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_json}{Json}}\ \{}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \textcolor{comment}{//\ writer.h}}
+\DoxyCodeLine{00409\ \textcolor{keyword}{class\ }StreamWriter;}
+\DoxyCodeLine{00410\ \textcolor{keyword}{class\ }StreamWriterBuilder;}
+\DoxyCodeLine{00411\ \textcolor{keyword}{class\ }Writer;}
+\DoxyCodeLine{00412\ \textcolor{keyword}{class\ }FastWriter;}
+\DoxyCodeLine{00413\ \textcolor{keyword}{class\ }StyledWriter;}
+\DoxyCodeLine{00414\ \textcolor{keyword}{class\ }StyledStreamWriter;}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \textcolor{comment}{//\ reader.h}}
+\DoxyCodeLine{00417\ \textcolor{keyword}{class\ }Reader;}
+\DoxyCodeLine{00418\ \textcolor{keyword}{class\ }CharReader;}
+\DoxyCodeLine{00419\ \textcolor{keyword}{class\ }CharReaderBuilder;}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \textcolor{comment}{//\ json\_features.h}}
+\DoxyCodeLine{00422\ \textcolor{keyword}{class\ }Features;}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \textcolor{comment}{//\ value.h}}
+\DoxyCodeLine{00425\ \textcolor{keyword}{using\ }ArrayIndex\ =\ \textcolor{keywordtype}{unsigned}\ int;}
+\DoxyCodeLine{00426\ \textcolor{keyword}{class\ }StaticString;}
+\DoxyCodeLine{00427\ \textcolor{keyword}{class\ }Path;}
+\DoxyCodeLine{00428\ \textcolor{keyword}{class\ }PathArgument;}
+\DoxyCodeLine{00429\ \textcolor{keyword}{class\ }Value;}
+\DoxyCodeLine{00430\ \textcolor{keyword}{class\ }ValueIteratorBase;}
+\DoxyCodeLine{00431\ \textcolor{keyword}{class\ }ValueIterator;}
+\DoxyCodeLine{00432\ \textcolor{keyword}{class\ }ValueConstIterator;}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00434\ \}\ \textcolor{comment}{//\ namespace\ Json}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ JSON\_FORWARDS\_H\_INCLUDED}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00439\ \textcolor{comment}{//\ End\ of\ content\ of\ file:\ include/json/forwards.h}}
+\DoxyCodeLine{00440\ \textcolor{comment}{//\ //////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00446\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ifndef\ JSON\_FORWARD\_AMALGAMATED\_H\_INCLUDED}}
+
+\end{DoxyCode}
