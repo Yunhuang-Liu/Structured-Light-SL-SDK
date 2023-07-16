@@ -36,7 +36,7 @@ __global__ void matchAndTriangulateCUDA(
                 continue;
             }
 
-            cost = cuda::std::abs(leftImg.ptr(y)[x] - rightImg.ptr(y)[x - d]);
+            cost = std::abs(leftImg.ptr(y)[x] - rightImg.ptr(y)[x - d]);
 
             if(sucessFind) {
                 if(cost > minCost) {
@@ -57,7 +57,7 @@ __global__ void matchAndTriangulateCUDA(
 
         float dived = rightImg.ptr(y)[x - k + 1] - rightImg.ptr(y)[x - k - 1];
 
-        if (cuda::std::abs(dived) < 0.001) {
+        if (std::abs(dived) < 0.001) {
             dived = 0.001;
         }
 
@@ -109,7 +109,7 @@ void getDepthMap(const cv::cuda::GpuMat &leftImg,
                  cv::cuda::Stream &cvStream, const dim3 block) {
     cudaStream_t stream = cv::cuda::StreamAccessor::getStream(cvStream);
     dim3 grid((leftImg.cols + block.x - 1) / block.x,
-              (leftImg.rows + block.y - 1) / block.y);
+              (leftImg.rows + block.y - 1) / block.y, 1);
     matchAndTriangulateCUDA<<<grid, block, 0, stream>>>(
         leftImg, rightImg, leftImg.rows, leftImg.cols, param.__minDisparity,
         param.__maxDisparity, param.__minDepth, param.__maxDepth,

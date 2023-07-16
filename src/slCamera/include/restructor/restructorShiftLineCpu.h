@@ -14,10 +14,6 @@
 #include <matrixsInfo.h>
 #include <restructor.h>
 
-
-#include <immintrin.h>
-#include <limits>
-
 /** @brief 结构光库 */
 namespace sl {
 /** @brief 重建库 */

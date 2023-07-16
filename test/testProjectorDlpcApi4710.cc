@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
 
+#include <thread>
+
 #include <projectorFactory.h>
 
 const std::string testProjector4710 = "DLP4710";

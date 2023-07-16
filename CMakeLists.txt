@@ -2,17 +2,19 @@ cmake_minimum_required(VERSION 3.0)
 
 project(SLSDK)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -g")
 
 option(BUILD_PROJECTOR "build the projector controller lib" OFF)
 set(BUILD_Projector_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/projector)
 option(BUILD_CAMERA "build the camera controller lib" OFF)
 set(BUILD_Camera_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/camera)
-option(BUILD_SLSDK "build the structed light camera lib" ON)
+option(BUILD_SLSDK "build the structed light camera lib" OFF)
 set(BUILD_SLSDK_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/slCamera)
-option(BUILD_GOOGLE_TEST "build the google_test targets" ON)
+option(BUILD_GOOGLE_TEST "build the google_test targets" OFF)
 set(BUILD_GOOGLE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/test)
 
 if(BUILD_PROJECTOR)

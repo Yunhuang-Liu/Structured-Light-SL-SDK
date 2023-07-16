@@ -1,9 +1,6 @@
 #include <cudaTypeDef.cuh>
-#include <cuda_runtime_api.h>
 
 #include <phaseSolver.h>
-#include <typeDef.h>
-
 
 namespace sl {
 namespace phaseSolver {
@@ -34,7 +31,7 @@ __global__ void solvePhaseCuda(IN const cv::cuda::PtrStep<uchar> imgs,
     conditionImg.ptr(y)[x] = snc;
 
     // 计算包裹相位
-    const float wrapVal = -1.f * cuda::std::atan2(curSin, curCos);
+    const float wrapVal = -1.f * std::atan2(curSin, curCos);
     wrapImg.ptr(y)[x] = wrapVal;
 
     if (snc < sncThreshold) {
@@ -47,11 +44,11 @@ __global__ void solvePhaseCuda(IN const cv::cuda::PtrStep<uchar> imgs,
         const int curGrayBit = imgs.ptr(y)[imgsSize * x + i] < snc ? 0 : 1;
         preGrayBit = (i == phaseShifteTime) ? curGrayBit ^ 0 : curGrayBit ^ preGrayBit;
         grayCodeK2 +=
-            preGrayBit * cuda::std::pow(2, imgsSize - i - 1);
+            preGrayBit * std::pow(2, imgsSize - i - 1);
 
         if (i != imgsSize - 1) {
             grayCodeK1 += preGrayBit *
-                          cuda::std::pow(2, imgsSize - i - 2);
+                          std::pow(2, imgsSize - i - 2);
         }
     }
 
@@ -75,7 +72,7 @@ void solvePhase(IN const std::vector<cv::Mat> &imgs,
     const int rows = imgs[0].rows;
     const int cols = imgs[0].cols;
     cudaStream_t stream = cv::cuda::StreamAccessor::getStream(cvStream);
-    dim3 grid((cols + block.x - 1) / block.x, (rows + block.y - 1) / block.y);
+    dim3 grid((cols + block.x - 1) / block.x, (rows + block.y - 1) / block.y, 1);
 
     cv::Mat mergeImg;
     cv::cuda::GpuMat deviceImgs;

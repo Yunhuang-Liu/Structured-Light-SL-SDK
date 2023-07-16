@@ -14,10 +14,6 @@
 
 #include <wrapCreator.h>
 
-#include <immintrin.h>
-
-#include <thread>
-
 /** @brief 结构光库 */
 namespace sl {
 /** @brief 包裹生成库 */

@@ -1,5 +1,4 @@
 #include <cudaTypeDef.cuh>
-#include <cuda_runtime_api.h>
 
 #include <matrixsInfo.h>
 
@@ -165,8 +164,8 @@ void phaseHeightMapEigCoe(
     const cv::cuda::GpuMat &phase, const Eigen::Matrix3f &intrinsic,
     const Eigen::Vector<float, 8> &coefficient, const float minDepth,
     const float maxDepth, cv::cuda::GpuMat &depth,
-    const dim3 block = dim3(32, 8),
-    cv::cuda::Stream &cvStream = cv::cuda::Stream::Null()) {
+    const dim3 block,
+    cv::cuda::Stream &cvStream) {
 
     CV_Assert(!phase.empty() && phase.type() == CV_32FC1);
 
@@ -188,8 +187,8 @@ void reverseMappingTexture(
     const cv::cuda::GpuMat &depth, const cv::cuda::GpuMat &textureSrc,
     const Eigen::Matrix3f &intrinsicInvD, const Eigen::Matrix3f &intrinsicT,
     const Eigen::Matrix3f &rotateDToT, const Eigen::Vector3f &translateDtoT,
-    cv::cuda::GpuMat &textureMapped, const dim3 block = dim3(32, 8),
-    cv::cuda::Stream &cvStream = cv::cuda::Stream::Null()) {
+    cv::cuda::GpuMat &textureMapped, const dim3 block,
+    cv::cuda::Stream &cvStream) {
     CV_Assert(depth.type() == CV_32FC1 && !depth.empty() &&
               textureSrc.type() == CV_8UC3 && !textureSrc.empty());
 
@@ -207,8 +206,8 @@ void reverseMappingTexture(
 }
 
 void averageTexture(const std::vector<cv::Mat> &imgs, cv::cuda::GpuMat &texture,
-                    const dim3 block = dim3(32, 8),
-                    cv::cuda::Stream &cvStream = cv::cuda::Stream::Null()) {
+                    const dim3 block,
+                    cv::cuda::Stream &cvStream) {
 
     texture.create(imgs[0].size(), CV_8UC3);
     texture.setTo(cv::Scalar(0, 0, 0));
@@ -230,8 +229,8 @@ void averageTexture(const std::vector<cv::Mat> &imgs, cv::cuda::GpuMat &texture,
 
 void filterPhase(IN const cv::cuda::GpuMat &absPhase, OUT cv::cuda::GpuMat &out,
                  IN const float maxTollerance, IN const int kernel,
-                 IN const dim3 block = dim3(32, 8),
-                 IN cv::cuda::Stream &cvStream = cv::cuda::Stream::Null()) {
+                 IN const dim3 block,
+                 IN cv::cuda::Stream &cvStream) {
     out.create(absPhase.size(), CV_32FC1);
     out.setTo(0.f);
 

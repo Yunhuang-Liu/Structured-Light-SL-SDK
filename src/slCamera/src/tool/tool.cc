@@ -337,13 +337,13 @@ void remapToDepthCamera(const cv::Mat &depthIn, const cv::Mat &textureIn,
                         (0 > y_maped) || (x_maped > depthRemaped.cols - 1))
                         continue;
 
-                    auto color = textureIn.ptr<uchar3>(y_maped)[x_maped];
+                    auto color = textureIn.ptr<cv::Vec3b>(y_maped)[x_maped];
                     std::lock_guard<std::mutex> lock(mutexMap);
                     depthRemaped.ptr<float>(y_maped)[x_maped] =
                         pointRemaped(2, 0);
                     cloud.points.emplace_back(pcl::PointXYZRGB(
                         pointRemaped(0, 0), pointRemaped(1, 0),
-                        pointRemaped(2, 0), color.x, color.y, color.z));
+                        pointRemaped(2, 0), color[0], color[1], color[2]));
                 }
             }
         });

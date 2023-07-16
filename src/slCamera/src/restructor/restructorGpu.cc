@@ -1,5 +1,7 @@
 #include <restructorGpu.h>
 
+#include <limits>
+
 namespace sl {
 namespace restructor {
 RestructorGpu::RestructorGpu(const tool::Info &calibrationInfo)

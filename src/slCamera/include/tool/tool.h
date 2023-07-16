@@ -11,15 +11,8 @@
 #ifndef __TOOL_TOOL_H_
 #define __TOOL_TOOL_H_
 
-#include <Eigen/Eigen>
-#include <opencv2/core/eigen.hpp>
-#include <opencv2/opencv.hpp>
-
-#include <pcl/point_cloud.h>
-#include <pcl/point_types.h>
-
 #ifdef __WITH_CUDA__
-#include <cuda/std/cmath>
+//#include <cuda/std/cmath>
 #include <cuda/std/functional>
 #include <cuda_runtime.h>
 #include <device_functions.h>
@@ -30,6 +23,13 @@
 #include <opencv2/cudastereo.hpp>
 #include <opencv2/cudawarping.hpp>
 #endif //!__WITH_CUDA__
+
+#include <Eigen/Eigen>
+#include <opencv2/core/eigen.hpp>
+#include <opencv2/opencv.hpp>
+
+#include <pcl/point_cloud.h>
+#include <pcl/point_types.h>
 
 #include <matrixsInfo.h>
 #include <typeDef.h>

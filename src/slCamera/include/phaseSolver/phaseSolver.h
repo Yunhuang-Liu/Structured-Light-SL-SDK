@@ -12,20 +12,8 @@
 #ifndef __PHASESOLVER_PHASESOLVER_H_
 #define __PHASESOLVER_PHASESOLVER_H_
 
-#include <immintrin.h>
-
-#include <fstream>
-#include <thread>
-#include <vector>
-
-#include <Eigen/Core>
-#include <opencv2/core/eigen.hpp>
-#include <opencv2/opencv.hpp>
-
-#include <typeDef.h>
-
 #ifdef __WITH_CUDA__
-#include <cuda/std/cmath>
+//#include <cuda/std/cmath>
 #include <cuda/std/functional>
 #include <cuda_runtime.h>
 #include <device_functions.h>
@@ -36,6 +24,16 @@
 #include <opencv2/cudastereo.hpp>
 #include <opencv2/cudawarping.hpp>
 #endif // !__WITH_CUDA__
+
+
+#include <thread>
+#include <vector>
+
+#include <Eigen/Eigen>
+#include <opencv2/core/eigen.hpp>
+#include <opencv2/opencv.hpp>
+
+#include <typeDef.h>
 
 /** @brief 结构光库 */
 namespace sl {

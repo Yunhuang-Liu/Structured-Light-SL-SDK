@@ -1,5 +1,9 @@
 #include <restructorShiftLineCpu.h>
 
+#include <immintrin.h>
+#include <limits>
+#include <thread>
+
 namespace sl {
 namespace restructor {
 RestructorShiftLineCpu::RestructorShiftLineCpu(const tool::Info &calibrationInfo)

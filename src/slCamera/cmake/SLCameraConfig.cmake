@@ -13,14 +13,8 @@ find_path(
 )
 
 find_library(
-    SLCamerad
-    slCamerad.lib
-    ${SLCamera_DIR}/lib
-)
-
-find_library(
     SLCamera
-    slCamera.lib
+    libslCamera.so
     ${SLCamera_DIR}/lib
 )
 
@@ -30,12 +24,7 @@ find_package(OpenCV REQUIRED)
 find_package(PCL REQUIRED)
 
 set(SLCamera_INCLUDE_DIRS ${SLCamera_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIRS} ${PCL_INCLUDE_DIRS})
-
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-set(SLCamera_LIBRARIES ${SLCamerad} ${OpenCV_LIBRARIES} ${PCL_LIBRARIES} ${Camera_LIBRARIES} ${Projector_LIBRARIES})
-else()
 set(SLCamera_LIBRARIES ${SLCamera} ${OpenCV_LIBRARIES} ${PCL_LIBRARIES})
-endif()
 
 find_path(
     withCuda
@@ -67,20 +56,11 @@ if(${BinoocularCamera_INCLUDE_DIRS} STREQUAL ${SLCamera_DIR}/include)
 
     find_library(
         binoocularCamera
-        binoocularCamera.lib
-        ${SLCamera_DIR}/lib
-    )
-    find_library(
-        binoocularCamerad
-        binoocularCamerad.lib
+        libbinoocularCamera.so
         ${SLCamera_DIR}/lib
     )
     
-    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-        list(APPEND SLCamera_LIBRARIES ${binoocularCamerad} ${Camera_LIBRARIES} ${Projector_LIBRARIES})
-    else()
-        list(APPEND SLCamera_LIBRARIES ${binoocularCamera} ${Camera_LIBRARIES} ${Projector_LIBRARIES})
-    endif()
+    list(APPEND SLCamera_LIBRARIES ${binoocularCamera} ${Camera_LIBRARIES} ${Projector_LIBRARIES})
 endif()
 
 include(FindPackageHandleStandardArgs)

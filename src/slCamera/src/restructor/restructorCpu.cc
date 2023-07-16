@@ -1,5 +1,9 @@
 #include <restructorCpu.h>
 
+#include <immintrin.h>
+#include <limits>
+#include <thread>
+
 namespace sl {
 namespace restructor {
 RestructorCpu::RestructorCpu(const tool::Info &calibrationInfo)

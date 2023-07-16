@@ -12,11 +12,8 @@
 #ifndef __RECTIFIER_RECTIFIER_H_
 #define __RECTIFIER_RECTIFIER_H_
 
-#include <matrixsInfo.h>
-#include <typeDef.h>
-
 #ifdef __WITH_CUDA__
-#include <cuda/std/cmath>
+//#include <cuda/std/cmath>
 #include <cuda/std/functional>
 #include <cuda_runtime.h>
 #include <device_functions.h>
@@ -26,8 +23,10 @@
 #include <opencv2/cudalegacy.hpp>
 #include <opencv2/cudastereo.hpp>
 #include <opencv2/cudawarping.hpp>
-
 #endif // !__WITH_CUDA__
+
+#include <matrixsInfo.h>
+#include <typeDef.h>
 
 /** @brief 结构光库 */
 namespace sl {

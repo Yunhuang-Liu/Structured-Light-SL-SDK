@@ -13,24 +13,13 @@ find_path(
 )
 
 find_library(
-    Camerad
-    Camerad.lib
-    ${Camera_DIR}/lib
-)
-
-find_library(
     Camera
-    Camera.lib
+    libCamera.so
     ${Camera_DIR}/lib
 )
 
 set(Camera_INCLUDE_DIRS ${Camera_INCLUDE_DIR})
-
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(Camera_LIBRARIES ${Camerad})
-else()
-    set(Camera_LIBRARIES ${Camera})
-endif()
+set(Camera_LIBRARIES ${Camera})
 
 find_path(
     Huaray_Camera_INCLUDE_DIRS
@@ -43,25 +32,16 @@ if(${Huaray_Camera_INCLUDE_DIRS} STREQUAL ${Camera_DIR}/include)
 
     find_library(
         MVSDKmd
-        MVSDKmd.lib
+        libMVSDK.so
         ${Camera_DIR}/lib
     )
     find_library(
         huarayCamera
-        huarayCamera.lib
-        ${Camera_DIR}/lib
-    )
-    find_library(
-        huarayCamerad
-        huarayCamerad.lib
+        libhuarayCamera.so
         ${Camera_DIR}/lib
     )
     
-    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-        list(APPEND Camera_LIBRARIES ${MVSDKmd} ${huarayCamerad})
-    else()
-        list(APPEND Camera_LIBRARIES ${MVSDKmd} ${huarayCamera})
-    endif()
+    list(APPEND Camera_LIBRARIES ${MVSDKmd} ${huarayCamera})
 endif()
 
 include(FindPackageHandleStandardArgs)

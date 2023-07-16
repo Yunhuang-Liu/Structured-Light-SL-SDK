@@ -43,9 +43,9 @@
     #define CYWINEXPORT CppCALLCONVEN
     #define WINCALLCONVEN
     #define LINUXCALLCONVEN
-#endif
-#ifndef BOOL
-    typedef bool BOOL;
+    #ifndef BOOL
+        typedef bool BOOL;
+    #endif
 #endif
 /*************************************************************************************/
 /*******************************Constants*********************************************/
@@ -64,20 +64,20 @@ This section contains USB Serial library version information.
 */
 
 /* Major version number for library. */
-#define CY_US_VERSION_MAJOR             (2)
+#define CY_US_VERSION_MAJOR             (1)
 
 /* Minor version number for library. */
 #define CY_US_VERSION_MINOR             (0)
 
 /* Patch version number for library. */
-#define CY_US_VERSION_PATCH             (3)
+#define CY_US_VERSION_PATCH             (0)
 
 /* Version number for the device. */
 #define CY_US_VERSION                   ((CY_US_VERSION_MAJOR)       | \
                                          (CY_US_VERSION_MINOR << 8)  | \
                                          (CY_US_VERSION_PATCH << 16))
 /* Library build number. */
-#define CY_US_VERSION_BUILD             (91)
+#define CY_US_VERSION_BUILD             (59)
 
 
 /*************************************************************************************/

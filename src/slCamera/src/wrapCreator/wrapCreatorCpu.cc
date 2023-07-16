@@ -1,5 +1,9 @@
 #include <wrapCreatorCpu.h>
 
+#include <immintrin.h>
+
+#include <thread>
+
 namespace sl {
 namespace wrapCreator {
 void WrapCreatorCpu::getWrapImg(const std::vector<cv::Mat> &imgs,
@@ -65,7 +69,6 @@ void WrapCreatorCpu::entrySolveTextureImgs(const std::vector<cv::Mat> &imgs,
                                            const cv::Point2i region,
                                            cv::Mat &conditionImg) {
     __m256 shiftStepData = _mm256_set1_ps(imgs.size());
-    std::vector<__m256> dataImgs(imgs.size());
     const int rows = conditionImg.rows;
     const int cols = conditionImg.cols;
     __m256 sumShiftImg = _mm256_set1_ps(0);
@@ -77,8 +80,8 @@ void WrapCreatorCpu::entrySolveTextureImgs(const std::vector<cv::Mat> &imgs,
         for (int j = 0; j < cols; j += 8) {
             sumShiftImg = _mm256_set1_ps(0);
             for (int step = 0; step < imgs.size(); ++step) {
-                dataImgs[step] = _mm256_load_ps(&ptrImgs[step][j]);
-                sumShiftImg = _mm256_add_ps(sumShiftImg, dataImgs[step]);
+                __m256 dataImg = _mm256_load_ps(&ptrImgs[step][j]);
+                sumShiftImg = _mm256_add_ps(sumShiftImg, dataImg);
             }
             _mm256_store_ps(&ptr_conditionImg[j],
                             _mm256_div_ps(sumShiftImg, shiftStepData));
@@ -92,7 +95,6 @@ void WrapCreatorCpu::entryWrap(const std::vector<cv::Mat> &imgs,
     __m256 dataCounter1 = _mm256_set1_ps(-1.f);
     __m256 shiftDistance = _mm256_set1_ps(CV_2PI / imgs.size());
     const int cols = wrapImg.cols;
-    std::vector<__m256> datas(imgs.size());
     __m256 sinPartial = _mm256_set1_ps(0);
     __m256 cosPartial = _mm256_set1_ps(0);
     __m256 time = _mm256_set1_ps(0);
@@ -104,22 +106,35 @@ void WrapCreatorCpu::entryWrap(const std::vector<cv::Mat> &imgs,
             ptrImgs[step] = imgs[step].ptr<float>(i);
         float *ptr_wrapImg = wrapImg.ptr<float>(i);
         for (size_t j = 0; j < cols; j += 8) {
-            for (int step = 0; step < imgs.size(); ++step)
-                datas[step] = _mm256_load_ps(&ptrImgs[step][j]);
             sinPartial = _mm256_set1_ps(0);
             cosPartial = _mm256_set1_ps(0);
             for (int step = 0; step < imgs.size(); ++step) {
                 time = _mm256_set1_ps(step);
                 shiftNow = _mm256_mul_ps(shiftDistance, time);
+
+                __m256 shiftSinVal = _mm256_set1_ps(0);
+                __m256 shiftCosVal = _mm256_set1_ps(0);
+                for (size_t i = 0; i < 8; ++i) {
+                    shiftSinVal[i] = sin(shiftNow[i]);
+                    shiftCosVal[i] = cos(shiftNow[i]);
+                }
+
+                __m256 dataImg = _mm256_load_ps(&ptrImgs[step][j]);
+
                 sinPartial = _mm256_add_ps(
                     sinPartial,
-                    _mm256_mul_ps(datas[step], _mm256_sin_ps(shiftNow)));
+                    _mm256_mul_ps(dataImg, shiftSinVal));
                 cosPartial = _mm256_add_ps(
                     cosPartial,
-                    _mm256_mul_ps(datas[step], _mm256_cos_ps(shiftNow)));
+                    _mm256_mul_ps(dataImg, shiftCosVal));
             }
-            result = _mm256_mul_ps(dataCounter1,
-                                   _mm256_atan2_ps(sinPartial, cosPartial));
+
+            __m256 shiftAtanVal = _mm256_set1_ps(0);
+            for (size_t i = 0; i < 8; ++i) {
+                shiftAtanVal[i] = std::atan2(sinPartial[i], cosPartial[i]);
+            }
+
+            result = _mm256_mul_ps(dataCounter1, shiftAtanVal);
             _mm256_store_ps(&ptr_wrapImg[j], result);
         }
     }

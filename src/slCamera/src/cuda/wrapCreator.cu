@@ -1,7 +1,5 @@
 #include <cudaTypeDef.cuh>
 
-#include <typeDef.h>
-
 namespace sl {
 namespace wrapCreator {
 namespace cudaFunc {
@@ -26,7 +24,7 @@ __global__ void solveWrapCuda(IN const cv::cuda::PtrStep<uchar> imgs,
     snc /= imgsSize;
 
     // 计算包裹相位
-    const float wrapVal = -1.f * cuda::std::atan2(curSin, curCos);
+    const float wrapVal = -1.f * std::atan2(curSin, curCos);
     
     wrapImg.ptr(y)[x] = wrapVal;
     conditionImg.ptr(y)[x] = snc;

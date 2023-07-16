@@ -1,5 +1,7 @@
 #include <nStepNGrayCodeMasterCpu.h>
 
+#include <immintrin.h>
+
 namespace sl {
 namespace phaseSolver {
 void NStepNGrayCodeMasterCpu::solveTextureImgs(const std::vector<cv::Mat> &imgs,
@@ -33,20 +35,19 @@ void NStepNGrayCodeMasterCpu::solveTextureImgs(const std::vector<cv::Mat> &imgs,
 void NStepNGrayCodeMasterCpu::entrySolveTextureImgs(
     const std::vector<cv::Mat> &imgs, const int shiftStep, const cv::Point2i region, cv::Mat &conditionImg) {
     __m256 shiftStepData = _mm256_set1_ps(shiftStep);
-    std::vector<__m256> dataImgs(shiftStep);
     const int rows = conditionImg.rows;
     const int cols = conditionImg.cols;
-    __m256 sumShiftImg = _mm256_set1_ps(0);
+
     for (int i = region.x; i < region.y; i++) {
         std::vector<const float *> ptrImgs(shiftStep);
         for (int step = 0; step < shiftStep; ++step)
             ptrImgs[step] = imgs[step].ptr<float>(i);
         float *ptr_conditionImg = conditionImg.ptr<float>(i);
         for (int j = 0; j < cols; j += 8) {
-            sumShiftImg = _mm256_set1_ps(0);
+            __m256 sumShiftImg = _mm256_set1_ps(0);
             for (int step = 0; step < shiftStep; ++step) {
-                dataImgs[step] = _mm256_load_ps(&ptrImgs[step][j]);
-                sumShiftImg = _mm256_add_ps(sumShiftImg, dataImgs[step]);
+                __m256 dataImg = _mm256_load_ps(&ptrImgs[step][j]);
+                sumShiftImg = _mm256_add_ps(sumShiftImg, dataImg);
             }
             _mm256_store_ps(&ptr_conditionImg[j], _mm256_div_ps(sumShiftImg, shiftStepData));
         }
@@ -64,56 +65,49 @@ void NStepNGrayCodeMasterCpu::entryUnwrap(const std::vector<cv::Mat> &imgs,
     const int cols = absolutePhaseImg.cols;
     __m256 add_1_ = _mm256_set1_ps(1);
     __m256 div_2_ = _mm256_set1_ps(2);
-    __m256 compare_Condition_10 = _mm256_set1_ps(sncThreshold);
+    __m256 conditionThreshold = _mm256_set1_ps(sncThreshold);
     __m256 _Counter_PI_Div_2_ = _mm256_set1_ps(-CV_PI / 2);
     __m256 _PI_Div_2_ = _mm256_set1_ps(CV_PI / 2);
     __m256 _2PI_ = _mm256_set1_ps(CV_2PI);
     __m256 zero = _mm256_set1_ps(0);
     __m256 one = _mm256_set1_ps(1);
-    std::vector<__m256> leftMoveTime(imgs.size() - shiftStep);
-    for (int gray = 0; gray < imgs.size() - shiftStep; ++gray)
-        leftMoveTime[gray] = _mm256_set1_ps(pow(2, gray));
-    std::vector<__m256> compareImgData(imgs.size() - shiftStep);
-    std::vector<__m256> compareData(imgs.size() - shiftStep);
-    std::vector<__m256> bitData(imgs.size() - shiftStep);
-    std::vector<__m256> imgsData(imgs.size() - shiftStep);
+
+    const int numOfGrayCode = imgs.size() - shiftStep;
     for (int i = region.x; i < region.y; i++) {
-        std::vector<const float *> ptrImgs(imgs.size() - shiftStep);
+        std::vector<const float *> ptrImgs(numOfGrayCode);
         for (int gray = shiftStep; gray < imgs.size(); ++gray)
             ptrImgs[gray - shiftStep] = imgs[gray].ptr<float>(i);
         const float *pWrapImg = wrapImg.ptr<float>(i);
         const float *pCondition = conditionImg.ptr<float>(i);
         float *ptr_absoluteImg = absolutePhaseImg.ptr<float>(i);
         for (int j = 0; j < cols; j += 8) {
-            for (int gray = 0; gray < imgs.size() - shiftStep; ++gray) {
-                imgsData[gray] = _mm256_load_ps(&ptrImgs[gray][j]);
-            }
-            __m256 wrapImgData = _mm256_load_ps(&pWrapImg[j]);
-            __m256 conditionData = _mm256_load_ps(&pCondition[j]);
-            __m256 compareCondition =
-                _mm256_cmp_ps(conditionData, compare_Condition_10, _CMP_GT_OS);
-            for (int gray = 0; gray < compareImgData.size(); ++gray) {
-                compareImgData[gray] = _mm256_and_ps(
-                    _mm256_cmp_ps(imgsData[gray], conditionData, _CMP_GE_OS),
-                    one);
-            }
             __m256 sumDataK2 = _mm256_set1_ps(0);
             __m256 sumDataK1 = _mm256_set1_ps(0);
-            for (int gray = compareImgData.size() - 1; gray >= 0; --gray) {
-                if (gray == compareImgData.size() - 1)
-                    bitData[gray] = _mm256_xor_ps(
-                        compareImgData[compareImgData.size() - 1 - gray], zero);
-                else
-                    bitData[gray] = _mm256_xor_ps(
-                        compareImgData[compareImgData.size() - 1 - gray],
-                        bitData[gray + 1]);
-                sumDataK2 =
-                    _mm256_add_ps(sumDataK2, _mm256_mul_ps(bitData[gray],
-                                                           leftMoveTime[gray]));
-                if (gray - 1 >= 0)
+            __m256 preBitData = _mm256_set1_ps(0);
+            __m256 wrapImgData = _mm256_load_ps(&pWrapImg[j]);
+            __m256 conditionData = _mm256_load_ps(&pCondition[j]);
+
+            for (int gray = 0; gray < numOfGrayCode; ++gray) {
+                __m256 imgData = _mm256_load_ps(&ptrImgs[gray][j]);
+                __m256 compareData = _mm256_and_ps(
+                    _mm256_cmp_ps(imgData, conditionData, _CMP_GE_OS),
+                    one);
+
+                __m256 curBitData = _mm256_xor_ps(
+                        compareData,
+                        preBitData);
+
+                sumDataK2 = _mm256_add_ps(
+                    sumDataK2,
+                    _mm256_mul_ps(curBitData, _mm256_set1_ps(pow(2, numOfGrayCode - 1 - gray))));
+
+                if(gray != numOfGrayCode - 1) {
                     sumDataK1 = _mm256_add_ps(
                         sumDataK1,
-                        _mm256_mul_ps(bitData[gray], leftMoveTime[gray - 1]));
+                        _mm256_mul_ps(curBitData, _mm256_set1_ps(pow(2, numOfGrayCode - 2 - gray))));                    
+                }
+
+                preBitData = curBitData;
             }
             __m256 K2 = _mm256_floor_ps(
                 _mm256_div_ps(_mm256_add_ps(sumDataK2, add_1_), div_2_));
@@ -136,6 +130,9 @@ void NStepNGrayCodeMasterCpu::entryUnwrap(const std::vector<cv::Mat> &imgs,
                                   _mm256_fmadd_ps(_2PI_, K1, wrapImgData)),
                     data_1_),
                 data_2_);
+
+            __m256 compareCondition =
+                _mm256_cmp_ps(conditionData, conditionThreshold, _CMP_GT_OS);
             _mm256_store_ps(
                 &ptr_absoluteImg[j],
                 _mm256_mul_ps(data, _mm256_and_ps(compareCondition, one)));
@@ -216,9 +213,6 @@ void NStepNGrayCodeMasterCpu::entryWrap(const std::vector<cv::Mat> &imgs,
     __m256 dataCounter1 = _mm256_set1_ps(-1.f);
     __m256 shiftDistance = _mm256_set1_ps(CV_2PI / shiftStep);
     const int cols = wrapImg.cols;
-    std::vector<__m256> datas(shiftStep);
-    __m256 sinPartial = _mm256_set1_ps(0);
-    __m256 cosPartial = _mm256_set1_ps(0);
     __m256 time = _mm256_set1_ps(0);
     __m256 shiftNow = _mm256_set1_ps(0);
     __m256 result = _mm256_set1_ps(0);
@@ -228,22 +222,35 @@ void NStepNGrayCodeMasterCpu::entryWrap(const std::vector<cv::Mat> &imgs,
             ptrImgs[step] = imgs[step].ptr<float>(i);
         float *ptr_wrapImg = wrapImg.ptr<float>(i);
         for (size_t j = 0; j < cols; j += 8) {
-            for (int step = 0; step < shiftStep; ++step)
-                datas[step] = _mm256_load_ps(&ptrImgs[step][j]);
-            sinPartial = _mm256_set1_ps(0);
-            cosPartial = _mm256_set1_ps(0);
+            __m256 sinPartial = _mm256_set1_ps(0);
+            __m256 cosPartial = _mm256_set1_ps(0);
             for (int step = 0; step < shiftStep; ++step) {
                 time = _mm256_set1_ps(step);
                 shiftNow = _mm256_mul_ps(shiftDistance, time);
+
+                __m256 shiftSinVal = _mm256_set1_ps(0);
+                __m256 shiftCosVal = _mm256_set1_ps(0);
+                for (size_t k = 0; k < 8; ++k) {
+                    shiftSinVal[k] = sin(shiftNow[k]);
+                    shiftCosVal[k] = cos(shiftNow[k]);
+                }
+
+                __m256 dataImg = _mm256_load_ps(&ptrImgs[step][j]);
+
                 sinPartial = _mm256_add_ps(
                     sinPartial,
-                    _mm256_mul_ps(datas[step], _mm256_sin_ps(shiftNow)));
+                    _mm256_mul_ps(dataImg, shiftSinVal));
                 cosPartial = _mm256_add_ps(
                     cosPartial,
-                    _mm256_mul_ps(datas[step], _mm256_cos_ps(shiftNow)));
+                    _mm256_mul_ps(dataImg, shiftCosVal));
             }
-            result = _mm256_mul_ps(dataCounter1,
-                                   _mm256_atan2_ps(sinPartial, cosPartial));
+
+            __m256 shiftAtanVal = _mm256_set1_ps(0);
+            for (size_t k = 0; k < 8; ++k) {
+                shiftAtanVal[k] = std::atan2(sinPartial[k], cosPartial[k]);
+            }
+
+            result = _mm256_mul_ps(dataCounter1, shiftAtanVal);
             _mm256_store_ps(&ptr_wrapImg[j], result);
         }
     }

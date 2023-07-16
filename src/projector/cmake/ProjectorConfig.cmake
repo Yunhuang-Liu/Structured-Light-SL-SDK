@@ -13,26 +13,15 @@ find_path(
 )
 
 find_library(
-    Projectord
-    Projectord.lib
-    ${Projector_DIR}/lib
-)
-
-find_library(
     Projector
-    Projector.lib
+    libProjector.so
     ${Projector_DIR}/lib
 )
 
 find_package(OpenCV REQUIRED)
 
 set(Projector_INCLUDE_DIRS ${Projector_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
-
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(Projector_LIBRARIES ${Projectord} ${OpenCV_LIBRARIES} setupapi)
-else()
-    set(Projector_LIBRARIES ${Projector} ${OpenCV_LIBRARIES} setupapi)
-endif()
+set(Projector_LIBRARIES ${Projector} ${OpenCV_LIBRARIES})
 
 find_path(
     Projector_DlpcApi_INCLUDE_DIRS
@@ -45,25 +34,16 @@ if(${Projector_DlpcApi_INCLUDE_DIRS} STREQUAL ${Projector_DIR}/include)
 
     find_library(
         cyusbserial
-        cyusbserial.lib
+        libcyusbserial.so
         ${Projector_DIR}/lib
     )
     find_library(
         projectorDlpcApi
-        projectorDlpcApi.lib
-        ${Projector_DIR}/lib
-    )
-    find_library(
-        projectorDlpcApid
-        projectorDlpcApid.lib
+        libprojectorDlpcApi.so
         ${Projector_DIR}/lib
     )
     
-    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-        list(APPEND Projector_LIBRARIES ${projectorDlpcApid} ${cyusbserial})
-    else()
-        list(APPEND Projector_LIBRARIES ${projectorDlpcApi} ${cyusbserial})
-    endif()
+    list(APPEND Projector_LIBRARIES ${projectorDlpcApi} ${cyusbserial})
 endif()
 
 include(FindPackageHandleStandardArgs)

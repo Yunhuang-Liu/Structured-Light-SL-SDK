@@ -1,5 +1,7 @@
 #include <nShiftLineNGrayCodeMasterCpu.h>
 
+#include <immintrin.h>
+
 namespace sl {
 namespace phaseSolver {
 void NShiftLineNGrayCodeMasterCpu::solve(const std::vector<cv::Mat> &imgs,
@@ -184,13 +186,7 @@ void NShiftLineNGrayCodeMasterCpu::entryDecodeGrayCode(
     __m256 zero = _mm256_set1_ps(0);
     __m256 one = _mm256_set1_ps(1);
     __m256 two = _mm256_set1_ps(2);
-    std::vector<__m256> leftMoveTime(grayCodeBits);
-    for (int gray = 0; gray < grayCodeBits; ++gray)
-        leftMoveTime[gray] = _mm256_set1_ps(pow(2, gray));
-    std::vector<__m256> compareImgData(grayCodeBits);
-    std::vector<__m256> compareData(grayCodeBits);
-    std::vector<__m256> bitData(grayCodeBits);
-    std::vector<__m256> imgsData(grayCodeBits);
+
     for (int i = region.x; i < region.y; i++) {
         std::vector<const float *> ptrImgs(grayCodeBits);
         for (int gray = 0; gray < grayCodeBits; ++gray)
@@ -199,37 +195,31 @@ void NShiftLineNGrayCodeMasterCpu::entryDecodeGrayCode(
         const float *pShiftCodeImg = shiftCodeImg.ptr<float>(i);
         float *ptr_absoluteImg = grayCodeImg.ptr<float>(i);
         for (int j = 0; j < cols; j += 8) {
-            for (int gray = 0; gray < grayCodeBits; ++gray) {
-                imgsData[gray] = _mm256_load_ps(&ptrImgs[gray][j]);
-            }
- 
-            __m256 conditionData = _mm256_load_ps(&pCondition[j]);
-            for (int gray = 0; gray < compareImgData.size(); ++gray) {
-                compareImgData[gray] = _mm256_and_ps(
-                    _mm256_cmp_ps(imgsData[gray], conditionData, _CMP_GE_OS),
-                    one);
-            }
-
             __m256 sumDataK2 = _mm256_set1_ps(0);
             __m256 sumDataK1 = _mm256_set1_ps(0);
-            for (int gray = 0; gray < compareImgData.size(); ++gray) {
-                if (gray == 0)
-                    bitData[gray] = _mm256_xor_ps(
-                        compareImgData[gray], zero);
-                else
-                    bitData[gray] = _mm256_xor_ps(
-                        compareImgData[gray],
-                        bitData[gray - 1]);
+            __m256 conditionData = _mm256_load_ps(&pCondition[j]);
+            __m256 preBitData = _mm256_set1_ps(0);
+            for (int gray = 0; gray < grayCodeBits; ++gray) {
+                __m256 imgData = _mm256_load_ps(&ptrImgs[gray][j]);
+                __m256 compareData = _mm256_and_ps(
+                    _mm256_cmp_ps(imgData, conditionData, _CMP_GE_OS),
+                    one);
+
+                __m256 curBitData = _mm256_xor_ps(
+                        compareData,
+                        preBitData);
 
                 sumDataK2 = _mm256_add_ps(
                     sumDataK2,
-                    _mm256_mul_ps(bitData[gray], leftMoveTime[compareImgData.size() - 1 - gray]));
+                    _mm256_mul_ps(curBitData, _mm256_set1_ps(pow(2, grayCodeBits - 1 - gray))));
 
-                if(gray != compareImgData.size() - 1) {
+                if(gray != grayCodeBits - 1) {
                     sumDataK1 = _mm256_add_ps(
                         sumDataK1,
-                        _mm256_mul_ps(bitData[gray], leftMoveTime[compareImgData.size() - 2 - gray]));                    
+                        _mm256_mul_ps(curBitData, _mm256_set1_ps(pow(2, grayCodeBits - 2 - gray))));                    
                 }
+
+                preBitData = curBitData;
             }
 
             __m256 shiftCodeData = _mm256_load_ps(&pShiftCodeImg[j]);

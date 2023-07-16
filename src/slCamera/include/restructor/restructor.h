@@ -22,7 +22,6 @@
 #ifdef __WITH_CUDA__
 #include <cuda_runtime.h>
 #include <device_launch_parameters.h>
-
 #endif // !__WITH_CUDA__
 
 /** @brief 结构光库 */

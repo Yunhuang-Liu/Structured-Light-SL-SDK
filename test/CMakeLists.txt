@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(GoogleTest)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+#set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -35,7 +35,7 @@ target_link_libraries(
     TestHuarayCamera
     ${OpenCV_LIBRARIES}
     gtest_main
-    ${Camera_LIBRARIES}
+    ${SLCamera_LIBRARIES}
 )
 
 add_executable(
@@ -76,8 +76,6 @@ target_link_libraries(
     ${Projector_LIBRARIES}
 )
 
-find_package(SLCamera REQUIRED)
-
 add_executable(
     TestSLCameraCpu
     ${CMAKE_CURRENT_SOURCE_DIR}/testSLCameraCpu.cc
@@ -91,8 +89,9 @@ target_include_directories(
 
 target_link_libraries(
     TestSLCameraCpu
-    ${SLCamera_LIBRARIES}
+    ${OpenCV_LIBRARIES}
     gtest_main
+    ${SLCamera_LIBRARIES}
 )
 
 add_executable(

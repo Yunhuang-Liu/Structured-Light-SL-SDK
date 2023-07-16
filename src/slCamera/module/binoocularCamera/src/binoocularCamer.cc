@@ -306,11 +306,10 @@ bool BinocularCamera::offLineCapture(const std::vector<cv::Mat> &leftImgs,
     param.__minDepth = __numbericalProperties["MinimumDepth"];
     param.__maxDepth = __numbericalProperties["MaximumDepth"];
     param.__maximumCost = __numbericalProperties["MaximumMatchCost"];
-#ifdef __WITH_CUDA__
-    param.__block = dim3(__numbericalProperties["Num of block X"],
-                         __numbericalProperties["Num of block Y"]);
-#endif //!__WITH_CUDA__
     if (__booleanProperties["Gpu Accelerate"]) {
+        #ifdef __WITH_CUDA__
+        param.__block = dim3(__numbericalProperties["Num of block X"],
+                            __numbericalProperties["Num of block Y"]);
         if (__numbericalProperties["Restruction Method"] == 0) {
             PhaseSolverGroupDataDevice leftSovleData, rightSolveData;
             __phaseSolver->solve(leftImgsConvert, leftSovleData,
@@ -340,6 +339,7 @@ bool BinocularCamera::offLineCapture(const std::vector<cv::Mat> &leftImgs,
                    "devolope GPU version of shift line gray code... \n");
             return false;
         }
+        #endif //!__WITH_CUDA__
     } else {
         PhaseSolverGroupDataHost leftSovleData, rightSolveData;
         if (__numbericalProperties["Restruction Method"] == 0) {
@@ -486,11 +486,11 @@ bool BinocularCamera::capture(FrameData &frameData) {
         param.__minDepth = __numbericalProperties["MinimumDepth"];
         param.__maxDepth = __numbericalProperties["MaximumDepth"];
         param.__maximumCost = __numbericalProperties["MaximumMatchCost"];
-#ifdef __WITH_CUDA__
-        param.__block = dim3(__numbericalProperties["Num of block X"],
-                             __numbericalProperties["Num of block Y"]);
-#endif //!__WITH_CUDA__
+
         if (__booleanProperties["Gpu Accelerate"]) {
+            #ifdef __WITH_CUDA__
+            param.__block = dim3(__numbericalProperties["Num of block X"],
+                                __numbericalProperties["Num of block Y"]);
             if (__numbericalProperties["Restruction Method"] == 0) {
                 PhaseSolverGroupDataDevice leftSovleData, rightSolveData;
                 __phaseSolver->solve(
@@ -520,6 +520,7 @@ bool BinocularCamera::capture(FrameData &frameData) {
                        "devolope GPU version of shift line gray code... \n");
                 return false;
             }
+            #endif //!__WITH_CUDA__
         } else {
             PhaseSolverGroupDataHost leftSovleData, rightSolveData;
             if (__numbericalProperties["Restruction Method"] == 0) {

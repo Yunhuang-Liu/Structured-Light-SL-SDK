@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.0)
 
 project(projectorDlpcApi)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
-set(CMAKE_DEBUG_POSTFIX "d")
+#set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+#set(CMAKE_DEBUG_POSTFIX "d")
 
 find_package(OpenCV REQUIRED)
 
@@ -14,6 +14,7 @@ file(GLOB SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp ${CMAKE_CURRENT_SOUR
 
 add_library(
     ${PROJECT_NAME}
+    SHARED
     ${HEADERS}
     ${SOURCES}
 )
@@ -37,7 +38,6 @@ target_link_libraries(
     ${PROJECT_NAME}
     ${OpenCV_LIBRARIES}
     cyusbserial
-    setupapi
 )
 
 install(
@@ -48,8 +48,8 @@ install(
 )
 
 file(GLOB CyUsbSerialHeader ${CyUsbSerial_DIR}/*.h)
-file(GLOB CyUsbSerialDll ${CyUsbSerial_DIR}/*.dll)
-file(GLOB CyUsbSerialLib  ${CyUsbSerial_DIR}/*.lib)
+file(GLOB CyUsbSerialDll ${CyUsbSerial_DIR}/*.so)
+file(GLOB CyUsbSerialLib  ${CyUsbSerial_DIR}/*.a)
 install(
     FILES ${CyUsbSerialLib}
     DESTINATION ${CMAKE_INSTALL_PREFIX}/projector/lib
@@ -57,7 +57,7 @@ install(
 
 install(
     FILES ${CyUsbSerialDll}
-    DESTINATION ${CMAKE_INSTALL_PREFIX}/projector/bin
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/projector/lib
 )
 
 install(

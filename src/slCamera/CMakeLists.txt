@@ -2,12 +2,12 @@ cmake_minimum_required(VERSION 3.0)
 
 project(slCamera)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
-set(CMAKE_DEBUG_POSTFIX "d")
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Zi")
-set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF")
-set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF")
+#set(CMAKE_BUILD_TYPE "Release")
+#set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+#set(CMAKE_CXX_STANDARD 14)
+#set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Zi")
+#set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF")
+#set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF")
 
 message("build slCamera...")
 
@@ -18,9 +18,7 @@ ${CMAKE_CURRENT_SOURCE_DIR}/include/tool.h ${CMAKE_CURRENT_SOURCE_DIR}/include/t
 ${CMAKE_CURRENT_SOURCE_DIR}/include/wrapCreator.h
 ${CMAKE_CURRENT_SOURCE_DIR}/include/*Cpu.h)
 
-message(${SLCamera_ROOT_HEADER})
-
-file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/common/*.cc
+file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/common/jsoncpp.cc
 ${CMAKE_CURRENT_SOURCE_DIR}/src/tool.cc ${CMAKE_CURRENT_SOURCE_DIR}/src/matrixsInfo.cc
 ${CMAKE_CURRENT_SOURCE_DIR}/src/*Cpu.cc)
 
@@ -32,7 +30,7 @@ find_package(Eigen3 REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(PCL REQUIRED)
 
-set(SLCamera_DEP_LIBS ${OpenCV_LIBRARIES} ${PCL_LIBRARIES})
+set(SLCamera_DEP_LIBS ${OpenCV_LIBRARIES} ${PCL_LIBRARIES}) 
 set(INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/common ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}/include/cuda ${CMAKE_CURRENT_SOURCE_DIR}/include/phaseSolver ${CMAKE_CURRENT_SOURCE_DIR}/include/rectifier ${CMAKE_CURRENT_SOURCE_DIR}/include/restructor
     ${CMAKE_CURRENT_SOURCE_DIR}/include/tool ${CMAKE_CURRENT_SOURCE_DIR}/include/wrapCreator)
@@ -46,9 +44,9 @@ include_directories(
 
 option(WITH_CUDA "Build the slCamera with cuda" ON)
 if(WITH_CUDA) 
-    message("build the slCamera with cuda...")
     find_package(CUDA REQUIRED)
     if(CUDA_FOUND)
+        message("build the slCamera with cuda...")
         add_definitions(-D__WITH_CUDA__)
         list(APPEND INCLUDE_DIRS ${CUDA_INCLUDE_DIRS})
         include_directories(
@@ -59,8 +57,7 @@ if(WITH_CUDA)
         )
         list(APPEND SLCamera_DEP_LIBS ${CUDA_LIBRARIES})
         list(APPEND SLCamera_ROOT_HEADER ${HEADERGpu})
-        CUDA_COMPILE(CUDA_OBJS ${HEADERGpu} ${SOURCESGpu})
-        list(APPEND SOURCES ${CUDA_OBJS} ${SOURCESGpu})
+        list(APPEND SOURCES ${SOURCESGpu})
     endif()
 endif()
 
@@ -83,32 +80,13 @@ endif()
 
 add_library(
     ${PROJECT_NAME}
-    STATIC
-    ${SOURCES}
+    SHARED
+    ${CMAKE_CURRENT_SOURCE_DIR}/common/slCameraFactory.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/common/slCameraFactory.cc
 )
 
 target_link_libraries(
     ${PROJECT_NAME}
-    PRIVATE
-    ${SLCamera_DEP_LIBS}
-)
-
-add_library(
-    LibrarayShared
-    SHARED
-    ${SOURCES}
-)
-
-set_target_properties(LibrarayShared PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
-
-target_include_directories(
-    LibrarayShared
-    PRIVATE
-    ${INCLUDE_DIRS}
-)
-
-target_link_libraries(
-    LibrarayShared
     PRIVATE
     ${SLCamera_DEP_LIBS}
 )
@@ -123,7 +101,6 @@ install(
 install(
     TARGETS 
     ${PROJECT_NAME} 
-    LibrarayShared
     RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/slCamera/bin
     LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/slCamera/lib
     ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/slCamera/lib

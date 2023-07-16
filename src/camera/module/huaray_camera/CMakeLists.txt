@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.0)
 
 project(huarayCamera)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
-set(CMAKE_DEBUG_POSTFIX "d")
+#set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+#set(CMAKE_DEBUG_POSTFIX "d")
 
 find_package(OpenCV REQUIRED)
 
@@ -14,6 +14,7 @@ source_group("SOURCES" FILES ${SOURCES})
 
 add_library(
     ${PROJECT_NAME}
+    SHARED
     ${HEADERS}
     ${SOURCES}
     )
@@ -32,7 +33,7 @@ target_link_libraries(
     ${PROJECT_NAME}
     PUBLIC
     ${OpenCV_LIBRARIES}
-    MVSDKmd
+    MVSDK
 )
 
 install(
@@ -43,7 +44,7 @@ install(
 )
 
 install(
-    FILES ${CMAKE_CURRENT_SOURCE_DIR}/lib/MVSDKmd.lib
+    FILES ${CMAKE_CURRENT_SOURCE_DIR}/lib/libMVSDK.so
     DESTINATION ${CMAKE_INSTALL_PREFIX}/camera/lib
 )
 

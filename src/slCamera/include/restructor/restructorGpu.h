@@ -14,8 +14,6 @@
 #include <restructor.h>
 #include <matrixsInfo.h>
 
-#include <limits>
-
 #include <Eigen/Core>
 #include <opencv2/core/eigen.hpp>
 

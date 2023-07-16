@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.0)
 
 project(Camera)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
-set(CMAKE_DEBUG_POSTFIX "d")
+#set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+#set(CMAKE_DEBUG_POSTFIX "d")
 
 set(CAMERA_ROOT_HEADER ${CMAKE_CURRENT_SOURCE_DIR}/common/camera.h
                        ${CMAKE_CURRENT_SOURCE_DIR}/common/cameraFactory.h
@@ -48,6 +48,7 @@ include_directories(
 
 add_library(
     ${PROJECT_NAME}
+    SHARED
     ${CAMERA_ROOT_HEADER}
     ${SOURCES}
 )

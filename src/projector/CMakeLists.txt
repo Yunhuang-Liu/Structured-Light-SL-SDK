@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.0)
 
 project(Projector)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
-set(CMAKE_DEBUG_POSTFIX "d")
+#set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+#set(CMAKE_DEBUG_POSTFIX "d")
 
 message("build projector...")
 
@@ -36,6 +36,7 @@ endif()
 
 add_library(
     ${PROJECT_NAME}
+    SHARED
     ${PROJECTOR_ROOT_HEADER}
     ${SOURCES}
 )
