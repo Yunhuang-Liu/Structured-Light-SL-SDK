@@ -23,6 +23,7 @@ bool ProjectorDlpc34xx::initConnectionAndCommandLayer() {
 }
 
 ProjectorDlpc34xx::ProjectorDlpc34xx() {
+    CyLibraryInit();
     __cols = DLP3010_WIDTH;
     __rows = DLP3010_HEIGHT;
 }

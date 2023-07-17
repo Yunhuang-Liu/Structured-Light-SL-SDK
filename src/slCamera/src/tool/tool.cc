@@ -283,7 +283,7 @@ void remapToDepthCamera(const cv::Mat &depthIn, const cv::Mat &textureIn,
                         const cv::Mat &Q, const cv::Mat &M, const cv::Mat &R1,
                         cv::Mat &depthRemaped,
                         pcl::PointCloud<pcl::PointXYZRGB> &cloud) {
-    CV_Assert(!depthIn.empty() || depthIn.type() == CV_32FC1 ||
+    CV_Assert(!depthIn.empty() ||
               textureIn.type() == CV_8UC3 || !textureIn.empty() || !Q.empty() ||
               Q.type() == CV_64FC1 || !M.empty() || M.type() == CV_64FC1 ||
               !R1.empty() || R1.type() == CV_64FC1);
@@ -310,20 +310,24 @@ void remapToDepthCamera(const cv::Mat &depthIn, const cv::Mat &textureIn,
     std::vector<std::thread> threads(std::thread::hardware_concurrency());
     const int rowPerThread = depthIn.rows / threads.size();
     std::mutex mutexMap;
+    const int channelStep = depthIn.type() == CV_32FC1 ? 1 : 2;
     for (int i = 0; i < threads.size(); ++i) {
         threads[i] = std::thread([&, i] {
             for (int rowIndex = rowPerThread * i;
                  rowIndex < rowPerThread * (i + 1); ++rowIndex) {
                 auto ptrDepthIn = depthIn.ptr<float>(rowIndex);
                 for (int colIndex = 0; colIndex < depthIn.cols; ++colIndex) {
-                    if (!ptrDepthIn[colIndex]) {
+                    const int elemetnLoc = colIndex * channelStep;
+
+                    if (!ptrDepthIn[elemetnLoc]) {
                         continue;
                     }
 
                     Eigen::Vector3d pointBefore;
-                    pointBefore << ptrDepthIn[colIndex] * (colIndex - cx) / f,
-                        ptrDepthIn[colIndex] * (rowIndex - cy) / f,
-                        ptrDepthIn[colIndex];
+                    const float xLoc = channelStep == 1 ? colIndex : ptrDepthIn[elemetnLoc + 1];
+                    pointBefore << ptrDepthIn[elemetnLoc] * (xLoc - cx) / f,
+                        ptrDepthIn[elemetnLoc] * (rowIndex - cy) / f,
+                        ptrDepthIn[elemetnLoc];
                     Eigen::Vector3d pointRemaped = R1InvEigen * pointBefore;
 
                     Eigen::Vector3d pointPixel = MEigen * pointRemaped;

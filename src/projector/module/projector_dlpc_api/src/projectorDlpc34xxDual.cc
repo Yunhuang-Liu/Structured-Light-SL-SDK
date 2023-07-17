@@ -23,6 +23,7 @@ bool ProjectorDlpc34xxDual::initConnectionAndCommandLayer() {
 }
 
 ProjectorDlpc34xxDual::ProjectorDlpc34xxDual() {
+    CyLibraryInit();
     __cols = DLP4710_WIDTH;
     __rows = DLP4710_HEIGHT;
 }

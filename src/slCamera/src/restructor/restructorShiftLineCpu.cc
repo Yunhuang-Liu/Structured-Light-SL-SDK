@@ -13,10 +13,14 @@ void RestructorShiftLineCpu::restruction(const cv::Mat &leftCodeImg,
                                 const cv::Mat &rightCodeImg,
                                 const RestructParamater param,
                                 cv::Mat &depthImgOut) {
-    if (depthImgOut.empty())
-        depthImgOut = cv::Mat( leftCodeImg.size(), CV_32FC1, cv::Scalar(0.f));
-    else
-        depthImgOut.setTo(0);
+ 
+    if(param.__isMapToPreDepthAxes) {
+        depthImgOut = cv::Mat( leftCodeImg.size(), CV_32FC1, cv::Scalar(0.f));    
+    }
+    else {
+        depthImgOut = cv::Mat( leftCodeImg.size(), CV_32FC2, cv::Scalar(0.f, 0.f));    
+    }
+
     getDepthColorMap(leftCodeImg, rightCodeImg, param, depthImgOut);
 }
 
@@ -91,7 +95,7 @@ void RestructorShiftLineCpu::entryDepthColorMap(const cv::Mat &leftCodeImg,
 
             cv::Mat recCameraPoints =
                 (cv::Mat_<double>(3, 1)
-                     << -1.0 * tx * (j - cx) / (disparity - cxlr),
+                     << -1.0 * tx * (pLeft[j][0] - cx) / (disparity - cxlr),
                  -1.0 * tx * (i - cy) / (disparity - cxlr),
                  -1.0 * tx * f / (disparity - cxlr));
             cv::Mat cameraPoints = param.__isMapToPreDepthAxes
@@ -122,7 +126,8 @@ void RestructorShiftLineCpu::entryDepthColorMap(const cv::Mat &leftCodeImg,
                 std::lock_guard<std::mutex> lock(__mutexMap);
                 depthImgOut.ptr<float>(y_maped)[x_maped] = depth;
             } else {
-                depthImgOut.ptr<float>(i)[j] = depth;
+                depthImgOut.ptr<cv::Vec2f>(i)[j][0] = depth;
+                depthImgOut.ptr<cv::Vec2f>(i)[j][1] = pLeft[j][0];
             }
         }
     }

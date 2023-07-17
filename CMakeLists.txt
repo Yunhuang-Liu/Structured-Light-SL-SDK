@@ -14,7 +14,7 @@ option(BUILD_CAMERA "build the camera controller lib" OFF)
 set(BUILD_Camera_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/camera)
 option(BUILD_SLSDK "build the structed light camera lib" OFF)
 set(BUILD_SLSDK_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/slCamera)
-option(BUILD_GOOGLE_TEST "build the google_test targets" OFF)
+option(BUILD_GOOGLE_TEST "build the google_test targets" ON)
 set(BUILD_GOOGLE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/test)
 
 if(BUILD_PROJECTOR)

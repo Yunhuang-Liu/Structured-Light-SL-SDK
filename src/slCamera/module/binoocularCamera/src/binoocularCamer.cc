@@ -16,7 +16,7 @@ namespace slCamera {
 BinocularCamera::BinocularCamera(IN const std::string jsonPath)
     : SLCamera(jsonPath), __jsonPath(jsonPath), __matrixInfo(nullptr),
       __phaseSolver(nullptr), __rectifier(nullptr), __restructor(nullptr),
-      __isInitial(false) {
+      __isInitial(false){
 
     if (loadParams(jsonPath, __jsonVal)) {
         if (__booleanProperties["Gpu Accelerate"]) {
@@ -203,7 +203,10 @@ bool BinocularCamera::connect() {
                 .getCamera(__stringProperties["Right Camera Name"], manufator)
                 ->start();
 
-            updateCamera();
+            updateEnableDepthCamera();
+            updateExposureTime();
+            updateLightStrength();
+            //updateCamera();
         } else {
             if (__cameraFactory
                     .getCamera(__stringProperties["Left Camera Name"],
@@ -373,14 +376,12 @@ bool BinocularCamera::offLineCapture(const std::vector<cv::Mat> &leftImgs,
                                       rightSolveData.__unwrapMap, param,
                                       frameData.__depthMap);
 
-            // TODO@LiuYunhuang:增加噪声滤除支持
             if (__booleanProperties["Noise Filter"]) {
-                cv::Mat depthClone = frameData.__depthMap.clone();
-                filterPhase(depthClone, frameData.__depthMap, 2, 5);
-                /*
-                printf("BinoocualrCamera Warning: we didn't devolope Noise "
-                    "Filter of shift line gray code... \n");
-                */
+                std::vector<cv::Mat> channels;
+                cv::split(frameData.__depthMap, channels);
+                cv::Mat depthCopy = channels[0].clone();
+                filterPhase(depthCopy, channels[0], 2, 5);
+                cv::merge(channels, frameData.__depthMap);
             }
         }
     }
@@ -435,9 +436,7 @@ bool BinocularCamera::capture(FrameData &frameData) {
     auto pProjector =
         __projectorFactory.getProjector(__stringProperties["DLP Evm"]);
     const int imgSizeWaitFor =
-        (__stringProperties["Restruction Method"] ==
-                 "PhaseShiftComplementaryGrayCode"
-             ? __numbericalProperties["Phase Shift Times"] +
+        (__numbericalProperties["Restruction Method"] == 0 ? __numbericalProperties["Phase Shift Times"] +
                    __numbericalProperties["Gray Code Bits"]
              : __numbericalProperties["Gray Code Bits"] +
                    __numbericalProperties["Shift Line Bits"] + 2);
@@ -460,6 +459,7 @@ bool BinocularCamera::capture(FrameData &frameData) {
             }
         }
 
+        std::vector<cv::Mat> leftImgsOrigin, rightImgsOrigin;
         std::vector<cv::Mat> leftImgs(imgSizeWaitFor),
             rightImgs(imgSizeWaitFor);
         // TODO@LiuYunhang:未用多线程加速，测试后视情况而定
@@ -472,9 +472,11 @@ bool BinocularCamera::capture(FrameData &frameData) {
                 cv::cvtColor(leftImg, leftImgs[i], cv::COLOR_RGB2GRAY);
                 __rectifier->remapImg(leftImgs[i], leftImgs[i], true);
             } else {
+                leftImgsOrigin.emplace_back(leftImg);
                 __rectifier->remapImg(leftImg, leftImgs[i], true);
             }
 
+            rightImgsOrigin.emplace_back(rightImg);
             __rectifier->remapImg(rightImg, rightImgs[i], false);
         }
 
@@ -554,14 +556,18 @@ bool BinocularCamera::capture(FrameData &frameData) {
                     __numbericalProperties["Contrast Threshold"],
                     __numbericalProperties["Gray Code Bits"]);
 
-                // TODO@LiuYunhuang:增加噪声滤除支持
-                if (__booleanProperties["Noise Filter"]) {
-                    printf("BinoocualrCamera Warning: we didn't devolope Noise "
-                           "Filter of shift line gray code... \n");
-                }
                 __restructor->restruction(leftSovleData.__unwrapMap,
                                           rightSolveData.__unwrapMap, param,
                                           frameData.__depthMap);
+                
+                                // TODO@LiuYunhuang:增加噪声滤除支持
+                if (__booleanProperties["Noise Filter"]) {
+                    std::vector<cv::Mat> channels;
+                    cv::split(frameData.__depthMap, channels);
+                    cv::Mat depthCopy = channels[0].clone();
+                    filterPhase(depthCopy, channels[0], 2, 5);
+                    cv::merge(channels, frameData.__depthMap);
+                }
             }
         }
 
@@ -570,7 +576,7 @@ bool BinocularCamera::capture(FrameData &frameData) {
                 averageTexture(colorShiftImgs, frameData.__textureMap,
                                __numbericalProperties["Phase Shift Times"]);
             } else {
-                averageTexture(leftImgs, frameData.__textureMap,
+                averageTexture(leftImgsOrigin, frameData.__textureMap,
                                __numbericalProperties["Phase Shift Times"]);
                 cv::cvtColor(frameData.__textureMap, frameData.__textureMap,
                              cv::COLOR_GRAY2RGB);
@@ -578,9 +584,9 @@ bool BinocularCamera::capture(FrameData &frameData) {
         } else if (__numbericalProperties["Restruction Method"] == 1) {
             if (!colorShiftImgs.empty()) {
                 cv::Mat convertImgBlack, convertImgWhite;
-                leftImgs[leftImgs.size() - 1].convertTo(convertImgWhite,
+                colorShiftImgs[colorShiftImgs.size() - 1].convertTo(convertImgWhite,
                                                         CV_32FC3);
-                leftImgs[leftImgs.size() - 2].convertTo(convertImgBlack,
+                colorShiftImgs[colorShiftImgs.size() - 2].convertTo(convertImgBlack,
                                                         CV_32FC3);
                 frameData.__textureMap =
                     (convertImgBlack + convertImgWhite) / 2.f;
@@ -588,9 +594,9 @@ bool BinocularCamera::capture(FrameData &frameData) {
                                                  CV_8UC3);
             } else {
                 cv::Mat convertImgBlack, convertImgWhite;
-                leftImgs[leftImgs.size() - 1].convertTo(convertImgWhite,
+                leftImgsOrigin[leftImgsOrigin.size() - 1].convertTo(convertImgWhite,
                                                         CV_32FC1);
-                leftImgs[leftImgs.size() - 2].convertTo(convertImgBlack,
+                leftImgsOrigin[leftImgsOrigin.size() - 2].convertTo(convertImgBlack,
                                                         CV_32FC1);
                 frameData.__textureMap =
                     (convertImgBlack + convertImgWhite) / 2.f;
