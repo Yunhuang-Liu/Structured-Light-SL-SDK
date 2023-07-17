@@ -237,7 +237,7 @@ void NShiftLineNGrayCodeMasterCpu::entryDecodeGrayCode(
                     _mm256_cmp_ps(shiftCodeData, zero, _CMP_EQ_OS),
                     one);
             __m256 otherState = _mm256_sub_ps(one, zeroShiftCodeState);
-            __m256 sumData = _mm256_add_ps(_mm256_mul_ps(zeroShiftCodeState, _mm256_div_ps(_mm256_add_ps(sumDataK2, one), two)), _mm256_mul_ps(otherState, sumDataK1));
+            __m256 sumData = _mm256_add_ps(_mm256_mul_ps(zeroShiftCodeState, _mm256_floor_ps(_mm256_div_ps(_mm256_add_ps(sumDataK2, one), two))), _mm256_mul_ps(otherState, sumDataK1));
             _mm256_store_ps(&ptr_absoluteImg[j], sumData);
         }
     }
